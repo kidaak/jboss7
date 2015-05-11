@@ -1,0 +1,312 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="Checkout - Payment Info"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <a href="index.xhtml" target="_self">Home</a> &gt;
+            . . . &gt;
+            <s:link view="/licenserenewal-info.xhtml" value=" Applicant Information"/> &gt;
+            <s:link view="/licenserenewal-reviewpage.xhtml" value=" Review Page"/> &gt; Checkout Step 1 of 2: Payment Info
+        </div>
+    </ui:define>
+
+    <ui:define name="body">
+
+        <h:form class="form" id="checkout">
+            <div class="home_table">
+                <s:validateAll>
+                    <!--
+                                <div class="instructions"><h:outputText value="" escape="false"></h:outputText></div>
+                    -->
+
+                    <!-- top-of-section 'Previous' navigation button -->
+                    <fieldset style="border:none">
+                        <div class="grid-6-12">
+                            <s:button id="btnTopPrevious" view="/licenserenewal-reviewpage.xhtml" value="Previous" styleClass="submit_button"/>
+                        </div>
+                    </fieldset>
+
+                    <div align="left"><label class="required">Indicates required fields</label></div> 
+
+                    <h2>Checkout - Payment Information</h2>
+
+                    <div class="display_table">
+
+                        <fieldset>
+                            <!-- First Name -->
+                            <div class="grid-4-12">
+
+                                <s:decorate id="firstNameDeco" template="/layout/unique_edit.xhtml">
+                                    <ui:define name="label"><h:outputLabel for="firstName" value="First Name: "/></ui:define>
+
+                                    <h:inputText
+                                        id="firstName" 
+                                        size="40"
+                                        styleClass="textfield"
+                                        maxlength="12"
+                                        required="true"
+                                        requiredMessage="First Name is required."
+                                        value="#{renewalApplication.billingInfo.billingFirstName}" />
+                                </s:decorate>
+                            </div>
+
+                            <div class="grid-5-12">
+                                <!-- Last Name -->
+
+                                <s:decorate id="lastNameDeco" template="/layout/unique_edit.xhtml">
+                                    <ui:define name="label"><h:outputLabel for="lastName" value="Last Name: "/></ui:define>
+
+                                    <h:inputText
+                                        id="lastName" 
+                                        size="35"
+                                        styleClass="textfield"
+                                        required="true"
+                                        maxlength="15"
+                                        requiredMessage="Last Name is required."
+                                        value="#{renewalApplication.billingInfo.billingLastName}" >
+                                    </h:inputText>     
+                                </s:decorate>
+
+                            </div>
+                        </fieldset>
+
+
+                        <!-- Address inputText -->
+
+                        <fieldset>
+                            <div class="grid-9-12 ">
+                                <s:decorate id="addressDeco" template="/layout/unique_edit.xhtml">
+                                    <ui:define name="label"><h:outputLabel for="address" value="Billing Address: "/></ui:define>
+                                    <h:inputText
+                                        id="address" 
+                                        size="40"
+                                        styleClass="textfield"
+                                        maxlength="40"
+                                        required="true"
+                                        requiredMessage="Billing Address is required."
+                                        value="#{renewalApplication.billingInfo.billingAddress}" />
+                                </s:decorate>
+                            </div>
+                        </fieldset>
+
+                        <!-- City -->
+                        <fieldset>
+                            <div class="grid-5-12 ">
+
+                                <s:decorate id="cityDeco" template="/layout/unique_edit.xhtml">
+                                    <ui:define name="label"><h:outputLabel for="city" value="City: "/></ui:define>
+                                    <h:inputText id="city" 
+                                                 size="40"
+                                                 styleClass="textfield"
+                                                 maxlength="28"
+                                                 required="true"
+                                                 requiredMessage="City is required."
+                                                 value="#{renewalApplication.billingInfo.billingCity}">
+                                        <s:validate />
+                                    </h:inputText>     
+                                </s:decorate>
+                            </div>
+
+                            <div class="grid-3-12 ">
+                                <!-- State or State/Province -->
+                                <s:decorate id="stateDeco" template="/layout/unique_edit.xhtml">
+                                    <ui:define name="label"><h:outputLabel for="state" value="State: "/></ui:define>
+
+                                    <h:selectOneMenu
+                                        id="state"
+                                        value="#{renewalApplication.billingInfo.billingState}"
+                                        title="Click to select"
+                                        required="true"
+                                        requiredMessage="State is required."
+                                        styleClass="dropmenu">
+
+                                        <f:selectItems value="#{renewalApplication.stateList}"/>
+
+                                    </h:selectOneMenu>
+                                </s:decorate>
+                            </div>
+
+                            <!-- Zip5 -->
+                            <div class="grid-2-12 ">
+                                <s:decorate id="zipDeco" template="/layout/unique_edit.xhtml" >
+                                    <ui:define name="label"><h:outputLabel for="zip" value="Zip: "/></ui:define>
+                                    <h:inputText
+                                        id="zip" 
+                                        size="10" 
+                                        styleClass="textfield"
+                                        required="true"
+                                        maxlength="10"
+                                        requiredMessage="Zip Code is required."
+                                        value="#{renewalApplication.billingInfo.billingZip}">
+                                        <s:validate /> 
+                                    </h:inputText>        
+                                </s:decorate>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div class="grid-5-12 ">
+
+                                <!-- Email -->
+                                <s:decorate id="emailDeco" template="/layout/unique_edit.xhtml">
+                                    <ui:define name="label"><h:outputLabel for="email" value="Email: "/></ui:define>
+                                    <h:inputText id="email" 
+                                                 size="40"
+                                                 styleClass="textfield"
+                                                 maxlength="50"
+                                                 value="#{renewalApplication.billingInfo.billingEmail}"/>                            
+                                </s:decorate>
+                            </div>
+
+                            <div class="grid-4-12 ">
+                                <s:decorate id="phoneDeco" template="/layout/unique_edit.xhtml">
+                                    <ui:define name="label"><h:outputLabel for="phone" value="Phone Number: "/></ui:define>
+
+                                    <h:inputText id="phone" 
+                                                 size="20"
+                                                 styleClass="textfield mask_phone"
+                                                 maxlength="12"
+                                                 required="true"
+                                                 requiredMessage="Phone Number is required."
+                                                 value="#{renewalApplication.billingInfo.billingPhone}"/>
+                                </s:decorate>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div class="grid-3-12 ">
+                                <!-- Credit Card Number -->
+                                <s:decorate id="creditCardNumberDeco" template="/layout/unique_edit.xhtml">
+                                    <ui:define name="label"><h:outputLabel for="ccnumber" value="Credit Card Number: "/></ui:define>
+                                    <h:inputText
+                                        id="ccnumber"
+                                        styleClass="textfield"
+                                        value="#{renewalApplication.billingInfo.ccNumber}"
+                                        required="true"
+                                        requiredMessage="Credit Card Number is required."
+                                        autocomplete="off"
+                                        size="16" 
+                                        maxlength="16" >
+
+                                    </h:inputText>
+                                </s:decorate>
+                            </div>
+
+                            <!-- Visa/Mastercard logos -->
+                            <div class="grid-4-12" style="text-align:right; padding-top:10px">
+                                <img src="#{appManager.server}/static/portal/assets/images/visa-curved-32px.png" alt="Visa" /> <img src="#{appManager.server}/static/portal/assets/images/mastercard-curved-32px.png" alt="Mastercard"  />
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div class="grid-4-12">
+                                <!-- Expiration Date -->
+
+                                <s:decorate id="expirationDateDeco" template="/layout/unique_edit.xhtml">
+                                    <ui:define name="label"><h:outputLabel for="monthListSelection" value="Expiration Date: "/></ui:define>
+                                    <h:selectOneMenu value="#{renewalApplication.billingInfo.ccExpMonthEnum}" id="monthListSelection">
+                                        <s:selectItems value="#{monthList}" var="month" label="#{month.title}" noSelectionLabel="Month..."/>
+                                        <s:convertEnum />
+                                    </h:selectOneMenu>  
+
+                                    <h:selectOneMenu
+                                        id="yearListSelection"
+                                        styleClass="dropmenu"
+                                        required="true"
+                                        requiredMessage="Expiration Date Year is required."
+                                        value="#{renewalApplication.billingInfo.ccExpYear}">
+                                        <s:selectItems value="#{yearList}" var="year" label="#{year.label}" 
+                                                       noSelectionLabel="Year..." itemValue="#{year.value}"/>
+                                    </h:selectOneMenu>
+                                </s:decorate>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div class="grid-1-12 nowrap">
+                                <s:decorate id="cvvDeco" template="/layout/unique_edit.xhtml">
+                                    <ui:define name="label"><h:outputLabel for="cvv" value="CVV: "/></ui:define>
+                                    <h:inputText
+                                        id="cvv"
+                                        styleClass="textfield"
+                                        required="true"
+                                        requiredMessage="CVV is required."
+                                        size="4"
+                                        maxlength="3"
+                                        autocomplete="off"
+                                        value="#{renewalApplication.billingInfo.ccCvv}">
+                                        <f:validateLongRange minimum="0" maximum="999"/>
+                                        <s:validate />
+                                    </h:inputText>
+                                </s:decorate>
+                            </div>
+
+                            <!-- CVV description -->
+                            <div class="grid-6-12">
+
+                                <div class="instructions"><img src="#{appManager.server}/static/portal/assets/images/cvv.jpg" alt="CVV number" align="left" hspace="10" /><span style="color:red">CVV Verification Code</span><br />The Verification Code is the 3 digit number on the back of your Visa or MasterCard.
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                </s:validateAll>
+
+
+                <!-- bottom-of-page navigation buttons --> 
+                <fieldset>
+                    <div class="grid-6-12">
+                        <ui:fragment rendered="#{renewalApplication.billingInfo.billingResult != 'FAILED'}">
+                            <s:button 
+                                value="Previous" 
+                                id="previousBottom"
+                                styleClass="submit_button"
+                                accesskey="b" 
+                                view="/licenserenewal-reviewpage.xhtml" />
+                        </ui:fragment>
+
+                        <ui:fragment rendered="#{renewalApplication.billingInfo.billingResult eq 'FAILED'}">
+                            <s:button 
+                                value="Cancel" 
+                                id="Cancel"
+                                styleClass="submit_button"
+                                accesskey="b" 
+                                view="/licenserenewal-reviewpage.xhtml" />
+                        </ui:fragment>
+                    </div>
+
+                    <div class="grid-6-12 form-right">
+                        <h:commandButton 
+                            value="Continue" 
+                            id="continue"
+                            styleClass="submit_button"
+                            accesskey="c" 
+                            action="#{renewalApplication.checkout1ContinueAction}"/>
+                    </div>
+
+                </fieldset>
+            </div>
+        </h:form>
+
+    </ui:define> 
+</ui:composition>

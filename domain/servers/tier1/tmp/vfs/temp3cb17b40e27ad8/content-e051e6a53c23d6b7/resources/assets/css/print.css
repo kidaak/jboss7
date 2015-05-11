@@ -1,0 +1,53 @@
+body{
+	margin: 0.1in;
+	width : 100%;
+	font: 12pt Arial, Helvetica, sans-serif;
+}
+
+#receipt #payInfo, #receipt #custInfo, #receipt #payInfo, #receipt #billingInfo ul, #receipt #receiptContactInfo ul {
+	width:60%!important;
+}
+
+.block {
+	margin-left:none!important;
+}
+
+#transInfo, #custInfo, #payInfo, #receiptContactInfo {
+	margin-bottom:2em!important;	
+}
+.grid-6-12 {
+	width:50%!important;
+	float:left;
+}
+table#transSum
+			{
+				width: 100%;
+			}
+
+			.billingList
+			{
+					list-style: none ; 
+					
+			}
+			
+.submit_button
+{
+	visibility: hidden;
+}
+
+.category
+  {
+    float:left;
+     word-wrap: break-word;
+     -ms-word-wrap: break-word;
+     width:55%;
+  }
+
+  .col
+  {
+      float:left;
+      word-wrap: break-word;
+      -ms-word-wrap: break-word;
+      width:45%;
+      
+  }

@@ -1,0 +1,12 @@
+06:44:09,011 INFO  [org.jboss.modules] (main) JBoss Modules version 1.1.3.GA
+06:44:09,261 INFO  [org.jboss.as.process.Host Controller.status] (main) JBAS012017: Starting process 'Host Controller'
+06:44:17,694 INFO  [org.jboss.as.process.Server:tier1.status] (ProcessController-threads - 3) JBAS012017: Starting process 'Server:tier1'
+06:44:18,174 INFO  [org.jboss.as.process.Server:tier2.status] (ProcessController-threads - 3) JBAS012017: Starting process 'Server:tier2'
+17:30:20,415 INFO  [org.jboss.as.process] (Shutdown thread) JBAS012016: Shutting down process controller
+17:30:20,444 INFO  [org.jboss.as.process.Host Controller.status] (Shutdown thread) JBAS012018: Stopping process 'Host Controller'
+17:30:20,491 INFO  [org.jboss.as.process.Server:tier1.status] (ProcessController-threads - 4) JBAS012018: Stopping process 'Server:tier1'
+17:30:20,493 INFO  [org.jboss.as.process.Server:tier2.status] (ProcessController-threads - 5) JBAS012018: Stopping process 'Server:tier2'
+17:30:22,268 INFO  [org.jboss.as.process.Server:tier2.status] (reaper for Server:tier2) JBAS012010: Process 'Server:tier2' finished with an exit status of 0
+17:30:24,073 INFO  [org.jboss.as.process.Server:tier1.status] (reaper for Server:tier1) JBAS012010: Process 'Server:tier1' finished with an exit status of 0
+17:30:24,194 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012010: Process 'Host Controller' finished with an exit status of 0
+17:30:24,194 INFO  [org.jboss.as.process] (Shutdown thread) JBAS012015: All processes finished; exiting

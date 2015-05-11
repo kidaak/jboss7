@@ -1,0 +1,317 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="Citizenship and Alien Status"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <a href="index.xhtml" target="_self">Home</a> &gt; <s:link view="/newapp-asrcp.xhtml" value=" New Application"/> &gt; <s:link view="/newapp-terms.xhtml" value=" Terms and Conditions"/> &gt; Citizenship and Alien Status
+        </div>
+    </ui:define>
+
+    <ui:define name="body">
+
+        <h:form class="form">
+
+            <center>
+                <div class="error" id="errors" style="display:none;">
+                    <div class="errror_message">The following error(s) have been found: <div class="clear"></div>		
+                        <ul class="error_list">
+                            <li>First Name, Last Name, Address, City, State, Zip, DOB, Height Ft., Height In., Weight, Eyes, Hair, Sex is a required field. </li>
+                            <li>The email address you entered is not in the correct format. Email address should contain the following: username@isp.com.</li>
+                        </ul>
+                    </div>
+                </div>
+            </center>
+
+            <div class="form">      
+                <div class="instructions"><h:outputText value="#{splashManager.newappCitizenInstructions}" escape="false"></h:outputText></div>
+
+                <!-- top-of-section 'Previous' navigation button -->
+                <fieldset>
+                    <div class="grid-6-12">
+                        <input type="button" name="" id="btnTopPrevious" value="Previous" accesskey="p" class="submit_button" onclick="location.href='newapp-terms.xhtml'" />
+                    </div>
+                </fieldset>
+
+                <div align="left"><label class="required">Indicates required fields</label></div> 
+                <h2> Citizenship or National Status Declaration  </h2>
+
+                <s:validateAll>
+                    <div class="display_table">
+
+                        <fieldset>
+                            <div class="grid-12-12">
+                             
+                                <label class="required">Are you a citizen or national of the United States? </label><div class="spacer"></div>
+								
+                                <h:selectOneRadio value="#{newApplication.contact.citizenorNational}"  styleClass="radioright" required="true" requiredMessage="Please indicate if you are a citizen or national of the United States.">  
+                                    <f:selectItem itemValue="true" itemLabel="Yes" />  
+                                    <f:selectItem itemValue="false" itemLabel="No"/>  
+                                    <a4j:support ajaxSingle="true" actionListener="#{newApplication.changeOnCitizenOrNational}" event="onclick" reRender="alienStatusDeclaration"/> <!--  removing re-render of placeOfBirth 2012.04.24 -->
+                                </h:selectOneRadio>
+                            
+                            </div>
+                        </fieldset>
+                        
+
+                        <p>Please indicate place of birth: </p>
+
+                        <a4j:outputPanel id="placeOfBirth">
+                            <fieldset>
+                                <div class="grid-4-12">
+                                    <label class="required">City</label>
+
+                                    <h:inputText required="true" 
+                                                 requiredMessage="City is required." 
+                                                 class="textfield" 
+                                                 value="#{newApplication.contact.citizenPlaceofBirthCity}" 
+                                                 converter="#{stringTrimConverter}"/>
+
+                                </div>    
+                                <div class="grid-4-12">
+                                    <a4j:outputPanel id="contactState">	
+                                        <s:div>
+                                            <label class="required">State</label><div class="clear"></div>
+
+
+                                            <h:selectOneMenu id="state"
+                                                             class="dropmenu"
+                                                             value="#{newApplication.contact.citizenStateofBirth}"
+                                                             required="true"
+                                                             requiredMessage="State is required."
+                                                             title="Select a State">
+                                                <f:selectItems 	value="#{newApplication.stateList}"/>
+                                                <a4j:support ajaxSingle="true" actionListener="#{newApplication.changeOnStateList}" event="onchange" reRender="equivalentState"/>
+                                            </h:selectOneMenu>
+                                            <fieldset style="border: none;"><div class="grid-12-12" style="border: none;"></div></fieldset>
+                                        </s:div>
+                                    </a4j:outputPanel>
+
+                                    <div class="clear"></div>	
+
+
+
+                                    <a4j:outputPanel id="equivalentState" >
+                                        <s:div rendered="#{newApplication.contact.citizenStateofBirth=='Other'}">
+                                            <!--<div class="other" id="other" style="display:none;">-->
+                                            <div class="other" id="other">
+                                                <label class="required">Equivalent State of Birth Required</label>
+                                                <!--<input type="text" class="textfield" value="" />-->
+
+                                                <h:inputText required="true"
+                                                             id="equivalentStateInput" 
+                                                             requiredMessage="Please provide an equivalent state of birth." 
+                                                             styleClass="textfield" 
+                                                             value="#{newApplication.contact.citizenEquivStateofBirth}"/>
+
+                                            </div>  
+                                        </s:div>
+                                    </a4j:outputPanel>
+                                </div> 
+
+                                <div class="grid-4-12">
+                                    <label class="required">Country</label>
+
+                                    <h:selectOneMenu id="country"
+                                                     class="dropmenu"
+                                                     value="#{newApplication.contact.citizenPlaceofBirthCountry}"
+                                                     required="true"
+                                                     requiredMessage="Country is required."
+                                                     title="Select a Country">
+                                        <f:selectItems 	value="#{newApplication.countryList}"/>
+                                    </h:selectOneMenu>
+
+                                </div>   
+                            </fieldset>   
+                        </a4j:outputPanel>  
+                    </div>
+
+                    <a4j:outputPanel id="alienStatusDeclaration">
+                        <s:div rendered="#{newApplication.displayAlienStatusDeclarationSection}">
+                            <div class="ifno" id="ifno">
+                                <h2>Alien Status Declaration </h2>
+                                <div class="display_table" >
+                                    <p>If you answered "No" to the citizen or national question above, please indicate your alien status by checking the appropriate box below.</p>
+                                    <h4> "Qualified Alien" Status: </h4>
+                                    <fieldset>
+                                        <div class="grid-0-12">
+                                            <h:selectBooleanCheckbox
+                                                title="1. An alien lawfully admitted for permanent residence under the Immigration and Nationality Act (INA)."
+                                                value="#{newApplication.contact.asd1}" >
+                                            </h:selectBooleanCheckbox>
+                                        </div>
+                                        <div class="grid-11-12"><label>1. An alien lawfully admitted for permanent residence under the Immigration and Nationality Act (INA). </label></div>  
+                                        <div class="clear"></div>	
+
+                                        <div class="grid-0-12">
+                                            <h:selectBooleanCheckbox
+                                                title="2. An alien who is granted asylum under Section 208 of the INA."
+                                                value="#{newApplication.contact.asd2}" >
+                                            </h:selectBooleanCheckbox>
+                                        </div>
+                                        <div class="grid-11-12"><label>2. An alien who is granted asylum under Section 208 of the INA.  </label></div>  
+                                        <div class="clear"></div>	
+
+                                        <div class="grid-0-12">
+                                            <h:selectBooleanCheckbox
+                                                title="3. A refuge admitted to the United States under Section 207 of the INA."
+                                                value="#{newApplication.contact.asd3}" >
+                                            </h:selectBooleanCheckbox>
+                                        </div>
+                                        <div class="grid-11-12"><label>3. A refuge admitted to the United States under Section 207 of the INA. </label></div>  
+                                        <div class="clear"></div>	
+
+                                        <div class="grid-0-12">
+                                            <h:selectBooleanCheckbox
+                                                title="4. An alien paroled into the United States for at least one year under Section 212(d)(5) of the INA."
+                                                value="#{newApplication.contact.asd4}" >
+                                            </h:selectBooleanCheckbox>
+                                        </div>
+                                        <div class="grid-11-12"><label>4. An alien paroled into the United States for at least one year under Section 212(d)(5) of the INA. </label></div>  
+                                        <div class="clear"></div>	
+
+                                        <div class="grid-0-12">
+                                            <h:selectBooleanCheckbox
+                                                title="5. An alien whose deportation is being withheld under Section 243(h) of the INA."
+                                                value="#{newApplication.contact.asd5}" >
+                                            </h:selectBooleanCheckbox>
+                                        </div>
+                                        <div class="grid-11-12"><label>5. An alien whose deportation is being withheld under Section 243(h) of the INA. </label></div>  
+                                        <div class="clear"></div>	
+
+                                        <div class="grid-0-12">
+                                            <h:selectBooleanCheckbox
+                                                title="6. An alien granted conditional entry under Section 203(a)(7) of the INA as in effect prior to April 1, 1980."
+                                                value="#{newApplication.contact.asd6}" >
+                                            </h:selectBooleanCheckbox>
+                                        </div>
+                                        <div class="grid-11-12"><label>6. An alien granted conditional entry under Section 203(a)(7) of the INA as in effect prior to April 1, 1980. </label></div>  
+                                        <div class="clear"></div>	
+
+                                        <div class="grid-0-12">
+                                            <h:selectBooleanCheckbox
+                                                title="7. An alien who is a Cuban and Haitian entrant (as defined in Section 501(e) of the Refugee Education Assistance Act of 1980)."
+                                                value="#{newApplication.contact.asd7}" >
+                                            </h:selectBooleanCheckbox>
+                                        </div>
+                                        <div class="grid-11-12"><label>7. An alien who is a Cuban and Haitian entrant (as defined in Section 501(e) of the Refugee Education Assistance Act of 1980). </label></div>  
+                                        <div class="clear"></div>	
+
+                                        <div class="grid-0-12">
+                                            <h:selectBooleanCheckbox
+                                                title="8. An alien who has, or whose child or child's parent has, been declared a battered alien or an alien subject to extreme cruelty in the United States."
+                                                value="#{newApplication.contact.asd8}" >
+                                            </h:selectBooleanCheckbox>
+                                        </div>
+                                        <div class="grid-11-12"><label>8. An alien who has, or whose child or child's parent has, been declared a "battered alien" or an alien subject to extreme cruelty in the United States.</label></div>  
+                                    </fieldset>
+
+                                    <h4> Nonimmigrant Status: </h4>
+
+                                    <fieldset>
+                                        <div class="grid-0-12">
+                                            <h:selectBooleanCheckbox
+                                                title="9. An alien not in categories 1 through 8 who has been admitted to the United States for a limited period of time (a nonimmigrant)."
+                                                value="#{newApplication.contact.asd9}" >
+                                                <a4j:support ajaxSingle="true" actionListener="#{newApplication.changeOnASD9}" event="onclick" reRender="item9YesNo"/>
+                                            </h:selectBooleanCheckbox>
+                                        </div>
+
+                                        <div class="grid-11-12"><label>9. An alien not in categories 1 through 8 who has been admitted to the United States for a limited period of time (a nonimmigrant). Nonimmigrants are persons who have temporary status for a specific purpose. </label></div>
+
+                                        <a4j:outputPanel id="item9YesNo">
+                                            <s:div rendered="#{newApplication.displayItem9YesNoNonImmigrantVisaSection}">
+                                                <div class="option9" id="option9">
+                                                    <div class="clear"></div>	
+
+                                                    <div class="grid-0-12">&#160;</div>
+                                                    <div class="grid-11-12">If you checked Item 9, answer the following: Do you have a nonimmigrant visa for entry that is related to employment in the United States for which you are applying for a license? 
+                                                        <fieldset>
+                                                            <h:selectOneRadio value="#{newApplication.contact.item9yesNo}" required="true" requiredMessage="Please answer the nonimmigrant status question below option 9.">  
+                                                                <f:selectItem itemValue="true" itemLabel="Yes" />  
+                                                                <f:selectItem itemValue="false" itemLabel="No"/>  
+                                                            </h:selectOneRadio> 
+                                                        </fieldset>  
+                                                    </div>
+                                                </div>  
+                                            </s:div>
+                                        </a4j:outputPanel>
+                                    </fieldset>
+
+                                    <h4>Alien paroled into the United States for less than one year: </h4>
+
+                                    <fieldset>
+                                        <div class="clear"></div>
+
+                                        <div class="grid-0-12">
+                                            <h:selectBooleanCheckbox
+                                                title="10. An alien paroled into the United States for less than one year under Section 212(d)(5) of the INA."
+                                                value="#{newApplication.contact.asd10}" >
+                                            </h:selectBooleanCheckbox>
+                                        </div>
+                                        <div class="grid-11-12"><label>10. An alien paroled into the United States for less than one year under Section 212(d)(5) of the INA. </label></div>  
+                                    </fieldset>
+
+                                </div>
+                            </div>
+                        </s:div>
+                    </a4j:outputPanel>
+                </s:validateAll>
+
+                <h2>Declaration </h2>
+
+                <div class="display_table" >
+                    <fieldset>
+                        <div class="grid-0-12">
+                            <h:selectBooleanCheckbox title="Acknowledge Declaration of Citizenship."
+                                                     required="true"
+                                                     requiredMessage="You must acknowledge the declaration to continue."
+                                                     value="#{newApplication.acknowledgeDeclarationOfCitizenshipOnNewAppCitizenPage}" >
+                            </h:selectBooleanCheckbox>
+                        </div>
+                        <div class="grid-11-12"><label class="required">I declare under penalty of perjury under the laws of the state of Arizona that the answers I have given are true and correct to the best of my knowledge.</label> </div>
+                    </fieldset>     
+                </div>
+
+
+                <!-- bottom-of-page navigation buttons --> 
+                <fieldset>
+                    <div class="grid-6-12">
+                        <input type="button" name="" id="" value="Previous" accesskey="p" class="submit_button" onclick="location.href='newapp-terms.xhtml'" />
+                    </div>
+                    <div class="grid-6-12 form-right">
+                        <h:commandButton id="Continue"
+                                         styleClass="submit_button"
+                                         value="Continue"
+                                         action="#{newApplication.newAppCitizenContinue}">
+                        </h:commandButton>
+
+                    </div>
+                </fieldset>
+
+            </div>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

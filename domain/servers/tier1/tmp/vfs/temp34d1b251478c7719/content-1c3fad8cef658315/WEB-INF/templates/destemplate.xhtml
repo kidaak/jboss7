@@ -1,0 +1,129 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+     template="apptemplate_2011.xhtml">
+<!-- template="#{appManager.server}/static/portal/app/apptemplate_2011.xhtml" -->
+<ui:param name="agencyName" value="DES Online Payment System"/>
+<ui:param name="applicationName1" value="DES Online Payment System"/>
+<ui:param name="appImage" value="agencylogo_des.jpg"/>
+<ui:param name="donotRenderLiveHelp" value="true"/>
+<ui:param name="renderLinkToAgency" value="true"/>
+<ui:param name="agencyUrl" value="https://www.azdes.gov"/>
+
+<!-- This is what 2011.xhtml template has 
+<ui:insert name="localCss"/>
+<ui:insert name="localJs"/>
+-->
+<!-- local Css -->
+<ui:define name="localCss">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />	
+	<!-- des local style -->
+	<h:outputStylesheet name="des.css" library="css" />
+	<!-- page Css -->
+	<!-- disable error panel -->
+	<!-- <style type="text/css">
+		h1, #errorPanel {
+			display:none;
+		}
+	</style> -->
+	<ui:insert name="pageCss"/>
+	<!--  end page Css -->
+</ui:define>
+<!-- end local css -->
+<ui:define name="metadata">
+	<ui:insert name= "localMetadata"/>
+	<!-- enabled via faces-config.xml
+	<f:event listener="#{failureController.analizeErrors}" type="preRenderView"/>  
+	-->
+</ui:define>
+<!--  local Js -->
+<ui:define name="localJs">	
+	<!-- page JS -->
+	<ui:insert name="pageJs"/>
+	<!-- end page JS -->
+	<meta http-equiv="refresh" content="#{session.maxInactiveInterval};url=index.xhtml" />	
+</ui:define>
+<!--  end local Js -->
+
+<!-- local masks -->
+<ui:define name="localMaks">
+	<!-- page Masks -->
+	<ui:insert name="pageMasks" />
+	<!--  end page Masks -->	
+</ui:define>
+<!-- end local masks -->
+<ui:define name="breadcrumb">
+		<h:form id="logoutHomeForm">
+		<h:commandLink id="logoutHome" action="#{loginController.logout}">
+			<h:outputText id="home" value="Home"/>
+		</h:commandLink> |		
+		<a href="demo.html" target="_blank"
+			onclick="window.open(this.href,this.target,'height=700, width=700,scrollbars=yes');return false;">
+		Demo/Tutorial</a> | 
+		<a href="https://www.azdes.gov/ASPNew/default.asp"
+			target="_blank"
+			onclick="window.open(this.href,this.target,'height=768, width=1024,scrollbars=yes');return false;">
+		DES</a> | 
+		<a href="https://www.azdes.gov/ASPNew/WebAccessibility.asp"
+			target="_blank"
+			onclick="window.open(this.href,this.target,'height=768, width=1024,scrollbars=yes');return false;">
+		DES Usability Policy</a> | 
+		<h:link outcome="privacy_policy.xhtml" target="_blank"
+			onclick="window.open(this.href,this.target,'height=768, width=700,scrollbars=yes'); return false;"
+			value = "DES Privacy Policy"/> | 
+		<h:link outcome="refund_policy.xhtml" target="_blank"
+			onclick="window.open(this.href,this.target,'height=568, width=700,scrollbars=yes');return false;"
+			value="DES Refund Policy"/> |
+		<h:link outcome="disclaimer.xhtml" target="_blank"
+			onclick="window.open(this.href,this.target,'height=568, width=700,scrollbars=yes');return false;"
+			value="DES Disclaimer"/> | 
+		<h:link outcome="contact_us.xhtml"
+			target="_blank"
+			onclick="window.open(this.href,this.target,'height=768, width=700,scrollbars=yes');return false;"
+			value="Contact DES"/>
+		</h:form>
+</ui:define>
+
+<ui:define name = "altbreadcrumb">
+<h:form rendered="#{!disableAltBreadcrumb}">	
+	<div class = "localAltbreadcrumb">
+	<ui:insert name = "localAltbreadcrumb"/>		
+	<h:commandLink action="#{loginController.logout}" rendered="#{desUser.loggedIn}" styleClass="logoutLink">
+		<h:outputText id="logoutText" value="Log Out"/>
+	</h:commandLink>		
+	</div>	
+	<hr />	
+</h:form>
+<span style="clear:both"></span>  
+</ui:define>
+
+<ui:define name = "body">
+	<!-- error messages -->
+	<h:outputText value="Your session has been expired" rendered="#{param.reason == 'expired'}" />
+	 <!-- <a4j:outputPanel id = "appMessagesPanel" ajaxRendered="true">
+	 <h:panelGroup rendered="#{not empty facesContext.messageList}">
+		 <div class="error" >  
+	       <br/>
+	        <div class="errror_message">
+			 <h:messages  styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning" />
+			</div> 
+		</div>	
+	  </h:panelGroup>	
+	 </a4j:outputPanel> -->
+	 
+	 <ui:insert name = "pageSubTitle"/>	
+	 <!--  local body -->	
+	<ui:insert name="localBody"/>
+</ui:define>
+
+<ui:define name="endbody">
+  <ui:include src="/layout/status.xhtml" />
+  <ui:insert name="localEndbody"/>
+</ui:define>
+
+</ui:composition>

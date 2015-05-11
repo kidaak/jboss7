@@ -1,0 +1,120 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="License Holder Options"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <a href="index.xhtml" target="_self">Home</a> &gt; License holder options
+        </div>
+    </ui:define>
+
+    <ui:define name="body">
+
+        <h:form id="theForm" class="form">
+
+            <div class="home_table"> 
+
+                <fieldset>
+                    <div class="grid-12-12"> 
+                        <label>License Number: </label>
+                        #{licenseLogin.contact.licenseNumber}
+                    </div>
+
+                    <div class="grid-12-12"> 
+                        <label>Name: </label>
+                        #{licenseLogin.contact.nameFirst} #{licenseLogin.contact.nameMiddle} #{licenseLogin.contact.nameLast} 
+                    </div>
+
+                    <div class="grid-12-12"> 
+                        <label>Street Address: </label>
+                        #{licenseLogin.contact.homeStreet} 
+                    </div>
+
+                    <div class="grid-12-12"> 
+                        <label>City: </label>
+                        #{licenseLogin.contact.homeCity} 
+                    </div>
+
+                    <div class="grid-12-12"> 
+                        <label>State: </label>
+                        #{licenseLogin.contact.homeState} 
+                    </div>
+
+                    <div class="grid-12-12"> 
+                        <label>Zip: </label>
+                        #{licenseLogin.contact.homeZip} 
+                    </div>
+
+                    <div class="grid-12-12"> 
+                        <label>License Expiration: </label>
+                        <s:div rendered="#{empty licenseLogin.contact.effectiveTo and not empty licenseLogin.contact.tempEffectiveTo}">
+                            <p>
+                                <strong>Temporary license.</strong>
+                            </p>
+                            <p>
+                                <h:outputText value="#{licenseLogin.contact.tempEffectiveTo}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                </h:outputText>
+                            </p>
+                        </s:div> 
+
+                        <h:outputText value="#{licenseLogin.contact.effectiveTo}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                        </h:outputText>
+
+                    </div>
+
+                </fieldset>
+
+            </div><!-- end of home_table -->
+
+            <div align="center">
+                <div class="welcome_wrapper">
+
+                    <div id="buttons_wrapper">
+                        <div class="welcome_button">
+                            <s:link view="/modify-address.xhtml" 
+                                    value="Change Address" 
+                                    styleClass="submit_button"/>
+                        </div>
+
+                        <div class="welcome_button">
+                            <s:link view="/licenserenewal-renewal.xhtml" 
+                                    value="Renew License" 
+                                    styleClass="submit_button"
+                                    rendered="#{licenseLogin.canRenew}"/>
+                        </div>
+
+                        <div class="welcome_button">
+                            <h:commandLink id="logout" value="Log Out" action="#{licenseLogin.logoutAction}" accesskey="l" styleClass="submit_button" />
+                        </div>
+                    </div> <!-- end of buttons_wrapper -->
+                </div> <!-- end of welcome_wrapper -->
+            </div> <!-- end of center -->
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>

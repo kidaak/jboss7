@@ -1,0 +1,476 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="Education Information"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <a href="index.xhtml" target="_self">Home</a> &gt;
+            <s:link view="/newapp-asrcp.xhtml" value=" New Application"/> &gt;
+            <s:link view="/newapp-terms.xhtml" value=" Terms and Conditions"/> &gt;
+            <s:link view="/newapp-citizen.xhtml" value=" Citizenship"/> &gt;
+            <s:link view="/newapp-info.xhtml" value=" Applicant Information"/> &gt;
+            <s:link view="/newapp-employment.xhtml" value=" Employment" /> &gt; Education
+        </div>
+    </ui:define>
+
+    <ui:define name="body">
+
+        <h:form class="form" id="educationForm">
+            <s:validateAll>
+
+                <div class="instructions"><h:outputText value="#{splashManager.newappEducationInstructions}" escape="false"></h:outputText></div>
+
+                <!-- top-of-section 'Previous' navigation button -->
+                <fieldset style="border:none">
+                    <div class="grid-6-12">
+                        <s:button id="btnTopPrevious" view="/newapp-employment.xhtml" value="Previous" styleClass="submit_button"/>
+                    </div>
+                </fieldset>
+
+                <div align="left"><label class="required">Indicates required fields</label></div> 
+
+                <h2>Certifications</h2>
+
+                <div class="display_table">
+
+                    <!-- NBRC CRT OR RRT certified -->
+                    <fieldset>
+                        <div class="grid-12-12">
+                            <label class="required">Are you NBRC CRT or RRT certified?</label>
+                            <h:selectOneRadio id="nbrcCertified" value="#{newApplication.contact.nbrccrtrrtcertified}" required="true" requiredMessage="Please indicate if you are CRT or RRT certified.">  
+                                <f:selectItem itemValue="True" itemLabel="Yes" />  
+                                <f:selectItem itemValue="False" itemLabel="No"/>  
+                                <a4j:support oncomplete="jQuery('.mask_date_us').mask('99/99/9999')" ajaxSingle="true" actionListener="#{newApplication.changeOnNBRCCRTRRTCertified}" event="onclick" reRender="descriptionForNoOnNBRCCertifiedTable, schoolCompletionDateOutputPanel, educationHighestCompleteDateOutputPanel"/>
+                            </h:selectOneRadio> 
+                        </div>
+                    </fieldset>
+
+                    <a4j:outputPanel id="descriptionForNoOnNBRCCertifiedTable">
+
+                        <s:div rendered="#{newApplication.displayDisplayNBRCCertifiedSection}">
+                            <fieldset>
+                                <div class="grid-12-12">
+
+                                    <label class="required">If you are not NBRC Certified, please provide an explanation.</label>
+                                    <h:inputTextarea rows="4" id="notNBRCCertified"
+                                                     cols="7" 
+                                                     value="#{newApplication.contact.nbrcexplanation}" 
+                                                     class="textfield"
+                                                     required="true"
+                                                     requiredMessage="If you are not NBRC Certified, please provide an explanation."
+                                                     converter="#{stringTrimConverter}"/>
+                                </div>
+                            </fieldset>
+                        </s:div>
+
+                        <s:div rendered="#{newApplication.contact.nbrccrtrrtcertified}">
+                            <fieldset>
+                                <div class="grid-4-12 nowrap" style="padding-right:20px">
+                                    <h:outputLabel for="nbrcCertExamDate" value="Date of CRT Test: "/>
+                                    <rich:calendar id="nbrcCertExamDate"
+                                                   jointPoint="top-right"
+                                                   direction="top-right"
+                                                   showWeeksBar="false"
+                                                   popup="true"
+                                                   showFooter="false"
+                                                   inputSize="15"
+                                                   enableManualInput="true"
+                                                   converterMessage="Please use a mm/dd/yyyy format for NBRC CRT Test Date." 
+                                                   value="#{newApplication.contact.nbrccrttexamDate}" 
+                                                   datePattern="MM/dd/yyyy" 
+                                                   style="width: 150px;" 
+                                                   inputClass="input_mask mask_date_us">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                    </rich:calendar>
+                                </div>
+
+                                <div class="grid-4-12 nowrap">
+                                    <h:outputLabel for="rrtExamDate" value="Date of RRT Test: " />
+                                    <rich:calendar id="rrtExamDate" 
+                                                   jointPoint="top-right"
+                                                   direction="top-right"
+                                                   showWeeksBar="false"
+                                                   popup="true"
+                                                   showFooter="false"
+                                                   inputSize="15"
+                                                   enableManualInput="true"
+                                                   converterMessage="Please use a mm/dd/yyyy format for NBRC RRT Test Date."
+                                                   value="#{newApplication.contact.nbrcrrtexamDate}" 
+                                                   datePattern="MM/dd/yyyy" 
+                                                   style="width: 150px;" 
+                                                   inputClass="input_mask mask_date_us">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                    </rich:calendar>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <div class="grid-12-12">
+                                    <p>
+                                        <label>You may attach a copy of your NBRC certification as one of the following file-types:
+                                            <br/>.doc, .jpg, .gif, .tif,. rtf, .pdf, .docx</label>
+                                    </p>
+
+                                    <a4j:region id="regionNBRC">
+
+                                        <rich:fileUpload uploadData="#{newApplication.nbrcUploadItems}"
+                                                         fileUploadListener="#{newApplication.fileUploadListener('NBRC Attachment')}"
+                                                         addControlLabel="Upload attachment..."
+                                                         id="uploadNBRCAttachment"
+                                                         listHeight="50"
+                                                         listWidth="350"
+                                                         immediateUpload="true"
+                                                         maxFilesQuantity="3"
+                                                         acceptedTypes="doc, jpg, gif, tif, rtf, pdf, docx">
+
+                                            <a4j:support event="onuploadcomplete"
+                                                         reRender="uploadNBRCAttachment, listOfNBRCAttachments"
+                                                         actionListener="#{newApplication.onUploadCompleteActionListenerNBRC}"/>
+
+                                            <a4j:support event="onclear" reRender="listOfNBRCAttachments, uploadNBRCAttachment">
+                                                <a4j:actionparam  name="fname" noEscape="true" value="(event.memo.entry)?event.memo.entry.fileName:'' "
+                                                                  assignTo="#{newApplication.onClearActionParam}"
+                                                                  actionListener="#{newApplication.onClearActionListenerNBRC}"/>
+                                            </a4j:support>
+
+                                            <f:facet name="progress">
+                                                <rich:progressBar style="width: 100%;"/>
+                                            </f:facet>
+                                        </rich:fileUpload>
+
+                                        <p><rich:message for="uploadNBRCAttachment" styleClass="message"/></p>
+
+                                    </a4j:region>
+                                </div>   
+                            </fieldset>
+
+                            <a4j:outputPanel id="listOfNBRCAttachments">
+                                <fieldset>
+                                    <div class="grid-9-12 ">
+                                        <a4j:region>
+                                            <h:dataTable id="NBRCTable"
+                                                         var="item"
+                                                         rendered="#{not empty newApplication.nbrcUploadItems}"
+                                                         styleClass="searchResults"
+                                                         headerClass="attachmentTableHeader"
+                                                         value="#{newApplication.nbrcUploadItems}">
+
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Attachment" />
+                                                    </f:facet>
+
+                                                    <h:outputText value="#{newApplication.getFileName(item.fileName)}"/>
+                                                </h:column>
+
+                                                <!--  delete action  -->
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Action" />
+                                                    </f:facet>
+                                                    <a4j:commandLink reRender="uploadNBRCAttachment, listOfNBRCAttachments"
+                                                                     title="Remove"
+                                                                     actionListener="#{newApplication.removeNBRCAttachmentActionListener}"
+                                                                     style="text-decoration:none;">
+                                                        <h:graphicImage url="/img/delete.gif" />
+                                                        <f:attribute name="uploadItem" value="#{item}" />
+                                                    </a4j:commandLink>
+                                                </h:column>
+                                            </h:dataTable>
+                                        </a4j:region>
+                                    </div>
+                                </fieldset>
+                            </a4j:outputPanel>
+
+                        </s:div>
+
+                    </a4j:outputPanel>
+                </div> <!-- end Certifications section -->
+
+                <h2>Education Information</h2>
+
+                <div class="display_table">
+                    <fieldset>
+                        <div class="grid-12-12">
+                            <label class="required">Name of school:</label>
+                            <h:inputText value="#{newApplication.contact.educationName}" 
+                                         id="nameOfSchool"
+                                         class="textfield"
+                                         required="true"
+                                         requiredMessage="Name of School is required."
+                                         converter="#{stringTrimConverter}"/>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="grid-7-12">
+                            <label class="required">Street Address:</label>
+                            <h:inputText value="#{newApplication.contact.educationStreet}"
+                                         id="schoolStreetAddress" 
+                                         class="textfield"
+                                         required="true"
+                                         requiredMessage="Street Address is required."
+                                         converter="#{stringTrimConverter}"/>    
+                        </div>
+
+                        <div class="grid-5-12">
+                            <label class="required">City:</label>
+                            <h:inputText value="#{newApplication.contact.educationCity}" 
+                                         id="schoolCity"
+                                         class="textfield"
+                                         required="true"
+                                         requiredMessage="City is required."
+                                         converter="#{stringTrimConverter}"/>                
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="grid-3-12">
+                            <label class="required">State:</label>
+
+                            <h:selectOneMenu id="schoolState"
+                                             value="#{newApplication.contact.educationState}"
+                                             class="dropmenu"
+                                             title="Select a State"
+                                             required="true"
+                                             requiredMessage="State is required.">
+                                <f:selectItems    value="#{newApplication.stateList}"/>
+                            </h:selectOneMenu>             
+                        </div>
+
+                        <div class="grid-2-12">
+
+                            <label class="required">Zip code:</label>
+                            <h:inputText value="#{newApplication.contact.educationZip}" 
+                                         id="zipCode"
+                                         class="textfield"
+                                         required="true"
+                                         requiredMessage="Zip Code is required."/>  
+                        </div>
+
+                        <div class="grid-3-12">
+                            <label class="required">Country:</label>
+
+                            <h:selectOneMenu id="schoolCountry"
+                                             value="#{newApplication.contact.educationCountry}"
+                                             required="true"
+                                             class="dropmenu"
+                                             requiredMessage="Country is required."
+                                             title="Select a Country">
+                                <f:selectItems    value="#{newApplication.countryList}"/>
+                            </h:selectOneMenu>
+                        </div>
+
+                        <div class="grid-1-12"><h:outputText value=" "/></div>
+
+                    </fieldset>
+
+                    <!-- for date to work correctly using jQuery mask, had to put other dates in an outputPanel and reRender them. -->
+                    <a4j:outputPanel id="schoolCompletionDateOutputPanel">
+                        <fieldset>
+                            <div class="grid-4-12">
+
+                                <label class="required">Training Completion Date:</label>
+                                <rich:calendar id="schoolCompletionDate" 
+                                               jointPoint="top-right"
+                                               direction="top-right"
+                                               showWeeksBar="false"
+                                               popup="true"
+                                               showFooter="false"
+                                               inputSize="15"
+                                               enableManualInput="true"
+                                               converterMessage="Please use a mm/dd/yyyy format for Training Completion Date."
+                                               value="#{newApplication.contact.trainingCompDate}" 
+                                               datePattern="MM/dd/yyyy" 
+                                               style="width: 150px;" 
+                                               required="true"
+                                               requiredMessage="Training Completion Date is required."
+                                               inputClass="input_mask mask_date_us">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                </rich:calendar>
+                            </div>
+                        </fieldset>
+                    </a4j:outputPanel>
+
+                    <fieldset>
+                        <div class="grid-12-12">
+
+                            <p>
+                                <label>
+                                    You may attach a copy of your Degree, Diploma, or Letter of Completion received<br/>
+                                    as one of the following file-types: .doc, .jpg, .gif, .tif,. rtf, .pdf, .docx
+                                </label>
+                            </p>
+
+                            <a4j:region>
+
+                                <rich:fileUpload uploadData="#{newApplication.diplomaUploadItems}" 
+                                                 fileUploadListener="#{newApplication.fileUploadListener('Diploma Attachment')}"
+                                                 addControlLabel="Upload attachment..."
+                                                 id="uploadDiplomaAttachment"
+                                                 listHeight="50"
+                                                 listWidth="350"
+                                                 immediateUpload="true"
+                                                 maxFilesQuantity="3"
+                                                 acceptedTypes="doc, jpg, gif, tif, rtf, pdf, docx">
+
+                                    <a4j:support event="onuploadcomplete"
+                                                 reRender="uploadDiplomaAttachment, listOfDiplomaAttachments"
+                                                 actionListener="#{newApplication.onUploadCompleteActionListenerDiploma}"/>
+
+                                    <f:facet name="progress">
+                                        <rich:progressBar style="width: 100%;"/>
+                                    </f:facet>
+                                </rich:fileUpload>
+
+                                <p><rich:message for="uploadDiplomaAttachment" styleClass="message"/></p>
+
+                            </a4j:region>
+                        </div>
+                    </fieldset>    
+
+                    <a4j:outputPanel id="listOfDiplomaAttachments">
+                        <fieldset>
+                            <div class="grid-9-12 ">
+                                <a4j:region>
+                                    <h:dataTable id="DiplomaTable"
+                                                 var="item"
+                                                 rendered="#{not empty newApplication.diplomaUploadItems}"
+                                                 styleClass="searchResults"
+                                                 headerClass="attachmentTableHeader"
+                                                 value="#{newApplication.diplomaUploadItems}">
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Attachment" />
+                                            </f:facet>
+
+                                            <h:outputText value="#{item.fileName}"/>
+                                        </h:column>
+
+                                        <!--  delete action  -->
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Action" />
+                                            </f:facet>
+                                            <a4j:commandLink reRender="uploadDiplomaAttachment, listOfDiplomaAttachments"
+                                                             title="Remove"
+                                                             actionListener="#{newApplication.removeDiplomaAttachmentActionListener}"
+                                                             style="text-decoration:none;">
+                                                <h:graphicImage url="/img/delete.gif" />
+                                                <f:attribute name="uploadItem" value="#{item}" />
+                                            </a4j:commandLink>
+                                        </h:column>
+                                    </h:dataTable>
+                                </a4j:region>
+                            </div>
+                        </fieldset>
+                    </a4j:outputPanel>
+
+                    <br/>
+
+                    <fieldset>
+                        <div class="grid-5-12">
+                            <label class="required">Highest Level of Education Completed:</label>
+
+                            <h:selectOneMenu id="highestLebelOfEducationCompleted"
+                                             value="#{newApplication.contact.educationCompleted}"
+                                             required="true"
+                                             requiredMessage="Highest Level of Education Completed is required."
+                                             title="Select Highest Level Of Education Completed">
+                                <a4j:support ajaxSingle="true" actionListener="#{newApplication.changeOnHighestLevelOfEducationCompleted}" event="onchange" reRender="highestLevelOfEducationCompletedOtherSection"/>
+                                <f:selectItems    value="#{newApplication.highestLevelOfEducationCompletedList}"/>
+                            </h:selectOneMenu>
+                        </div>
+
+                        <a4j:outputPanel id="educationHighestCompleteDateOutputPanel">
+
+                            <div class="grid-4-12">
+
+                                <label class="required">Date of Completion/Graduation:</label>
+                                <rich:calendar id="educationHighestCompleteDate" 
+                                               jointPoint="top-right"
+                                               direction="top-right"
+                                               value="#{newApplication.contact.educationHighestCompDate}" 
+                                               showWeeksBar="false"
+                                               popup="true"
+                                               showFooter="false"
+                                               inputSize="15"
+                                               enableManualInput="true"
+                                               converterMessage="Please use a mm/dd/yyyy format for Date of Completion/Graduation."
+                                               datePattern="MM/dd/yyyy" 
+                                               style="width: 150px;" 
+                                               required="true"
+                                               requiredMessage="Date of Completion/Graduation is required."
+                                               inputClass="input_mask mask_date_us">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                </rich:calendar> 
+                            </div>
+
+                        </a4j:outputPanel>   
+                    </fieldset>
+                    <fieldset>
+                        <a4j:outputPanel id="highestLevelOfEducationCompletedOtherSection" >
+                            <s:div rendered="#{newApplication.displayHighestLevelOfEducationCompletedOtherSection}">
+
+                                <fieldset>
+                                    <div class="grid-5-12">
+                                        <label class="required">Level Completed:</label>
+                                        <h:inputText value="#{newApplication.contact.educationCompletedOther}" 
+                                                     id="highestLevelOfEducationCompletedOther"
+                                                     class="textfield"
+                                                     required="true"
+                                                     requiredMessage="Level completed is required."
+                                                     converter="#{stringTrimConverter}"/>   
+                                    </div>
+                                </fieldset>
+                            </s:div>
+                        </a4j:outputPanel>
+                    </fieldset>         
+
+                </div> <!-- end Education section-->
+
+            </s:validateAll>
+
+            <!-- bottom-of-page navigation buttons --> 
+            <fieldset>
+                <div class="grid-6-12">
+                    <s:button view="/newapp-employment.xhtml" value="Previous" styleClass="submit_button"/>
+                </div>
+
+                <div class="grid-6-12 form-right">
+                    <h:commandButton id="Continue"
+                                     styleClass="submit_button"
+                                     value="Continue"
+                                     action="#{newApplication.newAppEducationContinue}">
+                    </h:commandButton>
+                </div>
+
+            </fieldset>
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>

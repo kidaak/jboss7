@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://jboss.com/products/seam/pages"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd"
+      conversation-required="true" 
+      no-conversation-view-id="/index.xhtml">
+      
+      
+    <!-- this navigation rule is an exception. most previous links are s:link, thus carrying
+         the conversation. in this instance, a users previous page is contingent on whether or
+         not the license being renewed has expired. -->
+
+    <navigation from-action="#{renewalApplication.licenseRenewalInfoPrevious}">
+        <rule if-outcome="expired">
+            <redirect view-id="/licenserenewal-expired-license.xhtml"/>
+        </rule>
+            
+        <rule if-outcome="citizen">
+            <redirect view-id="/licenserenewal-citizen.xhtml"/>
+        </rule>
+    </navigation>
+
+    <navigation from-action="#{renewalApplication.licenseRenewalInfoContinue}">
+        <rule if-outcome="success">
+            <redirect view-id="/licenserenewal-employment.xhtml"/>
+        </rule>
+    </navigation>
+
+</page>

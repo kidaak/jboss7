@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/WEB-INF/templates/bhaTemplate.xhtml">
+	<ui:param name="title" value="Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName1" value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName2" value="Online Payment Service" />
+	<ui:param name="agencyName" value="Board of Behavioral Health Examiners" />
+	<ui:param name="appImage" value="agencylogo_bbhe.jpg" />
+	<ui:param name="donotRenderHelp" value="true" />
+	<ui:param name="donotRenderFAQ" value="true" />
+
+<ui:define name="localCss">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link href="stylesheet/azbbhe.css" rel="stylesheet" type="text/css" media="screen" />
+	<style type="text/css">
+	h1 {
+		display:none;
+		padding:0;
+		margin:0;
+	}
+	</style>
+</ui:define>
+
+<ui:define name="body">
+      <div align="center">
+        <div class="welcome_wrapper">
+        
+         <img src="#{facesContext.externalContext.requestContextPath}/resources/assets/images/bbhe-banner.jpeg" alt="Arizona Board of Behavioral Health Examiners banner" />
+          
+         <div class="instructions">Welcome to the <strong>Board of Behavioral Health Examiners online credit card payment service</strong>.  We are pleased to provide this convenient service for professionals who are applying for a new license, renewing an existing license, or are requesting other services.</div>
+         <div>
+         <h2>Please Note</h2>
+<ul>
+<li>Only the following credit cards will be accepted:  <img src="#{initController.staticWebPath}/static/portal/images/visa-curved-32px.png" alt="Visa" />  <img src="#{initController.staticWebPath}/static/portal/images/mastercard-curved-32px.png" alt="Visa" /></li>
+<li>Include a copy of your printed or emailed payment receipt with your application.</li>
+<li>If you are paying your <u>license issuance fee</u>, begin by selecting the <strong>Apply For License</strong> option on the next page.</li>
+<li>If you are paying your <u>license renewal fee</u> and it is after your license expiration date but still within 90 days of your expiration date, you will be assessed an additional $100 late fee.</li>
+<li>You will not be able to process payment of your license renewal fee if it is <u>90 days past</u> your expiration date as your license has now expired and cannot be renewed.</li>
+<li>There may be a $3.00 online	convenience fee added to your transaction.</li>
+</ul></div> 
+<br />
+ <div class="instructions" align="center">
+We may be contacted at (602) 542-1882 if you have questions or concerns regarding your payment.   
+</div>
+           <br />
+          <div id="buttons_wrapper">
+          		<h:form>
+               <div class="welcome_button">
+               <h:commandLink target="_self" action="personalInfo?faces-redirect=true">
+              Continue
+              </h:commandLink>
+              </div>
+              </h:form>
+           </div>
+        </div>
+       </div>
+</ui:define>      
+</ui:composition>

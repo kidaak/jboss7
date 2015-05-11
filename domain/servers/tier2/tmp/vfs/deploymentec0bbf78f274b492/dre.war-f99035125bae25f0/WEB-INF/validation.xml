@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<!--
+ Note: Validation may change with release 1.1
+ field-test may become fieldTest
+ field-join may become fieldJoin
+-->
+
+<form-validation>
+    <global>
+        <constant>
+            <constant-name>alpha</constant-name>
+            <constant-value>^[a-zA-Z]*$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>alphaNumeric</constant-name>
+            <constant-value>^[a-zA-Z0-9]*$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>alphaNumericSpace</constant-name>
+            <constant-value>^[a-zA-Z0-9 \\\/\-]*$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>licenseNumber</constant-name>
+            <constant-value>^[a-zA-Z]{2}\d{9}$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>month</constant-name>
+            <constant-value>^0[1-9]$|^1[0-2]$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>numeric</constant-name>
+            <constant-value>^[0-9]*$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>phone</constant-name>
+            <constant-value>^\d{3}-\d{3}-\d{4}$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>year</constant-name>
+            <constant-value>^\d{4}$</constant-value>
+        </constant>
+        <constant>
+        	<constant-name>date</constant-name>
+        	<constant-value>^(0?[1-9]|1[012])[/](0?[1-9]|[12][0-9]|3[01])[/]\d{4}$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>password</constant-name>
+            <constant-value>^\S{6}\S*$</constant-value>
+        </constant>
+       <constant>
+            <constant-name>zip</constant-name>
+            <constant-value>^\d{5}$</constant-value>
+        </constant>
+    </global>
+    <formset>
+
+        <form name="loginFormBean_1">
+            <field property="licenseNumber" depends="required,mask">
+                <arg0 key="challenge.fieldLabel.num"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${licenseNumber}</var-value>
+                </var>
+            </field>
+            <field property="validateNotBothLicenseNumber" depends="required">
+                <msg name="required" key="errors.enterOneLicense" />
+            </field>
+            <field property="ssn" depends="mask">
+                <arg0 key="challenge.fieldLabel.ssn"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^\d{4}$</var-value>
+                </var>
+            </field>
+            <field property="validateLoginCriteria" depends="required">
+                <msg name="required" key="errors.notEnoughLoginData" />
+            </field>
+            <field property="birthDate" depends="mask,date">
+                <arg0 key="challenge.fieldLabel.dob" />
+                <msg name="date" key="errors.date.invalid" />
+                <msg name="mask" key="errors.date.invalid" />
+                <var>
+                	<var-name>mask</var-name>
+                	<var-value>${date}</var-value>
+                </var>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>MM/dd/yyyy</var-value>
+                </var>
+            </field>
+             <field property="validateAllFieldsForSSnLogin" depends="required">
+                <msg name="required" key="errors.allFieldForSSNLogin" />
+            </field>
+        </form>
+
+        <form name="requiredInfoFormBean_1">
+            <field property="terms" depends="required">
+                <msg name="required" key="05terms.acceptTerms"/>
+            </field>
+        </form>
+
+        <form name="requiredInfoFormBean_2">
+            <field property="email" depends="required,email,validateEmailDomain">
+                <msg name="email" key="errors.invalid"/>
+                <arg0 key="common.label.email"/>
+            </field>
+        </form>
+        
+        <form name="requiredInfoFormBean_3">
+            <field property="passwordInfo.password" depends="required, validwhen, mask">
+                <arg0 key="common.label.password"/>
+                <msg name="mask" key="errors.passwordInvalid"/>
+                <msg name="validwhen" key="errors.passwordNotEqual"/>
+                <var>
+                    <var-name>test</var-name>
+                    <var-value>(*this* == retypePassword)</var-value>
+                </var>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${password}</var-value>
+                </var>
+            </field>
+            <field property="passwordInfo.passwordHintAnswer" depends="required">
+                <arg0 key="common.label.passphrase.answer"/>
+            </field>
+        </form>
+
+        <form name="changePreferencesBean_1">
+            <field property="password.password" depends="requiredif, validwhen, mask">
+                <arg0 key="common.label.password"/>
+                <msg name="validwhen" key="errors.passwordNotEqual"/>
+                <msg name="mask" key="errors.passwordInvalid"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${password}</var-value>
+                </var>
+                <var>
+                    <var-name>test</var-name>
+                    <var-value>(*this* == retypePassword)</var-value>
+                </var>
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>passwordRequired</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>EQUAL</var-value>
+                </var>
+                <var>
+                    <var-name>fieldValue[0]</var-name>
+                    <var-value>true</var-value>
+                </var>
+            </field>
+            <field property="password.passwordHintAnswer" depends="requiredif">
+                <arg0 key="common.label.passphrase.answer" />
+                <msg name="requiredif" key="errors.passphraseRequired" />
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>password.password</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>NOTNULL</var-value>
+                </var>
+            </field>
+        </form>
+        
+        <form name="resetPasswordFormBean">
+            <field property="licenseNum" depends="required,mask">
+                <arg0 key="challenge.fieldLabel.num"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${licenseNumber}</var-value>
+                </var>
+            </field>
+        </form>
+        
+        <form name="paymentFormBean">
+            <field property="address" depends="required">
+            	<arg0 key="p62.label.address" />
+            </field>
+            <field property="state" depends="required">
+            	<arg0 key="p62.label.state" />
+            </field>
+            <field property="city" depends="required">
+            	<arg0 key="p62.label.city"/>
+            </field>
+            <field property="name" depends="required">
+            	<arg0 key="p62.label.name" />
+            </field>
+            <field property="fname" depends="required">
+            	<arg0 key="p62.label.lname" />
+            </field>
+            <field property="fname" depends="required">
+            	<arg0 key="p62.label.fname" />
+            </field>
+            <field property="zip" depends="required, mask">
+            	<arg0 key="p62.label.zip"/>
+            	<var>
+            		<var-name>mask</var-name>
+            		<var-value>${zip}</var-value>
+            	</var>
+            </field>
+            <field property="cardType" depends="required">
+            	<arg0 key="p62.label.cardtype"/>
+            </field>
+            <field property="accountNumber" depends="required, creditCard">
+                <arg0 key="p62.label.card" />
+            </field>
+            <field property="csv" depends="required, mask">
+            	<arg0 key="p62.label.csv" />
+            	<var>
+            		<var-name>mask</var-name>
+            		<var-value>${numeric}</var-value>
+            	</var>
+            </field>
+            <field property="month" depends="required, mask">
+                <arg0 key="p62.field.expMonth" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${month}</var-value>
+                </var>
+            </field>
+            <field property="year" depends="required, mask">
+                <arg0 key="p62.field.expYear" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${year}</var-value>
+                </var>
+            </field>
+            
+        </form>
+        
+        <form name="changeEmploymentFormBean_1">
+            <field property="licenseNumber" depends="required,mask">
+                <msg name="required" key="p10.licensenum.required"/>
+                <msg name="mask" key="p10.licensenum.invalid"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${licenseNumber}</var-value>
+                </var>
+            </field>
+        </form>
+        
+        <form name="changeEmploymentFormBean_2">
+            <field property="affirmation" depends="required">
+                <msg name="required" key="p10.affirm.required"/>
+            </field>
+        </form>
+        
+        <form name="severEmploymentFormBean_2">
+            <field property="affirmation" depends="required">
+                <msg name="required" key="p10.affirm.required"/>
+            </field>
+        </form>
+        
+        <form name="renewLicenseFormBean_1">
+            <field property="answer" depends="required" indexedListProperty="questions">
+                <msg name="required" key="p43.required" />
+            </field>
+        </form>
+        
+        <form name="renewLicenseFormBean_2">
+            <field property="certify" depends="required">
+                <msg name="required" key="p44.certify.required" />
+            </field>
+        </form>
+
+        <form name="renewLicenseFormBean_3">
+            <field property="validateAllRequired" depends="required" indexedListProperty="courses">
+                <msg name="required" key="p45.allrequired" />
+            </field>
+            <field property="dateStarted" depends="mask,date" indexedListProperty="courses">
+                <arg0 key="p45.table.title.datestart" />
+                <msg name="mask" key="errors.date.invalid" />
+                <msg name="date" key="errors.date.invalid"/>
+                <var>
+                	<var-name>mask</var-name>
+                	<var-value>${date}</var-value>
+                </var>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>MM/dd/yyyy</var-value>
+                </var>
+            </field>
+            <field property="dateCompleted" depends="mask,date" indexedListProperty="courses">
+                <arg0 key="p45.table.title.datecomp" />
+                <msg name="mask" key="errors.date.invalid" />
+                <msg name="date" key="errors.date.invalid"/>
+                <var>
+                	<var-name>mask</var-name>
+                	<var-value>${date}</var-value>
+                </var>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>MM/dd/yyyy</var-value>
+                </var>
+            </field>
+            <field property="validateOneCompleteCourse" depends="required">
+                <msg name="required" key="p45.onerequired" />
+            </field>
+        </form>
+        
+        <form name="renewLicenseFormBean_7">
+            <field property="answer" depends="required" indexedListProperty="entityQuestions">
+                <msg name="required" key="p43.required" />
+            </field>
+        </form>
+        
+        <form name="renewLicenseFormBean_8">
+            <field property="entityCertify" depends="required">
+                <msg name="required" key="p44.certify.required" />
+            </field>
+        </form>
+        
+        <form name="renewLicenseFormBean_9">
+            <field property="continueEntityCorporationStatus" depends="validwhen">
+                <msg name="validwhen" key="entityRenewal.error.mustContinueCorporation" />
+                <var>
+                    <var-name>test</var-name>
+                    <var-value>(*this* == 'true')</var-value>
+                </var>
+            </field>
+        </form>
+        
+        <form name="entityRenewalFormBean_2">
+            <field property="answer" depends="required" indexedListProperty="entityQuestions">
+                <msg name="required" key="p43.required" />
+            </field>
+        </form>
+        
+        <form name="entityRenewalFormBean_3">
+            <field property="entityCertify" depends="required">
+                <msg name="required" key="p44.certify.required" />
+            </field>
+        </form>
+        
+        <form name="entityRenewalFormBean_4">
+            <field property="continueEntityCorporationStatus" depends="validwhen">
+                <msg name="validwhen" key="entityRenewal.error.mustContinueCorporation" />
+                <var>
+                    <var-name>test</var-name>
+                    <var-value>(*this* == 'true')</var-value>
+                </var>
+            </field>
+        </form>
+        
+        <form name="changePersonalInfoFormBean_1">
+            <field property="emailAddress" depends="requiredif,email,validateEmailDomain">
+                <msg name="email" key="errors.invalid"/>
+                <arg0 key="common.label.email"/>
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>emailRequired</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>EQUAL</var-value>
+                </var>
+                <var>
+                    <var-name>fieldValue[0]</var-name>
+                    <var-value>true</var-value>
+                </var>
+            </field>
+            <field property="phoneNumber" depends="required">
+                <arg0 key="common.label.phone" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${phone}</var-value>
+                </var>
+            </field>
+            <field property="homeAddress.line1" depends="required,physicalAddress">
+                <arg0 key="p20.label.home.add1" />
+                <msg name="physicalAddress" key="p20.pobox.home.error" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${alphaNumericSpace}</var-value>
+                </var>
+            </field>
+            <field property="homeAddress.line2" depends="physicalAddress">
+                <arg0 key="p20.label.home.add2" />
+                <msg name="physicalAddress" key="p20.pobox.home.error" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${alphaNumericSpace}</var-value>
+                </var>
+            </field>
+            <field property="homeAddress.county" depends="required">
+                <msg name="required" key="p20.label.home.county" />
+            </field>
+            <field property="homeAddress.city" depends="required,mask">
+                <arg0 key="p20.label.home.city" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${alphaNumericSpace}</var-value>
+                </var>
+            </field>
+            <field property="homeAddress.state" depends="required">
+                <msg name="required" key="p20.label.home.state" />
+            </field>
+            <field property="homeAddress.ZIPCode" depends="required">
+                <arg0 key="p20.label.home.zip" />
+            </field>
+            <field property="mailingAddress.line1" depends="validwhen">
+                <arg0 key="p20.label.mail.add1" />
+                <var>
+                    <var-name>test</var-name>
+                    <var-value>((homeAsMailngAddress == 'true') or (*this* != null))</var-value>
+                </var>
+            </field>
+            <field property="mailingAddress.county" depends="validwhen">
+                <msg name="required" key="p20.label.mail.county" />
+                <var>
+                    <var-name>test</var-name>
+                    <var-value>((homeAsMailngAddress == 'true') or (*this* != null))</var-value>
+                </var>
+            </field>
+            <field property="mailingAddress.city" depends="validwhen,mask">
+                <arg0 key="p20.label.mail.city" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${alphaNumericSpace}</var-value>
+                </var>
+                <var>
+                    <var-name>test</var-name>
+                    <var-value>((homeAsMailngAddress == 'true') or (*this* != null))</var-value>
+                </var>
+            </field>
+            <field property="mailingAddress.state" depends="validwhen">
+                <msg name="required" key="p20.label.mail.state" />
+                <var>
+                    <var-name>test</var-name>
+                    <var-value>((homeAsMailngAddress == 'true') or (*this* != null))</var-value>
+                </var>
+            </field>
+            <field property="mailingAddress.ZIPCode" depends="validwhen">
+                <arg0 key="p20.label.mail.zip" />
+                <var>
+                    <var-name>test</var-name>
+                    <var-value>((homeAsMailngAddress == 'true') or (*this* != null))</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="viewHistoryFormBean_1">
+            <field property="startDate" depends="required,mask,date,dateCompare">
+                <arg0 key="p54.label.startDate"/>
+                <arg1 key="p54.label.endDate"/>
+                <msg name="mask" key="errors.date.invalid" />
+                <msg name="date" key="errors.date.invalid"/>
+                <msg name="dateCompare" key="errors.dateCompare"/>
+                <var>
+                	<var-name>mask</var-name>
+                	<var-value>${date}</var-value>
+                </var>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>MM/dd/yyyy</var-value>
+                </var>
+                <var>
+                    <var-name>date</var-name>
+                    <var-value>startDate</var-value>
+                </var>
+                <var>
+                    <var-name>dateOperator</var-name>
+                    <var-value>lte</var-value>
+                </var>
+                <var>
+                    <var-name>date2</var-name>
+                    <var-value>endDate</var-value>
+                </var>
+            </field>
+            <field property="endDate" depends="required,mask,date">
+                <arg0 key="p54.label.endDate"/>
+                <msg name="mask" key="errors.date.invalid" />
+                <msg name="date" key="errors.date.invalid"/>
+                <var>
+                	<var-name>mask</var-name>
+                	<var-value>${date}</var-value>
+                </var>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>MM/dd/yyyy</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="pendingApprovalsFormBean_1">
+            <field property="validateNumberSelected" depends="required">
+                <msg name="required" key="p35.selectOne" />
+            </field>
+        </form>
+    
+        <!-- *************************************************************** -->
+        <!-- BrokerAuditFormBean                                             -->
+        <!-- *************************************************************** -->
+        <form name="brokerAuditFormBean">
+            <field property="homeOffice" depends="required" page="120">
+                <arg0 key="Is this a Home Office" resource="false"/>
+            </field>
+            <field property="numLicensedEmployees" depends="required,mask" page="120">
+                <arg0 key="Number of licensed employees" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${numeric}</var-value>
+                </var>
+            </field>
+            <field property="numUnlicensedEmployees" depends="required,mask" page="120">
+                <arg0 key="Number of unlicensed employees" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${numeric}</var-value>
+                </var>
+            </field>
+            <field property="numSalesLeases" depends="required,mask" page="120">
+                <arg0 key="Average number of Sales and Leases transactions handled per year" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${numeric}</var-value>
+                </var>
+            </field>
+            <field property="generalTrustAccount.answer" depends="required" page="120">
+                <arg0 key="General Trust Accounts" resource="false"/>
+            </field>
+            <field property="otherBrokerTypeText" depends="requiredif" page="120">
+                <arg0 key="Other brokerage conduct" resource="false"/>
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>otherBrokerageType</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>EQUAL</var-value>
+                </var>
+                <var>
+                    <var-name>fieldValue[0]</var-name>
+                    <var-value>true</var-value>
+                </var>
+            </field>
+            <field property="answer" depends="required" page="130" indexedListProperty="generalRecordsComplianceAnswers">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validateGeneralRecordsComplianceAnswers" depends="required" page="130">
+                <msg name="required" key="errors.explanationRequired" />
+            </field>
+            <field property="answer" depends="required" page="140" indexedListProperty="brokerReviewAnswers">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validateBrokerReviewAnswers" depends="required" page="140">
+                <msg name="required" key="errors.explanationRequired" />
+            </field>
+            <field property="answer" depends="required" page="150" indexedListProperty="employmentAnswers">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validateEmploymentAnswers" depends="required" page="150">
+                <msg name="required" key="errors.explanationRequired" />
+            </field>
+            <field property="answer" depends="required" page="160" indexedListProperty="disclosureAnswers">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validateDisclosureAnswers" depends="required" page="160">
+                <msg name="required" key="errors.explanationRequired" />
+            </field>
+            <field property="answer" depends="required" page="170" indexedListProperty="salesTransactionAnswers">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validateSalesTransactionAnswers" depends="required" page="170">
+                <msg name="required" key="errors.explanationRequired" />
+            </field>
+            <field property="answer" depends="required" page="180" indexedListProperty="earnestDepositAnswers">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validateEarnestDepositAnswers" depends="required" page="180">
+                <msg name="required" key="errors.explanationRequired" />
+            </field>
+            <field property="answer" depends="required" page="191" indexedListProperty="earnestTrustAccountAnswers">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validateEarnestTrustAccountAnswers" depends="required" page="191">
+                <msg name="required" key="errors.explanationRequired" />
+            </field>
+            <field property="answer" depends="required" page="200" indexedListProperty="delegationAnswers">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validateDelegationAnswers" depends="required" page="200">
+                <msg name="required" key="errors.explanationRequired" />
+            </field>
+            <field property="supervisionPolicy.answer" depends="required" page="210">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="supervisionPolicy.explanation" depends="requiredif" page="210">
+                <msg name="requiredif" key="errors.explanationRequired" />
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>supervisionPolicy.answer</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>EQUAL</var-value>
+                </var>
+                <var>
+                    <var-name>fieldValue[0]</var-name>
+                    <var-value>N</var-value>
+                </var>
+            </field>
+            <field property="answer" depends="required" page="230" indexedListProperty="supervisionPolicyAnswers">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validateSupervisionPolicyAnswers" depends="required" page="230">
+                <msg name="required" key="errors.explanationRequired" />
+            </field>
+            <field property="numSingleFamilyHomes" depends="requiredif,mask" page="260">
+                <arg0 key="Number of single family homes" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${numeric}</var-value>
+                </var>
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>residentialPropMgmt</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>EQUAL</var-value>
+                </var>
+                <var>
+                    <var-name>fieldValue[0]</var-name>
+                    <var-value>true</var-value>
+                </var>
+            </field>
+            <field property="numMultiFamilyUnits" depends="requiredif,mask" page="260">
+                <arg0 key="Number of multi family homes" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${numeric}</var-value>
+                </var>
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>residentialPropMgmt</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>EQUAL</var-value>
+                </var>
+                <var>
+                    <var-name>fieldValue[0]</var-name>
+                    <var-value>true</var-value>
+                </var>
+            </field>
+            <field property="numResidentialOther" depends="requiredif,mask" page="260">
+                <arg0 key="Number of other residential units" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${numeric}</var-value>
+                </var>
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>residentialPropMgmt</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>EQUAL</var-value>
+                </var>
+                <var>
+                    <var-name>fieldValue[0]</var-name>
+                    <var-value>true</var-value>
+                </var>
+            </field>
+            <field property="numShoppingCenters" depends="requiredif,mask" page="260">
+                <arg0 key="Number of shopping centers" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${numeric}</var-value>
+                </var>
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>commercialPropMgmt</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>EQUAL</var-value>
+                </var>
+                <var>
+                    <var-name>fieldValue[0]</var-name>
+                    <var-value>true</var-value>
+                </var>
+            </field>
+            <field property="numCommericalBuildings" depends="requiredif,mask" page="260">
+                <arg0 key="Number of commercial buildings" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${numeric}</var-value>
+                </var>
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>commercialPropMgmt</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>EQUAL</var-value>
+                </var>
+                <var>
+                    <var-name>fieldValue[0]</var-name>
+                    <var-value>true</var-value>
+                </var>
+            </field>
+            <field property="numCommercialOther" depends="requiredif,mask" page="260">
+                <arg0 key="Number of other commercial buildings" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>${numeric}</var-value>
+                </var>
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>commercialPropMgmt</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>EQUAL</var-value>
+                </var>
+                <var>
+                    <var-name>fieldValue[0]</var-name>
+                    <var-value>true</var-value>
+                </var>
+            </field>
+            <field property="answer" depends="required" page="270" indexedListProperty="propMgmtAgreementAnswers">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validatePropMgmtAgreementAnswers" depends="required" page="270">
+                <msg name="required" key="errors.explanationRequired" />
+            </field>
+            <field property="answer" depends="required" page="280" indexedListProperty="propMgmtRecordAnswers">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validatePropMgmtRecordAnswers" depends="required" page="280">
+                <msg name="required" key="errors.explanationRequired" />
+            </field>
+            <field property="hasPropMgmtTrustAccounts.answer" depends="required" page="290">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validatePropMgmtTrustAccountsSize" depends="required" page="300">
+                <msg name="required" key="p300.error.atleastone"/>
+            </field>
+            <field property="validateComplete" depends="required" page="300" indexedListProperty="propMgmtTrustAccounts">
+                <msg name="required" key="p300.error.incomplete"/>
+            </field>
+            <field property="validateTrustAccountsSize" depends="required" page="320">
+                <msg name="required" key="p320.error.atleastone"/>
+            </field>
+            <field property="validateComplete" depends="required" page="320" indexedListProperty="trustAccounts">
+                <msg name="required" key="p320.error.incomplete"/>
+            </field>
+            <field property="answer" depends="required" page="330" indexedListProperty="propMgmtTrustAccountAnswers">
+                <msg name="required" key="errors.answersRequired" />
+            </field>
+            <field property="validatePropMgmtTrustAccountAnswers" depends="required" page="330">
+                <msg name="required" key="errors.explanationRequired" />
+            </field>
+            <field property="affirmation" depends="required" page="400">
+                <msg name="required" key="p400.error.affirmationRequired" />
+            </field>
+        </form>
+    </formset>
+    
+</form-validation>

@@ -1,0 +1,318 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="Employment Information"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <a href="index.xhtml" target="_self">Home</a> &gt;
+            <s:link view="/newapp-asrcp.xhtml" value=" New Application"/> &gt;
+            <s:link view="/newapp-terms.xhtml" value=" Terms and Conditions"/> &gt;
+            <s:link view="/newapp-citizen.xhtml" value=" Citizenship"/> &gt;
+            <s:link view="/newapp-info.xhtml" value=" Applicant Information"/> &gt; Employment Information
+        </div>
+    </ui:define>
+    <ui:define name="body">
+
+        <h:form class="form" id="form2">
+
+            <s:validateAll>
+                <div class="form">      
+
+                    <div class="instructions"><h:outputText value="#{splashManager.newappEmploymentInstructions}" escape="false"></h:outputText></div>
+
+                    <!-- top-of-section 'Previous' navigation button -->
+                    <fieldset>
+                        <div class="grid-6-12">
+                            <s:button id="btnTopPrevious" view="/newapp-info.xhtml" value="Previous" styleClass="submit_button"/>
+                        </div>
+                    </fieldset>
+
+                    <div align="left"><label class="required">Indicates required fields</label> 
+                    </div>  
+
+                    <center>
+                        <div class="error" id="errors" style="display:none;">
+                            <div class="errror_message">The following error(s) have been found: <div class="clear"></div>		
+                                <ul class="error_list">
+                                    <li>First Name, Last Name, Address, City, State, Zip, DOB, Height Ft., Height In., Weight, Eyes, Hair, Sex is a required field. </li>
+                                    <li>The email address you entered is not in the correct format. Email address should contain the following: username@isp.com.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </center>
+
+                    <a4j:outputPanel id="employmentTable">
+                        <h2>Employment Status </h2>
+                        <div class="display_table">
+                            <fieldset>
+                                <div class="grid-12-12"> 
+                                    <label class="required">Are you currently employed?</label> 
+
+                                    <h:selectOneRadio id="currentlyEmployed" value="#{newApplication.contact.employmentStatus}" required="true" requiredMessage="Employment Status is required.">  
+                                        <f:selectItem itemValue="True" itemLabel="Yes" />  
+                                        <f:selectItem itemValue="False" itemLabel="No"/>  
+                                        <a4j:support oncomplete="jQuery('.mask_date_us').mask('99/99/9999'); jQuery('.mask_phone').mask('999-999-9999')" ajaxSingle="true" actionListener="#{newApplication.changeOnAreYouCurrentlyEmployed}" event="onclick" reRender="employmentTable"/>
+                                    </h:selectOneRadio>
+
+                                    <!--<input type="radio"  value="" name="group1" /><label>Yes</label>-->
+                                    <!--<input type="radio"  value="" name="group1" /><label>No</label>-->
+                                </div>
+                            </fieldset>  
+
+                        </div>
+
+
+                        <s:div rendered="#{newApplication.contact.employmentStatus}">
+                            <div class="display_table">
+
+                                <fieldset>
+                                    <div class="grid-6-12"> 
+                                        <label class="required">Employed Status:</label><div class="clear"></div>
+
+
+                                        <h:selectOneMenu id="Suffix" value="#{newApplication.contact.employedStatus}" 
+                                                         class="dropmenu  form-bigger" 
+                                                         required="true" 
+                                                         requiredMessage="Employed Status is required.">
+                                            <f:selectItem itemValue="" itemLabel="Click to select"/>
+                                            <f:selectItem itemValue="Full Time" itemLabel="Full Time"/>
+                                            <f:selectItem itemValue="Part Time" itemLabel="Part Time"/>
+                                            <f:selectItem itemValue="Employed in field other than Respiratory Care" itemLabel="Employed in field other than Respiratory Care"/>
+                                        </h:selectOneMenu>
+
+
+                                    </div>
+                                    <div class="grid-6-12"> 
+                                        <label class="required">Principle Field of Employment:</label><div class="clear"></div>	
+
+
+                                        <h:selectOneMenu id="principleFieldOfEmployment"
+                                                         value="#{newApplication.contact.principleFieldofEmployment}"
+                                                         title="Select Principle Field of Employment"
+                                                         class="dropmenu form-bigger"
+                                                         required="true" 
+                                                         requiredMessage="Principle Field of Employment is required.">
+                                            <a4j:support ajaxSingle="true" actionListener="#{newApplication.changeOnPrincipleFieldOfEmployment}" event="onchange" reRender="principleFieldOfEmploymentOther"/>
+                                            <f:selectItems 	value="#{newApplication.principleFieldOfEmploymentList}"/>
+                                        </h:selectOneMenu>
+
+
+                                    </div>
+                                </fieldset> 
+
+                                <a4j:outputPanel id="principleFieldOfEmploymentOther" >
+                                    <s:div rendered="#{newApplication.displayPrincipleFieldofEmploymentOtherSection}">
+                                        <fieldset>
+                                            <div class="grid-12-12"> 
+                                                <label class="required">Other or Non Respiratory Field Description:</label>
+
+                                                <h:inputText value="#{newApplication.contact.principleFieldofEmploymentOther}" 
+                                                             class="textfield"
+                                                             required="true"
+                                                             requiredMessage="Other or Non Respiratory Field Description is required."
+                                                             converter="#{stringTrimConverter}"/>
+                                                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+
+                                            </div>
+                                        </fieldset> 
+                                    </s:div>
+                                </a4j:outputPanel>
+
+                            </div>
+
+                            <h2>Employer Information </h2>
+
+                            <div class="display_table">
+                                <p>If you are currently employed, please provide the following information.  </p>   
+                                <fieldset>
+                                    <div class="grid-12-12"> 
+                                        <label class="required">Employer Name:</label>
+
+                                        <h:inputText class="textfield" 
+                                                     value="#{newApplication.contact.bizName}"
+                                                     required="true"
+                                                     requiredMessage="Employer Name is required."
+                                                     converter="#{stringTrimConverter}"/>
+                                        <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+
+                                    </div>
+
+                                </fieldset>
+                                <fieldset>
+                                    <div class="grid-7-12"> 
+                                        <label class="required">Street Address:</label>
+
+                                        <h:inputText class="textfield" 
+                                                     value="#{newApplication.contact.bizStreet}"
+                                                     required="true"
+                                                     requiredMessage="Street Address is required."
+                                                     converter="#{stringTrimConverter}"/>
+                                        <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+
+                                    </div>
+                                    <div class="grid-5-12"> 
+                                        <label class="required">City:</label>
+
+                                        <h:inputText class="textfield" 
+                                                     value="#{newApplication.contact.bizCity}"
+                                                     required="true"
+                                                     requiredMessage="City is required."
+                                                     converter="#{stringTrimConverter}"/>
+                                        <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+
+                                    </div>
+                                </fieldset> 
+                                <fieldset>
+                                    <div class="grid-2-12"> 
+                                        <label class="required">County:</label><div class="clear"></div>
+
+
+                                        <h:selectOneMenu id="employerCounty"
+                                                         required="true"
+                                                         requiredMessage="County is required."
+                                                         class="dropmenu"
+                                                         value="#{newApplication.contact.bizCounty}"
+                                                         title="Select a County">
+                                            <f:selectItems 	value="#{newApplication.countyList}"/>
+                                        </h:selectOneMenu>	
+
+
+                                    </div>
+                                    <div class="grid-3-12"> 
+                                        <label class="required">State</label><div class="clear"></div>	
+
+
+                                        <h:selectOneMenu id="employerState"
+                                                         value="#{newApplication.contact.bizState}"
+                                                         class="dropmenu"
+                                                         title="Select a State"
+                                                         required="true"
+                                                         requiredMessage="State is required.">
+                                            <f:selectItems 	value="#{newApplication.stateList}"/>
+                                        </h:selectOneMenu>
+
+
+                                    </div>
+                                    <div class="grid-2-12"> 
+                                        <label class="required">Zip Code:</label>
+
+                                        <h:inputText class="textfield" 
+                                                     value="#{newApplication.contact.bizZip}"
+                                                     required="true"
+                                                     requiredMessage="Zip Code is required."/>
+                                        <!--<input name="" id="" type="text" class="textfield" value="" />-->
+
+
+                                    </div>
+                                    <div class="grid-1-12"> 
+                                        <label class="required">Phone:</label>
+
+                                        <h:inputText value="#{newApplication.contact.bizPhone}"
+                                                     required="true"
+                                                     requiredMessage="Phone is required."
+                                                     class="input_mask mask_phone"/>
+
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <h2>Employment Information </h2>
+                            <div class="display_table">
+                                <fieldset>
+                                    <div class="grid-6-12"> 
+                                        <label class="required">Current Position:</label>
+
+                                        <h:inputText class="textfield" 
+                                                     value="#{newApplication.contact.bizCurrentPosition}"
+                                                     required="true"
+                                                     requiredMessage="Current Position is required."
+                                                     converter="#{stringTrimConverter}"/>
+
+                                    </div>
+                                    <div class="grid-3-12"> 
+                                        <label class="required">Employment Start Date:</label>
+
+                                        <rich:calendar id="employmentStartDate" 
+                                                       jointPoint="top-right"
+                                                       direction="top-right"
+                                                       value="#{newApplication.contact.bizEmploymentStart}" 
+                                                       showWeeksBar="false"
+                                                       popup="true"
+                                                       showFooter="false"
+                                                       inputSize="15"
+                                                       enableManualInput="true"
+                                                       converterMessage="Please use a mm/dd/yyyy format for Employment Start Date."
+                                                       datePattern="MM/dd/yyyy" 
+                                                       style="width: 150px;" 
+                                                       required="true"
+                                                       requiredMessage="Employment Start Date is required."
+                                                       inputClass="input_mask mask_date_us">
+                                            <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                        </rich:calendar>
+                                    </div>
+
+                                </fieldset> 
+                                <fieldset>
+                                    <div class="grid-6-12"> 
+                                        <label class="required">Supervisor's Name:</label>
+
+                                        <h:inputText class="textfield" 
+                                                     value="#{newApplication.contact.managerName}"
+                                                     required="true"
+                                                     requiredMessage="Supervisor's Name is required."
+                                                     converter="#{stringTrimConverter}"/>
+
+                                    </div>
+                                    <div class="grid-6-12"> 
+                                        <label class="required">Area of Care or Specialty:</label>
+
+                                        <h:inputText class="textfield" 
+                                                     value="#{newApplication.contact.bizAreaofCareSpecialty}"
+                                                     required="true"
+                                                     requiredMessage="Area of Care or Specialty is required."
+                                                     converter="#{stringTrimConverter}"/>
+
+                                    </div>   
+                                </fieldset>    
+                            </div>
+                        </s:div>
+                    </a4j:outputPanel>
+
+                    <!-- bottom-of-page navigation buttons --> 
+                    <fieldset>
+                        <div class="grid-6-12">
+                            <s:button view="/newapp-info.xhtml" value="Previous" styleClass="submit_button"/>
+                        </div>
+
+                        <div class="grid-6-12 form-right">
+                            <h:commandButton id="Continue"
+                                             styleClass="submit_button"
+                                             value="Continue"
+                                             action="#{newApplication.newAppEmploymentContinue}">
+                            </h:commandButton>
+                        </div>
+                    </fieldset>
+                </div>
+
+            </s:validateAll>
+        </h:form>
+
+    </ui:define>
+</ui:composition>

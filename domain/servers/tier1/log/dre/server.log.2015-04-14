@@ -1,0 +1,282 @@
+10:47:24,740 DEBUG [com.ibm.azportal.dre.filters.ResetSessionFilter] (http-/0.0.0.0:8180-1:142) filtering incoming request from /app/dre/
+10:47:24,742 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-1:38) getting singelton instance of the CDI bean
+10:47:26,847 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-1:244) returning for key:StaticPath, value:http://localhost:8080/app/dre/
+10:47:27,283 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-1:244) returning for key:StaticPath, value:http://localhost:8080/app/dre/
+10:47:27,562 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-1:244) returning for key:DREHome, value:http://www.re.state.az.us/
+10:47:27,564 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-1:244) returning for key:PortalHome, value:http://localhost:8080
+10:47:29,279 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-1:244) returning for key:DREHome, value:http://www.re.state.az.us/
+10:47:29,280 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-1:244) returning for key:PortalHome, value:http://localhost:8080
+10:47:30,595 TRACE [com.nicusa.az.dre.utils.BeanLocator] (http-/0.0.0.0:8180-1:90) looking up bean by name:java:module/CtsResourceProducer
+10:47:30,613 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (http-/0.0.0.0:8180-1:22) initialized SystemAppProperty
+10:47:30,614 TRACE [com.nicusa.az.dre.common.producers.CtsResourceProducer] (http-/0.0.0.0:8180-1:32) looking up ctsEjb ...
+10:47:30,614 TRACE [com.nicusa.az.dre.common.producers.CtsResourceProducer] (http-/0.0.0.0:8180-1:39) loaded jboss context, ready to lookup ejb
+10:47:30,615 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (http-/0.0.0.0:8180-1:37) property key:ctsEjbUrl->ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote
+10:47:30,647 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (http-/0.0.0.0:8180-1:37) property key:ctsEjbUrl->ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote
+10:47:30,648 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (http-/0.0.0.0:8180-1:37) property key:ctsEjbUrl->ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote
+10:47:30,648 TRACE [com.nicusa.az.dre.common.producers.CtsResourceProducer] (http-/0.0.0.0:8180-1:43) found ejb by ejndi name:ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote, ejb address:ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote
+10:47:30,649 TRACE [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-1:48) using cts lookup for the service name:ADRE Configurable Text
+10:47:30,651 TRACE [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-1:53) looking up configurable text by key:00challenge_1.jsp
+10:47:35,408 ERROR [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-1:60) CTS is missing records for the key:00challenge_1.jsp
+10:47:35,417 DEBUG [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-1:69) configurable text displayed to the user:CONFIGURABLE TEXT NOT FOUND 
+10:47:35,417 TRACE [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-1:71) performing forward to dct
+10:47:35,874 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-1:244) returning for key:Usability.URL, value:http://www.az.gov/polices_acceptable.html
+10:47:35,889 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-1:244) returning for key:AcceptableUse.URL, value:http://www.az.gov/polices_accessibility.html
+10:47:35,890 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-1:244) returning for key:ContactUs.URL, value:http://www.azre.gov/Contacts/Contacts.aspx
+10:52:33,848 DEBUG [com.ibm.azportal.dre.filters.ResetSessionFilter] (http-/0.0.0.0:8180-3:142) filtering incoming request from /app/dre/
+10:52:33,850 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:StaticPath, value:http://localhost:8080/app/dre/
+10:52:33,851 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:StaticPath, value:http://localhost:8080/app/dre/
+10:52:33,852 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:DREHome, value:http://www.re.state.az.us/
+10:52:33,852 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:PortalHome, value:http://localhost:8080
+10:52:33,862 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:DREHome, value:http://www.re.state.az.us/
+10:52:33,863 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:PortalHome, value:http://localhost:8080
+10:52:33,864 TRACE [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-3:48) using cts lookup for the service name:ADRE Configurable Text
+10:52:33,864 TRACE [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-3:53) looking up configurable text by key:00challenge_1.jsp
+10:52:38,667 ERROR [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-3:60) CTS is missing records for the key:00challenge_1.jsp
+10:52:38,682 DEBUG [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-3:69) configurable text displayed to the user:CONFIGURABLE TEXT NOT FOUND 
+10:52:38,682 TRACE [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-3:71) performing forward to dct
+10:52:38,690 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:Usability.URL, value:http://www.az.gov/polices_acceptable.html
+10:52:38,691 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:AcceptableUse.URL, value:http://www.az.gov/polices_accessibility.html
+10:52:38,691 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:ContactUs.URL, value:http://www.azre.gov/Contacts/Contacts.aspx
+10:53:10,201 DEBUG [com.ibm.azportal.dre.filters.ResetSessionFilter] (http-/0.0.0.0:8180-3:142) filtering incoming request from /app/dre/
+10:53:10,201 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:StaticPath, value:http://localhost:8080/app/dre/
+10:53:10,202 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:StaticPath, value:http://localhost:8080/app/dre/
+10:53:10,203 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:DREHome, value:http://www.re.state.az.us/
+10:53:10,203 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:PortalHome, value:http://localhost:8080
+10:53:10,205 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:DREHome, value:http://www.re.state.az.us/
+10:53:10,205 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:PortalHome, value:http://localhost:8080
+10:53:10,206 TRACE [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-3:48) using cts lookup for the service name:ADRE Configurable Text
+10:53:10,207 TRACE [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-3:53) looking up configurable text by key:00challenge_1.jsp
+10:53:15,167 ERROR [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-3:60) CTS is missing records for the key:00challenge_1.jsp
+10:53:15,183 DEBUG [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-3:69) configurable text displayed to the user:CONFIGURABLE TEXT NOT FOUND 
+10:53:15,183 TRACE [com.ibm.azportal.dre.struts.actions.DynamicCT] (http-/0.0.0.0:8180-3:71) performing forward to dct
+10:53:15,184 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:Usability.URL, value:http://www.az.gov/polices_acceptable.html
+10:53:15,185 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:AcceptableUse.URL, value:http://www.az.gov/polices_accessibility.html
+10:53:15,186 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (http-/0.0.0.0:8180-3:244) returning for key:ContactUs.URL, value:http://www.azre.gov/Contacts/Contacts.aspx
+13:11:35,241 TRACE [com.ibm.gs.houston.filters.BaseFilter] (MSC service thread 1-2:82) initializing filter...
+13:11:35,279 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:38) getting singelton instance of the CDI bean
+13:11:35,280 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:52) intializing property manager via CDI application scope
+13:11:35,281 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dreWebServiceEndPoint->http://test.azre.gov/portalservices/olrsservice.svc
+13:11:35,281 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_tpeUnableToCaptureError->We were unable to process payment at this time. Your credit card has not been charged. A Payment Request has been created so that you can conveniently try again later. Click the Home link and review the Alerts section for more information.
+13:11:35,281 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_tpeUnableToCaptureAndCallDreError->We were unable to process payment at this time. Your credit card has not been charged. The Department will to contact you with instructions on how to complete payment for your transaction.
+13:11:35,281 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:tpeEjbUrl->ejb:tpe-ejb/tpe-ejb-ejb-1.0-SNAPSHOT/TpeEjb!com.nicusa.az.tpe.remote.TpeEjbRemote
+13:11:35,281 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:ctsEjbUrl->ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote
+13:11:35,283 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:emailEjbUrl->ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/EmailEjb!com.nicusa.az.ejbs.email.remote.EmailEjbRemote
+13:11:35,283 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_tpeMerchantId->REA_TEST
+13:11:35,284 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_tpeMerchantKey->REA_TEST_KEY
+13:11:35,328 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_tpeServiceCode->REA_TEST_LICENSING
+13:11:35,328 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_allowPaymentCall->true
+13:11:35,329 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_communicationFailureEmail->capture.failure@azre.gov
+13:11:35,329 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_staticPath->http://localhost:8080/app/dre/
+13:11:35,329 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_portalHome->http://localhost:8080
+13:11:35,329 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_dreHome->http://www.re.state.az.us/
+13:11:35,329 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_SurveyReportsAction->https://secure.az.gov/az/portal/reports/webapp/login.do
+13:11:35,329 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_surveyReportsURL->https://test.secure.az.gov/az/portal/reports/
+13:11:35,329 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_Usability.URL->http://www.az.gov/polices_acceptable.html
+13:11:35,330 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_ContactUs.URL->http://www.azre.gov/Contacts/Contacts.aspx
+13:11:35,330 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_AcceptableUse.URL->http://www.az.gov/polices_accessibility.html
+13:11:35,330 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_brokerAuditCapture.headerFile->BADHeader.html
+13:11:35,330 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_brokerAuditCapture.footerFile->BADFooter.html
+13:11:35,344 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_brokerAudit.capture.html.dir->/nfs/ftp/dre/
+13:11:35,344 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_pdf.outputDir->/nfs/aztmp/azportal/dre/pdf/
+13:11:35,345 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_template->/pdf/IndividualLicense.pdf
+13:11:35,345 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_bfoLicenseKey->H1C62F47GB2H6G3
+13:11:35,345 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_appPaymentId->700
+13:11:35,345 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dynamic.filePath->/nfs/aztmp/azportal/dre/dynamicContent/
+13:11:35,345 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_brokerRevisionDate->09/28/2007 07:18:10
+13:11:35,345 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:tpeEjbUrl, value:ejb:tpe-ejb/tpe-ejb-ejb-1.0-SNAPSHOT/TpeEjb!com.nicusa.az.tpe.remote.TpeEjbRemote
+13:11:35,345 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_communicationFailureEmail, value:capture.failure@azre.gov
+13:11:35,346 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dreWebServiceEndPoint, value:http://test.azre.gov/portalservices/olrsservice.svc
+13:11:35,346 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_tpeServiceCode, value:REA_TEST_LICENSING
+13:11:35,346 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:DREHome, value:http://www.re.state.az.us/
+13:11:35,346 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:SurveyReports, value:https://secure.az.gov/az/portal/reports/webapp/login.do
+13:11:35,346 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_tpeUnableToCaptureError, value:We were unable to process payment at this time. Your credit card has not been charged. A Payment Request has been created so that you can conveniently try again later. Click the Home link and review the Alerts section for more information.
+13:11:35,346 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_tpeUnableToCaptureAndCallDreError, value:We were unable to process payment at this time. Your credit card has not been charged. The Department will to contact you with instructions on how to complete payment for your transaction.
+13:11:35,346 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_tpeMerchantKey, value:REA_TEST_KEY
+13:11:35,347 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_allowPaymentCall, value:true
+13:11:35,347 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:pdf.template, value:/pdf/IndividualLicense.pdf
+13:11:35,347 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_tpeMerchantId, value:REA_TEST
+13:11:35,347 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:brokerAudit.capture.html.dir, value:/nfs/ftp/dre/
+13:11:35,347 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:brokerAuditCapture.headerFile, value:BADHeader.html
+13:11:35,347 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:ctsEjbUrl, value:ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote
+13:11:35,347 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:AcceptableUse.URL, value:http://www.az.gov/polices_accessibility.html
+13:11:35,347 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:StaticPath, value:http://localhost:8080/app/dre/
+13:11:35,348 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:ContactUs.URL, value:http://www.azre.gov/Contacts/Contacts.aspx
+13:11:35,348 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:PortalHome, value:http://localhost:8080
+13:11:35,348 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dynamic.filePath, value:/nfs/aztmp/azportal/dre/dynamicContent/
+13:11:35,348 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:SurveyReportsURL, value:https://test.secure.az.gov/az/portal/reports/
+13:11:35,348 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:Usability.URL, value:http://www.az.gov/polices_acceptable.html
+13:11:35,357 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:payment.appId, value:700
+13:11:35,357 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:brokerAuditCapture.footerFile, value:BADFooter.html
+13:11:35,357 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_brokerRevisionDate, value:09/28/2007 07:18:10
+13:11:35,357 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:bfoLicenseKey, value:H1C62F47GB2H6G3
+13:11:35,357 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:pdf.outputDir, value:/nfs/aztmp/azportal/dre/pdf/
+13:11:35,357 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:emailEjbUrl, value:ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/EmailEjb!com.nicusa.az.ejbs.email.remote.EmailEjbRemote
+13:11:35,357 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:68) total:28 properties loaded
+13:11:35,358 DEBUG [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:80) successfully loaded properties from file:workflow.properties
+13:11:35,363 DEBUG [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:80) successfully loaded properties from file:pageDefinitions.properties
+13:11:35,363 WARN  [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:82) was not able to find resource by filename:realAdminResources.properties
+13:11:35,363 TRACE [com.ibm.gs.houston.filters.BaseFilter] (MSC service thread 1-2:87) loading filter property values ...
+13:11:35,364 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:224) requested property:brokerAuditCapture.footerFile, response value:BADFooter.html
+13:11:35,364 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:224) requested property:brokerAuditCapture.headerFile, response value:BADHeader.html
+13:11:35,364 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:224) requested property:brokerAudit.capture.html.dir, response value:/nfs/ftp/dre/
+13:11:35,368 TRACE [com.ibm.gs.houston.filters.BaseFilter] (MSC service thread 1-2:152) reading file as a string for the path:BADHeader.html
+13:11:35,369 TRACE [com.ibm.gs.houston.filters.BaseFilter] (MSC service thread 1-2:152) reading file as a string for the path:BADFooter.html
+13:11:36,137 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:38) getting singelton instance of the CDI bean
+13:11:36,401 TRACE [com.ibm.azportal.dre.domain.logic.DREFacadeImpl] (MSC service thread 1-2:80) DREFaced object instantiating ...
+13:11:36,561 WARN  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:90) CDI injection didn't work for the bean, manually instantiating properties
+13:11:36,561 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_appPaymentId->700
+13:11:36,561 TRACE [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:95) payment application id was set to:700
+13:11:36,561 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:99) Retrieving all Products for Application ID: 700
+13:11:36,778 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: Convenience
+13:11:36,779 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: RE000002(Convenience)
+13:11:36,779 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: IndividualRenewal
+13:11:36,779 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REHH01(IndividualRenewal)
+13:11:36,780 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: Hire
+13:11:36,780 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: RE000003(Hire)
+13:11:36,797 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: LateIndividualRenewal
+13:11:36,797 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REA00004(LateIndividualRenewal)
+13:11:36,798 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: Transfer
+13:11:36,798 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REA00005(Transfer)
+13:11:36,798 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: BranchOfficeRenewal
+13:11:36,799 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REBRCHRN(BranchOfficeRenewal)
+13:11:36,799 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: SalesRenewal
+13:11:36,803 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: RESALERN(SalesRenewal)
+13:11:36,804 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: BrokerRenewal
+13:11:36,804 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REBRKRRN(BrokerRenewal)
+13:11:36,804 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: LateSalesRenewal
+13:11:36,805 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: RESALELF(LateSalesRenewal)
+13:11:36,805 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: LateBrokerRenewal
+13:11:36,819 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REBRKRLF(LateBrokerRenewal)
+13:11:36,819 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: BrokerRecoveryFund
+13:11:36,820 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REBRKRRF(BrokerRecoveryFund)
+13:11:36,820 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: SalesRecoveryFund
+13:11:36,820 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: RESALERF(SalesRecoveryFund)
+13:11:36,864 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: Convenience
+13:11:36,864 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: IndividualRenewal
+13:11:36,864 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: Hire
+13:11:36,864 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: LateIndividualRenewal
+13:11:36,864 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: Transfer
+13:11:36,865 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: BranchOfficeRenewal
+13:11:36,865 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: SalesRenewal
+13:11:36,865 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: BrokerRenewal
+13:11:36,869 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: LateSalesRenewal
+13:11:36,869 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: LateBrokerRenewal
+13:11:36,869 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: BrokerRecoveryFund
+13:11:36,870 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: SalesRecoveryFund
+13:11:36,886 TRACE [com.ibm.azportal.gao.payment.client.HttpPostXmlGaoPaymentImpl] (MSC service thread 1-2:46) payment url was removed from applicationContext file
+13:11:39,518 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:38) getting singelton instance of the CDI bean
+13:11:39,518 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:224) requested property:dynamic.filePath, response value:/nfs/aztmp/azportal/dre/dynamicContent/
+13:54:12,316 TRACE [com.ibm.gs.houston.filters.BaseFilter] (MSC service thread 1-2:82) initializing filter...
+13:54:12,331 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:38) getting singelton instance of the CDI bean
+13:54:12,332 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:52) intializing property manager via CDI application scope
+13:54:12,333 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dreWebServiceEndPoint->http://test.azre.gov/portalservices/olrsservice.svc
+13:54:12,333 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_tpeUnableToCaptureError->We were unable to process payment at this time. Your credit card has not been charged. A Payment Request has been created so that you can conveniently try again later. Click the Home link and review the Alerts section for more information.
+13:54:12,333 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_tpeUnableToCaptureAndCallDreError->We were unable to process payment at this time. Your credit card has not been charged. The Department will to contact you with instructions on how to complete payment for your transaction.
+13:54:12,335 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:tpeEjbUrl->ejb:tpe-ejb/tpe-ejb-ejb-1.0-SNAPSHOT/TpeEjb!com.nicusa.az.tpe.remote.TpeEjbRemote
+13:54:12,335 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:ctsEjbUrl->ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote
+13:54:12,336 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:emailEjbUrl->ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/EmailEjb!com.nicusa.az.ejbs.email.remote.EmailEjbRemote
+13:54:12,336 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_tpeMerchantId->REA_TEST
+13:54:12,336 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_tpeMerchantKey->REA_TEST_KEY
+13:54:12,336 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_tpeServiceCode->REA_TEST_LICENSING
+13:54:12,336 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_allowPaymentCall->true
+13:54:12,336 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_communicationFailureEmail->capture.failure@azre.gov
+13:54:12,336 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_staticPath->http://localhost:8080/app/dre/
+13:54:12,347 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_portalHome->http://localhost:8080
+13:54:12,347 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_dreHome->http://www.re.state.az.us/
+13:54:12,348 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_SurveyReportsAction->https://secure.az.gov/az/portal/reports/webapp/login.do
+13:54:12,348 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_surveyReportsURL->https://test.secure.az.gov/az/portal/reports/
+13:54:12,348 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_Usability.URL->http://www.az.gov/polices_acceptable.html
+13:54:12,348 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_ContactUs.URL->http://www.azre.gov/Contacts/Contacts.aspx
+13:54:12,348 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_AcceptableUse.URL->http://www.az.gov/polices_accessibility.html
+13:54:12,348 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_brokerAuditCapture.headerFile->BADHeader.html
+13:54:12,348 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_brokerAuditCapture.footerFile->BADFooter.html
+13:54:12,348 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_brokerAudit.capture.html.dir->/nfs/ftp/dre/
+13:54:12,349 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_pdf.outputDir->/nfs/aztmp/azportal/dre/pdf/
+13:54:12,349 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_template->/pdf/IndividualLicense.pdf
+13:54:12,349 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_bfoLicenseKey->H1C62F47GB2H6G3
+13:54:12,349 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_appPaymentId->700
+13:54:12,361 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dynamic.filePath->/nfs/aztmp/azportal/dre/dynamicContent/
+13:54:12,361 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_brokerRevisionDate->09/28/2007 07:18:10
+13:54:12,361 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:tpeEjbUrl, value:ejb:tpe-ejb/tpe-ejb-ejb-1.0-SNAPSHOT/TpeEjb!com.nicusa.az.tpe.remote.TpeEjbRemote
+13:54:12,361 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_communicationFailureEmail, value:capture.failure@azre.gov
+13:54:12,361 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dreWebServiceEndPoint, value:http://test.azre.gov/portalservices/olrsservice.svc
+13:54:12,361 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_tpeServiceCode, value:REA_TEST_LICENSING
+13:54:12,362 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:DREHome, value:http://www.re.state.az.us/
+13:54:12,362 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:SurveyReports, value:https://secure.az.gov/az/portal/reports/webapp/login.do
+13:54:12,362 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_tpeUnableToCaptureError, value:We were unable to process payment at this time. Your credit card has not been charged. A Payment Request has been created so that you can conveniently try again later. Click the Home link and review the Alerts section for more information.
+13:54:12,362 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_tpeUnableToCaptureAndCallDreError, value:We were unable to process payment at this time. Your credit card has not been charged. The Department will to contact you with instructions on how to complete payment for your transaction.
+13:54:12,364 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_tpeMerchantKey, value:REA_TEST_KEY
+13:54:12,364 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_allowPaymentCall, value:true
+13:54:12,365 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:pdf.template, value:/pdf/IndividualLicense.pdf
+13:54:12,365 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_tpeMerchantId, value:REA_TEST
+13:54:12,365 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:brokerAudit.capture.html.dir, value:/nfs/ftp/dre/
+13:54:12,365 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:brokerAuditCapture.headerFile, value:BADHeader.html
+13:54:12,365 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:ctsEjbUrl, value:ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote
+13:54:12,365 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:AcceptableUse.URL, value:http://www.az.gov/polices_accessibility.html
+13:54:12,365 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:StaticPath, value:http://localhost:8080/app/dre/
+13:54:12,365 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:ContactUs.URL, value:http://www.azre.gov/Contacts/Contacts.aspx
+13:54:12,366 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:PortalHome, value:http://localhost:8080
+13:54:12,366 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dynamic.filePath, value:/nfs/aztmp/azportal/dre/dynamicContent/
+13:54:12,366 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:SurveyReportsURL, value:https://test.secure.az.gov/az/portal/reports/
+13:54:12,366 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:Usability.URL, value:http://www.az.gov/polices_acceptable.html
+13:54:12,366 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:payment.appId, value:700
+13:54:12,379 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:brokerAuditCapture.footerFile, value:BADFooter.html
+13:54:12,379 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:dre_brokerRevisionDate, value:09/28/2007 07:18:10
+13:54:12,379 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:bfoLicenseKey, value:H1C62F47GB2H6G3
+13:54:12,380 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:pdf.outputDir, value:/nfs/aztmp/azportal/dre/pdf/
+13:54:12,380 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:66) app property key:emailEjbUrl, value:ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/EmailEjb!com.nicusa.az.ejbs.email.remote.EmailEjbRemote
+13:54:12,380 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:68) total:28 properties loaded
+13:54:12,381 DEBUG [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:80) successfully loaded properties from file:workflow.properties
+13:54:12,428 DEBUG [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:80) successfully loaded properties from file:pageDefinitions.properties
+13:54:12,429 WARN  [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:82) was not able to find resource by filename:realAdminResources.properties
+13:54:12,431 TRACE [com.ibm.gs.houston.filters.BaseFilter] (MSC service thread 1-2:87) loading filter property values ...
+13:54:12,431 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:224) requested property:brokerAuditCapture.footerFile, response value:BADFooter.html
+13:54:12,432 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:224) requested property:brokerAuditCapture.headerFile, response value:BADHeader.html
+13:54:12,432 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:224) requested property:brokerAudit.capture.html.dir, response value:/nfs/ftp/dre/
+13:54:12,432 TRACE [com.ibm.gs.houston.filters.BaseFilter] (MSC service thread 1-2:152) reading file as a string for the path:BADHeader.html
+13:54:12,432 TRACE [com.ibm.gs.houston.filters.BaseFilter] (MSC service thread 1-2:152) reading file as a string for the path:BADFooter.html
+13:54:13,223 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:38) getting singelton instance of the CDI bean
+13:54:13,443 TRACE [com.ibm.azportal.dre.domain.logic.DREFacadeImpl] (MSC service thread 1-2:80) DREFaced object instantiating ...
+13:54:13,508 WARN  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:90) CDI injection didn't work for the bean, manually instantiating properties
+13:54:13,508 TRACE [com.nicusa.az.dre.common.producers.SystemAppProperty] (MSC service thread 1-2:37) property key:dre_appPaymentId->700
+13:54:13,508 TRACE [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:95) payment application id was set to:700
+13:54:13,508 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:99) Retrieving all Products for Application ID: 700
+13:54:13,748 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: Convenience
+13:54:13,749 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: RE000002(Convenience)
+13:54:13,749 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: IndividualRenewal
+13:54:13,753 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REHH01(IndividualRenewal)
+13:54:13,754 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: Hire
+13:54:13,754 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: RE000003(Hire)
+13:54:13,754 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: LateIndividualRenewal
+13:54:13,767 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REA00004(LateIndividualRenewal)
+13:54:13,767 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: Transfer
+13:54:13,768 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REA00005(Transfer)
+13:54:13,768 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: BranchOfficeRenewal
+13:54:13,768 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REBRCHRN(BranchOfficeRenewal)
+13:54:13,769 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: SalesRenewal
+13:54:13,769 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: RESALERN(SalesRenewal)
+13:54:13,782 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: BrokerRenewal
+13:54:13,783 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REBRKRRN(BrokerRenewal)
+13:54:13,783 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: LateSalesRenewal
+13:54:13,783 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: RESALELF(LateSalesRenewal)
+13:54:13,784 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: LateBrokerRenewal
+13:54:13,784 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REBRKRLF(LateBrokerRenewal)
+13:54:13,795 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: BrokerRecoveryFund
+13:54:13,795 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: REBRKRRF(BrokerRecoveryFund)
+13:54:13,796 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:150) New Product: SalesRecoveryFund
+13:54:13,796 DEBUG [com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc] (MSC service thread 1-2:169) LineItem: RESALERF(SalesRecoveryFund)
+13:54:13,798 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: Convenience
+13:54:13,798 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: IndividualRenewal
+13:54:13,799 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: Hire
+13:54:13,799 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: LateIndividualRenewal
+13:54:13,799 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: Transfer
+13:54:13,799 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: BranchOfficeRenewal
+13:54:13,799 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: SalesRenewal
+13:54:13,800 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: BrokerRenewal
+13:54:13,800 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: LateSalesRenewal
+13:54:13,800 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: LateBrokerRenewal
+13:54:13,800 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: BrokerRecoveryFund
+13:54:13,802 INFO  [com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl] (MSC service thread 1-2:107) Retrieved Product: SalesRecoveryFund
+13:54:13,815 TRACE [com.ibm.azportal.gao.payment.client.HttpPostXmlGaoPaymentImpl] (MSC service thread 1-2:46) payment url was removed from applicationContext file
+13:54:16,947 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:38) getting singelton instance of the CDI bean
+13:54:16,948 TRACE [com.nicusa.az.dre.common.utils.PropertyManager] (MSC service thread 1-2:224) requested property:dynamic.filePath, response value:/nfs/aztmp/azportal/dre/dynamicContent/

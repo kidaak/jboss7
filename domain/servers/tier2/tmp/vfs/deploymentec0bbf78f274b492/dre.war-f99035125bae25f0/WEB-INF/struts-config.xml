@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+       "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+       "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+  <!-- Data Sources -->
+  <data-sources>
+  </data-sources>
+
+  <!-- Form Beans -->
+  <form-beans>
+
+        <form-bean name="blank" type="com.ibm.gs.houston.struts.forms.MultiStepForm"/>
+
+        <form-bean name="loginFormBean" type="com.ibm.azportal.dre.struts.forms.LoginFormBean" />
+        
+        <form-bean name="resetPasswordFormBean" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="licenseNum" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="surveyFormBean" type="com.ibm.azportal.dre.struts.forms.SurveyFormBean" />
+        
+        <form-bean name="paymentFormBean" type="com.ibm.azportal.dre.struts.forms.PaymentFormBean" />
+        
+        <form-bean name="requiredInfoFormBean" type="com.ibm.azportal.dre.struts.forms.RequiredInfoFormBean" />
+        
+        <form-bean name="startFunctionFormBean" type="com.ibm.azportal.dre.struts.forms.StartFunctionFormBean" />
+        
+        <form-bean name="renewLicenseFormBean" type="com.ibm.azportal.dre.struts.forms.RenewLicenseFormBean" />
+        
+        <form-bean name="entityRenewalFormBean" type="com.ibm.azportal.dre.struts.forms.RenewLicenseFormBean" />
+        
+        <form-bean name="changePersonalInfoFormBean" type="com.ibm.azportal.dre.struts.forms.ChangePersonalInfoFormBean" />
+        
+        <form-bean name="changeEmploymentFormBean" type="com.ibm.azportal.dre.struts.forms.ChangeEmploymentFormBean" />
+        
+        <form-bean name="severEmploymentFormBean" type="com.ibm.azportal.dre.struts.forms.ChangeEmploymentFormBean" />
+        
+        <form-bean name="brokerAuditFormBean" type="com.ibm.azportal.dre.struts.forms.BrokerAuditFormBean" />
+        
+        <form-bean name="pendingApprovalsFormBean" type="com.ibm.azportal.dre.struts.forms.PendingApprovalsFormBean" />
+        
+        <form-bean name="viewHistoryFormBean" type="com.ibm.azportal.dre.struts.forms.ViewHistoryFormBean" />
+        
+        <form-bean name="changePreferencesBean" type="com.ibm.azportal.dre.struts.forms.ChangePreferencesFormBean" />
+        
+        <form-bean name="severTransferEmployeesBean" type="com.ibm.azportal.dre.struts.forms.SeverTransferFormBean" />
+  </form-beans>
+
+  <!-- Global Exceptions -->
+  <global-exceptions>
+      <exception type="java.lang.Exception" path="/systemError.do" key="errors.default" />
+  </global-exceptions>
+
+  <!-- Global Forwards -->
+  <global-forwards>
+        <forward name="index"                            path="/index.do" />
+        <forward name="home"                             path=".real.01main" />
+        <forward name="workflow"                         path=".real.workflow" />
+        <forward name="error.system"                     path=".real.systemError" />
+        <forward name="brokerAuditFormBean.start"        path="/home.do" />
+        <forward name="brokerAuditFormBean.quit"         path="/home.do" redirect="true" />
+        <forward name="changePersonalInfoFormBean.start" path="/home.do" />
+        <forward name="changePersonalInfoFormBean.quit"  path="/home.do" redirect="true" />
+        <forward name="changeEmploymentFormBean.start"   path="/home.do" />
+        <forward name="changeEmploymentFormBean.quit"    path="/home.do" redirect="true" />
+        <forward name="severEmploymentFormBean.start"    path="/home.do" />
+        <forward name="severEmploymentFormBean.quit"     path="/home.do" redirect="true" />
+        <forward name="renewLicenseFormBean.start"       path="/home.do" />
+        <forward name="renewLicenseFormBean.quit"        path="/home.do" redirect="true" />
+        <forward name="pendingApprovalsFormBean.start"   path="/home.do" />
+        <forward name="pendingApprovalsFormBean.quit"    path="/home.do" redirect="true" />
+        <forward name="paymentFormBean.start"            path="/home.do" />
+        <forward name="paymentFormBean.quit"             path="/home.do" redirect="true" />
+        <forward name="requiredInfoFormBean.start"       path="/home.do" redirect="true" />
+        <forward name="changePreferencesBean.start"      path="/home.do" />
+        <forward name="changePreferencesBean.quit"       path="/home.do" redirect="true" />
+        <forward name="severTransferEmployeesBean.start" path="/home.do" />
+        <forward name="severTransferEmployeesBean.quit"  path="/home.do" redirect="true" />
+  </global-forwards>
+
+  <!-- Action Mappings -->
+  <action-mappings>
+
+        <action path="/index" forward=".real.00challenge"/>
+        
+        <action path="/logon"
+                name="loginFormBean"
+                scope="session"
+                input=".real.00challenge"
+                type="com.ibm.azportal.dre.struts.actions.LogonAction"
+                validate="true">
+            <set-property property="cancellable" value="true"/>
+            <forward name="nogo" path=".real.06nogo" />
+            <forward name="requiredInfo" path="/requiredInfo.do" />
+            <forward name="submit.survey" path=".real.81survey" />
+            <forward name="submit.help" path=".real.80help" />
+        </action>
+
+        <action path="/logoff"
+                name="blank"
+                scope="request"
+                type="com.ibm.azportal.dre.struts.actions.LogoffAction" />
+
+        <action path="/90agentTutorial" forward=".real.90agentTutorial"/>
+        <action path="/services/91brokerTutorial" forward=".real.91brokerTutorial"/>
+                
+        <action path="/services/DRENavigation"
+                name="blank"
+                scope="request"
+                type="com.ibm.azportal.dre.struts.actions.DREBaseAction">
+            <forward name="submit.employeehistory" path=".real.employeeHistoryInput" />
+            <forward name="submit.personalhistory" path=".real.personalHistoryInput" />
+        </action>
+                
+        <action path="/requiredInfo"
+                name="requiredInfoFormBean"
+                scope="session"
+                parameter="start"
+                validate="false"
+                type="com.ibm.azportal.dre.struts.actions.RequiredInfoAction">
+            <forward name="terms" path=".real.05terms" />
+            <forward name="email" path=".real.07email" />
+            <forward name="password" path=".real.08password" />
+        </action>
+                
+        <action path="/submitRequiredInfoTerms"
+                name="requiredInfoFormBean"
+                scope="session"
+                input=".real.05terms"
+                type="com.ibm.azportal.dre.struts.actions.RequiredInfoAction">
+            <forward name="terms" path=".real.05terms" />
+            <forward name="email" path=".real.07email" />
+            <forward name="password" path=".real.08password" />
+        </action>
+        
+        <action path="/submitRequiredInfoEmail"
+                name="requiredInfoFormBean"
+                scope="session"
+                input=".real.07email"
+                type="com.ibm.azportal.dre.struts.actions.RequiredInfoAction">
+            <forward name="terms" path=".real.05terms" />
+            <forward name="email" path=".real.07email" />
+            <forward name="password" path=".real.08password" />
+        </action>
+        
+        <action path="/submitRequiredInfoPassword"
+                name="requiredInfoFormBean"
+                scope="session"
+                input=".real.08password"
+                type="com.ibm.azportal.dre.struts.actions.RequiredInfoAction">
+            <forward name="terms" path=".real.05terms" />
+            <forward name="email" path=".real.07email" />
+            <forward name="password" path=".real.08password" />
+        </action>
+        
+        <action path="/services/startFunction"
+                name="startFunctionFormBean"
+                scope="request"
+                type="com.ibm.azportal.dre.struts.actions.StartFunctionAction">
+            <forward name="function0" path=".real.01main" />
+            <forward name="function1" path="/services/startIndividualRenewalFunction.do" />
+            <forward name="function2" path="/services/startChangeEmploymentFunction.do" />
+            <forward name="function3" path="/services/startChangePersonalInfoFunction.do" />
+            <forward name="function4" path=".real.viewStatus" />
+            <forward name="function5" path="/services/startPendingApprovalsFunction.do" />
+            <forward name="function6" path=".real.employeeHistoryInput" />
+            <forward name="function7" path=".real.personalHistoryInput" />
+            <forward name="function8" path="/services/startSeverEmploymentFunction.do" />
+            <forward name="function9" path="/audit/start.do" />
+            <forward name="function10" path="/services/startSeverTransferEmployeesFunction.do" />
+            <forward name="function11" path="/services/viewPreferences.do" />
+            <forward name="function12" path="/services/startEntityRenewalFunction.do" />
+        </action>
+        
+        <action path="/dynamicCT"  type="com.ibm.azportal.dre.struts.actions.DynamicCT">
+        	<forward name="dct" path="/pages/dynamicCT.jsp"/>        	
+        </action>
+        
+        <action path="/services/receiptTest" type="com.ibm.azportal.dre.struts.actions.Receipt">
+        	<forward name="receipt" path="/pages/confirmRenewal.jsp" />
+        </action>
+        
+        <action path="/services/workflowPage"
+                name="blank"
+                scope="request"
+                validate="false"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowPageAction" />
+                
+        <action path="/services/startWorkflow"
+                name="blank"
+                scope="request"
+                validate="false"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction" />
+                
+        <action path="/services/payWorkflow"
+                name="paymentFormBean"
+                input=".real.payWorkflow"
+                scope="request"
+                type="com.ibm.azportal.dre.struts.actions.CompleteFunctionAction">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.cancel" path=".real.cancelWorkflow" />
+        </action>
+        
+        <action path="/services/cancelWorkflow"
+                name="blank"
+                input=".real.cancelWorkflow"
+                scope="session"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/services/confirmRenewLicenseFunction"
+                name="renewLicenseFormBean"
+                scope="session"
+                input=".real.confirmRenewal"
+                type="com.ibm.azportal.dre.struts.actions.DREBaseAction" />
+        
+        
+        <!-- Individual License Renewal action mappings -->
+        <action path="/services/startIndividualRenewalFunction"
+                name="renewLicenseFormBean"
+                parameter="start"
+                validate="false"
+                scope="session"
+                type="com.ibm.azportal.dre.struts.actions.renewlicense.StartLicenseRenewalFunctionAction" />
+              
+        <action path="/services/submitQuestionnaireRenewLicenseFunction"
+                name="renewLicenseFormBean"
+                scope="session"
+                input=".real.viewQuestionnaire"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction" />
+                
+        <action path="/services/confirmQuestionnaireRenewLicenseFunction"
+                name="renewLicenseFormBean"
+                scope="session"
+                input=".real.confirmQuestionnaire"
+                type="com.ibm.azportal.dre.struts.actions.renewlicense.SubmitQuestionnaireAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/services/submitContinuingEducationRenewLicenseFunction"
+                name="renewLicenseFormBean"
+                scope="session"
+                input=".real.continuingEducation"
+                type="com.ibm.azportal.dre.struts.actions.renewlicense.SubmitContinuingEducationAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/services/verifyContinuingEducationRenewLicenseFunction"
+                name="renewLicenseFormBean"
+                scope="session"
+                input=".real.verifyContinuingEducation"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+                
+        <action path="/services/submitCorporationStatusIndividualRenewLicenseFunction"
+                name="renewLicenseFormBean"
+                scope="session"
+                input="real.corpStatus.individual"
+                type="com.ibm.azportal.dre.struts.actions.renewlicense.SubmitCorporationStatusAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/services/submitContinueEntityRenewalIndividualRenewLicenseFunction"
+                name="renewLicenseFormBean"
+                scope="session"
+                input="real.continueEntityRenewal"
+                type="com.ibm.azportal.dre.struts.actions.renewlicense.ContinueEntityRenewalAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/services/selectInactiveOfficeIndividualRenewLicenseFunction"
+                name="renewLicenseFormBean"
+                scope="session"
+                input=".real.inactiveOffices.individual"
+                type="com.ibm.azportal.dre.struts.actions.entityRenewal.SelectInactiveOfficesAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/services/submitEntityQuestionnaireIndividualRenewLicenseFunction"
+                name="renewLicenseFormBean"
+                scope="session"
+                input=".real.viewEntityQuestionnaire.individual"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/services/confirmEntityQuestionnaireIndividualLicenseRenewFunction"
+                name="renewLicenseFormBean"
+                scope="session"
+                input=".real.confirmEntityQuestionnaire.individual"
+                type="com.ibm.azportal.dre.struts.actions.entityRenewal.SubmitQuestionnaireAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/services/submitEntityCorporationStatusIndividualLicenseRenewFunction"
+                name="renewLicenseFormBean"
+                scope="session"
+                input="real.corpStatus.individual.entity"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/services/reviewRenewLicenseFunction"
+                name="renewLicenseFormBean"
+                parameter="review"
+                scope="session"
+                input=".real.reviewRenewal"
+                type="com.ibm.azportal.dre.struts.actions.CompleteFunctionAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+                                        
+         
+        <!-- Renew Entity License action mappings -->
+        <action path="/services/startEntityRenewalFunction"
+                name="entityRenewalFormBean"
+                parameter="start"
+                validate="false"
+                scope="session"
+                type="com.ibm.azportal.dre.struts.actions.entityRenewal.StartEntityRenewalFunctionAction" />        
+        
+        <action path="/services/selectInactiveOfficeEntityRenewalFunction"
+                name="entityRenewalFormBean"
+                scope="session"
+                input=".real.inactiveOffices"
+                type="com.ibm.azportal.dre.struts.actions.entityRenewal.SelectInactiveOfficesAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/services/submitQuestionnaireEntityRenewalFunction"
+                name="entityRenewalFormBean"
+                scope="session"
+                input=".real.viewEntityQuestionnaire"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+                
+        <action path="/services/confirmQuestionnaireEntityRenewalFunction"
+                name="entityRenewalFormBean"
+                scope="session"
+                input=".real.confirmEntityQuestionnaire"
+                type="com.ibm.azportal.dre.struts.actions.entityRenewal.SubmitQuestionnaireAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/services/submitCorporationStatusEntityRenewalFunction"
+                name="entityRenewalFormBean"
+                scope="session"
+                input="real.corpStatus.entity"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/services/reviewEntityRenewalFunction"
+                name="entityRenewalFormBean"
+                parameter="review"
+                scope="session"
+                input=".real.reviewEntityRenewal"
+                type="com.ibm.azportal.dre.struts.actions.CompleteFunctionAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+                                        
+        <action path="/services/confirmEntityRenewalFunction"
+                name="entityRenewalFormBean"
+                scope="session"
+                input=".real.confirmEntityRenewal"
+                type="com.ibm.azportal.dre.struts.actions.DREBaseAction" />
+                
+        <!-- Pending Approvals action mappings -->
+        <action path="/services/startPendingApprovalsFunction"
+                name="pendingApprovalsFormBean"
+                parameter="start"
+                validate="false"
+                scope="session"
+                type="com.ibm.azportal.dre.struts.actions.pendingApprovals.StartPendingApprovalsFunctionAction" />
+                
+        <action path="/services/submitPendingApprovalsFunction"
+                name="pendingApprovalsFormBean"
+                scope="session"
+                input=".real.viewPending"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction" />
+                
+        <action path="/services/confirmPendingApprovalsFunction"
+                name="pendingApprovalsFormBean"
+                scope="session"
+                input=".real.confirmApproval"
+                type="com.ibm.azportal.dre.struts.actions.pendingApprovals.SubmitApprovalAction">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.complete" path="/services/completeApprovalsFunction.do" />
+        </action>
+                
+        <action path="/services/confirmAllMailedApprovalFunction"
+                name="pendingApprovalsFormBean"
+                scope="session"
+                input=".real.reviewForPrinting"
+                type="com.ibm.azportal.dre.struts.actions.pendingApprovals.ConfirmLicensesPrintedAction">
+            <forward name="submit.complete" path="/services/completeApprovalsFunction.do" />
+        </action>
+                
+        <action path="/services/prepareForPrintingApprovalFunction"
+                name="pendingApprovalsFormBean"
+                scope="session"
+                input=".real.reviewForPrinting"
+                type="com.ibm.azportal.dre.struts.actions.pendingApprovals.PrepareLicensesForPrintingAction" />
+
+        <action path="/services/printAllApprovalsFunction"
+                name="pendingApprovalsFormBean"
+                scope="session"
+                input=".real.printLicenses"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction" />
+                
+        <action path="/services/confirmPrintedApprovalFunction"
+                name="pendingApprovalsFormBean"
+                scope="session"
+                input=".real.printingResults"
+                type="com.ibm.azportal.dre.struts.actions.pendingApprovals.ConfirmLicensesPrintedAction">       
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.complete" path="/services/completeApprovalsFunction.do" />
+        </action>                
+                
+        <action path="/services/completeApprovalsFunction"
+                name="pendingApprovalsFormBean"
+                parameter="review"
+                scope="session"
+                type="com.ibm.azportal.dre.struts.actions.CompleteFunctionAction" />
+                
+        <action path="/services/viewLicenseeDetail"
+                name="pendingApprovalsFormBean"
+                scope="session"
+                input=".real.viewPending"
+                validate="false"
+                type="com.ibm.azportal.dre.struts.actions.pendingApprovals.ViewLicenseeDetailAction">
+            <forward name="submit.next" path=".real.popupDetails" />
+        </action>              
+        
+        <action path="/services/confirmApprovalsFunction"
+                name="pendingApprovalsFormBean"
+                scope="session"
+                input=".real.approvalReceipt"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction" />
+        
+        <!--  Change Personal Information action mappings -->
+        <action path="/services/startChangePersonalInfoFunction"
+                name="changePersonalInfoFormBean"
+                parameter="start"
+                validate="false"
+                scope="session"
+                type="com.ibm.azportal.dre.struts.actions.changeinfo.StartChangePersonalInfoFunctionAction" >
+           
+        </action>
+                        
+        <action path="/services/submitChangePersonalInfoFunction"
+                name="changePersonalInfoFormBean"
+                scope="session"
+                input=".real.changeAddress"
+                type="com.ibm.azportal.dre.struts.actions.changeinfo.ChangePersonalInfoFunctionAction" />
+                
+        <action path="/services/reviewChangePersonalInfoFunction"
+                name="changePersonalInfoFormBean"
+                scope="session"
+                parameter="review"
+                input=".real.reviewChangeAddress"
+                type="com.ibm.azportal.dre.struts.actions.CompleteFunctionAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+                
+        <action path="/services/confirmChangePersonalInfoFunction"
+                name="changePersonalInfoFormBean"
+                scope="session"
+                input=".real.confirmChangeAddress"
+                type="com.ibm.azportal.dre.struts.actions.DREBaseAction" />
+                
+        <!--  Change Employment Information action mappings -->
+        <action path="/services/startChangeEmploymentFunction"
+                name="changeEmploymentFormBean"
+                parameter="start"
+                validate="false"
+                scope="session"
+                type="com.ibm.azportal.dre.struts.actions.changeEmployment.StartChangeEmploymentFunctionAction" >
+         		<forward name="submit.next" path=".real.changeAddress" />
+        </action>        
+                        
+        <action path="/services/submitChangeEmploymentFunction"
+                name="changeEmploymentFormBean"
+                scope="session"
+                input=".real.changeEmployment"
+                type="com.ibm.azportal.dre.struts.actions.changeEmployment.ChangeEmploymentFunctionAction" />
+                
+        <action path="/services/affirmChangeEmploymentFunction"
+                name="changeEmploymentFormBean"
+                scope="session"
+                input=".real.affirmChangeEmployment"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction" />
+        
+        <action path="/services/reviewChangeEmploymentFunction"
+                name="changeEmploymentFormBean"
+                scope="session"
+                parameter="review"
+                input=".real.reviewChangeEmployment"
+                type="com.ibm.azportal.dre.struts.actions.CompleteFunctionAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+                                
+        <action path="/services/confirmChangeEmploymentFunction"
+                name="changeEmploymentFormBean"
+                scope="session"
+                input=".real.confirmChangeEmployment"
+                type="com.ibm.azportal.dre.struts.actions.DREBaseAction" />
+                                
+        <!--  Sever Employment action mappings -->
+        <action path="/services/startSeverEmploymentFunction"
+                name="severEmploymentFormBean"
+                parameter="start"
+                validate="false"
+                scope="session"
+                type="com.ibm.azportal.dre.struts.actions.severEmployment.StartSeverEmploymentFunctionAction" />        
+                
+        <action path="/services/severEmploymentFunction"
+                name="severEmploymentFormBean"
+                scope="session"
+                input=".real.severEmployment"
+                type="com.ibm.azportal.dre.struts.actions.severEmployment.SeverEmploymentFunctionAction" />
+        
+        <action path="/services/affirmSeverEmploymentFunction"
+                name="severEmploymentFormBean"
+                scope="session"
+                input=".real.affirmSeverEmployment"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction" />
+                
+        <action path="/services/reviewSeverEmploymentFunction"
+                name="severEmploymentFormBean"
+                scope="session"
+                input=".real.reviewSeverEmployment"
+                type="com.ibm.azportal.dre.struts.actions.CompleteFunctionAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+                
+        <action path="/services/confirmSeverEmploymentFunction"
+                name="severEmploymentFormBean"
+                scope="session"
+                input=".real.confirmSeverEmployment"
+                type="com.ibm.azportal.dre.struts.actions.DREBaseAction" />
+                
+                
+        <!-- Sever/Transfer action mappings -->
+        <action path="/services/startSeverTransferEmployeesFunction"
+                name="severTransferEmployeesBean"
+                parameter="start"
+                validate="false"
+                scope="session"
+                type="com.ibm.azportal.dre.struts.actions.severTransfer.StartSeverTransferEmployeesAction" />
+                
+        <action path="/services/searchSeverTransferEmployeesFunction"
+                name="severTransferEmployeesBean"
+                validate="true"
+                scope="session"
+                input=".real.searchEmployees"
+                type="com.ibm.azportal.dre.struts.actions.severTransfer.GetEmployeesForSelectionAction" />
+
+        <action path="/services/selectSeverTransferEmployeesFunction"
+                name="severTransferEmployeesBean"
+                validate="true"
+                scope="session"
+                input=".real.selectEmployees"
+                type="com.ibm.azportal.dre.struts.actions.severTransfer.SelectEmployeeAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+                
+        <action path="/services/listSeverTransferEmployeesFunction"
+                name="severTransferEmployeesBean"
+                validate="true"
+                scope="session"
+                input=".real.listEmployees"
+                type="com.ibm.azportal.dre.struts.actions.severTransfer.DeselectEmployeeAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        <action path="/services/confirmCloseOfficeSeverTransferEmployeesFunction"
+                name="severTransferEmployeesBean"
+                validate="true"
+                scope="session"
+                input=".real.confirmCloseOffice"
+                type="com.ibm.azportal.dre.struts.actions.WorkflowBaseAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+                
+        <action path="/services/reviewSeverTransferEmployeesFunction"
+                name="severTransferEmployeesBean"
+                validate="true"
+                scope="session"
+                parameter="review"
+                input=".real.reviewEmployees"
+                type="com.ibm.azportal.dre.struts.actions.CompleteFunctionAction">
+            <set-property property="cancellable" value="true"/>
+        </action>
+                
+        <action path="/services/confirmSeverTransferEmployeesFunction"
+                name="severTransferEmployeesBean"
+                validate="true"
+                scope="session"
+                input=".real.confirmEmployees"
+                type="com.ibm.azportal.dre.struts.actions.DREBaseAction" />
+                
+        <action path="/services/viewLicenseeDetailSeverTransferEmployeesFunction"
+                name="severTransferEmployeesBean"
+                scope="session"
+                validate="false"
+                type="com.ibm.azportal.dre.struts.actions.pendingApprovals.ViewLicenseeDetailAction">
+            <forward name="submit.next" path=".real.popupDetails" />
+        </action>                
+                
+        <!-- View Personal History -->
+        <action path="/services/viewPersonalHistory"
+                name="viewHistoryFormBean"
+                scope="request"
+                input=".real.personalHistoryInput"
+                type="com.ibm.azportal.dre.struts.actions.ViewHistoryAction"
+                parameter="personal"
+                validate="true">
+            <forward name="submit.next" path=".real.viewPersonalHistory" />
+        </action>
+                
+        <!-- View Entity History -->
+        <action path="/services/viewEntityHistory"
+                name="viewHistoryFormBean"
+                scope="request"
+                input=".real.entityHistoryInput"
+                type="com.ibm.azportal.dre.struts.actions.ViewHistoryAction"
+                parameter="entity"
+                validate="true">
+            <forward name="submit.next" path=".real.viewEmployeeHistory" />
+        </action>        
+        
+        <!-- Change Preferences -->
+        <action path="/services/viewPreferences"
+                name="changePreferencesBean"
+                scope="session"
+                parameter="start"
+                type="com.ibm.azportal.dre.struts.actions.changePreferences.ViewPreferencesAction"
+                validate="false">
+            <forward name="submit.next" path=".real.10preferences" />
+        </action>
+        
+        <action path="/services/submitPreferences"
+                name="changePreferencesBean"
+                scope="session"
+                input=".real.10preferences"
+                type="com.ibm.azportal.dre.struts.actions.changePreferences.SubmitPreferencesAction"
+                validate="true">
+            <set-property property="cancellable" value="true"/>
+        </action>
+        
+        <action path="/resetPassword"
+                name="resetPasswordFormBean"
+                scope="request"
+                input=".real.11resetPassword"
+                type="com.ibm.azportal.dre.struts.actions.ResetPasswordAction"
+                validate="true" />
+        
+        <action path="/submitSurvey"
+                name="surveyFormBean"
+                scope="request"
+                parameter="start"
+                input=".real.81survey"
+                type="com.ibm.azportal.dre.struts.actions.SubmitSurveyAction">
+            <forward name="submit.next" path=".real.84surveyThanks" />
+        </action>
+        
+        <action path="/home"
+                name="blank"
+                scope="request"
+                parameter="home"
+                type="com.ibm.azportal.dre.struts.actions.DREBaseAction"
+                validate="false" />
+
+        <action path="/showPasswordReset" forward=".real.11resetPassword"/>
+        <action path="/80help" forward=".real.80help"/>
+        <action path="/81survey" forward=".real.81survey"/>
+        <action path="/82faq" forward=".real.82faq"/>
+        <action path="/92privacyPolicy" forward=".real.92privacyPolicy"/>
+        <action path="/systemError" forward=".real.systemError" />
+        
+        <!--*****************************************************************-->
+        <!-- Broker Audit -->
+        <!--*****************************************************************-->
+
+        <action
+            path="/audit/start"
+            name="brokerAuditFormBean"
+            type="com.ibm.azportal.dre.struts.actions.audit.StartBrokerAuditAppAction"
+            parameter="start"
+            validate="false"/>
+
+        <action
+            path="/audit/110baData"
+            name="brokerAuditFormBean"
+            input=".real.110baData"
+            type="com.ibm.azportal.dre.struts.actions.audit.BaseBrokerAuditAction">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.next" path=".real.120baDataNum"/>
+        </action>
+
+        <action
+            path="/audit/120baDataNum"
+            name="brokerAuditFormBean"
+            input=".real.120baDataNum"
+            parameter="1"
+            type="com.ibm.azportal.dre.struts.actions.audit.MiscInfo120Action">
+            <set-property property="cancellable" value="true"/>
+            <forward name="hasTrustAccount" path=".real.320baDataGsetaList"/>
+            <forward name="hasEmployees" path=".real.210baDataBsc"/>
+            <forward name="isPropertyManager" path=".real.260baDataPmn"/>
+            <forward name="default" path=".real.130baDataGrc"/>
+        </action>
+
+        <action
+            path="/audit/130baDataGrc"
+            name="brokerAuditFormBean"
+            input=".real.130baDataGrc"
+            type="com.ibm.azportal.dre.struts.actions.audit.BaseBrokerAuditAction">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.next" path=".real.140baDataBr"/>
+        </action>
+        
+        <action
+            path="/audit/140baDataBr"
+            name="brokerAuditFormBean"
+            input=".real.140baDataBr"
+            type="com.ibm.azportal.dre.struts.actions.audit.BaseBrokerAuditAction">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.next" path=".real.150baDataEc"/>
+        </action>
+        
+        <action
+            path="/audit/150baDataEc"
+            name="brokerAuditFormBean"
+            input=".real.150baDataEc"
+            type="com.ibm.azportal.dre.struts.actions.audit.BaseBrokerAuditAction">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.next" path=".real.160baDataD"/>
+        </action>
+        
+        <action
+            path="/audit/160baDataD"
+            name="brokerAuditFormBean"
+            input=".real.160baDataD"
+            type="com.ibm.azportal.dre.struts.actions.audit.BaseBrokerAuditAction">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.next" path=".real.170baDataSltr"/>
+        </action>
+
+        <action
+            path="/audit/170baDataSltr"
+            name="brokerAuditFormBean"
+            input=".real.170baDataSltr"
+            type="com.ibm.azportal.dre.struts.actions.audit.BaseBrokerAuditAction">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.next" path=".real.180baDataEd"/>
+        </action>
+        
+        <action
+            path="/audit/180baDataEd"
+            name="brokerAuditFormBean"
+            input=".real.180baDataEd"
+            parameter="1"
+            type="com.ibm.azportal.dre.struts.actions.audit.EarnestDeposits180Action">
+            <set-property property="cancellable" value="true"/>
+            <forward name="hasTrustAccount" path=".real.191baDataGsetaCont"/>
+            <forward name="hasEmployees" path=".real.200baDataDa"/>
+            <forward name="isPropertyManager" path=".real.270baDataPma"/>
+            <forward name="hasWrittenSupervisionPolicy" path=".real.230baDataBsp"/>
+            <forward name="default" path=".real.390baAdditionalInfo"/>
+        </action>
+        
+        <action
+            path="/audit/191baDataGsetaCont"
+            name="brokerAuditFormBean"
+            input=".real.191baDataGsetaCont"
+            parameter="2"
+            type="com.ibm.azportal.dre.struts.actions.audit.EarnestDeposits180Action">
+            <set-property property="cancellable" value="true"/>
+            <forward name="hasEmployees" path=".real.200baDataDa"/>
+            <forward name="isPropertyManager" path=".real.270baDataPma"/>
+            <forward name="hasWrittenSupervisionPolicy" path=".real.230baDataBsp"/>
+            <forward name="default" path=".real.390baAdditionalInfo"/>
+        </action>
+
+        <action
+            path="/audit/200baDataDa"
+            name="brokerAuditFormBean"
+            input=".real.200baDataDa"
+            parameter="3"
+            type="com.ibm.azportal.dre.struts.actions.audit.EarnestDeposits180Action">
+            <set-property property="cancellable" value="true"/>
+            <forward name="isPropertyManager" path=".real.270baDataPma"/>
+            <forward name="hasWrittenSupervisionPolicy" path=".real.230baDataBsp"/>
+            <forward name="default" path=".real.390baAdditionalInfo"/>
+        </action>
+                        
+        <action
+            path="/audit/210baDataBsc"
+            name="brokerAuditFormBean"
+            input=".real.210baDataBsc"
+            parameter="3"
+            type="com.ibm.azportal.dre.struts.actions.audit.MiscInfo120Action">
+            <set-property property="cancellable" value="true"/>
+            <forward name="isPropertyManager" path=".real.260baDataPmn"/>
+            <forward name="default" path=".real.130baDataGrc"/>
+        </action>
+        
+        <action
+            path="/audit/230baDataBsp"
+            name="brokerAuditFormBean"
+            input=".real.230baDataBsp"
+            parameter="4"
+            type="com.ibm.azportal.dre.struts.actions.audit.EarnestDeposits180Action">
+            <set-property property="cancellable" value="true"/>
+            <forward name="isPropertyManager" path=".real.270baDataPma"/>
+            <forward name="default" path=".real.390baAdditionalInfo"/>
+        </action>
+        
+        <action
+            path="/audit/260baDataPmn"
+            name="brokerAuditFormBean"
+            input=".real.260baDataPmn"
+            type="com.ibm.azportal.dre.struts.actions.audit.BaseBrokerAuditAction">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.next" path=".real.290baDataPmta"/>
+        </action>
+        
+        <action
+            path="/audit/270baDataPma"
+            name="brokerAuditFormBean"
+            input=".real.270baDataPma"
+            type="com.ibm.azportal.dre.struts.actions.audit.BaseBrokerAuditAction">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.next" path=".real.280baDataPmr"/>
+        </action>
+        
+        <action
+            path="/audit/280baDataPmr"
+            name="brokerAuditFormBean"
+            input=".real.280baDataPmr"
+            type="com.ibm.azportal.dre.struts.actions.audit.PropMgmtRecords280Action">
+            <set-property property="cancellable" value="true"/>
+            <forward name="hasTrustAccount" path=".real.330baDataPmtaq"/>
+            <forward name="default" path=".real.390baAdditionalInfo"/>
+        </action>
+        
+        <action
+            path="/audit/290baDataPmta"
+            name="brokerAuditFormBean"
+            input=".real.290baDataPmta"
+            type="com.ibm.azportal.dre.struts.actions.audit.TrustAccount290Action">
+            <set-property property="cancellable" value="true"/>
+            <forward name="hasTrustAccounts" path=".real.300baDataPmtaList"/>
+            <forward name="noTrustAccounts" path=".real.130baDataGrc"/>
+        </action>
+        
+        <action
+            path="/audit/300baDataPmtaList"
+            name="brokerAuditFormBean"
+            input=".real.300baDataPmtaList"
+            type="com.ibm.azportal.dre.struts.actions.audit.PropMgmtTrustAccountList300Action">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.next" path=".real.130baDataGrc"/>
+        </action>
+        
+        <action
+            path="/audit/320baDataGsetaList"
+            name="brokerAuditFormBean"
+            input=".real.320baDataGsetaList"
+            parameter="2"
+            type="com.ibm.azportal.dre.struts.actions.audit.TrustAccountList320Action">
+            <set-property property="cancellable" value="true"/>
+            <forward name="hasEmployees" path=".real.210baDataBsc"/>
+            <forward name="isPropertyManager" path=".real.260baDataPmn"/>
+            <forward name="default" path=".real.130baDataGrc"/>
+        </action>
+        
+        <action
+            path="/audit/330baDataPmtaq"
+            name="brokerAuditFormBean"
+            input=".real.330baDataPmtaq"
+            type="com.ibm.azportal.dre.struts.actions.audit.BaseBrokerAuditAction">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.next" path=".real.390baAdditionalInfo"/>
+        </action>
+        
+        <action
+            path="/audit/390additionalInfo"
+            name="brokerAuditFormBean"
+            input=".real.390baAdditionalInfo"
+            parameter="next"
+            type="com.ibm.azportal.dre.struts.actions.audit.ReviewBrokerAudit400Action">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.next" path=".real.400baAffirm"/>
+        </action>
+        
+        <action
+            path="/audit/400baAffirm"
+            name="brokerAuditFormBean"
+            input=".real.400baAffirm"
+            type="com.ibm.azportal.dre.struts.actions.audit.ConfirmBrokerAuditAction">
+            <set-property property="cancellable" value="true"/>
+            <forward name="submit.next" path=".real.401baConfirm"/>
+        </action>
+        
+        <action
+            path="/audit/401baConfirm"
+            name="brokerAuditFormBean"
+            input=".real.401baConfirm"
+            type="com.ibm.azportal.dre.struts.actions.audit.BaseBrokerAuditAction"
+            parameter="ignoreCompleteFlag">
+            <forward name="submit.next" path="/home.do"/>
+        </action>
+
+        <action path="/audit/baReview" forward=".real.440baAffirm.simple" />
+        
+  </action-mappings>
+
+  <!-- ===================================== Controller Configuration -->
+  <controller processorClass="com.ibm.gs.houston.struts.action.SimpleWizardRequestProcessor"/>
+
+  <!-- Message Resources -->
+  <message-resources parameter="resources.ApplicationResources"/>
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+        <set-property property="moduleAware" value="true" />
+        <set-property property="definitions-parser-validate" value="true" />
+    </plug-in>
+
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+
+    <plug-in className="com.ibm.azportal.dre.struts.DREPlugIn" />
+
+</struts-config>

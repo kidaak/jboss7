@@ -1,0 +1,61 @@
+html{
+	overflow: visible;
+	}
+
+body {	
+	overflow: visible !important;
+	color:#333333;
+	background: white;
+	text-align:left;
+	font: 10pt Arial, Helvetica, sans-serif;
+}
+	
+.home_table, #innertube, #maincontent, .appwrapper, .welcome_button a, .welcome_wrapper, .submit_button, table .submit_button, .display_table{
+	width: auto;
+	height: auto;
+	position:static !important;
+	overflow: visible !important;
+	float: none !important;
+	background: transparent none;
+	color: #333;
+	margin: .1in;
+	padding-left: .25in;
+	top: 3em;
+	box-shadow:none !important; 
+	border-radius: none !important; 
+	border: none !important;
+	
+}
+
+body, div, p {
+	padding: 0 !important;
+}
+	
+#headerTop, .skipnavlink, h1 a, .footer_nav a, .button_table {
+	display:none;
+	visibility:hidden;
+}
+
+h2, h1 {
+	font-size: 12pt;
+	font-weight: bold;
+	text-align:left;
+	color: #333333;
+}
+
+.printwrapper {
+	visibility:visible;
+	display:block;
+	font-size: 14pt;
+	font-weight: bold;
+	margin-bottom: 5pt;
+	padding-bottom: 5pt;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #333333;
+}
+.error {
+	text-align: left;
+	}
+	
+	

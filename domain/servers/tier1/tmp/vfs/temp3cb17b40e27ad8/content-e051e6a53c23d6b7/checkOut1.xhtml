@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/WEB-INF/templates/bhaTemplate.xhtml">
+	<ui:param name="pageTitle" value="Billing Information" />
+	<ui:param name="title"
+		value="Arizona Board of Behavioral Health Examiners | Order Information" />
+	<ui:param name="applicationName1"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName2" value="Online Payment Service" />
+	<ui:param name="agencyName"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="appImage" value="agencylogo_bbhe.jpg" />
+	<ui:param name="donotRenderHelp" value="true" />
+	<ui:param name="donotRenderFAQ" value="true" />
+
+	<ui:define name="localCss">
+		<link href="resources/assets/css/azbbhe.css" rel="stylesheet"
+			type="text/css" media="screen" />
+	</ui:define>
+
+	<ui:define name="localJs">
+		<script type="text/javascript"
+			src="#{initController.staticWebPath}/static/portal/js/jquery-1.3.js" />
+		<script type="text/javascript"
+			src="#{initController.staticWebPath}/static/portal/js/jquery.maskedinput-1.2.2.js" />
+
+	</ui:define>
+
+	<ui:define name="body">
+		<h:form id="checkout" class="form" onkeypress="if (event.keyCode == 13) { document.getElementById('checkout:Continue').click(); return false; }">
+			<div class="home_table">
+
+		<h:commandLink target="_self" action="paymentPopUp?faces-redirect=true"  rendered="#{bha.newPaymentNeeded}" immediate="true" >
+                 	 Our records show you already processed a payment for this order, if this is a new order click here.
+              </h:commandLink>
+
+
+				<div class="instructions">
+					
+						<h:outputText 
+							value="If the billing information for your order is different then your previously entered personal information then please update below:" />
+				</div>
+
+				<h2>Billing Information</h2>
+				<div class="display_table">
+
+						
+					<table width="100%" border="0" cellpadding="0" cellspacing="0"
+						bgcolor="#FFFFFF" style="background-color: #FFFFFF">
+						<tr>
+
+							<!-- First Name -->
+							<td width="50%" colspan="2"><label class="required">First
+									Name:</label><br />
+								<div class="grid-7-12">
+									<h:inputText id="firstName" size="50" styleClass="textfield"
+										maxlength="50" required="true"
+										requiredMessage="First Name is required."
+										validatorMessage="First Name not valid"
+										value="#{bha.billingInfo.firstName}">
+										
+										<f:validateRegex pattern="^[a-zA-Z-!. ]+{1,50}$" />
+									</h:inputText>
+								</div></td>
+
+							<!-- Last Name -->
+							<td width="50%" colspan="2" align="left"><label
+								class="required">Last Name:</label><br />
+								<div class="grid-7-12">
+									<h:inputText id="lastName" size="50" styleClass="textfield"
+										required="true" maxlength="50"
+										requiredMessage="Last Name is required."
+										validatorMessage="Last Name not valid"
+										value="#{bha.billingInfo.lastName}">
+										<f:validateRegex pattern="^[a-zA-Z-!. ]+{1,50}$" />
+									</h:inputText>
+								</div></td>
+
+						</tr>
+
+						<tr>
+
+							<!-- Address inputText -->
+
+							<td width="50%" colspan="2"><label class="required">Address:</label><br />
+								<div class="grid-7-12">
+									
+									<h:inputText id="address" size="200" styleClass="textfield"
+										maxlength="200" required="true"
+										requiredMessage="Billing Address is required."
+										value="#{bha.billingInfo.address}">
+										
+									</h:inputText>
+								</div>
+								</td>
+
+							<!-- City -->
+							<td width="50%" colspan="2"><label class="required">City:</label><br />
+								<div class="grid-7-12">
+									<h:inputText id="city" size="50" styleClass="textfield"
+										maxlength="50" required="true"
+										requiredMessage="City is required."
+										value="#{bha.billingInfo.city}"
+										validatorMessage="City not valid">
+											 <f:validateRegex pattern="^[a-zA-Z-!. ']+{1,50}$" />
+									</h:inputText>
+								</div></td>
+						</tr>
+
+						<tr>
+							<!-- State or State/Province -->
+							<td width="50%" colspan="2"><label class="required">State:</label><br />
+
+								<h:selectOneMenu id="state" value="#{bha.billingInfo.state}"
+									title="Click to select" required="true"
+									requiredMessage="State is required." styleClass="dropmenu">
+
+									<f:selectItems value="#{initController.stateList}" />
+
+								</h:selectOneMenu></td>
+
+
+							<!-- Zip5 -->
+							<td width="20%" colspan="2"><label class="required">Zip:</label><br />
+								<div class="grid-5-12">
+									<h:inputText id="zip5" size="6" required="true" maxlength="10"
+										requiredMessage="Zip Code is required."
+										value="#{bha.billingInfo.zip}" autocomplete="off"
+										styleClass="input_mask mask_zip_code textfield">
+										<f:validator validatorId="zipcodeValidator" />
+
+									</h:inputText>
+								</div></td>
+						</tr>
+
+						<tr>
+							<!-- Email -->
+							<td width="50%" colspan="2"><label class="required">Email:</label><br />
+								<div class="grid-7-12">
+									<h:inputText id="email" size="40" styleClass="textfield"
+										maxlength="40" value="#{bha.billingInfo.email}"
+										validatorMessage="Email not valid" >
+										<f:validateRegex
+		pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+ 
+										</h:inputText>
+								</div></td>
+
+
+							<td width="50%" colspan="2"><label class="required">Phone
+									Number:</label><br />
+								<div class="grid-7-12">
+									<h:inputText id="phone" size="20"
+										styleClass="textfield mask_phone" maxlength="12"
+										required="true" requiredMessage="Phone Number is required."
+										value="#{bha.billingInfo.phone}" autocomplete="off" />
+								</div></td>
+						</tr>
+						<!-- Visa/Mastercard logos -->
+
+						<tr>
+							<!-- Credit Card Number -->
+							<td colspan="2"><label class="required">Credit Card
+									Number:</label><br />
+								<div class="grid-7-12">
+									<h:inputText id="ccnumber" styleClass="textfield"
+										value="#{bha.displayCC}" required="true"
+										requiredMessage="Credit Card Number is required." size="16"
+										maxlength="16" minlength="16" autocomplete="off">
+
+										<!-- validator="#{validator.creditCardValidator}" > -->
+										<f:validator validatorId="creditCardValidator" />
+									</h:inputText>
+									<br /> <img
+										src="#{initController.staticWebPath}/static/portal/assets/images/visa-curved-32px.png"
+										alt="Visa" /> <img
+										src="#{initController.staticWebPath}/static/portal/assets/images/mastercard-curved-32px.png"
+										alt="Mastercard" />
+								</div></td>
+
+							<!-- CVV description -->
+							<td rowspan="2" colspan="2" width="50%" class="instructions">
+								<img
+								src="#{initController.staticWebPath}/static/portal/assets/images/cvv.jpg"
+								alt="CVV number" align="left" hspace="10" /><span class="red">CVV
+									number</span><br /> CVV number is a 3 digit code on the back of your
+								Visa or MasterCard.
+							</td>
+						</tr>
+						<!-- Expiration Date -->
+						<tr>
+							<td width="20%" nowrap="nowrap"><label class="required">Expiration
+									Date:</label><br /> 
+									
+									<h:selectOneMenu  autocomplete="off"
+									value="#{bha.billingInfo.ccExpMonth}" id="monthListSelection">
+									<f:selectItems value="#{initController.monthList}" />
+
+								</h:selectOneMenu> <h:selectOneMenu id="yearListSelection" styleClass="dropmenu"
+									required="true"  autocomplete="off"
+									requiredMessage="Expiration Date Year is required."
+									value="#{bha.billingInfo.ccExpYear}">
+									<f:selectItems value="#{initController.yearList}" />
+
+								</h:selectOneMenu></td>
+
+							<td width="30%"><label class="required">CVV:</label><br />
+								<div class="grid-5-12">
+									<h:inputText id="cvv" autocomplete="off"
+										styleClass="input_mask mask_three_cvv textfield"
+										required="true" requiredMessage="CVV is required." size="3"
+										maxlength="3" value="#{bha.displayCvv}"
+										validatorMessage="Cvv is not valid. It must have 3 digits.">
+										<f:validateLongRange minimum="0" maximum="999" />
+
+									</h:inputText>
+								</div></td>
+						</tr>
+
+
+						<tr >
+							<td width="50%" colspan="3" class="buttonPadding">
+							<input type="button" name="prevButton" id="previousBtn" value="Previous"  class="submit_button" onclick="location.href='summary.jsf'" />
+							</td>
+
+							<td width="50%" colspan="1">
+							<div class="grid-8-12">
+		
+								<div class="grid-6-12">
+								
+								<h:commandButton id="Cancel"
+                			styleClass="submit_button"
+                          	value="Cancel"
+                         	action="#{bha.logout}" 
+                         	onclick="this.form.target='_self'"
+                         	immediate="true"/>
+							
+									</div>
+									
+									 	<div class="grid-5-12 form-right">    
+								
+									<h:commandButton id="Continue"
+									styleClass="submit_button" value="Continue"
+									action="#{bha.toBillingSummary()}" />
+                         	</div>
+                         	</div>
+									</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

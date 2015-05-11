@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    xsi:schemaLocation="
+        http://java.sun.com/xml/ns/javaee
+        http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+        id = "bha">  -->
+        
+ <web-app  xmlns="http://java.sun.com/xml/ns/j2ee"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+                              http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" 
+          version="2.4">
+          
+    <distributable/>
+
+
+    <!-- An optional parameter that makes troubleshooting errors much easier -->
+    <!-- You should remove this context parameter before deploying to production! -->
+   <!--  <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param> -->
+    
+    <!-- JSF 2.0 Servlet activates automatically when the WEB-INF/faces-config.xml descriptor is present -->
+
+    <!-- Enable this mapping to protect your view templates from direct URL access -->
+   
+    <!--  <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+     -->
+  
+    <!-- This section is optional. We are allowing index.jsf to handle the root URL (i.e., /). -->
+    <welcome-file-list>
+        <!-- Add additional files here, if desired, for example: <welcome-file>index.html</welcome-file> -->
+        <welcome-file>index.jsf</welcome-file>
+    </welcome-file-list>
+    
+		  <context-param>
+  				 <param-name>org.richfaces.enableControlSkinning</param-name>
+   				<param-value>false</param-value>
+			</context-param>
+			
+		    <error-page>
+    			<exception-type>javax.faces.application.ViewExpiredException</exception-type>
+  				  <location>/error/viewExpired.jsf</location>
+				</error-page>			
+				<error-page>	    
+  				<error-code>401</error-code>
+ 				 <location>/error/401.jsf</location>
+				 </error-page>
+				  <error-page>
+  				 <error-code>403</error-code>
+ 				  <location>/error/403.jsf</location>
+ 				 </error-page>
+ 				 <error-page>
+ 				  <error-code>404</error-code>
+ 				  <location>/error/404.jsf</location>
+				  </error-page>
+ 				 <error-page>
+ 				  <error-code>410</error-code>
+ 				  <location>/error/410.jsf</location>
+ 				 </error-page>
+				  <error-page>
+ 				  <error-code>500</error-code>
+  				 <location>/error/500.jsf</location>
+				  </error-page>
+				  <error-page>
+ 				  <error-code>502</error-code>
+ 				  <location>/error/502.jsf</location>
+ 				 </error-page>  
+ 				 
+				 <!-- <error-page>  
+        			<exception-type>java.lang.Exception</exception-type>  
+       				 <location>/error/error.jsf</location>  
+   				</error-page>  --> 
+   				
+				  <filter>
+   					 <filter-name>SessionFilter</filter-name>
+  				 	 <filter-class>com.nicusa.az.bha.util.SessionFilter</filter-class>
+ 			 </filter>
+				
+				   <filter-mapping>
+  					  <filter-name>SessionFilter</filter-name>
+   					 <url-pattern>/*</url-pattern>
+ 				 </filter-mapping>
+				  
+   				
+</web-app>

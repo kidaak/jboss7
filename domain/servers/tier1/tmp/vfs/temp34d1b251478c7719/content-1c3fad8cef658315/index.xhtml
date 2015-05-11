@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+   template="/WEB-INF/templates/destemplate.xhtml">
+   
+<ui:param name="disableAltBreadcrumb" value="true"/>   
+<ui:define name="localBody">
+<div align="center">
+	<div class="welcome_wrapper">   		
+   		<h2 class="custom">   		   		
+			Welcome to the Arizona Department of Economic Security (DES) Online Payment System
+   		</h2>   		   		
+   		 <div class="welcome_image">
+	   		<h:graphicImage library="images" name="state_seal_sm.jpg" alt="Arizona State Seal" />
+	   	</div>
+         Thank you for choosing to pay your bill online.  You will need your printed statement, which includes your DES Account number used to login online. For identity validation you will be asked for your date of birth (month/day).  To pay online you will need a Visa, MasterCard, Discover, or American Express credit card.<br />
+         <br />
+         If you would like to login to the DES Online Payment System, please click the "Proceed to Login" button.
+
+         <h2 style="clear: both" />
+         
+		<div id="buttons_wrapper">
+             <div class="welcome_button">
+             	<h:link view="/login.jsf" target="_self" propagation="begin" outcome="login" >
+					Proceed to Login
+				</h:link>			
+				
+			</div>
+        </div>       
+	</div>	
+</div>
+</ui:define>    
+</ui:composition>

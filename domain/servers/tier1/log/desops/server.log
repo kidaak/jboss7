@@ -1,0 +1,92 @@
+10:47:55,133 TRACE [com.nicusa.az.desops.controller.FailureController] (http-/0.0.0.0:8180-4:69) analyzing errors via failure controller
+10:47:55,422 TRACE [com.nicusa.az.desops.model.DesUser] (http-/0.0.0.0:8180-4:51) initialized a new DesUser object via constructor
+10:47:55,445 TRACE [com.nicusa.az.desops.controller.LoginController] (http-/0.0.0.0:8180-4:300) Login controller was initialized, new desUser created
+10:47:55,446 TRACE [com.nicusa.az.desops.model.DesUser] (http-/0.0.0.0:8180-4:51) initialized a new DesUser object via constructor
+10:47:55,529 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:desWebserviceEndpoint->http://159.87.246.211:8080/oarcws/ClientPayment
+10:47:55,530 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:desWebserviceEndpoint
+title:DES Webservice EndPoint
+defaultValue:http://localhost:35981/oarcws/ClientPayment
+affective value:http://159.87.246.211:8080/oarcws/ClientPayment
+10:47:55,530 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:desApplicationTemplate->https://az.devaz.gov/static
+10:47:55,530 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:desApplicationTemplate
+title:DES Application Template
+defaultValue:https://prodtest.az.gov/static
+affective value:https://az.devaz.gov/static
+10:47:55,530 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:desStaticTemplateServer->https://az.devaz.gov
+10:47:55,531 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:desStaticTemplateServer
+title:DES Static Template Server
+defaultValue:https://prodtest.az.gov
+affective value:https://az.devaz.gov
+10:47:55,531 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:tpeEjbUrl->ejb:tpe-ejb/tpe-ejb-ejb-1.0-SNAPSHOT/TpeEjb!com.nicusa.az.tpe.remote.TpeEjbRemote
+10:47:55,531 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:tpeEjbUrl
+title:Tpe Ejb Url
+defaultValue:ejb:tpe-ejb/tpe-ejb-ejb-1.0-SNAPSHOT/TpeEjb!com.nicusa.az.tpe.remote.TpeEjbRemote
+affective value:ejb:tpe-ejb/tpe-ejb-ejb-1.0-SNAPSHOT/TpeEjb!com.nicusa.az.tpe.remote.TpeEjbRemote
+10:47:55,531 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:ejbRemoteUser->ejb
+10:47:55,532 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:ejbRemoteUser
+title:Ejb Remote User
+defaultValue:ejb
+affective value:ejb
+10:47:55,532 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:ejbRemoteUserPassword->password
+10:47:55,534 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:ejbRemoteUserPassword
+title:Tpe Ejb Password
+defaultValue:password
+affective value:password
+10:47:55,535 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:tpeEjbServerIp->localhost
+10:47:55,535 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:tpeEjbServerIp
+title:Tpe Ejb Server Ip
+defaultValue:localhost
+affective value:localhost
+10:47:55,535 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:tpeEjbRemotePort->4447
+10:47:55,546 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:tpeEjbRemotePort
+title:Tpe Ejb Remote Port
+defaultValue:4447
+affective value:4447
+10:47:55,546 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:desops_tpeMerchantId->DES_TEST
+10:47:55,547 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:desops_tpeMerchantId
+title:Tpe Merchant ID
+defaultValue:DES_TEST
+affective value:DES_TEST
+10:47:55,547 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:desops_tpeMerchantKey->DES0000001
+10:47:55,547 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:desops_tpeMerchantKey
+title:Tpe Marchant Key
+defaultValue:DES0000001
+affective value:DES0000001
+10:47:55,547 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:desops_tpeServiceCode->DES_TEST_PAYMENT
+10:47:55,548 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:desops_tpeServiceCode
+title:Tpe Service Code
+defaultValue:DES_TEST_PAYMENT
+affective value:DES_TEST_PAYMENT
+10:47:55,548 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:desops_pdfReceiptTemplate->receiptPdf.xhtml
+10:47:55,550 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:desops_pdfReceiptTemplate
+title:PDF Receipt Template
+defaultValue:receiptPdf.xhtml
+affective value:receiptPdf.xhtml
+10:47:55,550 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:desops_pdfReceiptFilePrefix->Des_Receipt
+10:47:55,551 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:desops_pdfReceiptFilePrefix
+title:PDF Receipt File Prefix
+defaultValue:Des_Receipt
+affective value:Des_Receipt
+10:47:55,551 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:desops_emailFrom->portal.support@azdoa.gov
+10:47:55,551 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:desops_emailFrom
+title:Email From
+defaultValue:anonymous@sa-inbound.cdc.nicusa.com
+affective value:portal.support@azdoa.gov
+10:47:55,552 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:desops_emailTo->portal.support@azdoa.gov
+10:47:55,552 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:desops_emailTo
+title:DES Email
+defaultValue:adoasupport.us@businessdecision.com
+affective value:portal.support@azdoa.gov
+10:47:55,552 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:desops_callDesWithPaymentUpdate->true
+10:47:55,552 TRACE [com.nicusa.az.desops.controller.ApplicationController] (http-/0.0.0.0:8180-4:58) application property:property key:desops_callDesWithPaymentUpdate
+title:Call Des with payment update
+defaultValue:true
+affective value:true
+10:47:55,553 TRACE [com.nicusa.az.desops.producers.SystemAppProperty] (http-/0.0.0.0:8180-4:26) property key:desStaticTemplateServer->https://az.devaz.gov
+10:52:11,015 TRACE [com.nicusa.az.desops.controller.FailureController] (http-/0.0.0.0:8180-3:69) analyzing errors via failure controller
+11:37:11,503 TRACE [com.nicusa.az.desops.controller.FailureController] (http-/0.0.0.0:8180-3:69) analyzing errors via failure controller
+11:37:11,599 TRACE [com.nicusa.az.desops.controller.LoginController] (http-/0.0.0.0:8180-3:300) Login controller was initialized, new desUser created
+11:37:11,599 TRACE [com.nicusa.az.desops.model.DesUser] (http-/0.0.0.0:8180-3:51) initialized a new DesUser object via constructor
+12:22:12,116 TRACE [com.nicusa.az.desops.controller.FailureController] (http-/0.0.0.0:8180-6:69) analyzing errors via failure controller
+12:22:12,181 TRACE [com.nicusa.az.desops.controller.LoginController] (http-/0.0.0.0:8180-6:300) Login controller was initialized, new desUser created
+12:22:12,193 TRACE [com.nicusa.az.desops.model.DesUser] (http-/0.0.0.0:8180-6:51) initialized a new DesUser object via constructor

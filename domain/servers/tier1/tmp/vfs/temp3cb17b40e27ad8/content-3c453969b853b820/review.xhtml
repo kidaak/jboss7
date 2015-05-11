@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   template="/WEB-INF/templates/destemplate.xhtml">
+   
+<ui:param name="pageTitle" value="Order Review"/>
+<ui:param name="title" value="Online Payment Processor"/>
+<ui:param name="agencyName" value="State of Arizona"/>
+<ui:param name="applicationName1" value="State of Arizona"/>
+<ui:param name="applicationName2" value="Checkout Utility"/>
+<ui:param name="appImage" value="azstate_logo.jpg"/>
+<ui:param name="projectLevel" value="../"/>
+<ui:param name="donotRenderLiveHelp" value="true"/>
+<ui:param name="renderLinkToAgency" value="false"/>
+<ui:define name="localMetadata">
+	<f:metadata/>
+	<f:event listener="#{navigationValidator.verifyPaymentAccess}" type="preRenderView"/>  
+</ui:define>
+
+<ui:define name="localAltbreadcrumb">
+	<div id="breadcrumb2">
+		Payment Information  &#187; <strong>Order Review </strong> &#187; Receipt
+	</div>
+</ui:define>
+
+<ui:define name="localBody">
+<ui:include src="/includes/modalPanel.xhtml"/>
+
+<a4j:outputPanel id="all">
+	<h:form id="paymentsummary" styleClass="form">
+       <table width="80%" border="0" cellspacing="0" cellpadding="2" class="home_table">
+         <tr>
+           <td align="left">
+           <div class="instructions">
+           <p>Please review your order and ensure the information below is correct before proceeding.</p>
+			<p>If you agree with the information as displayed; please click the "<strong>Authorize</strong>" button to process the credit card payment.</p>
+			</div>
+           <h2>Billing Information </h2>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+              <tr>
+                <td colspan="2" align="left" valign="top">
+                <p class="fieldsettable">
+                <strong>Name: </strong> 
+	                #{paymentInfo.firstName} #{paymentInfo.lastName}<br/>
+				<strong>Address: </strong>
+					#{paymentInfo.homeAddress1}, #{paymentInfo.city}, #{paymentInfo.state.title} #{paymentInfo.zipCode}
+				</p>
+				<p class="fieldsettable">
+				<strong>Phone: </strong> 
+                <h:outputText id="text8" styleClass="outputText" value="#{paymentInfo.phoneNumber}"/><br/>			
+                <strong>Email: </strong>
+	                <h:outputText id="text7" styleClass="outputText" value="#{paymentInfo.email}"/> 
+				</p>
+				</td>
+				</tr>
+                <tr>
+                <td width="50%" align="left" valign="top">
+                <span class="fieldsettable">
+					<a4j:commandButton type="submit" value="Edit" id="button1" styleClass="submit_button"  action="#{paymentController.edit}" immediate="true" />
+                </span>
+                </td>
+                <td width="50%" align="left" valign="top"></td>
+              </tr>
+            </table>
+			<h2>Account Information </h2>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+              <tr>
+                <td width="50%" align="left" valign="top">
+                <span class="fieldsettable">
+					<h:outputText id="cctype" styleClass="outputText" value="#{paymentInfo.creditCardType.title}"/>	<br />
+					<h:outputText id="text9" styleClass="outputText" value="#{paymentInfo.displayNumber}"/>  EXP. 
+					<h:outputText id="expmonth" styleClass="outputText" value="#{paymentInfo.ccExpMonthEnum.value}"/> 
+					<h:outputText id="dash" styleClass="outputText" value="/"/> 	
+					<h:outputText id="expyear" styleClass="outputText" value="#{paymentInfo.ccExpYear}"/> <br/>
+				</span>	
+				</td>
+				<td width="50%" align="left" valign="top"></td>
+              </tr>
+
+              <tr>
+                <td align="left" valign="top">
+                <span class="fieldsettable">
+					<a4j:commandButton type="submit" value="Edit" id="button2" styleClass="submit_button" action="#{paymentController.edit}" immediate="true"/>
+                </span>
+                </td>
+      			</tr>
+      			</table>
+      			<h2>Order Info</h2>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"  class="display_table">
+              <tr>
+                <td height="484" align="left" valign="top">
+      			  <table width="100%" border="0" cellpadding="2" cellspacing="0" class="data_table1">
+
+                        <tr>
+                          <th width="9%" align="left" valign="top" scope="col"><b>Order&#160;No</b></th>
+                          <th width="10%" align="left" valign="top" scope="col"><b>Product&#160;ID</b></th>
+                          <th width="27%" align="left" valign="top" scope="col"><b>Item&#160;Description</b></th>
+                          <th width="13%" align="right" valign="top" scope="col"><b>Amount</b></th>
+                          <th width="13%" align="right" valign="top" scope="col"><b>Quantity</b></th>
+                          <th width="20%" align="right" valign="top" scope="col"><b>Total&#160;Amount</b></th>
+                        </tr>
+                        <a4j:repeat value="#{paymentInfo.productList}" var="item">
+                        <tr>
+                        	<td class="zebratable" align="left">#{desUser.transaction.orderNumber}</td>
+                            <td class="zebratable" align="left">#{item.productId}</td>
+                       		<td class="zebratable" align="left">#{item.description}</td>
+							<td class="zebratable" style="text-align:right;">$
+								<h:outputText value="#{item.price}">
+									<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2" />
+								</h:outputText>
+							</td>
+							<td class="zebratable" style="text-align:right;">#{item.quantity}</td>
+							<td class="zebratable" style="text-align:right;">$
+								<h:outputText value="#{item.price*item.quantity}">
+									<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2" />
+								</h:outputText>
+							</td>					
+                        </tr>
+                       </a4j:repeat>
+						<tr>
+                          <td align="left" valign="top" style="background-color:#999999"><span class="zebratable"><strong>#{paymentInfo.orderNumber}</strong></span></td>
+                          <td align="left" valign="top" style="background-color:#999999"></td>
+                          <td align="left" valign="top" style="background-color:#999999"><strong>TOTAL</strong></td>
+                          <td align="left" valign="top" style="background-color:#999999"></td>
+                          <td align="left" valign="top" style="background-color:#999999"></td>
+                          <td class="zebratable" style="background-color:#999999; text-align:center;"><div align="right"><strong>$<h:outputText value="#{paymentInfo.paymentAmount}">
+										<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2" />	
+									</h:outputText></strong></div>
+							</td>
+                        </tr>
+                	</table>
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0"  class="dispaly_table">
+                      <tr>
+                        <td align="left" valign="top"><fieldset>
+                          <legend>Notes</legend>
+                          <h:outputText value="DES account Number:#{desUser.desNumber}" escape="false" />
+                          <div class="clearfieldset"></div>
+                        </fieldset></td>
+                      </tr>
+                    </table>
+                    <p>
+                    <span class="sentence">
+                    I understand that the following amount will be billed to my 
+                    credit card. My credit card statement will show the following 
+                    merchant name(s)  and amount(s) for this transaction.
+                    </span>
+                    </p>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="5" class="data_table">
+			        <tr>
+								<th scope="col">
+									<div align="left">Merchant</div>
+								</th>
+								<th scope="col">
+									<div align="right">Amount</div>
+								</th>
+							</tr>
+							<tr>
+								<td class="contact">#{paymentInfo.merchantName}</td>
+								<td class="contact">
+									<div align="right">
+									<h:outputText value="#{paymentInfo.paymentAmount}">
+										<f:convertNumber type="currency" currencySymbol="$" minFractionDigits="2" maxFractionDigits="2" />
+									</h:outputText>
+									</div>
+								</td>
+							</tr>
+					</table>
+                    <p>The total amount to be billed to your credit card is 
+                    			<strong>
+									$<h:outputText value="#{paymentInfo.paymentAmount}">
+										<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2" />	
+									</h:outputText>
+								</strong>
+					</p>
+                    </td>
+                   </tr>
+                  </table>
+                    
+         			
+         		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="button_table">
+             <tr>
+               		<td width="54%" align="left" valign="top" nowrap="nowrap">
+                     	<h:commandButton  value="Previous" id="button3" styleClass="submit_button"	 action="#{paymentController.edit}" immediate="true"/>
+                    </td>
+                    <td width="46%" style="text-align:right" valign="top" nowrap="nowrap">
+                       	  <a4j:commandButton onbegin="#{rich:component('popup')}.show();return false;" 
+					                       	  oncomplete="#{rich:component('popup')}.hide();return false;"
+	                				       	  action="#{paymentController.charge}" 
+                       	  						value="Authorize" id="button4" styleClass="submit_button" />
+	               </td>
+   	    	</tr>
+      		</table>	
+                 
+                  </td>
+                  </tr>
+                  </table>       
+                        	
+    </h:form>
+    </a4j:outputPanel>
+     
+</ui:define>
+</ui:composition>

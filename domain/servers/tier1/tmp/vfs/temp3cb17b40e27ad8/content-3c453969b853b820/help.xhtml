@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   template="/WEB-INF/templates/popuptemplate.xhtml">
+ 
+<ui:param name="documentTitle" value="Help" />
+<ui:param name="pageTitle" value="Online Payment System: Help" />
+<ui:param name="breadcrumb" value=" " type="string"/>
+<ui:param name="title"  value="Help" type="string"/>
+<ui:param name="applicationName2" direct="true" value="Payment System"/>
+<ui:param name="applicationName1" direct="true" value="DES Online"/>
+
+<ui:define name="localCss">
+	<link href="resources/css/stylesheet.css" rel="stylesheet" type="text/css"  media="screen" />
+</ui:define>
+
+<ui:define name="localBody">
+<div align="center">
+		<table width="80%" border="0" cellspacing="0" cellpadding="2"
+			class="home_table">
+			<tr>
+				<td align="left">
+
+				<h2>Program Types</h2>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+					<tr>
+						<td><h:dataTable id="tableEx1" value="#{products}" var="varprogramList" styleClass="data_table" width="100%"
+							columnClasses="idColumn,descriptionColumn">
+							<h:column id="columnEx1">
+								<f:facet name="header">
+									<h:outputText styleClass="outputText" value="Id" id="text1"></h:outputText>
+								</f:facet>
+								<h:outputText id="textId1" value="#{varprogramList.id}"
+									styleClass="outputText">
+								</h:outputText>
+							</h:column>
+							<h:column id="columnEx2">
+								<f:facet name="header">
+									<h:outputText styleClass="outputText" value="Program"
+										id="text2"></h:outputText>
+								</f:facet>
+								<h:outputText id="textDescription1"
+									value="#{varprogramList.description}" styleClass="outputText">
+								</h:outputText>
+							</h:column>
+						</h:dataTable>
+						</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		<div id="testdiv1"></div>
+		</div>
+
+</ui:define></ui:composition>

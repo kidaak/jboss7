@@ -1,0 +1,30 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:ui="http://java.sun.com/jsf/facelets"
+                 xmlns:h="http://java.sun.com/jsf/html"
+                 xmlns:f="http://java.sun.com/jsf/core"
+                 xmlns:s="http://jboss.com/products/seam/taglib">
+
+<!--
+<div class="prop">
+-->
+<div>
+
+   <s:label styleClass="name #{invalid?'errors':''}">
+      <s:span rendered="#{required}"></s:span>
+      <ui:insert name="label"/>
+   </s:label> <br/>
+
+   <span class="value #{invalid?'errors':''}">
+      <ui:insert/>
+   </span>
+
+   <span class="errorLocal" style="display:none">
+      <h:graphicImage value="/img/error.gif" rendered="#{invalid}" styleClass="errors" alt="error"/>
+      <s:message styleClass="errors"/>
+   </span>
+
+</div>
+
+</ui:composition>
+
+<!-- styleClass="required" <img src="#{rceAppConfig.staticServerName}/static/portal/assets/images/icon-required.gif" alt="*" /> -->

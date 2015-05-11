@@ -1,0 +1,316 @@
+body {
+	background:#f0f0f0;
+	font-family: Helvetica, Arial, sans-serif;
+	line-height: 1.2em;
+}
+
+table {
+	font-size: 1em;
+}
+#innertube {
+	margin-top: 20px;
+	width: 60em;
+	text-align: left; 
+	position: relative; 
+	border: 1px solid #cccccc; 
+	border-radius: 10px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;	
+	box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
+	background: #fff;
+	background-image: none;
+}
+
+.appwrapper { 	
+	margin-top: 20px;
+	padding: 10px; 	
+	width: 60em;
+	text-align: left; 
+	position: relative; 
+	border: 1px solid #cccccc; 
+	border-radius: 10px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;	
+	box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
+	background: #fff;
+	background-image: none;
+	}
+
+#breadcrumb2 {
+	text-transform:uppercase;
+	height: 1.5em;
+}
+
+.instructions {
+	background: #f1f1f1;
+	padding: 10px;
+	margin: 10px 0px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;	
+}
+
+h1, .welcome_wrapper h1 {
+	border: none;
+	padding-top: 10px;
+	padding-bottom:0px;
+	font-size: 1.6em;
+	text-align:center;
+}
+
+
+h2 {
+	font-size:1.2em; 
+	text-transform:uppercase;
+	color: #fff;
+	padding: 8px 8px 5px 8px;
+	background: #fff url(../img/elements.jpg) 0 0 no-repeat;
+	height: 15px;
+	width: 757px;	
+}
+
+h2.complete {
+	background: #fff url(../img/elements.jpg) 0px -31px  no-repeat;
+	margin-bottom: 10px;
+	color: #fff;
+}
+
+h2.bottom {
+	background: #fff url(../img/elements.jpg) 0px -61px  no-repeat;
+	margin-bottom: 10px;
+}
+
+h2.step1 {
+	background: #fff url(../img/elements.jpg) 0px -94px  no-repeat;
+	
+}
+h2.step2 {
+	background: #fff url(../img/elements.jpg) 0px -128px  no-repeat;
+}
+h2.step3 {
+	background: #fff url(../img/elements.jpg) 0px -162px  no-repeat;
+}
+h2.step4 {
+	background: #fff url(../img/elements.jpg) 0px -196px  no-repeat;
+}
+h2.step5 {
+	background: #fff url(../img/elements.jpg) 0px -230px  no-repeat;
+}
+h2.stepcompleted {
+	background: #fff url(../img/elements.jpg) 0px -264px  no-repeat;
+}
+h2.stepnext {
+	background: #fff url(../img/elements.jpg) 0px -297px  no-repeat; 
+}
+
+.caption {
+	font-size:0.9em;
+	color: 333;
+}
+
+.home_table {
+	background: #fff;
+	background-image: none;
+	width:100%;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	padding-top: 5px;
+	padding-right: 0px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+	display: table;
+	border: none;
+	max-width: 60em;
+
+}
+
+* html .home_table {
+	width: 60em;
+}
+
+.home_table td.center {
+	text-align:center;
+}
+
+* html .welcome_wrapper {
+	width: 790px;
+	
+}
+
+.display_table {
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	color: #444;
+	text-align:left;
+	
+}
+
+.acc_container .display_table  {
+	background-color: #fff;
+}
+
+.summary_table {
+	background-color: #efefef;
+	border: 1px solid #ccc;
+	color: #444;
+}
+
+.summary_table th,  h3, .display_table th,  h3   {
+	background-color: #426a95;
+	font-size:1.2em; 
+	text-transform:uppercase;
+	color: #fff; 
+}
+.summary_table .section, .display_table.section {
+	background-color: #e0e0e0;
+	font-weight:bold;
+}
+.summary_table .subsec, .display_table .subsec {
+	background-color: #e1e1e1;
+	font-size:1.2em; 
+	text-transform:uppercase;
+}
+
+.summary_table .uppc, .display_table .uppc {
+	text-transform:uppercase;
+	font-size:0.7em;
+	color: #555;
+}
+
+.data_table {
+	background-color: #efefef;
+	border-color: #ccc;
+
+}
+
+legend {
+	background: #efefef;
+	color: #666;
+	font-weight:normal;
+	text-transform:uppercase;
+	border-color: #ccc;
+}
+fieldset {
+	border-color: #ccc;
+}
+.textfield, .dropmenu {
+	border-color: #ccc;
+	background-position: 0px -1px;
+}
+.textfield:hover {
+	border-color: #666;
+	background-position: 0px -1px;
+}
+
+.submit_button, table .submit_button  {
+	color: #333;
+	border: 1px solid #999;
+	background: #efefef;
+	background-image: none;
+	padding: 3px 7px;
+	font-size: .9em;
+	text-transform:uppercase;
+	margin: 0px;
+	overflow: visible;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.25)
+
+}
+
+.submit_button:hover, .submit_button:focus,  table .submit_button:hover {
+	background-color: #333;
+	background-image: none;
+	color: #fff;
+	}
+	
+#buttons_wrapper {
+		margin: 10px auto;
+		width: 700px;
+}
+	
+.welcome_button {
+	margin: 10px auto;
+	width: 700px;
+}
+.welcome_button a {
+	text-shadow:none;
+	color: #333;
+	text-decoration: none;
+	background: #efefef url(../img/button-arrow-out.jpg) no-repeat 3px 3px;
+	padding: 6px 5px 3px 40px;
+	margin: 5px auto;
+	display: block;
+	height: 23px;
+	width: 400px;
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 1.4em;
+	text-transform:uppercase;
+	text-align:center;
+	border: 1px solid #999;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+	cursor: pointer;
+}
+.welcome_button a:hover {
+	background: #333 url(../img/button-arrow-on.jpg) no-repeat 3px 3px;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+
+.disabled, .disabled:hover, .disabled:focus  {
+	color: #d6d6d6;
+	border: 1px solid #999;
+	background: #efefef;
+	cursor: pointer;
+	
+}
+	
+.error {
+	border-width: 1px;
+	
+}
+.footer_nav, .footer_nav a {
+	padding-top: 10px;
+	color: #666;
+}
+
+.footer_nav, .footer_nav a:hover {
+	color: #333;
+}
+
+form input, #form select, #form textarea { 
+	font-size: 1em; 
+	font-family: Helvetica, Arial, sans-serif; 
+	margin: 2px 5px 2px 0px; 
+}
+form input[type="text"], #form select, #form textarea
+{
+	padding: 3px; 
+	border: 1px solid #d4d4d4; 
+	color: #626262;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	
+}
+
+form input[type="text"]:focus, #form select:focus, #form textarea:focus, #form input.focus, #form select.focus, #form textarea.focus
+{
+	padding: 3px;
+	border: 1px solid #091B45;
+}
+
+form input:focus, #form textarea:focus  {
+	background: #FFFFCC;
+}

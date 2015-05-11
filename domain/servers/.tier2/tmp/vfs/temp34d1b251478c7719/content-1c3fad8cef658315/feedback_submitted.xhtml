@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   template="/WEB-INF/templates/popuptemplate.xhtml">
+ 
+<ui:param name="documentTitle" value="Feedback Submitted" />
+<ui:param name="pageTitle" value="Online Payment System: Feedback Submitted" />
+<ui:param name="breadcrumb" value=""/>
+<ui:param name="title" value="Feedback Submitted"/>
+<ui:param name="applicationName2" value="Payment System"/>
+<ui:param name="applicationName1" value="DES Online"/>
+
+
+<ui:define name="localCss">
+	<link href="resources/css/stylesheet.css" rel="stylesheet" type="text/css"  media="screen" />
+</ui:define>
+
+<ui:define name = "localBody">	
+  <div align="center">
+	<table width="80%" border="0" cellspacing="0" cellpadding="2" class="home_table">
+		<tr><td>
+		<div>
+		<h3>Thank You for submitting your feedback.</h3>
+		<p>A message has been sent to support.</p>
+		<p>Someone will contact you with any questions about your feedback if you provided an email address.</p>
+		
+		</div></td>
+		</tr>
+	</table>
+</div>
+</ui:define></ui:composition>

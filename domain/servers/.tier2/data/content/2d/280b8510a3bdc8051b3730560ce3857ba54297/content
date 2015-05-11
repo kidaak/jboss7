@@ -1,0 +1,17 @@
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema">
+    <datasource  jta="false" jndi-name="java:/BHADataSource" pool-name="BhaDS_Pool" enabled="true" use-ccm="false">
+        <connection-url>jdbc:sqlserver://ecdcldsqldev02;databasename=BHA</connection-url>
+        <driver>sqljdbc</driver>
+	    <security>
+            <user-name>bhadevusr</user-name>
+            <password>N!A3nEbG</password>
+        </security>
+	    <validation>
+    	    <validate-on-match>false</validate-on-match>
+            <background-validation>false</background-validation>
+        </validation>
+        <statement>
+            <share-prepared-statements>false</share-prepared-statements>
+        </statement>
+    </datasource>
+</datasources>

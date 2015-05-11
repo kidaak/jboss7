@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://payment.az.gov"
+    xmlns:GAOPaymentTransaction="http://payment.az.gov">
+    <xsd:annotation>
+        <xsd:documentation>
+            The XML schema for a GAO Payment transaction.
+        </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:element name="transaction"
+        type="GAOPaymentTransaction:GAOTransactionType">
+        <xsd:annotation>
+            <xsd:documentation>
+                The root element for an XML document describing a GAO
+                transaction.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="GAOTransactionType">
+        <xsd:annotation>
+            <xsd:documentation>
+                Defines the elements that make up a GAO transaction.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:all>
+            <xsd:element name="merchantNumber"
+                type="GAOPaymentTransaction:pmtMgrMerchantNumber" minOccurs="1"
+                maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The payment manager merchant number for the agency
+                        assigned by IBM.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="orderNumber"
+                type="GAOPaymentTransaction:pmtMgrOrderNumber" minOccurs="1"
+                maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A unique identifier for the transaction. Assigned by the
+                        agency.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="password" type="xsd:string" maxOccurs="1"
+                minOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The password required for accessing Payment Manager to
+                        charge the credit cards. Given by IBM to the agencies.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gaoBatchAgency"
+                type="GAOPaymentTransaction:threeLetterCode" minOccurs="1"
+                maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A three character code defined by GAO for the agency.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gaoDocNoAgency"
+                type="GAOPaymentTransaction:threeLetterCode" minOccurs="1"
+                maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A three character code defined by GAO for the agency.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="totalAmount"
+                type="GAOPaymentTransaction:amountType" minOccurs="1"
+                maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The total amount of the transaction.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="returnURL" type="xsd:anyURI" minOccurs="1"
+                maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The URL on the agency's site to which the AAYS Secure
+                        Payment Pages application posts its result.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="summaryDescription" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A description of what to display on the payment page for
+                        the user on what items they are purchasing.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="lineItemList"
+                type="GAOPaymentTransaction:GAOTransactionLineItemList"
+                minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A list of line items (products) that make up the
+                        transaction.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="GAOTransactionLineItemList">
+        <xsd:annotation>
+            <xsd:documentation>
+                A type that defines the list of line items.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="lineItem"
+                type="GAOPaymentTransaction:GAOLineItemType" minOccurs="1"
+                maxOccurs="unbounded">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="GAOLineItemType">
+        <xsd:annotation>
+            <xsd:documentation>
+                Defines the elements in a transaction's line item.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence maxOccurs="1" minOccurs="1">
+            <xsd:element name="gaoProductCode">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The unique code for the product or service.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="8"></xsd:maxLength>
+                        <xsd:minLength value="1"></xsd:minLength>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="gaoAgency"
+                type="GAOPaymentTransaction:threeLetterCode">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Assigned by GAO for the agency's product.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:choice>
+                <xsd:element name="gaoIndex"
+                    type="GAOPaymentTransaction:fiveLetterCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Assigned by GAO for the agency's product.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="gaoPCA"
+                    type="GAOPaymentTransaction:fiveLetterCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Assigned by GAO for the agency's product.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+            <xsd:element name="gaoCompObject"
+                type="GAOPaymentTransaction:fourLetterCode" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Assigned by GAO for the agency's product.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gaoAgencyObject"
+                type="GAOPaymentTransaction:fourLetterCode" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Assigned by GAO for the agency's product.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gaoMultipurposeCode"
+                type="GAOPaymentTransaction:tenLetterMax" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A code an agency can use for GAO reports.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gaoDescription">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A description of the product/service for the AFIS
+                        report.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="21"></xsd:maxLength>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="amount"
+                type="GAOPaymentTransaction:amountType">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The unit price of the line item.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="quantity" minOccurs="0"
+                type="xsd:positiveInteger">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        How many of the products were sold in the line item. If
+                        not present, defaults to 1.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="twoLetterCode">
+        <xsd:annotation>
+            <xsd:documentation>
+                A type representing a code that is exactly 2 characters.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:length value="2" fixed="true"></xsd:length>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="threeLetterCode">
+        <xsd:annotation>
+            <xsd:documentation>
+                A type representing a code that is exactly 3 characters.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:length value="3" fixed="true"></xsd:length>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="fourLetterCode">
+        <xsd:annotation>
+            <xsd:documentation>
+                A type representing a code that is exactly 4 characters.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:length value="4" fixed="true"></xsd:length>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="fiveLetterCode">
+        <xsd:annotation>
+            <xsd:documentation>
+                A type representing a code that is exactly 5 characters.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:length value="5" fixed="true"></xsd:length>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="sixLetterCode">
+        <xsd:annotation>
+            <xsd:documentation>
+                A type representing a code that is exactly 6 characters.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:length value="6" fixed="true"></xsd:length>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="tenLetterMax">
+        <xsd:annotation>
+            <xsd:documentation>
+                A type representing a code that is up to 10 characters.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10"></xsd:maxLength>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="pmtMgrMerchantNumber">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"></xsd:minLength>
+            <xsd:maxLength value="9"></xsd:maxLength>
+            <xsd:pattern value="\d+"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="pmtMgrOrderNumber">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"></xsd:minLength>
+            <xsd:maxLength value="9"></xsd:maxLength>
+            <xsd:pattern value="\d+"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="amountType">
+        <xsd:annotation>
+            <xsd:documentation>
+                A type for the amount of the transaction and line items.
+                Restricts the amount to be positive and no more than 9 digits.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:nonNegativeInteger">
+            <xsd:totalDigits value="9"></xsd:totalDigits>
+            <xsd:pattern value="\d{1,9}"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="ccNumber">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d+"></xsd:pattern>
+            <xsd:maxLength value="19"></xsd:maxLength>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="BaseGAOTransactionType">
+        <xsd:annotation>
+            <xsd:documentation>
+                Base complex type for GAO transactions. Extended to define now
+                types for the different ways of communicating with the payment
+                system. Would eventually like to replace the existing
+                GAOTransactionType with a type extended from this one. But an
+                agency is already using the transaction element that is based on
+                GAOTransactionType.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="merchantNumber"
+                type="GAOPaymentTransaction:pmtMgrMerchantNumber" minOccurs="1"
+                maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The merchant number for the agency which is assigned by
+                        IBM.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="orderNumber"
+                type="GAOPaymentTransaction:pmtMgrOrderNumber" minOccurs="1"
+                maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A unique identifier for the transaction. Assigned by the
+                        agency.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="password" type="xsd:string" maxOccurs="1"
+                minOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The password required for accessing Payment Manager to
+                        charge the credit cards. Given by IBM to the agencies.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gaoBatchAgency"
+                type="GAOPaymentTransaction:threeLetterCode" minOccurs="1"
+                maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A three character code defined by GAO for the agency.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gaoDocNoAgency"
+                type="GAOPaymentTransaction:threeLetterCode" minOccurs="1"
+                maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A three character code defined by GAO for the agency.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="totalAmount"
+                type="GAOPaymentTransaction:amountType" minOccurs="1"
+                maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The total amount of the transaction.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="lineItemList"
+                type="GAOPaymentTransaction:GAOTransactionLineItemList"
+                minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A list of line items (products) that make up the
+                        transaction.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="GAOPaymentTransactionType">
+        <xsd:complexContent>
+            <xsd:extension
+                base="GAOPaymentTransaction:BaseGAOTransactionType">
+                <xsd:sequence>
+                    <xsd:element name="ccNumber"
+                        type="GAOPaymentTransaction:ccNumber">
+                    </xsd:element>
+                    <xsd:element name="expiry"
+                        type="GAOPaymentTransaction:expiration">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="gaoPayment"
+        type="GAOPaymentTransaction:GAOPaymentTransactionType">
+        <xsd:annotation>
+            <xsd:documentation>
+                The element to use to define a GAO transaction that contains
+                credit card information. Used for server-side posts to the GAO
+                application.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:simpleType name="expiration">
+        <xsd:annotation>
+            <xsd:documentation>
+                Expiration date in YYYYMM format.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:length value="6" fixed="true"></xsd:length>
+            <xsd:pattern value="\d*"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:element name="paymentResponse"
+        type="GAOPaymentTransaction:PaymentResponseType">
+        <xsd:annotation>
+            <xsd:documentation>
+                The element used to define an XML document for responding to a
+                request that uses the element gaoPayment.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="PaymentResponseType">
+        <xsd:annotation>
+            <xsd:documentation>
+                Defines the choices allowed for element paymentResponse. A
+                response will either be an error, an authorization response,
+                or a reversal response.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:choice>
+            <xsd:choice>
+                <xsd:element name="authorizationResponse"
+                    type="GAOPaymentTransaction:AuthorizationResponseType">
+                </xsd:element>
+            </xsd:choice>
+            <xsd:choice>
+                <xsd:element name="error"
+                    type="GAOPaymentTransaction:ErrorResponseType">
+                </xsd:element>
+            </xsd:choice>
+            <xsd:choice>
+                <xsd:element name="reversalResponse"
+                    type="GAOPaymentTransaction:ReversalResponseType">
+                </xsd:element>
+            </xsd:choice>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="AuthorizationResponseType">
+        <xsd:annotation>
+            <xsd:documentation>
+                Defines authorization response type for element paymentResponse.
+                Indicates whether or not the payment was authorized and if so,
+                what its authorization code is.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="success" type="xsd:boolean"></xsd:element>
+            <xsd:element name="orderNumber"
+                type="GAOPaymentTransaction:pmtMgrOrderNumber">
+            </xsd:element>
+            <xsd:element name="authCode" type="xsd:string" minOccurs="0"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ErrorResponseType">
+        <xsd:annotation>
+            <xsd:documentation>
+                Defines the error response type for element paymentResponse.
+                Includes the name of the of the error and a description of the
+                error.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"></xsd:element>
+            <xsd:element name="message" type="xsd:string"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:element name="reverseGAOPayment"
+        type="GAOPaymentTransaction:ReverseGAOPaymentType">
+        <xsd:annotation>
+            <xsd:documentation>
+                The element to use to request a reversal of a GAO transaction.
+                Used for server-side posts to the GAO application when an order
+                needs to be removed from the nightly batch and from the GAO
+                database.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="ReverseGAOPaymentType">
+        <xsd:annotation>
+            <xsd:documentation>
+                Defines the type for element reverseGAOPayment.  Includes
+                the necessary information for reversing a GAO payment
+                (order number, merchant number, and password).
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence minOccurs="1">
+            <xsd:element name="orderNumber"
+                type="GAOPaymentTransaction:pmtMgrOrderNumber">
+            </xsd:element>
+            <xsd:element name="merchantNumber"
+                type="GAOPaymentTransaction:pmtMgrMerchantNumber">
+            </xsd:element>
+            <xsd:element name="password" type="xsd:string"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ReversalResponseType">
+        <xsd:annotation>
+            <xsd:documentation>
+                Defines the response type for element reverseGAOPayment.
+                Includes the order number to indicate which order was
+                successfully reversed.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="orderNumber"
+                type="GAOPaymentTransaction:pmtMgrOrderNumber">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

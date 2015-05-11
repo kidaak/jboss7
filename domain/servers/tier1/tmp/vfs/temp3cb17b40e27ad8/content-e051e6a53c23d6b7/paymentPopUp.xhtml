@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/WEB-INF/templates/bhaTemplate.xhtml">
+	<ui:param name="pageTitle" value="" />
+	<ui:param name="title"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName1"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName2" value="Online Payment Service" />
+	<ui:param name="agencyName"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="appImage" value="agencylogo_bbhe.jpg" />
+	<ui:param name="donotRenderHelp" value="true" />
+	<ui:param name="donotRenderFAQ" value="true" />
+
+	<ui:define name="localCss">
+		<link href="resources/assets/css/azbbhe.css" rel="stylesheet"
+			type="text/css" media="screen" />
+	</ui:define>
+
+	<ui:define name="localJs">
+	</ui:define>
+
+	<ui:define name="breadcrumb"></ui:define>
+
+	<ui:define name="altbreadcrumb">
+	
+		<!--  <h1>Popup</h1> -->
+	</ui:define>
+	<ui:define name="body">
+		
+			<h:form id="checkout" class="form">
+			<div class="home_table">
+
+					
+				</div>
+
+				<h2>Previous Payment Confirmation number : #{bha.tpeResponse.getConfirmation().toString()}</h2>
+				<div class="display_table">
+				
+				
+						<h:outputText 
+							value="Thank you for your payment. Our records show that payment for this order was already processed. If this is a new order please click New Order below:" />
+				
+				
+				<div id="buttons_wrapper">
+
+						<div class="welcome_button subpage">
+							<h:commandLink target="_self" action="#{bha.logout}">
+               	   					New Order
+               				</h:commandLink>
+
+						</div>
+					</div>
+					
+				
+		
+			</div>
+			</h:form>
+	</ui:define>
+		
+	</ui:composition>
+	

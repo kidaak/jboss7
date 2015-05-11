@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   xmlns:nic="http://java.sun.com/jsf/composite/components"
+   template="/WEB-INF/templates/destemplate.xhtml">
+
+	<ui:param name="pageTitle" value="Payment Information"/>
+	<ui:param name="title" value="Online Payment Processor"/>
+	<ui:param name="agencyName" value="State of Arizona"/>
+	<ui:param name="applicationName1" value="State of Arizona"/>
+	<ui:param name="applicationName2" value="Checkout Utility"/>
+	<ui:param name="appImage" value="azstate_logo.jpg"/>
+	<ui:param name="donotRenderLiveHelp" value="true"/>
+	<ui:param name="renderLinkToAgency" value="false"/>
+	
+	<ui:define name="localMetadata">
+		<f:metadata/>
+		<f:event listener="#{navigationValidator.verifyPaymentAccess}" type="preRenderView"/>  
+	</ui:define>
+	
+	<ui:define name="localAltbreadcrumb">
+		<strong>Payment Information</strong>&#187; Order Review &#187; Receipt
+   </ui:define>  
+	
+	<ui:define name="localBody">
+
+	<h:form id="checkout">
+		<p align="left" class="requiredMessage" style="margin-left: 0px;">
+		<h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk" />Indicates Required Field</p>
+    
+   		<table width="80%" border="0" cellspacing="0" cellpadding="2" class="home_table">
+		<tr>
+      		<td align="left">
+         	<div class="instructions">
+         		<p>
+         			<h:outputText value="Please enter the customer's billing and credit card information. Click the continue button to go to the Order Review page to authorize payment." /> 
+         		</p>
+	        </div>
+
+         <h2>Checkout - Payment Information</h2>
+
+         <a4j:outputPanel id="billingPanel">
+         <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+         <tr>
+
+            <!-- First Name -->
+            <td width="50%" colspan="2">
+	            <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+	            <h:outputLabel  for="firstName" value="First Name" />
+				<br />
+	            <h:inputText
+	                     id="firstName" 
+	                     size="40"
+	                     styleClass="textfield"
+	                     maxlength="12"
+	                     required="true"
+	                     requiredMessage="First Name is required."
+	                     value="#{paymentInfo.firstName}"
+	                     validator = "#{facesPaymentValidator.validateFirstName}"/>
+	                     <!-- <h:message for="firstName" errorClass="invalid message"  />-->
+			</td>
+
+            <!-- Last Name -->
+            <td width="50%" colspan="2" align="left">
+		            <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>		
+		            <h:outputLabel for="lastName" value="Last Name" />
+		            					 <br />		
+					<h:inputText 
+                     id="lastName" 
+                     size="35"
+                     styleClass="textfield"
+                     required="true"
+                     maxlength="15"
+                     requiredMessage="Last Name is required."
+                     value="#{paymentInfo.lastName}"
+                     validator = "#{facesPaymentValidator.validateLastName}"/>
+                    <!--  <h:message for="lastName" errorClass="invalid message"  />-->
+            </td>
+         </tr>
+         <tr>
+            <!-- Address inputText -->
+            <td width="50%" colspan="2">
+	            <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+				  <h:outputLabel for="homeAddress1" value="Billing Address" />
+				  					 <br />	
+                  <h:inputText label = "Billing Address"
+                        id="homeAddress1" 
+                        size="40"
+                        styleClass="textfield"
+                        maxlength="40"
+                        required="true"
+                        requiredMessage="Address is required."
+                        value="#{paymentInfo.homeAddress1}"
+                          validator = "#{facesPaymentValidator.validateAddress}"/>
+                        <!-- <h:message for="homeAddress1" errorClass="invalid message"  />-->
+            </td>
+            
+		  <!-- City -->
+            <td width="50%" colspan="2">
+		            <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+ 					<h:outputLabel for="city" value="City" />
+ 										 <br />
+                     <h:inputText id="city"
+                           size="40"
+                           styleClass="textfield"
+                           maxlength="28"
+                           required="true"
+                           requiredMessage="City is required."
+                           value="#{paymentInfo.city}"
+                             validator = "#{facesPaymentValidator.validateCity}"/>
+                           <!-- <h:message for="city" errorClass="invalid message"  />-->
+
+            </td>           
+         </tr>
+         <tr>            
+            <!-- State or State/Province -->
+            <td width="50%" colspan="2">
+		            <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+					 <h:outputLabel for="state" value="State" />
+					 					 <br />	
+                     <h:selectOneMenu
+                           id="state"  
+                           value="#{paymentInfo.state}"
+                           title="Click to select"
+                           required="true"
+                           requiredMessage="State is required."
+                           styleClass="dropmenu"
+                           validator = "#{facesPaymentValidator.validateState}">
+                           <f:selectItems value="#{dataProducer.statesEnum}" var="month" label="#{month.title}" noSelectionLabel="Click to select"/>		               
+                    </h:selectOneMenu>
+					<!-- <h:message for="state" errorClass="invalid message"  />-->
+		   </td>            
+           
+           <!-- Zip5 -->
+            <td width="20%" colspan = "2">
+		            <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+					 <h:outputLabel for="zipCode" value="Zip Code" />
+					 					 <br />	
+            		<h:inputText 
+                           id="zipCode" 
+                           size="6"
+                           styleClass="textfield"
+                           required="true"
+                           maxlength="5"
+                           requiredMessage="Zip Code is required."
+                           value="#{paymentInfo.zipCode}"
+                             validator = "#{facesPaymentValidator.validateZipCode}"/>
+					<!-- <h:message for="zipCode" errorClass="invalid message"  />-->
+
+            </td>            
+         </tr>         
+		 <tr>   
+            <!-- Email -->
+            <td width="50%" colspan="2">
+		            <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+					 <h:outputLabel for="email" value="Email: (receipt will be emailed to you)" />
+					 <br />
+                     <h:inputText id="email" 
+                           size="40"
+                           styleClass="textfield"
+                           maxlength="50"
+                           value="#{paymentInfo.email}"
+                             validator = "#{facesPaymentValidator.validateEmail}"/>
+                           <!--  <h:message for="email" errorClass="invalid message"  />-->
+
+            </td>
+
+
+            <td width="50%" colspan="2">
+		            <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+					<h:outputLabel for="phoneNumber" value="Phone Number" />
+					 <br />
+                   <h:inputText id="phoneNumber"  
+                        size="20"
+                        styleClass="textfield mask_phone"
+                     	maxlength="12"
+                        required="true"
+                        requiredMessage="Phone Number is required."
+                        value="#{paymentInfo.phoneNumber}"
+                          validator = "#{facesPaymentValidator.validatePhoneNumber}"/>
+                        <!-- <h:message for="phoneNumber" errorClass="invalid message"  />-->
+
+            </td>  
+
+         </tr> 
+         <!-- Visa/Mastercard logos -->
+
+         <tr>
+            <td colspan="4" height="32" valign="top">
+            <div style="text-align: center;">
+       				<h4>The following credit cards are accepted</h4>
+       				<ui:repeat var="image" value="#{creditImages}">
+	       				<h:graphicImage library="images" name="credit/#{image}" alt="#{image}" />
+       					<h:graphicImage library="images" name="spacer.gif" width="2" />
+       				</ui:repeat>
+       		</div>	
+           </td>
+         </tr>
+
+         <tr>
+
+            <!-- Credit Card Number -->
+            <td colspan="2">
+	            <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+          		 <h:outputLabel for="creditNumber" value="Credit Card Number" />
+					 <br />
+                  <h:inputText 
+                        id="creditNumber"
+                        styleClass="textfield"
+                        value="#{paymentInfo.creditNumber}"
+                        required="true"
+                        requiredMessage="Credit Card Number is required."
+                        size="16" 
+                        maxlength="16" 
+                          validator = "#{facesPaymentValidator.validateCreditCard}"/>
+				<!-- <h:message for="creditNumber" errorClass="invalid message"  />-->
+          
+            </td>
+
+            <!-- CVV description -->
+            <td rowspan="2" colspan="2" width="50%" class="instructions">
+    	       <h:graphicImage library="images" name="cvv.jpg" alt="CVV number" align="left" hspace="10" />
+	            <span class="red">CVV number</span><br /> CVV number is a 3 digit code on the back of your Visa or MasterCard.
+            </td> 
+
+         </tr>
+
+         <!-- Expiration Date -->
+
+         <tr>
+             <td width="20%" nowrap="nowrap">
+				<h:panelGroup>
+					<h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+					<h:outputLabel for="ccExpYear" value="Expiration Date" />
+					 <br />
+	               	  <h:selectOneMenu value="#{paymentInfo.ccExpMonthEnum}" id="ccExpMonthEnum" validator="#{facesPaymentValidator.validateExpMonth}">
+		           			<f:selectItems value="#{dataProducer.monthsEnum}" var="month" itemLabel="#{month.title}" noSelectionLabel="Month..."/>	                    
+	                    </h:selectOneMenu>  				
+	                  <h:selectOneMenu
+	                        id="ccExpYear"
+	                        styleClass="dropmenu"
+	                        required="true"
+	                        requiredMessage="Expiration Date Year is required."
+	                        value="#{paymentInfo.ccExpYear}"
+	                        validator="#{facesPaymentValidator.validateExpYear}" >
+	                     	<f:selectItems value="#{dataProducer.yearsList}" var="year" itemLabel="#{year.label}" noSelectionLabel="Year..." itemValue="#{year.value}" />
+	                  	</h:selectOneMenu>
+	                  	<br />
+	                  	<!-- <h:message for="ccExpMonthEnum" errorClass="invalid message"/>-->
+	                  	<!-- <h:message for="ccExpYear" errorClass="invalid message"/>-->
+				</h:panelGroup>
+			</td>
+
+            <td width="30%">
+	               <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+                   <h:outputLabel for="csvNumber" value="CSV Number" />
+					 <br />
+                  <h:inputText label = "CSV"
+                        id="csvNumber"
+                        styleClass="textfield"
+                        required="true"
+                        requiredMessage="CSV is required."
+                        size="4"
+                        maxlength="4"
+                        value="#{paymentInfo.csvNumber}"
+                        validator="#{facesPaymentValidator.validateCsvNumber}">
+                     <f:validateLongRange minimum="0" maximum="9999" for="csvNumber"/>
+                  </h:inputText>
+                  <!-- <h:message for="csvNumber" errorClass="invalid message"  />-->
+            </td>
+         </tr> 
+         </table>  
+         </a4j:outputPanel>
+	
+         <br/>
+
+         <table class="button_table" width="100%" border="0" cellpadding="0" cellspacing="0">
+         <tr>
+            <td nowrap="nowrap" valign="top" width="50%">
+	            <a4j:commandButton value="Clear " id="button3"
+							styleClass="submit_button" action="#{paymentController.clear}" immediate="true" render="checkout"/>
+            
+            </td>
+                      
+            <td nowrap="nowrap" valign="top" width="50%" align="right">
+               <span class="adjustright">
+
+               <h:commandButton type="submit" value="Continue" id="button202" 
+							styleClass="submit_button"  action="#{paymentController.review}"/>		
+
+               </span>
+            </td>
+         </tr>
+         </table>   
+      </td>
+   </tr>
+   </table>
+ 
+<!-- <s:validateForm  validatorId="paymentValidator"/> -->
+
+</h:form>
+</ui:define>
+
+   
+
+</ui:composition>

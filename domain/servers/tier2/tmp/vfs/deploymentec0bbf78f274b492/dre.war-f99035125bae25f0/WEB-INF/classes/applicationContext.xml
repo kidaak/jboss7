@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="properties">
+            <bean class="com.ibm.gs.houston.spring.util.PropertyManagerAdapter" />
+        </property>
+    </bean> 
+    
+    
+    <bean id="dreFacade" class="com.ibm.azportal.dre.domain.logic.DREFacadeImpl"/>     
+       
+    
+    
+    <bean id="azportalDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>java:jboss/datasources/dre</value>
+        </property>
+        <property name="resourceRef">
+            <value>true</value>
+        </property>
+    </bean>
+    
+    <bean id="azportalJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource">
+            <ref local="azportalDataSource" />
+        </property>
+    </bean>
+    
+    <bean id="surveyResultsDao" class="com.ibm.azportal.dre.dao.jdbc.SurveyResultsDaoJdbc">
+        <property name="jdbcTemplate">
+            <ref local="azportalJdbcTemplate"/>
+        </property>
+    </bean>
+    
+    <bean id="gaoDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>java:jboss/datasources/dre</value>
+        </property>
+        <property name="resourceRef">
+            <value>true</value>
+        </property>
+    </bean>
+    
+    <bean id="gaoJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource">
+            <ref local="gaoDataSource" />
+        </property>
+    </bean>
+    
+	<bean id="jdbcGaoInfoDao" class="com.ibm.azportal.gao.catalog.dao.jdbc.GaoInfoDaoJdbc"
+          init-method="init">
+        <property name="jdbcTemplate">
+            <ref local="gaoJdbcTemplate"/>
+        </property>
+    </bean>
+    
+	<bean id="jdbcGaoProductDao" class="com.ibm.azportal.gao.catalog.dao.jdbc.GaoProductDaoJdbc"
+	      init-method="init">
+		<property name="jdbcTemplate">
+			<ref local="gaoJdbcTemplate"/>
+		</property>
+	</bean>
+    
+    <bean id="combinedDao" class="com.ibm.azportal.gao.catalog.dao.GaoDataCachedImpl">
+      
+    	<!-- gaoInfoDao -->
+        <constructor-arg>
+        	<ref local="jdbcGaoInfoDao"/>
+        </constructor-arg>
+        <!-- GaoProductDao -->
+        <constructor-arg>
+        	<ref local="jdbcGaoProductDao"/>
+        </constructor-arg>
+    </bean>
+    
+    <bean id="gaoInfoDao" factory-bean="combinedDao" factory-method="getCacheGaoInfoDao"/>
+    <bean id="gaoProductDao" factory-bean="combinedDao" factory-method="getCacheGaoProductDao"/>
+    <bean id="productDao" factory-bean="combinedDao" factory-method="getCacheProductDao"/>
+          
+<!--  GAOPaymentFacade -->
+	<bean id="gaoPaymentFacade"
+	      class="com.ibm.azportal.gao.payment.client.HttpPostXmlGaoPaymentImpl">
+	   
+	</bean>
+
+<!-- PaymentFacade -->
+	<bean id="paymentFacade"
+	      class="com.ibm.azportal.dre.domain.logic.DREPaymentFacadeImpl">
+	    <property name="gaoInfoDao">
+	      	<ref local="gaoInfoDao"/>
+	    </property>
+	    <property name="gaoProductDao">
+	      	<ref local="gaoProductDao"/>
+	    </property>
+	    <property name="gaoPaymentFacade">
+	      	<ref local="gaoPaymentFacade"/>
+	    </property>
+    </bean>
+    
+</beans>

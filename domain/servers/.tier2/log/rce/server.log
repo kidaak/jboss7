@@ -1,0 +1,1047 @@
+2015-04-14 10:45:07,639 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG                     util.JndiLookup:  85 - There is no entry 'java:global/APP_STATIC_ROOT' defined in JNDI; checking for System property...
+2015-04-14 10:45:07,640 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG                     util.JndiLookup:  95 -     Found System property; value = [https://az.devaz.gov]
+2015-04-14 10:45:07,640 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG            action.ApplicationConfig: 252 -     JNDI parameter 'static/root' is bound; value (staticServerURL) = [https://az.devaz.gov]
+2015-04-14 10:45:07,650 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG            action.ApplicationConfig: 254 - --> getStaticServerName(): rv = 'https://az.devaz.gov'
+2015-04-14 10:45:08,256 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG             action.AppManagerAction:  71 - --> getServer: rv = 'https://az.devaz.gov'
+2015-04-14 10:45:08,302 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE      configurabletext.SplashManager:  55 - in getSplashWelcome
+2015-04-14 10:45:08,303 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  58 - --> findEjb()...
+2015-04-14 10:45:08,303 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG                     util.JndiLookup:  85 - There is no entry 'java:global/CTS_EJB_URI' defined in JNDI; checking for System property...
+2015-04-14 10:45:08,304 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 WARN                      util.JndiLookup:  91 - There is no System property entry defined for key = 'ctsEjbUrl'; using default value = 'ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote'
+2015-04-14 10:45:08,304 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 195 - --> lookup( name = ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote, environment )...
+2015-04-14 10:45:08,305 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 209 - <-- lookup(); success = true
+2015-04-14 10:45:08,305 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  82 - <-- findEjb().
+2015-04-14 10:45:16,889 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE      configurabletext.SplashManager:  61 - in getSplashPleaseNote
+2015-04-14 10:45:16,889 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  58 - --> findEjb()...
+2015-04-14 10:45:16,890 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 195 - --> lookup( name = ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote, environment )...
+2015-04-14 10:45:16,890 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 209 - <-- lookup(); success = true
+2015-04-14 10:45:16,890 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  82 - <-- findEjb().
+2015-04-14 10:51:34,975 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE      configurabletext.SplashManager:  67 - in getNewappAsrcpInstruction
+2015-04-14 10:51:34,979 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  58 - --> findEjb()...
+2015-04-14 10:51:34,979 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 195 - --> lookup( name = ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote, environment )...
+2015-04-14 10:51:35,008 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 209 - <-- lookup(); success = true
+2015-04-14 10:51:35,009 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  82 - <-- findEjb().
+2015-04-14 10:51:39,755 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE      configurabletext.SplashManager:  74 - in getNewappAsrcpSection1
+2015-04-14 10:51:39,755 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  58 - --> findEjb()...
+2015-04-14 10:51:39,767 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 195 - --> lookup( name = ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote, environment )...
+2015-04-14 10:51:39,767 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 209 - <-- lookup(); success = true
+2015-04-14 10:51:39,768 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  82 - <-- findEjb().
+2015-04-14 10:51:40,338 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE configurabletext.AppStatusSplashManager:  30 - in getAppstatusInquiryInstructions
+2015-04-14 10:51:40,351 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  58 - --> findEjb()...
+2015-04-14 10:51:40,352 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 195 - --> lookup( name = ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote, environment )...
+2015-04-14 10:51:40,352 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 209 - <-- lookup(); success = true
+2015-04-14 10:51:40,352 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  82 - <-- findEjb().
+2015-04-14 10:51:41,109 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 116 - start factoryInitializationOfLicenseStatusInquiryList
+2015-04-14 10:51:41,139 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 118 - end factoryInitializationOfLicenseStatusInquiryList
+2015-04-14 10:51:41,174 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  88 - --> getLicenseStatusInquiryList()...
+2015-04-14 10:51:41,174 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  92 - log.isDebugEnabled()---->
+2015-04-14 10:51:41,175 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 102 - <-- getLicenseStatusInquiryList().
+2015-04-14 10:51:41,245 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:51:41,250 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:51:41,260 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:51:41,261 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()?
+2015-04-14 10:51:41,350 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  88 - --> getLicenseStatusInquiryList()...
+2015-04-14 10:51:41,351 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  92 - log.isDebugEnabled()---->
+2015-04-14 10:51:41,351 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 102 - <-- getLicenseStatusInquiryList().
+2015-04-14 10:51:41,539 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE configurabletext.AppStatusSplashManager:  38 - start destroy
+2015-04-14 10:51:41,540 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG configurabletext.AppStatusSplashManager:  39 - destroy time: Tue Apr 14 10:51:41 MST 2015
+2015-04-14 10:51:41,540 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE configurabletext.AppStatusSplashManager:  40 - end destroy
+2015-04-14 10:51:50,205 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE      configurabletext.SplashManager:  80 - in getNewappTermsInstructions
+2015-04-14 10:51:50,206 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  58 - --> findEjb()...
+2015-04-14 10:51:50,207 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 195 - --> lookup( name = ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote, environment )...
+2015-04-14 10:51:50,207 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 209 - <-- lookup(); success = true
+2015-04-14 10:51:50,216 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  82 - <-- findEjb().
+2015-04-14 10:51:58,078 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE      configurabletext.SplashManager:  86 - in getNewappTermsSection1
+2015-04-14 10:51:58,087 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  58 - --> findEjb()...
+2015-04-14 10:51:58,087 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 195 - --> lookup( name = ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote, environment )...
+2015-04-14 10:51:58,088 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 209 - <-- lookup(); success = true
+2015-04-14 10:51:58,088 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  82 - <-- findEjb().
+2015-04-14 10:51:58,942 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  88 - --> getLicenseStatusInquiryList()...
+2015-04-14 10:51:58,943 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  92 - log.isDebugEnabled()---->
+2015-04-14 10:51:58,943 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 102 - <-- getLicenseStatusInquiryList().
+2015-04-14 10:51:58,980 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 161 - --> queryLicenseStatus()...
+2015-04-14 10:51:58,980 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 136 -     Setting the 'firstName' query paramater value to '%'
+2015-04-14 10:51:58,981 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 127 -     Setting the 'lastName' query parameter value to '%'
+2015-04-14 10:51:58,981 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 145 -     Setting the 'licenseNumber' query parameter value to '%'
+2015-04-14 10:51:58,981 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 174 -     Query parameters: first = [%], last = [%], license = [%]
+2015-04-14 10:52:00,653 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 203 -     # of matching records = 100
+2015-04-14 10:52:00,654 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -         1. 000001    JAMES FURMAN  'Closed'
+2015-04-14 10:52:00,654 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -         2. 000003    ROBERT JACOBS  'License Renewed'
+2015-04-14 10:52:00,655 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -         3. 000004    Richard Munson  'Closed'
+2015-04-14 10:52:00,655 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -         4. 000005    MICHAEL REEVES  'License Renewed'
+2015-04-14 10:52:00,657 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -         5. 000006    William Winkler  'Closed'
+2015-04-14 10:52:00,658 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -         6. 000007    Jared Dewitt  'Closed'
+2015-04-14 10:52:00,658 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -         7. 000008    Phyllis Kauffman  'Closed'
+2015-04-14 10:52:00,658 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -         8. 000009    HORACIO ALVAREZ  'License Renewed'
+2015-04-14 10:52:00,659 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -         9. 000010    Monica Rost  'Closed'
+2015-04-14 10:52:00,659 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        10. 000011    Margaret Gardner  'Closed'
+2015-04-14 10:52:00,668 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        11. 000012    Peter Yateshodshon  'Closed'
+2015-04-14 10:52:00,668 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        12. 000013    ANTONIO RODELA  'License Renewed'
+2015-04-14 10:52:00,668 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        13. 000014    Cyndi Benedict  'Closed'
+2015-04-14 10:52:00,668 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        14. 000015    Alexis Joyner  'Closed'
+2015-04-14 10:52:00,669 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        15. 000017    CHARLES COX  'License Renewed'
+2015-04-14 10:52:00,669 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        16. 000018    Harry Reafleng  'Closed'
+2015-04-14 10:52:00,669 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        17. 000019    Brenda Conant  'Closed'
+2015-04-14 10:52:00,670 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        18. 000020    Michael Hartnett  'Closed'
+2015-04-14 10:52:00,670 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        19. 000021    VINCENT FOX  'Expired'
+2015-04-14 10:52:00,670 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        20. 000022    PAULA SOEHNER  'License Renewed'
+2015-04-14 10:52:00,671 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        21. 000023    CONSTANCE FIKE  'License Renewed'
+2015-04-14 10:52:00,671 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        22. 000024    Paul Wright  'Closed'
+2015-04-14 10:52:00,671 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        23. 000025    Janet Torres  'Closed'
+2015-04-14 10:52:00,672 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        24. 000026    ROXANNA DEJESUS  'License Renewed'
+2015-04-14 10:52:00,672 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        25. 000027    Daniel Mudrich  'Closed'
+2015-04-14 10:52:00,673 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        26. 000028    Donna Mueller  'Closed'
+2015-04-14 10:52:00,673 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        27. 000029    Vicki Pope  'Closed'
+2015-04-14 10:52:00,675 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        28. 000030    Maury Moore  'Closed'
+2015-04-14 10:52:00,700 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        29. 000032    Richard Savage  'Closed'
+2015-04-14 10:52:00,701 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        30. 000033    Victor Ince  'Closed'
+2015-04-14 10:52:00,701 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        31. 000034    Deborah Muscenti  'Closed'
+2015-04-14 10:52:00,701 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        32. 000035    RICHARD SCHIREMAN  'License Renewed'
+2015-04-14 10:52:00,702 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        33. 000036    Joyce Mcmahan  'Closed'
+2015-04-14 10:52:00,702 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        34. 000037    Anthony Ventrone  'Closed'
+2015-04-14 10:52:00,702 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        35. 000038    SHARON JACKSON  'License Renewed'
+2015-04-14 10:52:00,703 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        36. 000039    BRIAN SANDWICH  'Expired'
+2015-04-14 10:52:00,703 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        37. 000040    NORMAN GIMPEL  'License Renewed'
+2015-04-14 10:52:00,704 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        38. 000041    SCOTT BRIERLEY  'License Renewed'
+2015-04-14 10:52:00,704 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        39. 000042    LAURIE BLUM  'Expired'
+2015-04-14 10:52:00,704 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        40. 000043    Renee Miller  'Closed'
+2015-04-14 10:52:00,705 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        41. 000044    Susan Christy  'Closed'
+2015-04-14 10:52:00,705 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        42. 000045    MARK HIBBERT  'License Renewed'
+2015-04-14 10:52:00,705 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        43. 000046    Amy Neely  'Closed'
+2015-04-14 10:52:00,706 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        44. 000047    Karen Meade  'Closed'
+2015-04-14 10:52:00,706 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        45. 000048    Kim Buchanan  'Closed'
+2015-04-14 10:52:00,716 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        46. 000050    Joellen Louderback  'Closed'
+2015-04-14 10:52:00,716 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        47. 000051    JULIE OWENS  'Expired'
+2015-04-14 10:52:00,717 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        48. 000052    Rice Howard  'Closed'
+2015-04-14 10:52:00,717 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        49. 000053    JOY ECKLEY  'License Renewed'
+2015-04-14 10:52:00,717 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        50. 000054    Gilbert Ortiz  'Closed'
+2015-04-14 10:52:00,718 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        51. 000055    ALVA BROWN  'License Renewed'
+2015-04-14 10:52:00,718 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        52. 000056    NANCY MURPHY  'Expired'
+2015-04-14 10:52:00,718 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        53. 000057    R. MICHELLE TERRELL  'License Renewed'
+2015-04-14 10:52:00,719 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        54. 000058    Elizabeth Monte  'Closed'
+2015-04-14 10:52:00,719 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        55. 000059    DORTHY COFFMAN  'License Renewed'
+2015-04-14 10:52:00,719 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        56. 000060    LANA SCHWARK  'License Renewed'
+2015-04-14 10:52:00,720 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        57. 000061    LISA KAIN-CIANCIOTTO  'Expired'
+2015-04-14 10:52:00,720 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        58. 000063    Ernest Route  'Closed'
+2015-04-14 10:52:00,720 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        59. 000064    Chris Stein  'Closed'
+2015-04-14 10:52:00,721 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        60. 000065    Susan Meckert  'Closed'
+2015-04-14 10:52:00,721 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        61. 000066    DIANA MACKENZIE  'Expired'
+2015-04-14 10:52:00,721 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        62. 000070    MARK ALCOTT  'License Renewed'
+2015-04-14 10:52:00,722 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        63. 000072    Marcia Fredman  'Closed'
+2015-04-14 10:52:00,722 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        64. 000073    RUSSELL McCLURE  'License Renewed'
+2015-04-14 10:52:00,722 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        65. 000075    Joseph Depasquale  'Closed'
+2015-04-14 10:52:00,723 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        66. 000076    Joyce Mousseux  'Closed'
+2015-04-14 10:52:00,723 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        67. 000078    CHARLES PETERSON  'Expired'
+2015-04-14 10:52:00,723 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        68. 000080    Maritza Dagnino  'Closed'
+2015-04-14 10:52:00,724 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        69. 000081    Richard Liebhaber  'Closed'
+2015-04-14 10:52:00,724 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        70. 000082    HOWARD BERNS  'Closed'
+2015-04-14 10:52:00,724 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        71. 000083    DARRYL JAKES  'License Renewed'
+2015-04-14 10:52:00,725 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        72. 000084    David Lessard  'Closed'
+2015-04-14 10:52:00,726 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        73. 000085    Laine Reaves  'Closed'
+2015-04-14 10:52:00,726 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        74. 000086    Lucie Desrosiers  'Closed'
+2015-04-14 10:52:00,727 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        75. 000087    Marilyn Sanchez  'Closed'
+2015-04-14 10:52:00,727 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        76. 000088    LEATHA HOPKINS  'License Renewed'
+2015-04-14 10:52:00,727 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        77. 000089    Mary Zitta  'Closed'
+2015-04-14 10:52:00,728 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        78. 000090    Pamela Burnette  'Closed'
+2015-04-14 10:52:00,740 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        79. 000091    JANICE BROWN  'License Renewed'
+2015-04-14 10:52:00,741 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        80. 000092    Teddie Wunder  'Closed'
+2015-04-14 10:52:00,741 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        81. 000093    Larry Nelson  'Closed'
+2015-04-14 10:52:00,741 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        82. 000094    Paula Turner  'Closed'
+2015-04-14 10:52:00,742 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        83. 000096    William Helms  'Closed'
+2015-04-14 10:52:00,742 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        84. 000097    Michael Headrick  'Closed'
+2015-04-14 10:52:00,742 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        85. 000098    MICHAEL MARTIN  'Expired'
+2015-04-14 10:52:00,743 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        86. 000099    Norman Cohagen  'Closed'
+2015-04-14 10:52:00,743 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        87. 000100    PATRICIA MARR  'License Renewed'
+2015-04-14 10:52:00,743 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        88. 000101    Scott Christensen  'Closed'
+2015-04-14 10:52:00,744 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        89. 000102    KRISTI TAUBERT-GEFFS  'License Renewed'
+2015-04-14 10:52:00,744 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        90. 000103    KENNETH THALHAMMER  'License Renewed'
+2015-04-14 10:52:00,745 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        91. 000104    ANNE COOPER  'License Renewed'
+2015-04-14 10:52:00,745 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        92. 000105    Margaret Cleveland  'Closed'
+2015-04-14 10:52:00,745 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        93. 000106    JULIE HIGGINS  'License Renewed'
+2015-04-14 10:52:00,746 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        94. 000107    VICKI PALMER  'License Renewed'
+2015-04-14 10:52:00,746 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        95. 000108    Sharon Smith  'Closed'
+2015-04-14 10:52:00,746 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        96. 000110    Roxanne Curley  'Closed'
+2015-04-14 10:52:00,747 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        97. 000111    Rebecca Humble  'Closed'
+2015-04-14 10:52:00,747 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        98. 000112    CHARLES HUDSON  'Closed'
+2015-04-14 10:52:00,747 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        99. 000113    Loretta Stiso  'Closed'
+2015-04-14 10:52:00,748 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 209 -        100. 000114    Mark Jackson  'Closed'
+2015-04-14 10:52:01,039 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 246 - <-- queryLicenseStatus().
+2015-04-14 10:52:01,227 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE configurabletext.AppStatusSplashManager:  30 - in getAppstatusInquiryInstructions
+2015-04-14 10:52:01,228 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  58 - --> findEjb()...
+2015-04-14 10:52:01,228 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 195 - --> lookup( name = ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote, environment )...
+2015-04-14 10:52:01,228 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 209 - <-- lookup(); success = true
+2015-04-14 10:52:01,229 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  82 - <-- findEjb().
+2015-04-14 10:52:01,343 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  88 - --> getLicenseStatusInquiryList()...
+2015-04-14 10:52:01,344 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  92 - log.isDebugEnabled()---->
+2015-04-14 10:52:01,352 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         1. 000001    JAMES FURMAN  'Closed'
+2015-04-14 10:52:01,353 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         2. 000003    ROBERT JACOBS  'License Renewed'
+2015-04-14 10:52:01,353 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         3. 000004    Richard Munson  'Closed'
+2015-04-14 10:52:01,353 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         4. 000005    MICHAEL REEVES  'License Renewed'
+2015-04-14 10:52:01,354 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         5. 000006    William Winkler  'Closed'
+2015-04-14 10:52:01,354 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         6. 000007    Jared Dewitt  'Closed'
+2015-04-14 10:52:01,354 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         7. 000008    Phyllis Kauffman  'Closed'
+2015-04-14 10:52:01,355 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         8. 000009    HORACIO ALVAREZ  'License Renewed'
+2015-04-14 10:52:01,368 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         9. 000010    Monica Rost  'Closed'
+2015-04-14 10:52:01,369 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        10. 000011    Margaret Gardner  'Closed'
+2015-04-14 10:52:01,369 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        11. 000012    Peter Yateshodshon  'Closed'
+2015-04-14 10:52:01,369 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        12. 000013    ANTONIO RODELA  'License Renewed'
+2015-04-14 10:52:01,370 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        13. 000014    Cyndi Benedict  'Closed'
+2015-04-14 10:52:01,370 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        14. 000015    Alexis Joyner  'Closed'
+2015-04-14 10:52:01,370 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        15. 000017    CHARLES COX  'License Renewed'
+2015-04-14 10:52:01,371 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        16. 000018    Harry Reafleng  'Closed'
+2015-04-14 10:52:01,371 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        17. 000019    Brenda Conant  'Closed'
+2015-04-14 10:52:01,371 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        18. 000020    Michael Hartnett  'Closed'
+2015-04-14 10:52:01,372 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        19. 000021    VINCENT FOX  'Expired'
+2015-04-14 10:52:01,372 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        20. 000022    PAULA SOEHNER  'License Renewed'
+2015-04-14 10:52:01,373 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        21. 000023    CONSTANCE FIKE  'License Renewed'
+2015-04-14 10:52:01,373 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        22. 000024    Paul Wright  'Closed'
+2015-04-14 10:52:01,374 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        23. 000025    Janet Torres  'Closed'
+2015-04-14 10:52:01,374 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        24. 000026    ROXANNA DEJESUS  'License Renewed'
+2015-04-14 10:52:01,374 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        25. 000027    Daniel Mudrich  'Closed'
+2015-04-14 10:52:01,375 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        26. 000028    Donna Mueller  'Closed'
+2015-04-14 10:52:01,375 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        27. 000029    Vicki Pope  'Closed'
+2015-04-14 10:52:01,375 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        28. 000030    Maury Moore  'Closed'
+2015-04-14 10:52:01,376 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        29. 000032    Richard Savage  'Closed'
+2015-04-14 10:52:01,376 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        30. 000033    Victor Ince  'Closed'
+2015-04-14 10:52:01,376 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        31. 000034    Deborah Muscenti  'Closed'
+2015-04-14 10:52:01,377 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        32. 000035    RICHARD SCHIREMAN  'License Renewed'
+2015-04-14 10:52:01,377 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        33. 000036    Joyce Mcmahan  'Closed'
+2015-04-14 10:52:01,378 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        34. 000037    Anthony Ventrone  'Closed'
+2015-04-14 10:52:01,378 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        35. 000038    SHARON JACKSON  'License Renewed'
+2015-04-14 10:52:01,378 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        36. 000039    BRIAN SANDWICH  'Expired'
+2015-04-14 10:52:01,379 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        37. 000040    NORMAN GIMPEL  'License Renewed'
+2015-04-14 10:52:01,379 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        38. 000041    SCOTT BRIERLEY  'License Renewed'
+2015-04-14 10:52:01,379 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        39. 000042    LAURIE BLUM  'Expired'
+2015-04-14 10:52:01,380 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        40. 000043    Renee Miller  'Closed'
+2015-04-14 10:52:01,380 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        41. 000044    Susan Christy  'Closed'
+2015-04-14 10:52:01,407 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        42. 000045    MARK HIBBERT  'License Renewed'
+2015-04-14 10:52:01,408 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        43. 000046    Amy Neely  'Closed'
+2015-04-14 10:52:01,408 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        44. 000047    Karen Meade  'Closed'
+2015-04-14 10:52:01,409 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        45. 000048    Kim Buchanan  'Closed'
+2015-04-14 10:52:01,409 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        46. 000050    Joellen Louderback  'Closed'
+2015-04-14 10:52:01,409 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        47. 000051    JULIE OWENS  'Expired'
+2015-04-14 10:52:01,410 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        48. 000052    Rice Howard  'Closed'
+2015-04-14 10:52:01,421 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        49. 000053    JOY ECKLEY  'License Renewed'
+2015-04-14 10:52:01,421 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        50. 000054    Gilbert Ortiz  'Closed'
+2015-04-14 10:52:01,422 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        51. 000055    ALVA BROWN  'License Renewed'
+2015-04-14 10:52:01,422 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        52. 000056    NANCY MURPHY  'Expired'
+2015-04-14 10:52:01,423 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        53. 000057    R. MICHELLE TERRELL  'License Renewed'
+2015-04-14 10:52:01,423 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        54. 000058    Elizabeth Monte  'Closed'
+2015-04-14 10:52:01,423 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        55. 000059    DORTHY COFFMAN  'License Renewed'
+2015-04-14 10:52:01,424 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        56. 000060    LANA SCHWARK  'License Renewed'
+2015-04-14 10:52:01,427 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        57. 000061    LISA KAIN-CIANCIOTTO  'Expired'
+2015-04-14 10:52:01,428 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        58. 000063    Ernest Route  'Closed'
+2015-04-14 10:52:01,428 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        59. 000064    Chris Stein  'Closed'
+2015-04-14 10:52:01,428 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        60. 000065    Susan Meckert  'Closed'
+2015-04-14 10:52:01,429 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        61. 000066    DIANA MACKENZIE  'Expired'
+2015-04-14 10:52:01,446 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        62. 000070    MARK ALCOTT  'License Renewed'
+2015-04-14 10:52:01,446 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        63. 000072    Marcia Fredman  'Closed'
+2015-04-14 10:52:01,446 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        64. 000073    RUSSELL McCLURE  'License Renewed'
+2015-04-14 10:52:01,447 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        65. 000075    Joseph Depasquale  'Closed'
+2015-04-14 10:52:01,447 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        66. 000076    Joyce Mousseux  'Closed'
+2015-04-14 10:52:01,447 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        67. 000078    CHARLES PETERSON  'Expired'
+2015-04-14 10:52:01,448 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        68. 000080    Maritza Dagnino  'Closed'
+2015-04-14 10:52:01,464 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        69. 000081    Richard Liebhaber  'Closed'
+2015-04-14 10:52:01,464 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        70. 000082    HOWARD BERNS  'Closed'
+2015-04-14 10:52:01,465 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        71. 000083    DARRYL JAKES  'License Renewed'
+2015-04-14 10:52:01,465 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        72. 000084    David Lessard  'Closed'
+2015-04-14 10:52:01,466 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        73. 000085    Laine Reaves  'Closed'
+2015-04-14 10:52:01,466 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        74. 000086    Lucie Desrosiers  'Closed'
+2015-04-14 10:52:01,466 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        75. 000087    Marilyn Sanchez  'Closed'
+2015-04-14 10:52:01,467 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        76. 000088    LEATHA HOPKINS  'License Renewed'
+2015-04-14 10:52:01,478 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        77. 000089    Mary Zitta  'Closed'
+2015-04-14 10:52:01,478 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        78. 000090    Pamela Burnette  'Closed'
+2015-04-14 10:52:01,478 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        79. 000091    JANICE BROWN  'License Renewed'
+2015-04-14 10:52:01,479 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        80. 000092    Teddie Wunder  'Closed'
+2015-04-14 10:52:01,479 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        81. 000093    Larry Nelson  'Closed'
+2015-04-14 10:52:01,479 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        82. 000094    Paula Turner  'Closed'
+2015-04-14 10:52:01,480 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        83. 000096    William Helms  'Closed'
+2015-04-14 10:52:01,482 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        84. 000097    Michael Headrick  'Closed'
+2015-04-14 10:52:01,482 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        85. 000098    MICHAEL MARTIN  'Expired'
+2015-04-14 10:52:01,483 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        86. 000099    Norman Cohagen  'Closed'
+2015-04-14 10:52:01,483 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        87. 000100    PATRICIA MARR  'License Renewed'
+2015-04-14 10:52:01,484 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        88. 000101    Scott Christensen  'Closed'
+2015-04-14 10:52:01,484 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        89. 000102    KRISTI TAUBERT-GEFFS  'License Renewed'
+2015-04-14 10:52:01,494 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        90. 000103    KENNETH THALHAMMER  'License Renewed'
+2015-04-14 10:52:01,494 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        91. 000104    ANNE COOPER  'License Renewed'
+2015-04-14 10:52:01,494 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        92. 000105    Margaret Cleveland  'Closed'
+2015-04-14 10:52:01,495 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        93. 000106    JULIE HIGGINS  'License Renewed'
+2015-04-14 10:52:01,495 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        94. 000107    VICKI PALMER  'License Renewed'
+2015-04-14 10:52:01,495 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        95. 000108    Sharon Smith  'Closed'
+2015-04-14 10:52:01,496 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        96. 000110    Roxanne Curley  'Closed'
+2015-04-14 10:52:01,496 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        97. 000111    Rebecca Humble  'Closed'
+2015-04-14 10:52:01,497 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        98. 000112    CHARLES HUDSON  'Closed'
+2015-04-14 10:52:01,497 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        99. 000113    Loretta Stiso  'Closed'
+2015-04-14 10:52:01,497 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        100. 000114    Mark Jackson  'Closed'
+2015-04-14 10:52:01,498 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 102 - <-- getLicenseStatusInquiryList().
+2015-04-14 10:52:01,514 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,514 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,516 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,516 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()?
+2015-04-14 10:52:01,531 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  88 - --> getLicenseStatusInquiryList()...
+2015-04-14 10:52:01,532 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  92 - log.isDebugEnabled()---->
+2015-04-14 10:52:01,532 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         1. 000001    JAMES FURMAN  'Closed'
+2015-04-14 10:52:01,533 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         2. 000003    ROBERT JACOBS  'License Renewed'
+2015-04-14 10:52:01,533 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         3. 000004    Richard Munson  'Closed'
+2015-04-14 10:52:01,535 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         4. 000005    MICHAEL REEVES  'License Renewed'
+2015-04-14 10:52:01,535 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         5. 000006    William Winkler  'Closed'
+2015-04-14 10:52:01,536 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         6. 000007    Jared Dewitt  'Closed'
+2015-04-14 10:52:01,536 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         7. 000008    Phyllis Kauffman  'Closed'
+2015-04-14 10:52:01,536 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         8. 000009    HORACIO ALVAREZ  'License Renewed'
+2015-04-14 10:52:01,537 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -         9. 000010    Monica Rost  'Closed'
+2015-04-14 10:52:01,537 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        10. 000011    Margaret Gardner  'Closed'
+2015-04-14 10:52:01,537 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        11. 000012    Peter Yateshodshon  'Closed'
+2015-04-14 10:52:01,538 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        12. 000013    ANTONIO RODELA  'License Renewed'
+2015-04-14 10:52:01,549 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        13. 000014    Cyndi Benedict  'Closed'
+2015-04-14 10:52:01,549 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        14. 000015    Alexis Joyner  'Closed'
+2015-04-14 10:52:01,550 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        15. 000017    CHARLES COX  'License Renewed'
+2015-04-14 10:52:01,550 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        16. 000018    Harry Reafleng  'Closed'
+2015-04-14 10:52:01,551 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        17. 000019    Brenda Conant  'Closed'
+2015-04-14 10:52:01,551 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        18. 000020    Michael Hartnett  'Closed'
+2015-04-14 10:52:01,551 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        19. 000021    VINCENT FOX  'Expired'
+2015-04-14 10:52:01,552 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        20. 000022    PAULA SOEHNER  'License Renewed'
+2015-04-14 10:52:01,552 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        21. 000023    CONSTANCE FIKE  'License Renewed'
+2015-04-14 10:52:01,552 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        22. 000024    Paul Wright  'Closed'
+2015-04-14 10:52:01,553 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        23. 000025    Janet Torres  'Closed'
+2015-04-14 10:52:01,553 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        24. 000026    ROXANNA DEJESUS  'License Renewed'
+2015-04-14 10:52:01,563 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        25. 000027    Daniel Mudrich  'Closed'
+2015-04-14 10:52:01,564 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        26. 000028    Donna Mueller  'Closed'
+2015-04-14 10:52:01,564 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        27. 000029    Vicki Pope  'Closed'
+2015-04-14 10:52:01,564 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        28. 000030    Maury Moore  'Closed'
+2015-04-14 10:52:01,565 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        29. 000032    Richard Savage  'Closed'
+2015-04-14 10:52:01,565 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        30. 000033    Victor Ince  'Closed'
+2015-04-14 10:52:01,565 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        31. 000034    Deborah Muscenti  'Closed'
+2015-04-14 10:52:01,566 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        32. 000035    RICHARD SCHIREMAN  'License Renewed'
+2015-04-14 10:52:01,566 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        33. 000036    Joyce Mcmahan  'Closed'
+2015-04-14 10:52:01,566 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        34. 000037    Anthony Ventrone  'Closed'
+2015-04-14 10:52:01,567 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        35. 000038    SHARON JACKSON  'License Renewed'
+2015-04-14 10:52:01,567 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        36. 000039    BRIAN SANDWICH  'Expired'
+2015-04-14 10:52:01,567 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        37. 000040    NORMAN GIMPEL  'License Renewed'
+2015-04-14 10:52:01,568 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        38. 000041    SCOTT BRIERLEY  'License Renewed'
+2015-04-14 10:52:01,568 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        39. 000042    LAURIE BLUM  'Expired'
+2015-04-14 10:52:01,568 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        40. 000043    Renee Miller  'Closed'
+2015-04-14 10:52:01,569 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        41. 000044    Susan Christy  'Closed'
+2015-04-14 10:52:01,569 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        42. 000045    MARK HIBBERT  'License Renewed'
+2015-04-14 10:52:01,569 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        43. 000046    Amy Neely  'Closed'
+2015-04-14 10:52:01,570 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        44. 000047    Karen Meade  'Closed'
+2015-04-14 10:52:01,570 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        45. 000048    Kim Buchanan  'Closed'
+2015-04-14 10:52:01,570 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        46. 000050    Joellen Louderback  'Closed'
+2015-04-14 10:52:01,579 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        47. 000051    JULIE OWENS  'Expired'
+2015-04-14 10:52:01,579 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        48. 000052    Rice Howard  'Closed'
+2015-04-14 10:52:01,580 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        49. 000053    JOY ECKLEY  'License Renewed'
+2015-04-14 10:52:01,580 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        50. 000054    Gilbert Ortiz  'Closed'
+2015-04-14 10:52:01,580 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        51. 000055    ALVA BROWN  'License Renewed'
+2015-04-14 10:52:01,581 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        52. 000056    NANCY MURPHY  'Expired'
+2015-04-14 10:52:01,581 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        53. 000057    R. MICHELLE TERRELL  'License Renewed'
+2015-04-14 10:52:01,581 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        54. 000058    Elizabeth Monte  'Closed'
+2015-04-14 10:52:01,582 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        55. 000059    DORTHY COFFMAN  'License Renewed'
+2015-04-14 10:52:01,582 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        56. 000060    LANA SCHWARK  'License Renewed'
+2015-04-14 10:52:01,583 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        57. 000061    LISA KAIN-CIANCIOTTO  'Expired'
+2015-04-14 10:52:01,583 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        58. 000063    Ernest Route  'Closed'
+2015-04-14 10:52:01,583 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        59. 000064    Chris Stein  'Closed'
+2015-04-14 10:52:01,583 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        60. 000065    Susan Meckert  'Closed'
+2015-04-14 10:52:01,584 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        61. 000066    DIANA MACKENZIE  'Expired'
+2015-04-14 10:52:01,584 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        62. 000070    MARK ALCOTT  'License Renewed'
+2015-04-14 10:52:01,585 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        63. 000072    Marcia Fredman  'Closed'
+2015-04-14 10:52:01,585 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        64. 000073    RUSSELL McCLURE  'License Renewed'
+2015-04-14 10:52:01,585 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        65. 000075    Joseph Depasquale  'Closed'
+2015-04-14 10:52:01,586 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        66. 000076    Joyce Mousseux  'Closed'
+2015-04-14 10:52:01,586 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        67. 000078    CHARLES PETERSON  'Expired'
+2015-04-14 10:52:01,586 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        68. 000080    Maritza Dagnino  'Closed'
+2015-04-14 10:52:01,587 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        69. 000081    Richard Liebhaber  'Closed'
+2015-04-14 10:52:01,595 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        70. 000082    HOWARD BERNS  'Closed'
+2015-04-14 10:52:01,595 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        71. 000083    DARRYL JAKES  'License Renewed'
+2015-04-14 10:52:01,596 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        72. 000084    David Lessard  'Closed'
+2015-04-14 10:52:01,596 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        73. 000085    Laine Reaves  'Closed'
+2015-04-14 10:52:01,596 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        74. 000086    Lucie Desrosiers  'Closed'
+2015-04-14 10:52:01,597 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        75. 000087    Marilyn Sanchez  'Closed'
+2015-04-14 10:52:01,597 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        76. 000088    LEATHA HOPKINS  'License Renewed'
+2015-04-14 10:52:01,597 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        77. 000089    Mary Zitta  'Closed'
+2015-04-14 10:52:01,598 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        78. 000090    Pamela Burnette  'Closed'
+2015-04-14 10:52:01,598 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        79. 000091    JANICE BROWN  'License Renewed'
+2015-04-14 10:52:01,598 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        80. 000092    Teddie Wunder  'Closed'
+2015-04-14 10:52:01,599 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        81. 000093    Larry Nelson  'Closed'
+2015-04-14 10:52:01,599 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        82. 000094    Paula Turner  'Closed'
+2015-04-14 10:52:01,599 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        83. 000096    William Helms  'Closed'
+2015-04-14 10:52:01,600 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        84. 000097    Michael Headrick  'Closed'
+2015-04-14 10:52:01,600 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        85. 000098    MICHAEL MARTIN  'Expired'
+2015-04-14 10:52:01,601 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        86. 000099    Norman Cohagen  'Closed'
+2015-04-14 10:52:01,601 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        87. 000100    PATRICIA MARR  'License Renewed'
+2015-04-14 10:52:01,602 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        88. 000101    Scott Christensen  'Closed'
+2015-04-14 10:52:01,602 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        89. 000102    KRISTI TAUBERT-GEFFS  'License Renewed'
+2015-04-14 10:52:01,602 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        90. 000103    KENNETH THALHAMMER  'License Renewed'
+2015-04-14 10:52:01,603 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        91. 000104    ANNE COOPER  'License Renewed'
+2015-04-14 10:52:01,603 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        92. 000105    Margaret Cleveland  'Closed'
+2015-04-14 10:52:01,603 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        93. 000106    JULIE HIGGINS  'License Renewed'
+2015-04-14 10:52:01,604 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        94. 000107    VICKI PALMER  'License Renewed'
+2015-04-14 10:52:01,604 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        95. 000108    Sharon Smith  'Closed'
+2015-04-14 10:52:01,604 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        96. 000110    Roxanne Curley  'Closed'
+2015-04-14 10:52:01,605 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        97. 000111    Rebecca Humble  'Closed'
+2015-04-14 10:52:01,605 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        98. 000112    CHARLES HUDSON  'Closed'
+2015-04-14 10:52:01,605 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        99. 000113    Loretta Stiso  'Closed'
+2015-04-14 10:52:01,606 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry:  97 -        100. 000114    Mark Jackson  'Closed'
+2015-04-14 10:52:01,606 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 102 - <-- getLicenseStatusInquiryList().
+2015-04-14 10:52:01,632 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,633 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '01/17/2012'
+2015-04-14 10:52:01,633 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,634 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,634 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee JAMES FURMAN has license type of 'Professional License', license status of 'Closed', effectiveTo date of 01/17/2012; the display Status is [Inactive]
+2015-04-14 10:52:01,635 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,638 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,638 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '06/21/2016'
+2015-04-14 10:52:01,639 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,648 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,648 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee ROBERT JACOBS has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 06/21/2016; the display Status is [Active]
+2015-04-14 10:52:01,649 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:01,653 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,653 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '11/09/2002'
+2015-04-14 10:52:01,654 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,655 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,655 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Richard Munson has license type of 'Professional License', license status of 'Closed', effectiveTo date of 11/09/2002; the display Status is [Inactive]
+2015-04-14 10:52:01,664 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,667 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,667 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '09/12/2016'
+2015-04-14 10:52:01,667 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,669 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,669 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee MICHAEL REEVES has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 09/12/2016; the display Status is [Active]
+2015-04-14 10:52:01,669 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:01,681 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,681 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '11/05/2006'
+2015-04-14 10:52:01,681 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,683 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,683 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee William Winkler has license type of 'Professional License', license status of 'Closed', effectiveTo date of 11/05/2006; the display Status is [Inactive]
+2015-04-14 10:52:01,683 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,687 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,687 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Temporary License', rv = ''
+2015-04-14 10:52:01,687 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,689 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,689 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Jared Dewitt has license type of 'Temporary License', license status of 'Closed', effectiveTo date of ; the display Status is [Inactive]
+2015-04-14 10:52:01,690 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,701 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,701 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '12/18/2006'
+2015-04-14 10:52:01,701 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,703 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,703 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Phyllis Kauffman has license type of 'Professional License', license status of 'Closed', effectiveTo date of 12/18/2006; the display Status is [Inactive]
+2015-04-14 10:52:01,703 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,719 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,719 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '05/22/2016'
+2015-04-14 10:52:01,719 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,724 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,724 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee HORACIO ALVAREZ has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 05/22/2016; the display Status is [Active]
+2015-04-14 10:52:01,724 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:01,742 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,743 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '03/12/2002'
+2015-04-14 10:52:01,743 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,747 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,748 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Monica Rost has license type of 'Professional License', license status of 'Closed', effectiveTo date of 03/12/2002; the display Status is [Inactive]
+2015-04-14 10:52:01,748 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,752 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,752 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '06/20/2000'
+2015-04-14 10:52:01,753 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,762 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,762 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Margaret Gardner has license type of 'Professional License', license status of 'Closed', effectiveTo date of 06/20/2000; the display Status is [Inactive]
+2015-04-14 10:52:01,763 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,774 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,774 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '11/22/2000'
+2015-04-14 10:52:01,775 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,781 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,782 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Peter Yateshodshon has license type of 'Professional License', license status of 'Closed', effectiveTo date of 11/22/2000; the display Status is [Inactive]
+2015-04-14 10:52:01,782 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,794 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,795 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '05/12/2016'
+2015-04-14 10:52:01,795 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,796 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,797 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee ANTONIO RODELA has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 05/12/2016; the display Status is [Active]
+2015-04-14 10:52:01,797 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:01,827 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,828 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '11/28/2004'
+2015-04-14 10:52:01,828 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,829 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,830 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Cyndi Benedict has license type of 'Professional License', license status of 'Closed', effectiveTo date of 11/28/2004; the display Status is [Inactive]
+2015-04-14 10:52:01,830 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,833 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,834 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '01/28/2004'
+2015-04-14 10:52:01,846 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,848 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,848 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Alexis Joyner has license type of 'Professional License', license status of 'Closed', effectiveTo date of 01/28/2004; the display Status is [Inactive]
+2015-04-14 10:52:01,849 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,860 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,861 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '04/22/2016'
+2015-04-14 10:52:01,861 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,862 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,863 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee CHARLES COX has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 04/22/2016; the display Status is [Active]
+2015-04-14 10:52:01,863 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:01,876 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,881 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '07/13/2004'
+2015-04-14 10:52:01,882 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,892 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,892 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Harry Reafleng has license type of 'Professional License', license status of 'Closed', effectiveTo date of 07/13/2004; the display Status is [Inactive]
+2015-04-14 10:52:01,893 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,901 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,903 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '08/26/1996'
+2015-04-14 10:52:01,911 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,912 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,913 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Brenda Conant has license type of 'Professional License', license status of 'Closed', effectiveTo date of 08/26/1996; the display Status is [Inactive]
+2015-04-14 10:52:01,913 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,915 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,916 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '09/12/2008'
+2015-04-14 10:52:01,916 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,917 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,917 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Michael Hartnett has license type of 'Professional License', license status of 'Closed', effectiveTo date of 09/12/2008; the display Status is [Inactive]
+2015-04-14 10:52:01,918 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,928 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,929 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Expired', licenseType = 'Professional License', rv = '11/04/2012'
+2015-04-14 10:52:01,929 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,935 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,935 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee VINCENT FOX has license type of 'Professional License', license status of 'Expired', effectiveTo date of 11/04/2012; the display Status is [Inactive]
+2015-04-14 10:52:01,943 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,946 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,946 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '03/18/2015'
+2015-04-14 10:52:01,947 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,948 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,948 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (03/18/2015) has passed.
+2015-04-14 10:52:01,948 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee PAULA SOEHNER has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 03/18/2015; the display Status is [Inactive]
+2015-04-14 10:52:01,949 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,965 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,966 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '11/25/2014'
+2015-04-14 10:52:01,976 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,977 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,977 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (11/25/2014) has passed.
+2015-04-14 10:52:01,978 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee CONSTANCE FIKE has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 11/25/2014; the display Status is [Inactive]
+2015-04-14 10:52:01,978 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,981 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,981 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '01/21/2000'
+2015-04-14 10:52:01,981 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,992 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:01,993 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Paul Wright has license type of 'Professional License', license status of 'Closed', effectiveTo date of 01/21/2000; the display Status is [Inactive]
+2015-04-14 10:52:01,993 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:01,995 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:01,996 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Temporary License', rv = ''
+2015-04-14 10:52:01,998 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:01,999 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,000 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Janet Torres has license type of 'Temporary License', license status of 'Closed', effectiveTo date of ; the display Status is [Inactive]
+2015-04-14 10:52:02,000 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,039 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,039 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '12/20/2014'
+2015-04-14 10:52:02,039 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,043 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,043 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (12/20/2014) has passed.
+2015-04-14 10:52:02,044 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee ROXANNA DEJESUS has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 12/20/2014; the display Status is [Inactive]
+2015-04-14 10:52:02,044 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,055 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,055 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '04/15/2004'
+2015-04-14 10:52:02,055 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,057 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,065 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Daniel Mudrich has license type of 'Professional License', license status of 'Closed', effectiveTo date of 04/15/2004; the display Status is [Inactive]
+2015-04-14 10:52:02,065 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,070 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,070 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Temporary License', rv = ''
+2015-04-14 10:52:02,071 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,076 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,076 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Donna Mueller has license type of 'Temporary License', license status of 'Closed', effectiveTo date of ; the display Status is [Inactive]
+2015-04-14 10:52:02,076 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,109 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,122 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '01/09/2004'
+2015-04-14 10:52:02,126 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,128 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,142 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Vicki Pope has license type of 'Professional License', license status of 'Closed', effectiveTo date of 01/09/2004; the display Status is [Inactive]
+2015-04-14 10:52:02,142 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,164 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,165 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '01/05/2004'
+2015-04-14 10:52:02,167 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,168 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,169 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Maury Moore has license type of 'Professional License', license status of 'Closed', effectiveTo date of 01/05/2004; the display Status is [Inactive]
+2015-04-14 10:52:02,169 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,180 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,181 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '08/06/2008'
+2015-04-14 10:52:02,181 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,184 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,185 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Richard Savage has license type of 'Professional License', license status of 'Closed', effectiveTo date of 08/06/2008; the display Status is [Inactive]
+2015-04-14 10:52:02,185 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,189 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,189 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Temporary License', rv = ''
+2015-04-14 10:52:02,189 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,204 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,204 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Victor Ince has license type of 'Temporary License', license status of 'Closed', effectiveTo date of ; the display Status is [Inactive]
+2015-04-14 10:52:02,204 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,211 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,225 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '11/28/2004'
+2015-04-14 10:52:02,225 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,231 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,272 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Deborah Muscenti has license type of 'Professional License', license status of 'Closed', effectiveTo date of 11/28/2004; the display Status is [Inactive]
+2015-04-14 10:52:02,272 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,279 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,279 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '10/04/2014'
+2015-04-14 10:52:02,304 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,306 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,307 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (10/04/2014) has passed.
+2015-04-14 10:52:02,307 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee RICHARD SCHIREMAN has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 10/04/2014; the display Status is [Inactive]
+2015-04-14 10:52:02,307 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,310 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,311 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Temporary License', rv = ''
+2015-04-14 10:52:02,311 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,315 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,316 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Joyce Mcmahan has license type of 'Temporary License', license status of 'Closed', effectiveTo date of ; the display Status is [Inactive]
+2015-04-14 10:52:02,332 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,337 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,338 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '12/09/1998'
+2015-04-14 10:52:02,338 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,339 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,340 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Anthony Ventrone has license type of 'Professional License', license status of 'Closed', effectiveTo date of 12/09/1998; the display Status is [Inactive]
+2015-04-14 10:52:02,340 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,355 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,355 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '07/09/2016'
+2015-04-14 10:52:02,355 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,357 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,357 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee SHARON JACKSON has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 07/09/2016; the display Status is [Active]
+2015-04-14 10:52:02,357 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:02,360 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,360 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Expired', licenseType = 'Professional License', rv = '01/15/2014'
+2015-04-14 10:52:02,361 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,362 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,362 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee BRIAN SANDWICH has license type of 'Professional License', license status of 'Expired', effectiveTo date of 01/15/2014; the display Status is [Inactive]
+2015-04-14 10:52:02,362 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,364 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,376 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '05/12/2016'
+2015-04-14 10:52:02,377 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,381 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,408 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee NORMAN GIMPEL has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 05/12/2016; the display Status is [Active]
+2015-04-14 10:52:02,409 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:02,411 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,412 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '04/06/2016'
+2015-04-14 10:52:02,412 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,413 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,432 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee SCOTT BRIERLEY has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 04/06/2016; the display Status is [Active]
+2015-04-14 10:52:02,432 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:02,463 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,463 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Expired', licenseType = 'Professional License', rv = '07/12/2012'
+2015-04-14 10:52:02,464 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,465 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,477 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee LAURIE BLUM has license type of 'Professional License', license status of 'Expired', effectiveTo date of 07/12/2012; the display Status is [Inactive]
+2015-04-14 10:52:02,477 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,479 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,480 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '02/10/2002'
+2015-04-14 10:52:02,480 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,481 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,482 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Renee Miller has license type of 'Professional License', license status of 'Closed', effectiveTo date of 02/10/2002; the display Status is [Inactive]
+2015-04-14 10:52:02,482 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,486 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,486 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '12/08/2002'
+2015-04-14 10:52:02,495 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,496 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,496 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Susan Christy has license type of 'Professional License', license status of 'Closed', effectiveTo date of 12/08/2002; the display Status is [Inactive]
+2015-04-14 10:52:02,496 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,499 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,499 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '09/21/2014'
+2015-04-14 10:52:02,499 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,500 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,501 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (09/21/2014) has passed.
+2015-04-14 10:52:02,501 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee MARK HIBBERT has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 09/21/2014; the display Status is [Inactive]
+2015-04-14 10:52:02,501 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,512 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,512 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '12/31/1996'
+2015-04-14 10:52:02,513 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,514 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,514 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Amy Neely has license type of 'Professional License', license status of 'Closed', effectiveTo date of 12/31/1996; the display Status is [Inactive]
+2015-04-14 10:52:02,514 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,527 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,527 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '02/21/1998'
+2015-04-14 10:52:02,528 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,529 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,529 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Karen Meade has license type of 'Professional License', license status of 'Closed', effectiveTo date of 02/21/1998; the display Status is [Inactive]
+2015-04-14 10:52:02,529 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,531 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,532 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '09/09/2002'
+2015-04-14 10:52:02,532 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,533 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,534 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Kim Buchanan has license type of 'Professional License', license status of 'Closed', effectiveTo date of 09/09/2002; the display Status is [Inactive]
+2015-04-14 10:52:02,534 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,572 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,573 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '02/12/2002'
+2015-04-14 10:52:02,573 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,574 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,575 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Joellen Louderback has license type of 'Professional License', license status of 'Closed', effectiveTo date of 02/12/2002; the display Status is [Inactive]
+2015-04-14 10:52:02,575 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,578 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,578 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Expired', licenseType = 'Professional License', rv = '03/08/2014'
+2015-04-14 10:52:02,578 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,589 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,589 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee JULIE OWENS has license type of 'Professional License', license status of 'Expired', effectiveTo date of 03/08/2014; the display Status is [Inactive]
+2015-04-14 10:52:02,590 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,592 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,592 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '10/08/2004'
+2015-04-14 10:52:02,592 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,593 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,594 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Rice Howard has license type of 'Professional License', license status of 'Closed', effectiveTo date of 10/08/2004; the display Status is [Inactive]
+2015-04-14 10:52:02,594 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,604 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,605 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '08/10/2014'
+2015-04-14 10:52:02,605 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,608 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,609 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (08/10/2014) has passed.
+2015-04-14 10:52:02,609 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee JOY ECKLEY has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 08/10/2014; the display Status is [Inactive]
+2015-04-14 10:52:02,620 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,622 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,623 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '04/13/2003'
+2015-04-14 10:52:02,623 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,624 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,626 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Gilbert Ortiz has license type of 'Professional License', license status of 'Closed', effectiveTo date of 04/13/2003; the display Status is [Inactive]
+2015-04-14 10:52:02,627 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,639 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,639 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '12/28/2014'
+2015-04-14 10:52:02,640 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,669 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,669 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (12/28/2014) has passed.
+2015-04-14 10:52:02,670 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee ALVA BROWN has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 12/28/2014; the display Status is [Inactive]
+2015-04-14 10:52:02,670 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,672 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,673 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Expired', licenseType = 'Professional License', rv = '06/18/2012'
+2015-04-14 10:52:02,673 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,674 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,674 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee NANCY MURPHY has license type of 'Professional License', license status of 'Expired', effectiveTo date of 06/18/2012; the display Status is [Inactive]
+2015-04-14 10:52:02,675 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,677 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,677 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '08/06/2015'
+2015-04-14 10:52:02,678 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,679 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,679 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee R. MICHELLE TERRELL has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 08/06/2015; the display Status is [Active]
+2015-04-14 10:52:02,679 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:02,689 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,690 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '09/24/1998'
+2015-04-14 10:52:02,690 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,705 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,706 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Elizabeth Monte has license type of 'Professional License', license status of 'Closed', effectiveTo date of 09/24/1998; the display Status is [Inactive]
+2015-04-14 10:52:02,706 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,708 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,708 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '08/14/2014'
+2015-04-14 10:52:02,709 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,712 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,712 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (08/14/2014) has passed.
+2015-04-14 10:52:02,713 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee DORTHY COFFMAN has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 08/14/2014; the display Status is [Inactive]
+2015-04-14 10:52:02,713 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,739 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,740 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '10/18/2014'
+2015-04-14 10:52:02,740 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,741 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,745 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (10/18/2014) has passed.
+2015-04-14 10:52:02,775 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee LANA SCHWARK has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 10/18/2014; the display Status is [Inactive]
+2015-04-14 10:52:02,775 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,779 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,780 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Expired', licenseType = 'Professional License', rv = '06/17/2012'
+2015-04-14 10:52:02,780 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,781 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,792 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee LISA KAIN-CIANCIOTTO has license type of 'Professional License', license status of 'Expired', effectiveTo date of 06/17/2012; the display Status is [Inactive]
+2015-04-14 10:52:02,793 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,797 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,797 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '05/05/1996'
+2015-04-14 10:52:02,797 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,807 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,807 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Ernest Route has license type of 'Professional License', license status of 'Closed', effectiveTo date of 05/05/1996; the display Status is [Inactive]
+2015-04-14 10:52:02,807 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,809 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,810 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '01/18/1996'
+2015-04-14 10:52:02,810 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,813 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,813 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Chris Stein has license type of 'Professional License', license status of 'Closed', effectiveTo date of 01/18/1996; the display Status is [Inactive]
+2015-04-14 10:52:02,813 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,824 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,824 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '08/02/2004'
+2015-04-14 10:52:02,825 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,839 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,840 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Susan Meckert has license type of 'Professional License', license status of 'Closed', effectiveTo date of 08/02/2004; the display Status is [Inactive]
+2015-04-14 10:52:02,840 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,842 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,846 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Expired', licenseType = 'Professional License', rv = '02/10/2014'
+2015-04-14 10:52:02,877 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,879 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,879 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee DIANA MACKENZIE has license type of 'Professional License', license status of 'Expired', effectiveTo date of 02/10/2014; the display Status is [Inactive]
+2015-04-14 10:52:02,888 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,890 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,890 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '07/19/2016'
+2015-04-14 10:52:02,890 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,924 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,925 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee MARK ALCOTT has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 07/19/2016; the display Status is [Active]
+2015-04-14 10:52:02,925 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:02,932 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,945 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '12/28/1996'
+2015-04-14 10:52:02,945 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,946 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,958 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Marcia Fredman has license type of 'Professional License', license status of 'Closed', effectiveTo date of 12/28/1996; the display Status is [Inactive]
+2015-04-14 10:52:02,959 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,963 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,963 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '06/07/2016'
+2015-04-14 10:52:02,963 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,973 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,973 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee RUSSELL McCLURE has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 06/07/2016; the display Status is [Active]
+2015-04-14 10:52:02,973 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:02,976 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:02,976 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Temporary License', rv = ''
+2015-04-14 10:52:02,976 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:02,980 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:02,980 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Joseph Depasquale has license type of 'Temporary License', license status of 'Closed', effectiveTo date of ; the display Status is [Inactive]
+2015-04-14 10:52:02,980 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:02,984 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,013 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '12/13/2006'
+2015-04-14 10:52:03,014 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,015 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,026 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Joyce Mousseux has license type of 'Professional License', license status of 'Closed', effectiveTo date of 12/13/2006; the display Status is [Inactive]
+2015-04-14 10:52:03,026 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,032 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,032 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Expired', licenseType = 'Professional License', rv = '06/27/2012'
+2015-04-14 10:52:03,033 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,046 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,046 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee CHARLES PETERSON has license type of 'Professional License', license status of 'Expired', effectiveTo date of 06/27/2012; the display Status is [Inactive]
+2015-04-14 10:52:03,047 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,059 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,062 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '10/03/1999'
+2015-04-14 10:52:03,062 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,063 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,063 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Maritza Dagnino has license type of 'Professional License', license status of 'Closed', effectiveTo date of 10/03/1999; the display Status is [Inactive]
+2015-04-14 10:52:03,064 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,068 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,068 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '12/05/2006'
+2015-04-14 10:52:03,068 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,085 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,085 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Richard Liebhaber has license type of 'Professional License', license status of 'Closed', effectiveTo date of 12/05/2006; the display Status is [Inactive]
+2015-04-14 10:52:03,085 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,091 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,092 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '10/17/2010'
+2015-04-14 10:52:03,104 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,105 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,106 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee HOWARD BERNS has license type of 'Professional License', license status of 'Closed', effectiveTo date of 10/17/2010; the display Status is [Inactive]
+2015-04-14 10:52:03,106 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,140 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,146 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '03/04/2016'
+2015-04-14 10:52:03,146 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,196 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,197 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee DARRYL JAKES has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 03/04/2016; the display Status is [Active]
+2015-04-14 10:52:03,197 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:03,201 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,202 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '09/14/2006'
+2015-04-14 10:52:03,202 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,203 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,205 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee David Lessard has license type of 'Professional License', license status of 'Closed', effectiveTo date of 09/14/2006; the display Status is [Inactive]
+2015-04-14 10:52:03,206 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,220 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,220 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '01/08/1996'
+2015-04-14 10:52:03,221 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,222 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,224 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Laine Reaves has license type of 'Professional License', license status of 'Closed', effectiveTo date of 01/08/1996; the display Status is [Inactive]
+2015-04-14 10:52:03,224 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,236 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,237 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '07/18/2004'
+2015-04-14 10:52:03,237 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,238 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,240 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Lucie Desrosiers has license type of 'Professional License', license status of 'Closed', effectiveTo date of 07/18/2004; the display Status is [Inactive]
+2015-04-14 10:52:03,241 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,245 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,246 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '08/14/1998'
+2015-04-14 10:52:03,246 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,247 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,247 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Marilyn Sanchez has license type of 'Professional License', license status of 'Closed', effectiveTo date of 08/14/1998; the display Status is [Inactive]
+2015-04-14 10:52:03,248 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,329 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,330 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '07/23/2014'
+2015-04-14 10:52:03,330 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,331 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,332 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (07/23/2014) has passed.
+2015-04-14 10:52:03,332 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee LEATHA HOPKINS has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 07/23/2014; the display Status is [Inactive]
+2015-04-14 10:52:03,332 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,346 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,346 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '05/10/2008'
+2015-04-14 10:52:03,346 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,349 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,350 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Mary Zitta has license type of 'Professional License', license status of 'Closed', effectiveTo date of 05/10/2008; the display Status is [Inactive]
+2015-04-14 10:52:03,350 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,362 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,363 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '05/08/1998'
+2015-04-14 10:52:03,363 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,366 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,366 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Pamela Burnette has license type of 'Professional License', license status of 'Closed', effectiveTo date of 05/08/1998; the display Status is [Inactive]
+2015-04-14 10:52:03,367 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,406 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,409 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '03/06/2016'
+2015-04-14 10:52:03,409 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,410 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,411 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee JANICE BROWN has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 03/06/2016; the display Status is [Active]
+2015-04-14 10:52:03,411 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:03,423 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,423 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '12/04/2002'
+2015-04-14 10:52:03,424 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,425 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,425 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Teddie Wunder has license type of 'Professional License', license status of 'Closed', effectiveTo date of 12/04/2002; the display Status is [Inactive]
+2015-04-14 10:52:03,426 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,428 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,428 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '12/22/1998'
+2015-04-14 10:52:03,429 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,430 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,441 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Larry Nelson has license type of 'Professional License', license status of 'Closed', effectiveTo date of 12/22/1998; the display Status is [Inactive]
+2015-04-14 10:52:03,442 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,446 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,446 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '10/09/2006'
+2015-04-14 10:52:03,477 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,490 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,491 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Paula Turner has license type of 'Professional License', license status of 'Closed', effectiveTo date of 10/09/2006; the display Status is [Inactive]
+2015-04-14 10:52:03,492 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,505 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,508 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '06/18/2004'
+2015-04-14 10:52:03,508 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,511 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,512 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee William Helms has license type of 'Professional License', license status of 'Closed', effectiveTo date of 06/18/2004; the display Status is [Inactive]
+2015-04-14 10:52:03,512 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,603 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,604 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Temporary License', rv = ''
+2015-04-14 10:52:03,604 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,649 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,649 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Michael Headrick has license type of 'Temporary License', license status of 'Closed', effectiveTo date of ; the display Status is [Inactive]
+2015-04-14 10:52:03,650 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,654 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,654 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Expired', licenseType = 'Professional License', rv = '02/19/2014'
+2015-04-14 10:52:03,655 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,668 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,668 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee MICHAEL MARTIN has license type of 'Professional License', license status of 'Expired', effectiveTo date of 02/19/2014; the display Status is [Inactive]
+2015-04-14 10:52:03,668 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,720 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG           action.TermsAndConditions:  49 - user accepted terms and conditions. proceed to newapp-citizen
+2015-04-14 10:52:03,790 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,790 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '08/03/2002'
+2015-04-14 10:52:03,791 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,804 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,805 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Norman Cohagen has license type of 'Professional License', license status of 'Closed', effectiveTo date of 08/03/2002; the display Status is [Inactive]
+2015-04-14 10:52:03,805 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,848 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,849 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '12/22/2014'
+2015-04-14 10:52:03,849 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,850 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,851 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (12/22/2014) has passed.
+2015-04-14 10:52:03,851 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee PATRICIA MARR has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 12/22/2014; the display Status is [Inactive]
+2015-04-14 10:52:03,854 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,881 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,881 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Temporary License', rv = ''
+2015-04-14 10:52:03,882 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,885 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,885 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Scott Christensen has license type of 'Temporary License', license status of 'Closed', effectiveTo date of ; the display Status is [Inactive]
+2015-04-14 10:52:03,885 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,891 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,891 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '12/20/2014'
+2015-04-14 10:52:03,905 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,906 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,910 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (12/20/2014) has passed.
+2015-04-14 10:52:03,910 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee KRISTI TAUBERT-GEFFS has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 12/20/2014; the display Status is [Inactive]
+2015-04-14 10:52:03,911 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,927 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,927 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '09/04/2014'
+2015-04-14 10:52:03,928 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,957 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,958 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (09/04/2014) has passed.
+2015-04-14 10:52:03,958 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee KENNETH THALHAMMER has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 09/04/2014; the display Status is [Inactive]
+2015-04-14 10:52:03,958 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,963 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,973 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '09/01/2014'
+2015-04-14 10:52:03,974 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,975 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,975 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 294 -     The effectiveTo date (09/01/2014) has passed.
+2015-04-14 10:52:03,976 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee ANNE COOPER has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 09/01/2014; the display Status is [Inactive]
+2015-04-14 10:52:03,976 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,978 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:03,980 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '02/07/2004'
+2015-04-14 10:52:03,981 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:03,993 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:03,993 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Margaret Cleveland has license type of 'Professional License', license status of 'Closed', effectiveTo date of 02/07/2004; the display Status is [Inactive]
+2015-04-14 10:52:03,994 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:03,998 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:04,021 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '06/20/2016'
+2015-04-14 10:52:04,021 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:04,023 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:04,037 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE      configurabletext.SplashManager:  92 - in getNewappCitizenInstructions
+2015-04-14 10:52:04,023 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee JULIE HIGGINS has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 06/20/2016; the display Status is [Active]
+2015-04-14 10:52:04,038 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:04,038 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  58 - --> findEjb()...
+2015-04-14 10:52:04,042 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 195 - --> lookup( name = ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote, environment )...
+2015-04-14 10:52:04,051 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:04,052 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'License Renewed', licenseType = 'Professional License', rv = '05/28/2016'
+2015-04-14 10:52:04,052 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:04,055 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:04,055 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee VICKI PALMER has license type of 'Professional License', license status of 'License Renewed', effectiveTo date of 05/28/2016; the display Status is [Active]
+2015-04-14 10:52:04,056 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Active
+2015-04-14 10:52:04,070 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:04,070 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Temporary License', rv = ''
+2015-04-14 10:52:04,070 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:04,074 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:04,074 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Sharon Smith has license type of 'Temporary License', license status of 'Closed', effectiveTo date of ; the display Status is [Inactive]
+2015-04-14 10:52:04,042 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 209 - <-- lookup(); success = true
+2015-04-14 10:52:04,086 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  82 - <-- findEjb().
+2015-04-14 10:52:04,074 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:04,100 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:04,100 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '03/27/1996'
+2015-04-14 10:52:04,104 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:04,105 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:04,106 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Roxanne Curley has license type of 'Professional License', license status of 'Closed', effectiveTo date of 03/27/1996; the display Status is [Inactive]
+2015-04-14 10:52:04,106 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:04,122 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:04,123 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '12/23/1998'
+2015-04-14 10:52:04,123 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:04,126 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:04,127 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Rebecca Humble has license type of 'Professional License', license status of 'Closed', effectiveTo date of 12/23/1998; the display Status is [Inactive]
+2015-04-14 10:52:04,127 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:04,150 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:04,150 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '08/25/2010'
+2015-04-14 10:52:04,150 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:04,151 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:04,177 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee CHARLES HUDSON has license type of 'Professional License', license status of 'Closed', effectiveTo date of 08/25/2010; the display Status is [Inactive]
+2015-04-14 10:52:04,178 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:04,182 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:04,182 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '09/17/1998'
+2015-04-14 10:52:04,183 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:04,195 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:04,195 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Loretta Stiso has license type of 'Professional License', license status of 'Closed', effectiveTo date of 09/17/1998; the display Status is [Inactive]
+2015-04-14 10:52:04,196 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:04,200 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 336 - ------------> getExpirationDate()
+2015-04-14 10:52:04,249 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 357 - <-> getExpirationDate(); for entityStatus = 'Closed', licenseType = 'Professional License', rv = '12/11/2004'
+2015-04-14 10:52:04,250 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 360 - ------------> getExpirationDate()
+2015-04-14 10:52:04,251 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 256 - --> getStatus(...)...
+2015-04-14 10:52:04,257 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG licensestatusinquiry.LicenseStatusInquiry: 323 - <-- getStatus(); Licensee Mark Jackson has license type of 'Professional License', license status of 'Closed', effectiveTo date of 12/11/2004; the display Status is [Inactive]
+2015-04-14 10:52:04,257 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE licensestatusinquiry.LicenseStatusInquiry: 329 - ------------> getStatus()Inactive
+2015-04-14 10:52:04,292 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE configurabletext.AppStatusSplashManager:  38 - start destroy
+2015-04-14 10:52:04,292 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 DEBUG configurabletext.AppStatusSplashManager:  39 - destroy time: Tue Apr 14 10:52:04 MST 2015
+2015-04-14 10:52:04,293 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE configurabletext.AppStatusSplashManager:  40 - end destroy
+2015-04-14 10:52:04,714 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE               action.NewApplication: 269 - ---> getStateList()...
+2015-04-14 10:52:04,786 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE               action.NewApplication: 284 - <-- getStateList(); size = 56
+2015-04-14 10:54:21,777 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE      configurabletext.SplashManager:  55 - in getSplashWelcome
+2015-04-14 10:54:21,777 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  58 - --> findEjb()...
+2015-04-14 10:54:21,778 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 195 - --> lookup( name = ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote, environment )...
+2015-04-14 10:54:21,778 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 209 - <-- lookup(); success = true
+2015-04-14 10:54:21,778 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  82 - <-- findEjb().
+2015-04-14 10:54:26,417 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE      configurabletext.SplashManager:  61 - in getSplashPleaseNote
+2015-04-14 10:54:26,417 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  58 - --> findEjb()...
+2015-04-14 10:54:26,418 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 195 - --> lookup( name = ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote, environment )...
+2015-04-14 10:54:26,418 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE                     util.JndiLookup: 209 - <-- lookup(); success = true
+2015-04-14 10:54:26,419 A2p4-eIUy4TjhmQ5Q-lAvmRW.master:tier1 TRACE        providers.ConfigTextProvider:  82 - <-- findEjb().
+2015-04-14 11:55:16,468  TRACE               action.NewApplication:3442 - This instance of class com.nicusa.az.rce.action.NewApplication for SEAM cid = null is being destroyed...
+2015-04-14 13:11:56,216  DEBUG            action.ApplicationConfig:  86 - --> ApplicationConfig.init()...
+2015-04-14 13:11:56,235  DEBUG            action.ApplicationConfig:  95 -     ipAddr = 10.251.30.235, hostname = DevAZAPP08
+2015-04-14 13:11:56,236  DEBUG                     util.JndiLookup:  85 - There is no entry 'java:global/SAS_EJB_URI' defined in JNDI; checking for System property...
+2015-04-14 13:11:56,254  WARN                      util.JndiLookup:  91 - There is no System property entry defined for key = 'sasEjbUrl'; using default value = 'ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/SasEjb!com.nicusa.az.ejb.bean.SasEjbRemote'
+2015-04-14 13:11:56,255  TRACE                     util.JndiLookup: 195 - --> lookup( name = ejb:ejbs/ejbs-ejb-1.0-SNAPSHOT/SasEjb!com.nicusa.az.ejb.bean.SasEjbRemote, environment )...
+2015-04-14 13:11:56,411  TRACE                     util.JndiLookup: 209 - <-- lookup(); success = true
+2015-04-14 13:11:56,413  DEBUG            action.ApplicationConfig: 109 -     Verifying application parameter configuration: looking for parameter 'RCE_FILES_DIR'...
+2015-04-14 13:11:56,414  DEBUG                     util.JndiLookup:  85 - There is no entry 'java:jboss/param/rce/RCE_FILES_DIR' defined in JNDI; checking for System property...
+2015-04-14 13:11:56,414  DEBUG                     util.JndiLookup:  95 -     Found System property; value = [/opt/jboss/rceFiles]
+2015-04-14 13:11:56,415  DEBUG                    util.EmailSender:  69 - --> EmailSender.run()...
+2015-04-14 13:11:56,432  DEBUG                    util.EmailSender:  73 -     emailType is 'info'
+2015-04-14 13:11:56,414  DEBUG            action.ApplicationConfig: 114 -     RCE_FILES_DIR = [/opt/jboss/rceFiles]
+2015-04-14 13:11:56,440  TRACE            action.ApplicationConfig: 133 - <-- ApplicationConfig.init().
+2015-04-14 13:11:56,460  TRACE                    util.Initializer:  21 - --> postApplicationInit: Initializing Jasypt String Encryptor...
+2015-04-14 13:11:56,477  TRACE                    util.EmailSender: 142 - --> sendNotice()...
+2015-04-14 13:11:56,477  DEBUG                     util.JndiLookup:  85 - There is no entry 'java:jboss/param/rce/RCE_EMAIL_FROM_ADDRESS' defined in JNDI; checking for System property...
+2015-04-14 13:11:56,497  DEBUG                     util.JndiLookup:  95 -     Found System property; value = [licensing@rb.az.gov  ]
+2015-04-14 13:11:56,497  DEBUG                     util.JndiLookup:  85 - There is no entry 'java:jboss/param/rce/RCE_NOTIFY_ON_ERROR_EMAIL_TO' defined in JNDI; checking for System property...
+2015-04-14 13:11:56,497  DEBUG                     util.JndiLookup:  95 -     Found System property; value = [portal.support@azdoa.gov]
+2015-04-14 13:11:56,498  DEBUG                    util.EmailSender: 159 -     Text of message:
+RCE is initializing on host 'DevAZAPP08'
+2015-04-14 13:11:56,498  DEBUG                    util.EmailSender: 160 -     From = [licensing@rb.az.gov  ], To = [portal.support@azdoa.gov]
+2015-04-14 13:11:56,499  TRACE                   util.JavaMailUtil:  60 - --> sendEmail()...
+2015-04-14 13:11:56,512  TRACE                    util.Initializer:  30 - <-- postApplicationInit: done.
+2015-04-14 13:11:56,565  DEBUG                     util.JndiLookup:  85 - There is no entry 'java:jboss/param/rce/RCE_DEBUG' defined in JNDI; checking for System property...
+2015-04-14 13:11:56,565  DEBUG                     util.JndiLookup:  95 -     Found System property; value = [true]
+2015-04-14 13:11:57,413  TRACE                   util.JavaMailUtil:  90 - <-- sendEmail().
+2015-04-14 13:11:57,414  TRACE                    util.EmailSender: 165 - <-- sendNotice().
+2015-04-14 13:11:57,414  DEBUG                    util.EmailSender: 104 - <-- EmailSender.run()

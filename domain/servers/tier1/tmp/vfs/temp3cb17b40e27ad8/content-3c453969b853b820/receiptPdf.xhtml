@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+<h:head>
+   <title>Payment Receipt</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+   <f:metadata/> 
+   <f:event listener="#{navigationValidator.verifyLoggedIn}" type="preRenderView"/>  
+   <h:outputStylesheet library="css" name="pdf.css" />
+</h:head>
+<h:body>
+   <div align="center">   
+	  <h:graphicImage library="images" name="az_seal_sm.png"  alt="State Seal" />
+	  
+	  <table  class="receiptTable">
+	  	<tr>
+	  	 	<td><h3>
+	  	 		<h:outputText value="#{desUser.transaction.authDate}">
+                      	<f:convertDateTime pattern="E, dd MMM yyyy HH:mm:ss z" timeZone="US/Arizona"/>
+                </h:outputText>
+	  	 	</h3></td>	
+	  	</tr>
+	  	
+	  	<tr>
+	  		<td>Payment is complete. Print this receipt for your records.</td>
+	  	</tr>
+	  	
+	  	<tr>
+	  		<td>Your authorization number is #{desUser.transaction.authCode}.</td>
+	  	</tr>
+	  
+	  	<tr>
+	  		<td>Please reference this number in any correspondence regarding your transaction.</td>
+	  	</tr> 
+	  	<tr><td>
+	  		<h3>Billing Information</h3>
+	  	</td></tr> 
+	  	<tr><td>
+		  	 #{paymentInfo.firstName} #{paymentInfo.lastName}
+	  	 </td></tr>
+	  	 
+	  	 <tr><td>
+		  	 #{paymentInfo.homeAddress1}
+	  	 </td></tr>
+	  	 
+		<tr><td>
+			#{paymentInfo.city}, #{paymentInfo.state.title} #{paymentInfo.zipCode}
+		</td></tr>
+		
+		<tr><td>
+			Phone: #{paymentInfo.phoneNumber}
+		</td></tr>
+		
+		<tr><td>
+			Email: #{paymentInfo.email}
+		</td></tr>	
+	  </table>
+	  <br />
+	  <table class="receiptTable">
+	  	<tr><td><h3>Account Information</h3></td></tr>	  				
+		<tr><td>
+			#{paymentInfo.creditCardType.title}
+		</td></tr>
+		
+		<tr><td>
+			#{paymentInfo.displayNumber} EXP. #{paymentInfo.ccExpMonthEnum.value} / #{paymentInfo.ccExpYear}
+		</td></tr>		  
+	  </table>
+	  <br />
+	   <table class="receiptTable">
+		<tr><td colspan="6"><h3>Order Items</h3></td></tr>
+				<tr>
+                    <td><b>Order&#160;No</b></td>
+                    <td ><b>Product&#160;ID</b></td>
+                    <td><b>Item&#160;Description</b></td>
+                    <td><b>Amount</b></td>
+                    <td ><b>Quantity</b></td>
+                    <td ><b>Total&#160;Amount</b></td>
+                    </tr>
+				<a4j:repeat value="#{paymentInfo.productList}" var="item">
+				                  <tr>
+				                  	<td class="zebratable" align="left">#{desUser.transaction.orderNumber}</td>
+				                      <td class="zebratable" align="left">#{item.productId}</td>
+				                 		<td class="zebratable" align="left">#{item.description}</td>
+					<td class="zebratable" style="text-align:right;">$
+					<h:outputText value="#{item.price}">
+						<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2" />
+					</h:outputText>
+				</td>
+				<td class="zebratable" style="text-align:right;">#{item.quantity}</td>
+				<td class="zebratable" style="text-align:right;">$
+					<h:outputText value="#{item.price*item.quantity}">
+						<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2" />
+					</h:outputText>
+				</td>
+        </tr>
+       </a4j:repeat>
+       <tr>
+          <td align="left" valign="top" style="background-color:#999999"><span class="zebratable"><strong>#{paymentInfo.orderNumber}</strong></span></td>
+          <td align="left" valign="top" style="background-color:#999999"></td>
+          <td align="left" valign="top" style="background-color:#999999"></td>
+          <td align="left" valign="top" style="background-color:#999999"></td>
+          <td align="left" valign="top" style="background-color:#999999; text-align:right;" ><strong>Total</strong></td>
+          <td class="zebratable" style="background-color:#999999; text-align:center;"><div align="right"><strong>$<h:outputText value="#{paymentInfo.paymentAmount}">
+			<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2" />	
+		</h:outputText></strong></div>
+		</td>
+          </tr>
+  	</table>
+	 
+	 <br />
+	<table class = "receiptTable">		  			
+		<tr>
+			<td><h3>Merchant Name</h3></td> 
+		  	<td><h3>Amount</h3></td>
+	  </tr>
+	  
+	  <tr><td>#{paymentInfo.merchantName}</td>
+	  	  <td>	
+	  	  	<h:outputText value="#{paymentInfo.paymentAmount}">
+				<f:convertNumber type="currency" currencySymbol="$" minFractionDigits="2" maxFractionDigits="2" />
+			</h:outputText>
+	  	  </td>
+	  </tr>
+	 </table> 
+	 
+	 <br />
+	 <table class="receiptTable">
+	 		<tr><td><h3>Notes</h3></td></tr>
+	 	<tr><td>
+	 		 <h:outputText value="DES account Number:#{desUser.desNumber}" escape="false" />
+	 	</td></tr>
+	 </table>
+	</div>
+</h:body>
+</f:view>
+</html>

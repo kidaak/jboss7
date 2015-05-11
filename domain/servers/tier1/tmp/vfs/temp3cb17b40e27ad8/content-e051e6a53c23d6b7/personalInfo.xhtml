@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/WEB-INF/templates/bhaTemplate.xhtml">
+
+	<ui:param name="title" value="Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName1"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName2" value="Online Payment Service" />
+	<ui:param name="agencyName"
+		value="Board of Behavioral Health Examiners" />
+	<ui:param name="appImage" value="agencylogo_bbhe.jpg" />
+	<ui:param name="donotRenderHelp" value="true" />
+	<ui:param name="donotRenderFAQ" value="true" />
+
+	<ui:define name="localCss">
+		<link href="resources/assets/css/azbbhe.css" rel="stylesheet"
+			type="text/css" media="screen" />
+	</ui:define>
+
+	<ui:define name="localJs">
+		<script type="text/javascript"
+			src="#{initController.staticWebPath}/static/portal/js/jquery-1.3.js" />
+		<script type="text/javascript"
+			src="#{initController.staticWebPath}/static/portal/js/jquery.maskedinput-1.2.2.js" />
+
+	</ui:define>
+
+	<ui:define name="breadcrumb"></ui:define>
+
+	<ui:define name="altbreadcrumb">
+		<div id="breadcrumb2">
+			<a href="index.jsf" target="_self">Home</a> &gt; Personal Information
+		</div>
+		<h1>Personal Information</h1>
+	</ui:define>
+
+	<ui:define name="body">
+		<h:form id="Personal_Info" class="form">
+			<div class="home_table">
+			
+			<h:commandLink target="_self" action="paymentPopUp?faces-redirect=true"  rendered="#{bha.newPaymentNeeded}" immediate="true" >
+               	  	Our records show you already processed a payment for this order, if this is a new order click here.
+              </h:commandLink>
+              				 
+				<div class="instructions">Please provide us with your contact
+					and identification information.</div>
+				<div align="left">
+					<img src="resources/assets/images/icon-required.gif" alt="*" />Indicates
+					required fields <span id="error-show"></span>
+				</div>
+				<h2>Personal Information</h2>
+				<div class="display_table">
+					<fieldset>
+						<div class="grid-4-12">
+							<label class="required">First Name:</label>
+							<h:inputText id="firstName" required="true"
+								requiredMessage="First Name is required."
+								maxlength="50" value="#{bha.customer.firstName}"
+								styleClass="textfield">
+								
+							</h:inputText>
+						</div>
+
+						<div class="grid-3-12">
+							<label>Middle Initial:</label>
+							<h:inputText id="middleInit" class="textfield" size="1" maxlength="1"
+								value="#{bha.customer.middleInitial}">
+								
+							</h:inputText>
+						</div>
+
+						<div class="grid-5-12">
+							<label class="required">Last Name:</label>
+							<h:inputText id="lastName" required="true" 
+								requiredMessage="Last Name is required." class="textfield"
+								maxlength="50" value="#{bha.customer.lastName}">
+								
+								</h:inputText>
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<div class="grid-7-12">
+							<label class="required">Street Address:</label>
+							<h:inputText id="address" required="true" size="2"
+								requiredMessage="Address is required." class="textfield"
+								maxlength="75" value="#{bha.customer.address}"/>
+						</div>
+
+						<div class="grid-5-12">
+							<label class="required">City:</label>
+							<h:inputText  id="city" required="true" requiredMessage="City is required."
+								maxlength="50" class="textfield" value="#{bha.customer.city}">
+								 
+								</h:inputText>
+						</div>
+
+					</fieldset>
+
+
+					<fieldset>
+						<div class="grid-2-12">
+							<label class="required">County:</label>
+							<div class="clear" />
+							<h:selectOneMenu id="county" required="true"
+								requiredMessage="County is required." class="dropmenu"
+								value="#{bha.customer.county}" title="Select a County">
+								<f:selectItems value="#{initController.countyList}" />
+							</h:selectOneMenu>
+						</div>
+
+						<div class="grid-3-12">
+
+							<label class="required">State:</label>
+							<div class="clear" />
+							<h:selectOneMenu id="state" required="true"
+								requiredMessage="State is required." class="dropmenu"
+								value="#{bha.customer.state}" title="Select a State"
+								hideNoSelectionOption="false" styleClass="grid-3-12">
+								<f:selectItems value="#{initController.stateList}" />
+							</h:selectOneMenu>
+						</div>
+
+						<div class="grid-2-12">
+							<label class="required">Zip Code:</label>
+							<h:inputText id="zip" required="true"
+								requiredMessage="ZipCode is required."
+								maxlength="10"
+								value="#{bha.customer.zipcode}" styleClass="input_mask mask_zip_code textfield">
+								</h:inputText>
+						</div>
+
+						<div class="grid-4-12">
+							<label class="required">Last Four Numbers of SSN:</label>
+							<h:inputText id="last4ssn" required="true"
+								requiredMessage="Last four numbers of SSN are required."
+								styleClass="input_mask mask_lastfour_ssn textfield"
+								value="#{bha.customer.last4ssn}" size="4" maxlength="4">
+								
+							</h:inputText>
+						</div>
+					</fieldset>
+
+
+					<fieldset>
+						<div class="grid-4-12">
+							<label class="required">Date of Birth <i>(mm/dd/yyyy)</i>:</label><br />
+							<h:inputText required="true" id="Date_Of_Birth"
+								requiredMessage="Date of birth is required."
+								styleClass="input_mask mask_date_us textfield"
+								value="#{bha.customer.dob}" size="10" maxlength="10">
+  							<f:convertDateTime type="date" pattern="MM/dd/yyyy" timeZone="#{initController.timeZone}"/>
+							</h:inputText>
+						</div>
+
+						<div class="grid-4-12">
+							<label class="required">Email:</label>
+							<h:inputText id="email" required="true" requiredMessage="Email is required."
+								class="textfield" value="#{bha.customer.email}" maxlength="40" />
+						</div>
+
+						<div class="grid-2-12">
+							<label class="required">Phone:</label>
+							<h:inputText id="phone" required="true"
+								styleClass="input_mask mask_phone textfield"
+								requiredMessage="Phone number is required."
+								value="#{bha.customer.phone}">
+								</h:inputText>
+						</div>
+					</fieldset>
+
+					<!-- Nav buttons -->
+					<div id="buttons_wrapper">
+
+						<div class="welcome_button subpage">
+							<h:commandLink target="_self" action="#{bha.startNewLicensePath}">
+               	   					Apply for License
+               				</h:commandLink>
+
+						</div>
+
+						<div class="welcome_button subpage">
+							<h:commandLink target="_self" action="#{bha.startRenewLicensePath}" >
+               	 				 Renew Existing License
+              				 </h:commandLink>
+              				 
+						</div>
+
+						<div class="welcome_button subpage">
+							<h:commandLink target="_self" action="#{bha.startOtherLicensePath}">
+               					 Other Services
+           				    </h:commandLink>
+						</div>
+					</div>
+					<br />
+
+					<div class="grid-4-12">
+						<input type="button" name="prevButton" id="previousBtn"
+							value="Previous" class="submit_button"
+							onclick="location.href='index.jsf'" />
+					</div>
+					
+					<div class="grid-6-12 form-right">
+                	<h:commandButton id="Continue"
+                			styleClass="submit_button"
+                          	value="Return to Summary"
+                         	action="summary?faces-redirect=true" 
+                         	rendered ="#{bha.showRetunToSummary}"/>
+      				 
+                	</div>
+					
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

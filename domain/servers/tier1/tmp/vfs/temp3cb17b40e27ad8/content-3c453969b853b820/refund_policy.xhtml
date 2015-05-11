@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   template="/WEB-INF/templates/popuptemplate.xhtml">
+ 
+<ui:param name="documentTitle" value="refund_policy" />
+<ui:param name="pageTitle" value="Online Payment System: Refund Policy" />
+<ui:param name="breadcrumb" value=""/>
+<ui:param name="title" value="Refund Policy"/>
+<ui:param name="applicationName2" value="Payment System"/>
+<ui:param name="applicationName1" value="DES Online"/>
+
+
+<ui:define name="localCss">
+	<link href="resources/css/stylesheet.css" rel="stylesheet" type="text/css"  media="screen" />
+</ui:define>
+
+<ui:define name = "localBody">	
+	    <div align="center">
+        <table width="80%" border="0" cellspacing="0" cellpadding="2" class="home_table">
+
+        
+          <tr>
+            <td align="left">
+
+                <h2> Refund Policy<br />
+                </h2>
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+                  <tr>
+                    <td width="50%" align="left" valign="top"><p>Online payments will not be issued as a cash refund.  All refunds will be issued directly to your credit card.</p>
+
+ <p>
+Since your credit card information is not retained in our records, you may be contacted to provide information necessary to process your refund.
+ </p>
+<p>To get a refund, please contact the DES switchboard at (602) 252-0024 or toll free in the State of Arizona at 1-800-236-1475 for more information.  You can also 
+<h:link outcome="contact_us.xhtml"
+			target="_blank"
+			onclick="window.open(this.href,this.target,'height=768, width=700,scrollbars=yes');return false;" value="e-mail us"/>
+for further information.</p>
+</td>
+                    </tr>
+                                
+                  <tr>
+                    <td align="left" valign="top"></td>
+                  </tr>
+                </table>
+</td>
+          </tr>
+        </table>
+        <div id="testdiv1"></div>
+
+      </div>
+</ui:define></ui:composition>

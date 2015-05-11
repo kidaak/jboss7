@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>AZ.gov Arizona's Official Website - #{pageTitle}</title>
+<!-- InstanceEndEditable -->
+<meta name="title" content="www.AZ.gov - Arizona State Website" />
+	<meta name="description" content="The Official Web Site of the state of Arizona" />
+	<meta name="author" content="AZ.gov" />
+	<meta name="robots" content="index,follow"/>
+
+	<meta name="rating" content="Safe for kids"/>
+	<meta name="originatorJurisdiction" content="State of Arizona"/>
+	<meta name="timePeriodTextual" content="current"/>
+	<meta name="medium" content="Web site"/>
+	<meta name="govType" content="state"/>
+	<meta name="keywords" content="Arizona, State of Arizona, Official Web site of Arizona, Arizona Government, Governor Janet Napolitano, Arizona Portal, Online Applications, Online Forms, Online Services, Services, eServices, Visiting Arizona, Living in Arizona, Working in Arizona, Education in Arizona"/>
+	<meta name="contactOrganization" content="az.gov"/>
+	<meta name="contactStreetAddress1" content="123 Main St."/>
+	<meta name="contactCity" content="Phoenix"/>
+
+	<meta name="contactState" content="Arizona"/>
+	<meta name="contactZipcode" content="85004"/>
+	<meta name="contactPhoneNumber" content="602-256-9075"/>
+	<!-- InstanceBeginEditable name="head" -->
+	<!-- InstanceEndEditable -->
+	<link href="resources/css/feedback.css" rel="stylesheet" type="text/css"  media="screen" />
+    <ui:insert name="localCss"/>	
+</h:head>
+<h:body>
+   <!-- Begin Wrapper -->
+   <div id="wrapper">
+
+         <!-- Begin Header -->
+         <div id="header">
+		 	<a href="javascript:window.close();">CLOSE WINDOW</a>
+		 </div>
+		 <!-- End Header -->
+		 <!-- Begin TopImg -->
+         	<div id="topimg">
+		 <div id="bnr_text">#{applicationName1}<br />
+					  		#{applicationName2}</div>
+        	 <div id="azlogo" > <h:graphicImage value="spacer.gif" library="images" alt="Azlogo"  height="47" /></div>
+		 </div>
+		 <!-- End TopImg -->
+		 <!-- Begin Content -->
+		 <div id="bar"/> 
+		 <!-- End TopImg -->
+
+		 <!-- Begin Content -->
+		 <div id="content">
+		 <h1>#{pageTitle}</h1>
+		<f:subview id="subview1">
+			<ui:insert name="localBody"/>
+		</f:subview>
+	<div class="welcome_button"><a href="javascript:window.close();"><h:graphicImage name="welcome_close.jpg" library="images" alt="close window" width="30" height="30" hspace="0" vspace="0" border="0" />Close Window</a></div>
+	</div>
+	
+</div>
+</h:body>
+
+</f:view>
+</html>

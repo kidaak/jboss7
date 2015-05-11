@@ -1,0 +1,56 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:s="http://jboss.com/products/seam/taglib"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+<ui:param name="pageTitle" value="Respiratory Care Examiner License Renewal"/>
+<ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+<ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="applicationName2" value="Licensing Application"/>
+<ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="appImage" value="azstate_logo.jpg"/>
+<ui:param name="donotRenderHelp" value="true"/>
+
+<ui:define name="localCss">
+   <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+</ui:define>
+
+<ui:define name="altbreadcrumb">
+<div id="breadcrumb2">
+   <s:link view="/licenseholder-options.xhtml" value="Home"/> &gt; Respiratory Care Examiner License Renewal
+</div>
+</ui:define>
+<ui:define name="body">
+   <form class="form" action="" method="get" enctype="multipart/form-data" name="form2" id="form2">
+  
+    <div class="home_table">      
+       <h:outputText value="#{licenseRenewalSplashManager.renewalsSection1}" escape="false"></h:outputText>
+    </div><!-- end of .home_table  -->
+     
+       <fieldset>
+                  <div class="grid-6-12">
+                     <s:button view="/licenseholder-options.xhtml" 
+                        value="Previous" 
+                        styleClass="submit_button"/>
+                   <!--<input type="button" name="Previous" id="Previous" value="Previous" accesskey="p" class="submit_button" onclick="location.href='index.xhtml'" />-->
+                </div>
+                <div class="grid-6-12 form-right">
+                   <s:button view="/licenserenewal-terms.xhtml" 
+                        value="Continue" 
+                        styleClass="submit_button"/>
+                    <!--<input type="button" name="Continue" id="Continue" value="Continue" accesskey="c" class="submit_button" onclick="location.href='licenserenewal-login.xhtml'" />-->
+                </div>
+                
+       </fieldset>
+
+     </form>
+</ui:define>
+</ui:composition>

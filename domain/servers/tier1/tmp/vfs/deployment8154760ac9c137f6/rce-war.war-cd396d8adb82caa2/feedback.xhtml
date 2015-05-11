@@ -1,0 +1,90 @@
+ <!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="#{rceAppConfig.staticServerName}/static/portal/app/popuptemplate_2014.xhtml">
+<ui:param name="pageTitle" value="Feedback"/>
+<ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+<ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="applicationName2" value="Licensing Application"/>
+<ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="appImage" value="azstate_logo.jpg"/>
+<ui:param name="donotRenderHelp" value="true"/>
+
+
+<ui:define name="localCss">
+	<link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+</ui:define>
+
+
+
+<ui:define name="altbreadcrumb">
+<div id="breadcrumb2">
+	Feedback 
+</div>
+</ui:define>
+<ui:define name="body">
+		<div id="home_table">
+			<h:form id="form1" styleClass="form">
+			<s:validateAll>
+
+				<p>Arizona Board of Respiratory Care Examiners is interested in your comments about
+					this web site. All comments submitted will be used to improve the
+					web site. Please provide your input below.</p>
+				<p>
+					<strong>Note: If you would like a reply to your inquiry,
+						please include a valid email address.</strong>
+				</p>
+				<p>
+					<h:outputLabel for="name">Your Name: </h:outputLabel>
+					
+					<h:inputText id="name" styleClass="inputText"
+						value="#{feedbackAction.name}" required="true"
+						requiredMessage="Name is required."
+						converter="#{stringTrimConverter}"></h:inputText>
+					
+				</p>
+				<p>
+
+					<h:outputLabel for="email">Your E-mail: </h:outputLabel>
+					
+					<h:inputText id="email" styleClass="inputText"
+						value="#{feedbackAction.email}" required="true"
+						requiredMessage="Email is required."
+						converter="#{stringTrimConverter}"></h:inputText>
+				</p>
+				<p>
+					<strong><h:outputText styleClass="headingMain"
+							value="Comments:" />
+					</strong> <br /> Note: Enter URL of page that you are having difficulty
+					with. Description of problem/suggestion (provide as many details as
+					possible so we can best assist you).
+				</p>
+
+				<p>
+					<h:inputTextarea id="comments" styleClass="inputTextarea"
+						value="#{feedbackAction.comments}" cols="53" rows="10" 
+						converter="#{stringTrimConverter}"
+						required="true"
+						requiredMessage="Comments are required."/>
+					<br /> <br />
+
+				</p>
+				<p>
+					<h:commandButton type="submit" value="Send comments" id="button1"
+						styleClass="submit_button" action="#{feedbackAction.submit}" />
+					<f:verbatim>&amp;nbsp;</f:verbatim>
+				</p>
+			</s:validateAll>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

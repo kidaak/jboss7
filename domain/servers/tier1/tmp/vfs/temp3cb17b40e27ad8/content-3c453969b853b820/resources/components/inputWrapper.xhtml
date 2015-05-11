@@ -1,0 +1,22 @@
+<ui:component
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:cc="http://java.sun.com/jsf/composite"
+    xmlns:my="http://java.sun.com/jsf/composite/components">
+    <cc:interface>
+        <cc:attribute name="label" required="true" />       
+        <cc:editableValueHolder name="id" targets="inputFieldId" />
+    </cc:interface>
+    
+    <cc:implementation>
+	<div> 
+		 <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk" rendered="#{cc.attrs.required}"/>
+	  	 <h:outputLabel id="label" for="inputFieldId" value="#{cc.attrs.label}" styleClass="#{cc.attrs.invalid ? 'invalid' : ''}"/>
+		 <br />
+		  <h:panelGroup styleClass="value #{invalid?'errors':''}" id="decorator_group" >
+			<cc:insertChildren />
+		  </h:panelGroup>
+	  	<h:message id="message" for="inputFieldId" errorClass="invalid message"  />
+	 </div>
+    </cc:implementation>
+</ui:component>

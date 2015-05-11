@@ -1,0 +1,102 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="Terms and Conditions"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <a href="index.xhtml" target="_self">Home</a> &gt; <s:link view="/newapp-asrcp.xhtml" value=" New Application"/> &gt; Terms and Conditions
+        </div>
+    </ui:define>
+
+    <ui:define name="body">
+        <h:form class="form" id="form2">
+
+            <center>
+                <div class="error" id="errors" style="display:none;">
+                    <div class="errror_message">The following error(s) have been found: <br />
+                        <br />
+                        <ul class="error_list">
+                            <li>First Name, Last Name, Address, City, State, Zip, DOB, Height Ft., Height In., Weight, Eyes, Hair, Sex is a required field. </li>
+                            <li>The email address you entered is not in the correct format. Email address should contain the following: username@isp.com.</li>
+                        </ul>
+                    </div>
+                </div>
+            </center>
+
+            <div class="home_table">      
+                <div class="instructions"><h:outputText value="#{splashManager.newappTermsInstructions}" escape="false"></h:outputText></div>
+
+                <!-- top-of-section 'Previous' navigation button --> 
+                <fieldset>
+                    <div class="grid-6-12">
+                        <input type="button" name="Previous" id="btnTopPrevious" value="Previous" accesskey="p" class="submit_button" onclick="location.href='newapp-asrcp.xhtml'" />
+                    </div>
+                </fieldset>
+                
+<!--
+                <div align="left"><img src="img/icon-required.gif" alt="*" />Indicates required fields</div>  
+-->
+                <div class="display_table"><h:outputText value="#{splashManager.newappTermsSection1}" escape="false"></h:outputText>
+
+                    <fieldset>
+                        <div class="grid-0-12">
+                            <s:validateAll>
+
+                                <h:selectBooleanCheckbox
+                                    required="true"
+                                    title="Terms and Conditions"
+                                    value="#{termsAndConditions.acceptTermsAndConditions}" >
+                                </h:selectBooleanCheckbox>
+                            </s:validateAll>
+                        </div>
+
+<!--
+                        <div class="grid-7-12"><label class="required">I agree to these terms and conditions</label></div> 
+-->
+                        <div class="grid-7-12"><span style="font-weight:bold;">I agree to these terms and conditions</span> (<span style="color:red">required</span>)</div> 
+                    </fieldset>
+
+                </div>
+            </div>
+
+            <!-- bottom-of-page navigation buttons --> 
+            <fieldset>
+               	<div class="grid-6-12">
+                    <input type="button" name="Previous" id="Previous" value="Previous" accesskey="p" class="submit_button" onclick="location.href='newapp-asrcp.xhtml'" />
+                </div>
+
+                <div class="grid-6-12 form-right">
+                    <h:commandButton id="Continue"
+                                     styleClass="submit_button"
+                                     value="Continue"
+                                     action="#{termsAndConditions.continueAfterAcceptTermsAndConditions}">
+                    </h:commandButton>
+                </div>
+            </fieldset>
+
+        </h:form>
+        <!--</form>-->
+    </ui:define>
+</ui:composition>

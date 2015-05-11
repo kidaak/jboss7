@@ -1,0 +1,227 @@
+body{	
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 100%;
+	max-height: 100%;
+	font-family:Arial, Geneva, Helvetica, sans-serif;
+	font-size:.8em;
+	color:#333333;
+	background: #666;
+	width:100%:
+	}
+h2 {
+	font-weight: bold;
+	background: #003162 url(css_image/h2_back.jpg) repeat-x left top;
+	color: #FFFFFF;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	margin-top: 5px;
+	font-size: 1em;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	text-align: left;
+}
+#header {
+	width: 100%;
+	height: 1.5em; /*Height of top frame div*/
+	background: #DDC79F url(css_image/back_helpmenu.jpg) repeat-x left top;
+	text-align: right;
+	display: table;
+	font-weight: bold;
+	color: #FFFFFF;
+	font-size: 0.9em;
+	line-height: 1.5em;
+	margin-top: 1px;
+}
+
+#header a {
+	color: #FFFFFF;
+	text-decoration: none;
+	padding-right: 5px;
+	padding-left: 5px;
+	}
+	
+#topimg {
+	width: 100%;
+	background: #AAA878 url(css_image/feedback-banner-bg.jpg) repeat-x left top;
+	white-space: nowrap;
+	display: table;
+	height: 47px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #0D064C;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #0D064C;
+}	
+
+#bnr_text {
+	width: 400px;
+	float: left;
+	color: #FFFFFF;
+	margin-top: 0.4em;
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 1.2em;
+	text-shadow: #000 2px 2px 2px;
+	margin-left: 1.3em;
+
+}
+
+#azlogo{
+	height: 47px;
+	width: 189px;
+	float: right;
+	background: url(css_image/azlogo-feedback.jpg) no-repeat right;
+	text-align: left;
+	margin-left: -10em;
+	}
+
+#bar { 
+	width: 100%;
+	color: #333;
+	background: #AAA878;;
+	margin: 0px 0px 0px 0px;
+	height: 1.5 em;
+}
+
+#content { 
+	color: #333;
+	width: 100%;
+	padding:0em;
+	background: #fff;
+	margin: 0px 0px 0px 0px;
+	padding-bottom: 0.2em;
+}
+.question {
+	font-weight:bold;
+}
+
+
+.home_table {
+	background: #ECECEC url(css_image/home_table_back.gif) no-repeat left top;
+	width:90%;
+	max-width:50em;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: .5em;
+	padding-left: 10px;
+	display: table;
+	border: 1px solid #666666;
+}
+.home_table tr td{
+	padding: 5px;
+}
+.display_table {
+	background: #FFFFFF url(css_image/display_table_back.gif) no-repeat left top;
+	border: 1px solid #666666;
+	padding: 5px;
+	font-size:.9em;
+}
+.data_table {
+	background: #CCCCCC;
+	border: 1px solid #666666;
+	padding: 2px;
+}
+.data_table th {
+	background: #CCC;
+	text-align: left;
+}
+.data_table td {
+	background: #FFF;
+	text-align: left;
+}
+
+
+h1 {
+	font-size:1.4em;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #666666;
+	padding: 0.25em 0em 0em 0em;
+	margin-bottom: 1em;
+	margin-left:1em;
+	margin-right: 0.25em;
+	color: #006666;
+	text-align: left;
+	width: 94%;
+	}
+	
+
+p {
+	padding: 0.5em 0em 0.5em 0em;
+}
+
+.welcome_button {
+	text-align: center;
+}
+.welcome_button a {
+	text-shadow: #000 2px 2px 2px;
+	color: #FFFFFF;
+	text-decoration: none;
+	background: #999999 url(css_image/welcome_back.jpg) repeat-x left top;
+	width: 12em;
+	padding-left: 0px;
+	display: block;
+	height: 30px;
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: 1.4em;
+	border: 1px solid #333333;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 5px;
+	margin-bottom: 0.5em;
+	cursor: pointer;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+}
+.welcome_button a:hover {
+	background: #666666;
+	color: #FFFFFF;
+	text-decoration: none;
+	cursor: pointer;
+}
+.welcome_button img {
+	float: left;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 0px;
+	padding: 0px;
+	
+}
+* html .submit_button{
+	font-size: 1em;
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 5px;
+	padding-bottom: 0px;
+	padding-left: 5px;
+} /*IE6 fix*/
+.submit_button {
+	color: #FFFFFF;
+	border: 1px solid #000000;
+	background: #3A6592 url(css_image/app_default/btn_back.jpg) no-repeat left top;
+	padding-left: 5px;
+}
+.submit_button a{
+color:#FFF;
+}
+.submit_button:hover {
+	background: #333 url(css_image/btn_back_roll.jpg) no-repeat left top;
+	}
+.submit_button:focus {
+	cursor: pointer;
+	background: #333 url(css_image/btn_back_roll.jpg) no-repeat left top;
+	}

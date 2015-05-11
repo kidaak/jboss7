@@ -1,0 +1,239 @@
+
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:a4j="http://richfaces.org/a4j"
+xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+	<ui:debug/>  
+    <ui:insert name="metadata"/>  
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+
+<title>AZ.gov Arizona's Official Website - #{title}</title>
+<meta name="title" content="www.AZ.gov - Arizona State Website" />
+	<meta name="description" content="The Official Web Site of the State of Arizona" />
+	<meta name="author" content="AZ.gov" />
+	<meta name="robots" content="index,follow"/>
+
+	<meta name="rating" content="Safe for kids"/>
+	<meta name="originatorJurisdiction" content="State of Arizona"/>
+	<meta name="timePeriodTextual" content="current"/>
+	<meta name="medium" content="Web site"/>
+	<meta name="govType" content="state"/>
+	<meta name="keywords" content="Arizona, State of Arizona, Official Web site of Arizona, Arizona Government, Arizona Portal, Online Applications, Online Forms, Online Services, Services, eServices, Visiting Arizona, Living in Arizona, Working in Arizona, Education in Arizona"/>
+	<meta name="contactOrganization" content="az.gov"/>
+	<meta name="contactCity" content="Phoenix"/>
+	<meta name="contactState" content="Arizona"/>
+	<meta name="contactZipcode" content="85004"/>
+
+
+<link href="resources/css/global.css" rel="stylesheet" type="text/css"  media="screen" />
+<link href="resources/css/print.css" rel="stylesheet" type="text/css"  media="print" />
+<link href="resources/css/app_default.css" rel="stylesheet" type="text/css"  />
+<link href="resources/css/fieldset.css" rel="stylesheet" type="text/css"  />
+<link href="resources/css/theme-010711.css" rel="stylesheet" type="text/css"  />
+	<!-- Custom Section -->
+
+
+<!-- <script language="JavaScript1.2" src="../assets/js/styleswitcher.js" type="text/javascript"></script> -->
+<link rel="alternate stylesheet" type="text/css" href="resources/css/small.css" title="A" />
+<link rel="alternate stylesheet" type="text/css" href="resources/css/large.css" title="A++" />
+<link rel="alternate stylesheet" type="text/css" href="resources/css/medium.css" title="A+" />
+<link rel="alternate stylesheet" type="text/css" href="resources/css/x-small.css" title="A-" />
+<link rel="alternate stylesheet" type="text/css" href="resources/css/xx-small.css" title="A--" />  
+
+<!--
+<script type="text/javascript" src="resources/js/AC_RunActiveContent.js" ></script>
+<script type="text/javascript" src="resources/js/autotab.js"></script>
+<script type="text/javascript" src="resources/js/CalendarPopup.js"></script>
+<script type="text/javascript" src="resources/js/oddeven.js" ></script>
+<script type="text/javascript" src="resources/js/emailus.js" ></script> -->
+
+<script type="text/javascript">
+document.write(getCalendarStyles());
+document.write("\n");
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</script>
+
+
+<ui:insert name="localCss"/>
+<ui:insert name="localJs"/>
+<!--[if IE ]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen"/><![endif]-->
+</h:head>
+
+
+<h:body>
+
+
+
+<!--Begin SkipNav-->
+
+<a href="#contentjump" class="skipnavlink">Skip directly to: Main Content</a>
+<!--End SkipNav-->
+
+
+<!-- Begin Print Content --> 
+<div class="printwrapper"><img src="resources/images/azlogo_print.jpg" align="right" alt="AZ.gov Arizona's Official Website" />
+#{agencyName}<br />
+#{applicationName1} #{applicationName2}
+</div>
+
+<!-- End Print Content -->
+
+<!--Begin Help Section-->
+<!--End Help Section-->
+
+<!--Begin Header-->
+
+<div id="headerTop">
+<div id="MinWidthContainer"><div id="PageContainer"><div id="PageContentContainer">
+
+<!--Begin Help Menu-->
+ <div id="helpmenu" >
+<!-- Text Size: <a href="#" onclick="javascript:fontsizeup();" title="Increase Font Size">&and;</a><a href="#" onclick="javascript:fontsizedown();" title="Decrease Font Size">&or;</a> | -->
+<!-- Do not remove this link! -->
+<div class="hidden_link"><a href="https://azdemo.az.gov/"><img src="resources/images/spacer.gif" alt=" " /></a></div>
+<ui:fragment rendered="#{empty donotRenderLiveHelp}">
+<a href="#" onclick="MM_openBrWindow('http://az.gov/static/chat','livechat','width=475,height=400')">LIVE HELP</a>
+</ui:fragment>
+<ui:fragment rendered="#{empty donotRenderFeedback and empty donotRenderLiveHelp}">
+  |
+</ui:fragment>
+<ui:fragment rendered="#{empty donotRenderFeedback}">
+<a href="feedback.xhtml" target="_blank" onclick="window.open(this.href,this.target,'height=830, width=615, scrollbars=yes');return false;">FEEDBACK</a>
+</ui:fragment>
+<ui:fragment rendered="#{empty donotRenderFeedback and (empty donotRenderFAQ or empty donotRenderHelp) }">
+  |
+</ui:fragment>
+<ui:fragment rendered="#{empty donotRenderFAQ}">
+<a href="faq.xhtml" target="_blank" onclick="window.open(this.href,this.target,'height=700, width=615, scrollbars=yes');return false;">FAQ</a>
+</ui:fragment>
+<ui:fragment rendered="#{empty donotRenderFAQ and empty donotRenderHelp}">
+  |
+</ui:fragment>
+<ui:fragment rendered="#{empty donotRenderHelp}">
+<a href="help.xhtml" target="_blank" onclick="window.open(this.href,this.target,'height=700, width=615, scrollbars=yes');return false;">#{not empty helpValue ? helpValue : 'HELP'}</a>
+</ui:fragment>
+
+<ui:fragment rendered="#{not empty renderDemo}">
+  |
+</ui:fragment>
+<ui:fragment rendered="#{not empty renderDemo}">
+<a href="demo.html" target="_blank" onclick="window.open(this.href,this.target,'height=700, width=700');return false;">DEMO</a>
+</ui:fragment>
+</div>
+ <!--End Help Menu-->
+
+<!-- Begin Top Menu -->
+<!-- End Top Menu -->
+
+<!-- begin BNR -->
+<div id="bnr_wrapper">
+  <div class="seal"><img src="resources/images/spacer.gif" alt="AZ.gov Arizona's Official Web Site" width="200" height="75" /></div><!-- this closing div has to be right next to closing img tag -->
+
+  <div id="azlogo" > 
+  <ui:fragment rendered="#{not empty renderLinkToAgency}">
+	<a href="#{agencyUrl}" target="_blank">
+	<img src="#{appManager.server}/static/portal/images/#{appImage}" border="0" alt="#{agencyName}" width="302" height="75" /></a></ui:fragment>
+	<ui:fragment rendered="#{empty renderLinkToAgency}">
+	<img src="#{appManager.server}/static/portal/images/#{appImage}" alt="#{agencyName}" width="302" height="75" />
+	</ui:fragment></div><!--  closing div has to be right next to closing ui fragment tag -->
+ 
+  <div id="bnr_text">#{applicationName1}<br />#{applicationName2}</div>
+</div>
+<!-- End BNR -->
+
+<!-- Begin Second Menu -->
+
+<!-- Stop Second Menu -->
+<!-- Begin Breadcrumb -->
+<div id="breadcrumb"><ui:insert name="breadcrumb"> <ui:insert name="appTimer"/></ui:insert><ui:insert name="linksRight"/></div>
+<!-- End Breadcrumb -->
+<ui:insert name="counter"/>
+</div>    
+
+</div></div></div>
+
+<!-- End Header -->
+
+
+
+
+<!--Begin Main Navigation-->
+
+<!--End Main Navigation-->
+
+<!--Begin Main Content-->
+
+
+<div id="maincontent"> 
+
+<a name="contentjump"></a>
+<!-- InstanceBeginEditable name="maincontent" -->
+<div class="appwrapper">
+<ui:insert name="altbreadcrumb"/>
+  <div class="text">
+
+    <div id="paymentdetails">
+		<a4j:outputPanel id="errorPanel" layout="block" ajaxRendered="true">		              
+         <div align="center">
+         			<ui:fragment    rendered="#{not empty facesContext.maximumSeverity and (facesContext.maximumSeverity.toString() eq 'INFO 0' or facesContext.maximumSeverity.toString() eq 'WARN 1') }">
+	         			 <div class="error2">
+		                  <div class="errror_message"><br/>
+		                  	<h:messages id="GENERAL" globalOnly="true" layout="list" level="info, warn"/>
+		                  <br/>
+					     </div></div>
+				     </ui:fragment>
+				     <ui:fragment rendered="#{not empty facesContext.maximumSeverity and (facesContext.maximumSeverity.toString() eq 'ERROR 2' or facesContext.maximumSeverity.toString() eq 'FATAL 4') }">			     				     
+					    <div class="error">  
+				                  <div class="errror_message"><br/>
+				                  The following error(s) have been found:
+									<div class="clear"></div>
+				                  <h:messages id="ERROR" layout="list" />
+				                  <br/>
+              				</div></div>
+                	</ui:fragment>
+          </div>
+		</a4j:outputPanel>		            				             
+     		<ui:insert name="body"/>
+			</div>
+		</div>
+	</div>
+    <div id="testdiv1"></div>
+  
+
+<div class="footer_nav"> <a href="#{appManager.server}/polices_privacy.html" target="_self">Privacy Policy</a><a href="#{appManager.server}/polices_accessibility.html" target="_self">Accessibility Policy</a><a href="#{appManager.server}/polices_acceptable.html" target="_self">Acceptable Use Policy</a> <script language="javascript" type="text/javascript">DisplayMail('nicusa.com?Subject=Arizona State Web Site Response', 'azsupport', 'Contact Arizona');</script><noscript> Contact Arizona: azsupport at nicusa dot com</noscript> | &nbsp;© Copyright  <script type="text/javascript" language="JavaScript">
+<!-- 
+    today=new Date();
+    yr=today.getFullYear();
+    document.write(yr);
+-->
+
+</script> AZ.gov</div>
+
+</div>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("_https:" == document.location.protocol) ? "_https://ssl." : "_http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try{
+var pageTracker = _gat._getTracker("UA-10430949-1");
+pageTracker._setDomainName(".az.gov");
+pageTracker._trackPageview();
+} catch(err) {}
+</script> 
+
+</h:body>
+</f:view></html>

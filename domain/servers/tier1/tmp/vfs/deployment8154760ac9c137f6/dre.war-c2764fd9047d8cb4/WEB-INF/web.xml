@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">	
+
+    <display-name>DRE</display-name>
+
+    <!--^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        Context Parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+    
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/classes/applicationContext.xml
+        </param-value>
+    </context-param>
+    
+    <filter>
+        <filter-name>SessionFilter</filter-name>
+        <filter-class>com.ibm.azportal.dre.filters.SessionFilter</filter-class>
+        <init-param>
+            <param-name>systemErrorPath</param-name>
+            <param-value>/pages/systemError.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>path</param-name>
+            <param-value>/index.do</param-value>
+        </init-param>
+        <init-param>
+            <param-name>type</param-name>
+            <param-value>forward</param-value>
+        </init-param>
+        <init-param>
+            <param-name>errorKey</param-name>
+            <param-value>errors.sessionTimeout</param-value>
+        </init-param>
+        <init-param>
+            <param-name>home</param-name>
+            <param-value>/index.do</param-value>
+        </init-param>
+    </filter>
+
+    <filter>
+        <filter-name>RequiredInfoFilter</filter-name>
+        <filter-class>com.ibm.azportal.dre.filters.RequiredInformationFilter</filter-class>
+        <init-param>
+            <param-name>systemErrorPath</param-name>
+            <param-value>/pages/systemError.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>path</param-name>
+            <param-value>/requiredInfo.do</param-value>
+        </init-param>
+        <init-param>
+            <param-name>type</param-name>
+            <param-value>forward</param-value>
+        </init-param>
+    </filter>
+    
+    <filter>
+        <filter-name>ResetSessionFilter</filter-name>
+        <filter-class>com.ibm.azportal.dre.filters.ResetSessionFilter</filter-class>
+        <init-param>
+            <param-name>path</param-name>
+            <param-value>/logon.do</param-value>
+        </init-param>
+        <init-param>
+            <param-name>type</param-name>
+            <param-value>forward</param-value>
+        </init-param>
+    </filter>
+    
+    <filter>
+        <filter-name>BrokerAuditDeclarationCaptureFilter</filter-name>
+        <filter-class>com.ibm.azportal.dre.filters.BrokerAuditDeclarationCaptureFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>SessionFilter</filter-name>
+        <url-pattern>/services/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>RequiredInfoFilter</filter-name>
+        <url-pattern>/services/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>ResetSessionFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>SessionFilter</filter-name>
+        <url-pattern>/audit/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>BrokerAuditDeclarationCaptureFilter</filter-name>
+        <url-pattern>/audit/400baAffirm.do</url-pattern>
+    </filter-mapping>
+    
+    <servlet>
+        <servlet-name>context</servlet-name>
+        <servlet-class>
+            com.ibm.gs.houston.spring.web.context.ContextLoaderServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>action</servlet-name>
+        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/struts-config.xml</param-value>
+        </init-param>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>3</param-value>
+        </init-param>
+        <init-param>
+            <param-name>detail</param-name>
+            <param-value>2</param-value>
+        </init-param>
+        <init-param>
+            <param-name>validate</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>/pages/index.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>

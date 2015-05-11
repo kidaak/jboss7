@@ -1,0 +1,1498 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Kevin Goode (private) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dre="http://www.az.gov/dre" targetNamespace="http://www.az.gov/dre">
+	<!-- *** Message Elements ***-->
+	<xsd:element name="ValidateUserRequest" type="dre:ValidateUserRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Validation requires one of these combinations of elements: 1 - LicenseNumber, DateOfBirth and SSNSuffix. 2 - LicenseNumber and Password. 3 - ExistingSessionID</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ValidateUserResponse" type="dre:ValidateUserResponseType"/>
+	<xsd:element name="SubmitRequiredInformationRequest" type="dre:SubmitRequiredInformationRequestType"/>
+	<xsd:element name="SubmitRequiredInformationResponse" type="dre:GeneralSessionResponseType"/>
+	<xsd:element name="ChangePersonalInformationRequest" type="dre:ChangePersonalInformationRequestType"/>
+	<xsd:element name="ChangePersonalInformationResponse" type="dre:GeneralWorkflowResponseType"/>
+	<xsd:element name="CompleteFunctionRequest" type="dre:CompleteFunctionRequestType"/>
+	<xsd:element name="CompleteFunctionResponse" type="dre:CompleteFunctionResponseType"/>
+	<xsd:element name="StartChangePersonalInformationFunctionRequest" type="dre:GeneralSessionRequestType"/>
+	<xsd:element name="StartChangePersonalInformationFunctionResponse" type="dre:GeneralWorkflowResponseType"/>
+	<xsd:element name="LogoutRequest" type="dre:GeneralSessionRequestType"/>
+	<xsd:element name="LogoutResponse" type="dre:GeneralResponseType"/>
+	<xsd:element name="StartChangeEmployerFunctionRequest" type="dre:GeneralSessionRequestType"/>
+	<xsd:element name="StartChangeEmployerFunctionResponse" type="dre:GeneralWorkflowResponseType"/>
+	<xsd:element name="ChangeEmployerRequest" type="dre:ChangeEmployerRequestType"/>
+	<xsd:element name="ChangeEmployerResponse" type="dre:ChangeEmployerResponseType"/>
+	<xsd:element name="StartSeverEmploymentFunctionRequest" type="dre:GeneralSessionRequestType"/>
+	<xsd:element name="StartSeverEmploymentFunctionResponse" type="dre:GeneralWorkflowResponseType"/>
+	<xsd:element name="SeverEmploymentRequest" type="dre:SeverEmploymentRequestType"/>
+	<xsd:element name="SeverEmploymentResponse" type="dre:GeneralWorkflowResponseType"/>
+	<xsd:element name="StartRenewIndividualLicenseFunctionRequest" type="dre:GeneralSessionRequestType"/>
+	<xsd:element name="StartRenewIndividualLicenseFunctionResponse" type="dre:StartRenewIndividualLicenseResponseType"/>
+	<xsd:element name="ValidateQuestionnaireRequest" type="dre:ValidateQuestionaireRequestType"/>
+	<xsd:element name="ValidateQuestionnaireResponse" type="dre:GeneralWorkflowResponseType"/>
+	<xsd:element name="ValidateContinuingEducationRequest" type="dre:ValidateContinuingEducationRequestType"/>
+	<xsd:element name="ValidateContinuingEducationResponse" type="dre:ValidateContinuingEducationResponseType"/>
+	<xsd:element name="StartBrokerAuditDeclarationFunctionRequest" type="dre:StartBrokerAuditDeclarationRequestType"/>
+	<xsd:element name="StartBrokerAuditDeclarationFunctionResponse" type="dre:StartBrokerAuditDeclarationResponseType"/>
+	<xsd:element name="SaveBrokerAuditDeclarationRequest" type="dre:SaveBrokerAuditDeclarationRequestType"/>
+	<xsd:element name="SaveBrokerAuditDeclarationResponse" type="dre:GeneralWorkflowResponseType"/>
+	<xsd:element name="RetrieveBrokerAuditDeclarationRequest" type="dre:GeneralSessionRequestType"/>
+	<xsd:element name="RetrieveBrokerAuditDeclarationResponse" type="dre:GeneralSessionResponseType"/>
+	<xsd:element name="StartViewPendingActionsFunctionRequest" type="dre:GeneralSessionRequestType"/>
+	<xsd:element name="StartViewPendingActionsFunctionResponse" type="dre:StartViewPendingActionsResponseType"/>
+	<xsd:element name="SubmitApprovalsRequest" type="dre:SubmitApprovalsRequestType"/>
+	<xsd:element name="SubmitApprovalsResponse" type="dre:SubmitApprovalsResponseType"/>
+	<xsd:element name="GetLicenseeInfoRequest" type="dre:GetLicenseeInfoRequestType"/>
+	<xsd:element name="GetLicenseeInfoResponse" type="dre:GetLicenseeInfoResponseType"/>
+	<xsd:element name="GetLicensesForPrintingRequest" type="dre:GetLicensesForPrintingRequestType"/>
+	<xsd:element name="GetLicensesForPrintingResponse" type="dre:GetLicensesForPrintingResponseType"/>
+	<xsd:element name="ConfirmLicensesPrintedRequest" type="dre:ConfirmLicensesPrintedRequestType"/>
+	<xsd:element name="ConfirmLicensesPrintedResponse" type="dre:GeneralWorkflowResponseType"/>
+	<xsd:element name="GetHistoryRequest" type="dre:GetHistoryRequestType"/>
+	<xsd:element name="GetHistoryResponse" type="dre:GetHistoryResponseType"/>
+	<xsd:element name="EmailPasswordRequest" type="dre:EmailPasswordRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Will send the password to the registered email address.  If the license number does not have an email address, has not successfully logged on before, or has not created a password then Retry is returned with a message.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EmailPasswordResponse" type="dre:GeneralResponseType"/>
+	<xsd:element name="ChangeUserPreferencesRequest" type="dre:ChangeUserPreferencesRequestType"/>
+	<xsd:element name="ChangeUserPreferencesResponse" type="dre:GeneralSessionResponseType"/>
+	<xsd:element name="StartManageEmployeesFunctionRequest" type="dre:GeneralSessionRequestType"/>
+	<xsd:element name="StartManageEmployeesFunctionResponse" type="dre:StartManageEmployeesResponseType"/>
+	<xsd:element name="GetEmployeesForSelectionRequest" type="dre:GetEmployeesForSelectionRequestType"/>
+	<xsd:element name="GetEmployeesForSelectionResponse" type="dre:GetEmployeesForSelectionResponseType"/>
+	<xsd:element name="SelectEmployeesRequest" type="dre:SelectEmployeesRequestType"/>
+	<xsd:element name="SelectEmployeesResponse" type="dre:SelectEmployeesResponseType"/>
+	<xsd:element name="DeselectEmployeesRequest" type="dre:DeselectEmployeesRequestType"/>
+	<xsd:element name="DeselectEmployeesResponse" type="dre:SelectEmployeesResponseType"/>
+	<xsd:element name="SubmitDocumentRequest" type="dre:SubmitDocumentRequestType"/>
+	<xsd:element name="SubmitDocumentResponse" type="dre:GeneralSessionResponseType"/>
+	<xsd:element name="StartRenewEntityLicenseFunctionRequest" type="dre:GeneralSessionRequestType"/>
+	<xsd:element name="StartRenewEntityLicenseFunctionResponse" type="dre:StartRenewEntityLicenseResponseType"/>
+	<xsd:element name="SelectInactiveOfficesToRenewRequest" type="dre:SelectInactiveOfficesToRenewRequestType"/>
+	<xsd:element name="SelectInactiveOfficesToRenewResponse" type="dre:GeneralWorkflowResponseType"/>
+	<xsd:element name="SubmitIndividualCorporationStatusRequest" type="dre:SubmitIndividualCorporationStatusRequestType"/>
+	<xsd:element name="SubmitIndividualCorporationStatusResponse" type="dre:SubmitIndividualCorporationStatusResponseType"/>
+	<xsd:element name="ContinueEntityRenewalRequest" type="dre:ContinueEntityRenewalRequestType"/>
+	<xsd:element name="ContinueEntityRenewalResponse" type="dre:GeneralWorkflowResponseType"/>
+	<!-- *** Message Types ***-->
+	<xsd:complexType name="ContinueEntityRenewalRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="ContinueEntityRenewal" type="xsd:boolean">
+						<xsd:annotation>
+							<xsd:documentation>True value will add the Entity Renewal steps to the Workflow.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--
+	<xsd:complexType name="ContinueEntityRenewalResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="EntityRenewalDetails" type="dre:EntityRenewalDetailsType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+-->
+	<xsd:complexType name="SubmitIndividualCorporationStatusRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="ContinueWithCorporationStatus" type="xsd:boolean">
+						<xsd:annotation>
+							<xsd:documentation>A True value represents that the licensee attests that their coporation status is in good standing and they wish to continue with it.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SubmitIndividualCorporationStatusResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="CorporationStatusMessage" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Text to be displayed on the Review and Confirmation (receipt) pages for the results of step.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SelectInactiveOfficesToRenewRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="EntityID" type="xsd:positiveInteger" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>List of inactive office EntityIDs selected for renewal.  If empty then no offices were selected.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="EntityRenewalDetailsType">
+		<xsd:sequence>
+			<xsd:element name="QuestionnaireQuestion" type="dre:QuestionnaireQuestionType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SelectInactiveOfficeList" type="dre:OfficeSelectableListType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of offices that are Inactive and qualify for renewal.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StartRenewEntityLicenseResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="EntityRenewalDetails" type="dre:EntityRenewalDetailsType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CompleteFunctionRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="OrderNumber" type="xsd:integer" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Optional reference number returned by the payment engine for a credit card transaction associated with the Function.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SubmitDocumentRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralSessionRequestType">
+				<xsd:sequence>
+					<xsd:element name="WorkflowID" type="xsd:positiveInteger" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>If the document is for a function controlled by a workflow, provide the WorkflowID for mapping purposes.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DocumentType">
+						<xsd:annotation>
+							<xsd:documentation>Represents tye type of document being submitted.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:token">
+								<xsd:enumeration value="BrokerAuditDeclaration"/>
+								<xsd:enumeration value="Receipt"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="DocumentText" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>Represents the character content of the the document being submitted.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="StartManageEmployeesResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="OfficeListForEmployeeTransfer" type="dre:OfficeSelectableListType" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>List of offices that are available to transfer employees to.  If null then the Transfer options should be disabled.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="OfficeListForEmployeeSelection" type="dre:OfficeSelectableListType" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>List of offices that are availalble to choose to list all employees for managing.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetEmployeesForSelectionRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="LastName" type="xsd:token" minOccurs="0"/>
+					<xsd:element name="FirstName" type="xsd:token" minOccurs="0"/>
+					<xsd:element name="LicenseNumber" type="dre:LicenseNumberType" minOccurs="0"/>
+					<xsd:element name="EntityID" type="xsd:positiveInteger" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetEmployeesForSelectionResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="EmployeeList" type="dre:EmployeeSelectableListType" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SelectEmployeesRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="EmploymentID" type="xsd:positiveInteger" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>List of employment records to sever or transfer, depending on the presence of the EntityID element.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="EntityID" type="xsd:positiveInteger" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>If present select the employee(s) for transfer to this office.  If null the employees will be selected for sever.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SelectEmployeesResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="ManageEmployeeBasket" type="dre:ManageEmployeeBasketType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="ClosedOfficeList" type="dre:OfficeSelectableListType" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>List of offices that will be closed when the Function is completed.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="EmployeeList" type="dre:EmployeeSelectableListType" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Updated employee list will be returned if further actions coule be performed, or during an error condition.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="DeselectEmployeesRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="BasketItemID" type="xsd:positiveInteger" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>List of ID values in the selected employees list that need to be removed.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GeneralResponseType">
+		<xsd:annotation>
+			<xsd:documentation>General Response type, including both a Success/Retry/Stop summary and an optional explanatory message. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Summary">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="Success"/>
+						<xsd:enumeration value="Retry"/>
+						<xsd:enumeration value="Stop"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Message" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GeneralSessionRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Message type to make a request about a particular Session.  This type will be used in multiple different WSDL Operations that don't need to pass any information other than the Session Identifier.  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SessionID" type="dre:SessionIdentifierType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GeneralSessionResponseType">
+		<xsd:annotation>
+			<xsd:documentation>Used as a base type for all wsdl operations in the context of a Session.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralResponseType">
+				<xsd:sequence>
+					<xsd:element name="ResetSession" type="xsd:boolean">
+						<xsd:annotation>
+							<xsd:documentation>When set to True the user interface will Reset the Session on the next call to refresh user information and direct them back to the home page.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GeneralWorkflowRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Message type to make a request about a particular Workflow.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralSessionRequestType">
+				<xsd:sequence>
+					<xsd:element name="WorkflowID" type="xsd:positiveInteger">
+						<xsd:annotation>
+							<xsd:documentation>Represents the unique back-end ID of the workflow.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CurrentStepIndex" type="xsd:nonNegativeInteger">
+						<xsd:annotation>
+							<xsd:documentation>Represents the index of the step that is being acted upon in the service request.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GeneralWorkflowResponseType">
+		<xsd:annotation>
+			<xsd:documentation>Encapsulates all general information for wsdl operations in the context of a Workflow.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralSessionResponseType">
+				<xsd:sequence>
+					<xsd:element name="Workflow" type="dre:WorkflowType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ValidateUserRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Initial request to validate a user's permissions and capabilities within the License Renewal application.  These three pieces of information will be used by the backend system to uniquely authenticate and identify an individual user.   </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LicenseNumber" type="dre:LicenseNumberType"/>
+			<xsd:element name="DateOfBirth" type="xsd:date" minOccurs="0"/>
+			<!-- Anonymous type since we don't need to use it elsewhere -->
+			<xsd:element name="SSNSuffix" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The last 4 digits of the user's Social Security Number.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:length value="4"/>
+						<xsd:pattern value="\d{4}"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ExistingSessionID" type="dre:SessionIdentifierType" minOccurs="0"/>
+			<xsd:element name="Password" type="dre:PasswordType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ValidateUserResponseType">
+		<xsd:annotation>
+			<xsd:documentation>Initial response containing either a textual reason why the user is not currently eligible to use the application or a structure describing the user's permissions and capabilities.   </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UserMessage" type="xsd:string"/>
+			<xsd:element name="UserDetail" type="dre:UserDetailType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubmitRequiredInformationRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Encapsulates all information for submitting required information after user validation.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralSessionRequestType">
+				<xsd:sequence>
+					<xsd:element name="EmailAddress" type="dre:EmailAddressType" minOccurs="0"/>
+					<xsd:element name="PasswordInformation" type="dre:PasswordInformationType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>All password fields will be required when the PasswordRequired flag is set to True in ValidateUserResponse.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="AcceptedTermsAndConditions" type="xsd:boolean" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ChangePersonalInformationRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Encapsulates all information for changing user personal information.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="HomeAddress" type="dre:AddressType" minOccurs="0"/>
+					<xsd:element name="HomeMailingAddress" type="dre:AddressType" minOccurs="0"/>
+					<xsd:element name="PhoneNumber" type="dre:TelephoneNumberType" minOccurs="0"/>
+					<xsd:element name="EmailAddress" type="dre:EmailAddressType" minOccurs="0"/>
+					<!-- TODO: Appropriate place?
+					<xsd:element name="PIN" minOccurs="0">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:token">
+								<xsd:length value="4"/>
+								<xsd:pattern value="\d{4}"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					-->
+					<xsd:element name="Nickname" type="xsd:token" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CompleteFunctionResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="ConfirmationNumber" type="dre:ConfirmationNumberType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Used instead of the SessionID  as the unique identifiying number on the receipt.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ChangeEmployerRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="NewEmployerLicenseNumber" type="dre:LicenseNumberType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ChangeEmployerResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="RequestedEmployer" type="dre:EntityType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SeverEmploymentRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="EmploymentID" type="xsd:positiveInteger">
+						<xsd:annotation>
+							<xsd:documentation>Represents the unique back-end ID of the employment record being severed.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="StartRenewIndividualLicenseResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="QuestionnaireQuestion" type="dre:QuestionnaireQuestionType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="EntityRenewalDetails" type="dre:EntityRenewalDetailsType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Designated Brokers and Self Employed Brokers will either have to perform, or will have the option to perform, entity renewal steps during their individual license renewal</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ValidateQuestionaireRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Request to validate answers to a questionaire.
+      </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="Answer" type="dre:QuestionnaireAnswerType" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ValidateContinuingEducationRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Represents a request for validating continuing education courses. Contains the user's session ID and a list of the courses taken and when they were taken.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="Course" type="dre:CourseType" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ValidateContinuingEducationResponseType">
+		<xsd:annotation>
+			<xsd:documentation>
+Extend the General ResponseSummary type to include optional lists of field-specific error messages for each of the Courses entered.  If these elements exist at all, they must exist for every single Course in their type.  This is how the specific error will be matched with its submitted Course.  i.e. If one Required course needs a specific error, all the other courses must also provide an error string, although it may be empty.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="CourseError" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>A list of error messages corresponding to the list of classes submitted in the request message.  One message must be sent for each submitted class.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="StartBrokerAuditDeclarationRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralSessionRequestType">
+				<xsd:sequence>
+					<xsd:element name="RevisionTime" type="xsd:dateTime"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="StartBrokerAuditDeclarationResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="Form" type="dre:BrokerAuditDeclarationFormType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SaveBrokerAuditDeclarationRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="Form" type="dre:BrokerAuditDeclarationFormType"/>
+					<xsd:element name="RevisionTime" type="xsd:dateTime"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="StartViewPendingActionsResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="Approval" type="dre:ApproveActionType" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SubmitApprovalsRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Message type for indicating that the user has approved some or all items in their queue.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="ApprovedQueueID" type="xsd:positiveInteger" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>QueueID list can contain a mixture of renewal approvals and hire approvals.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DisapprovedQueueID" type="xsd:positiveInteger" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>QueueID list can contain a mixture of renewal disapprovals and hire disapprovals.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SubmitApprovalsResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="LicenseQueueID" type="xsd:positiveInteger" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Approved transactions that available for license printing</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetLicenseeInfoRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Message type to retrieve all the detailed information about a licensee to support the display of this information when an approver asks to see the details.
+      </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IndividualID" type="xsd:int"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetLicenseeInfoResponseType">
+		<xsd:annotation>
+			<xsd:documentation>Message type to contain the response to GetLicenseInfo.  Contains
+ the detailed user information to display.
+      </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LicenseDetail" type="dre:IndividualLicenseType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetLicensesForPrintingRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="QueueID" type="xsd:positiveInteger" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetLicensesForPrintingResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowResponseType">
+				<xsd:sequence>
+					<xsd:element name="LicenseDetail" type="dre:IndividualLicenseType" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ConfirmLicensesPrintedRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralWorkflowRequestType">
+				<xsd:sequence>
+					<xsd:element name="PrintedQueueID" type="xsd:positiveInteger" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="NotPrintedQueueID" type="xsd:positiveInteger" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetHistoryRequestType">
+		<xsd:annotation>
+			<xsd:documentation>Message type to request historical records in a given date range.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralSessionRequestType">
+				<xsd:sequence>
+					<xsd:element name="StartDate" type="xsd:date"/>
+					<xsd:element name="EndDate" type="xsd:date"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GetHistoryResponseType">
+		<xsd:annotation>
+			<xsd:documentation>Message type for a response to GetHistoryRequest.  Contains a historical record of past renewals and employment changes for the user and for the user's employees if applicable.  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralSessionResponseType">
+				<xsd:sequence>
+					<xsd:element name="HistoricalRequest" type="dre:HistoryActionType" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="EmailPasswordRequestType">
+		<xsd:sequence>
+			<xsd:element name="LicenseNumber" type="dre:LicenseNumberType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChangeUserPreferencesRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:GeneralSessionRequestType">
+				<xsd:sequence>
+					<xsd:element name="PasswordInformation" type="dre:PasswordInformationType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>If this element is null and there is existing password information then it is interpreted as the user trying to remove their password from the system (allowed for non Designated Brokers).  If the PasswordRequired flag is true, then submitting null should be disallowed.  If there is existing password information that was returned at ValidateUser, then all information should be submitted (for additions/changes) and change tracking will take place at the back end.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- *** Business Entity Types ***-->
+	<xsd:complexType name="ManageEmployeeBasketType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:EmployeeSelectableListType">
+				<xsd:sequence>
+					<xsd:element name="BasketItemID" type="xsd:positiveInteger"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SelectableListType">
+		<xsd:sequence>
+			<xsd:element name="IsSelectable" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Represents if the list item is selectable in the user interface.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comments" type="xsd:token" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Describes any special circumstances with the list item.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ErrorDescription" type="xsd:token" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Describes an error condition after an attempt to submit the list item for processing.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmployeeSelectableListType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:SelectableListType">
+				<xsd:sequence>
+					<xsd:element name="EmploymentID" type="xsd:positiveInteger"/>
+					<xsd:element name="Name" type="xsd:token"/>
+					<xsd:element name="LicenseNumber" type="dre:LicenseNumberType"/>
+					<xsd:element name="IndividualID" type="xsd:positiveInteger"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="OfficeSelectableListType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:SelectableListType">
+				<xsd:sequence>
+					<xsd:element name="EntityID" type="xsd:positiveInteger"/>
+					<xsd:element name="Name" type="xsd:token"/>
+					<xsd:element name="LicenseNumber" type="dre:LicenseNumberType"/>
+					<xsd:element name="OfficeNumber" type="xsd:token">
+						<xsd:annotation>
+							<xsd:documentation>3 character field representing the office number.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Address" type="xsd:token"/>
+					<xsd:element name="City" type="xsd:token"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CourseType">
+		<xsd:annotation>
+			<xsd:documentation>Represents the information reported for each continuing education class a user has taken (both required and elective).</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SchoolNumber" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CourseNumber">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="StartDate" type="xsd:date"/>
+			<xsd:element name="EndDate" type="xsd:date"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="QuestionnaireAnswerType">
+		<xsd:annotation>
+			<xsd:documentation>Represents a response to a questionaire question.  Includes the
+ question ID and the answer (true or false) to the question.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="QuestionID" type="xsd:int"/>
+			<xsd:element name="Answer" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="PasswordType">
+		<xsd:annotation>
+			<xsd:documentation>Password restricted type.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token"/>
+	</xsd:simpleType>
+	<xsd:complexType name="StepType">
+		<xsd:annotation>
+			<xsd:documentation>Represents a Step to be completed in a Workflow.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="StepTypeID">
+				<xsd:annotation>
+					<xsd:documentation>Represents the type of step that can be used to map the business process to the UI page(s).</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="ChangePersonalInformation"/>
+						<xsd:enumeration value="ReviewChangePersonalInformation"/>
+						<xsd:enumeration value="ConfirmChangePersonalInformation"/>
+						<xsd:enumeration value="ChangeEmployer"/>
+						<xsd:enumeration value="ReviewChangeEmployer"/>
+						<xsd:enumeration value="ConfirmChangeEmployer"/>
+						<xsd:enumeration value="SeverEmployment"/>
+						<xsd:enumeration value="ReviewSeverEmployment"/>
+						<xsd:enumeration value="ConfirmSeverEmployment"/>
+						<xsd:enumeration value="SubmitQuestionnaire"/>
+						<xsd:enumeration value="VerifyQuestionnaire"/>
+						<xsd:enumeration value="SubmitContinuingEducation"/>
+						<xsd:enumeration value="ReviewIndividualRenewal"/>
+						<xsd:enumeration value="ConfirmIndividualRenewal"/>
+						<xsd:enumeration value="StartFunction"/>
+						<xsd:enumeration value="PayFunction"/>
+						<xsd:enumeration value="EnterBrokerAuditDeclaration"/>
+						<xsd:enumeration value="ReviewBrokerAuditDeclaration"/>
+						<xsd:enumeration value="ConfirmBrokerAuditDeclaration"/>
+						<xsd:enumeration value="SubmitApprovalsViewPendingActions"/>
+						<xsd:enumeration value="ConfirmApprovalsViewPendingActions"/>
+						<xsd:enumeration value="ReviewLicensesForPrintingViewPendingActions"/>
+						<xsd:enumeration value="PrintLicensesViewPendingActions"/>
+						<xsd:enumeration value="ConfirmPrintLicensesViewPendingActions"/>
+						<xsd:enumeration value="ConfirmViewPendingActions"/>
+						<xsd:enumeration value="AttestationChangeEmployer"/>
+						<xsd:enumeration value="AttestationSeverEmployment"/>
+						<xsd:enumeration value="RequestCEVerification"/>
+						<xsd:enumeration value="EmployeesBasketManageEmployees"/>
+						<xsd:enumeration value="SearchEmployeesManageEmployees"/>
+						<xsd:enumeration value="SelectEmployeesManageEmployees"/>
+						<xsd:enumeration value="ReviewManageEmployees"/>
+						<xsd:enumeration value="ConfirmManageEmployees"/>
+						<xsd:enumeration value="ConfirmCloseOfficeManageEmployees"/>
+						<xsd:enumeration value="SelectInactiveOfficesToRenewEntityRenewal"/>
+						<xsd:enumeration value="EntityCorporationStatusEntityRenewal"/>
+						<xsd:enumeration value="ReviewEntityRenewal"/>
+						<xsd:enumeration value="ConfirmEntityRenewal"/>
+						<xsd:enumeration value="SubmitQuestionnaireEntityRenewal"/>
+						<xsd:enumeration value="VerifyQuestionnaireEntityRenewal"/>
+						<xsd:enumeration value="SubmitIndividualCorporationStatusIndividualRenewal"/>
+						<xsd:enumeration value="ContinueEntityRenewalIndividualRenewal"/>
+						<xsd:enumeration value="SelectInactiveOfficesToRenewIndividualRenewal"/>
+						<xsd:enumeration value="SubmitEntityQuestionnaireIndividualRenewal"/>
+						<xsd:enumeration value="VerifyEntityQuestionnaireIndividualRenewal"/>
+						<xsd:enumeration value="EntityCorporationStatusIndividualRenewal"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="StepMessage" type="xsd:token" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>When present the contents of this message should be displayed in the dynamic content section of the first page in the Step</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status">
+				<xsd:annotation>
+					<xsd:documentation>Represents the status of the step that can be used to control which image to display in the workflow tree.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="Incomplete"/>
+						<xsd:enumeration value="Complete"/>
+						<xsd:enumeration value="Error"/>
+						<xsd:enumeration value="Current"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="StepDisplayName" type="xsd:token">
+				<xsd:annotation>
+					<xsd:documentation>The display text for the process that can be used in both the workflow tree and the page header.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FeeType">
+		<xsd:annotation>
+			<xsd:documentation>Encapsulates all information related to a particular fee being charged to a user.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FeeTypeID">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="SalesRenewal"/>
+						<xsd:enumeration value="BranchOfficeRenewal"/>
+						<xsd:enumeration value="Hire"/>
+						<xsd:enumeration value="Transfer"/>
+						<xsd:enumeration value="Convenience"/>
+						<xsd:enumeration value="Sever"/>
+						<xsd:enumeration value="LateSalesRenewal"/>
+						<xsd:enumeration value="LateBrokerRenewal"/>
+						<xsd:enumeration value="BrokerRenewal"/>
+						<xsd:enumeration value="SalesRecoveryFund"/>
+						<xsd:enumeration value="BrokerRecoveryFund"/>
+						<!--
+						<xsd:enumeration value="IndividualRenewal"/>
+						<xsd:enumeration value="BranchOfficeRenewal"/>
+						<xsd:enumeration value="Hire"/>
+						<xsd:enumeration value="Transfer"/>
+						<xsd:enumeration value="Convenience"/>
+						<xsd:enumeration value="LateIndividualRenewal"/>
+					-->
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Amount" type="xsd:positiveInteger"/>
+			<xsd:element name="DisplayName" type="xsd:token">
+				<xsd:annotation>
+					<xsd:documentation>Used for display purposes in fee screens.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WorkflowType">
+		<xsd:annotation>
+			<xsd:documentation>Encapsulates all information related to the workflow for a function.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="WorkflowID" type="xsd:positiveInteger">
+				<xsd:annotation>
+					<xsd:documentation>The unique Back-end identifier for the Workflow.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WorkflowMessage" type="xsd:token" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>When present the user should be directed to the Workflow Information page and displayed the contents of this text. The value of CurrentStepIndex will indicate the next step to be completed.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WorkflowDisplayName" type="xsd:token">
+				<xsd:annotation>
+					<xsd:documentation>Used for display purposes in the UI for the Workflow.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CurrentStepIndex" type="xsd:nonNegativeInteger">
+				<xsd:annotation>
+					<xsd:documentation>Represents the position in the Step array of the current step in the workflow.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Step" type="dre:StepType" maxOccurs="unbounded"/>
+			<xsd:element name="Fee" type="dre:FeeType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="LicenseNumberType">
+		<xsd:annotation>
+			<xsd:documentation>Real Estate Agent License Number.  It consists of two alphabetic characters followed by 9 numeric digits.  Each licensed Real Estate agent should know his/her own License Number.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:length value="11"/>
+			<xsd:pattern value="\w{2}\d{9}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="UserDetailType">
+		<xsd:annotation>
+			<xsd:documentation>Structure containing all information relevant to the current user's session in the Real Estate Licensing application.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SessionDetail" type="dre:SessionType"/>
+			<xsd:element name="LicenseDetail" type="dre:IndividualLicenseType">
+				<xsd:annotation>
+					<xsd:documentation>These should be all the fields needed for both display and printing licenses.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- NOTE: Could put a fixed maximum here, but we'd then have to
+                 update it if more functions were ever added. -->
+			<!-- NOTE: 2 is the real maximum, but it doesn't add that much to
+                 enforce it in the Schema. -->
+			<xsd:element name="PendingChange" type="dre:ActionType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>There will be one of these elements for each previous action that is pending approval by a Broker.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UserPreferencesInformation" type="dre:UserPreferencesType">
+				<xsd:annotation>
+					<xsd:documentation>Will return any previously created user preferences information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SessionType">
+		<xsd:annotation>
+			<xsd:documentation>Encapsulate all the information related to a User's specific Session in the application.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SessionID" type="dre:SessionIdentifierType"/>
+			<xsd:element name="TermsAndConditionsRequired" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Whether or not this user needs to agree to the Terms and Conditions for this application before being permitted to use it. This should only be true the first time the user visits the application or perhaps if the Terms and Conditions change at some point in the future.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- *** TODO: Move to new functions ***
+			<xsd:element name="RequiredCourseDescriptions" type="xsd:token" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+           *Move to StartIndividualRenewalFunctionOperation * An optional list of codes or descriptions for all required courses
+            that must be entered for this user.
+          </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContinuingEducationMessage" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+            * Move to StartIndividualRenewalFunctionOperation * Any special instructions regarding the entry of Continuing Education
+            data for this user.  This element should not be included, and should
+            be ignored, if the &quot;ContinuingEducationRequired&quot; flag is
+            &quot;false&quot;.
+			</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			-->
+			<xsd:element name="EmailRequired" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Whether or not this user needs to provide an email address before being permitted to use the application.  This should only be true the first time the user visits the application.     </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PasswordRequired" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Whether or not this user is required to have a password to use the application.  If password information is null in UserPreferencesInformation and PasswordRequired is True then the create password screen should be displayed before the home page, and the information submitted in SubmitRequiredInformation.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PasswordHintQuestion" type="dre:PasswordHintQuestionType" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of password hint questions to display for submit required information and for change user preferences.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="SessionIdentifierType">
+		<xsd:annotation>
+			<xsd:documentation>Unique Session identifier generated by the backend application and supplied with each subsequent request.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:length value="9"/>
+			<xsd:pattern value="\d{9}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ConfirmationNumberType">
+		<xsd:annotation>
+			<xsd:documentation>Transaction Identifier.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:length value="9"/>
+			<xsd:pattern value="\d{9}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="IndividualLicenseType">
+		<xsd:annotation>
+			<xsd:documentation>Encapsulate all the information related to a particular License for a particular User.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LicenseNumber" type="dre:LicenseNumberType"/>
+			<xsd:element name="LicenseStatus">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="Active"/>
+						<xsd:enumeration value="Inactive"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LandType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="Real Estate"/>
+						<xsd:enumeration value="Campground"/>
+						<xsd:enumeration value="Cemetery"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LicenseType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="Salesperson"/>
+						<xsd:enumeration value="Broker"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Designation" type="xsd:token" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The Designation is an optional specialty that an individual can specialize in and is printed on the License.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProfessionalGroup" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The Progressional Group designation represents a special way for the employer to pay the employee and is printed on the License.        </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="75"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="EffectiveDate" type="xsd:date"/>
+			<xsd:element name="ExpireDate" type="xsd:date"/>
+			<xsd:element name="DocumentNumber" type="xsd:token" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The Document Number is the unique identifier for the License and is generated at the time the License is rendered.        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PersonalDetail" type="dre:IndividualType"/>
+			<xsd:element name="EmploymentDetail" type="dre:EmploymentType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IndividualType">
+		<xsd:annotation>
+			<xsd:documentation>Encapsulate information about a particular person.  This type will be used for the AuthenticateUser, GetLicenseeInfo, and SubmitApprovals messages.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IndividualID" type="xsd:int"/>
+			<xsd:element name="LastName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FirstName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MiddleName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Email" type="dre:EmailAddressType" minOccurs="0"/>
+			<xsd:element name="HomePhone" type="dre:TelephoneNumberType" minOccurs="0"/>
+			<!-- NOTE: Even if both addresses are the same they still are stored
+                 independently, so REFs won't be used here -->
+			<xsd:element name="HomeAddress" type="dre:AddressType"/>
+			<xsd:element name="HomeMailingAddress" type="dre:AddressType"/>
+			<xsd:element name="Nickname" type="xsd:token" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="EmailAddressType">
+		<xsd:annotation>
+			<xsd:documentation>A type whose pattern restricts values to reasonable email addresses.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:pattern value="([\.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(([a-zA-Z0-9_-])*\.([a-zA-Z0-9_-])+)+"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TelephoneNumberType">
+		<xsd:annotation>
+			<xsd:documentation>A type whose pattern restricts values to reasonable telephone numbers. At this point, the backend system doesn't have any such restrictions other than total length, so this type is currently just a length constraint.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:maxLength value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="AddressType">
+		<xsd:annotation>
+			<xsd:documentation>Encapsulate common Address information.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AddressID" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Backend system's internal identifier for this address.  Wrapping it back in a ChangePersonalInformation request makes processing that request more efficient.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Line1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Line2" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="City">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="State">
+				<!-- NOTE: Three characters was chosen during the original development
+                   the backend system to handle out of country states, and
+                   we shouldn't limit it at this time beyond maxlength -->
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="County">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="Out of State"/>
+						<xsd:enumeration value="Apache"/>
+						<xsd:enumeration value="Cochise"/>
+						<xsd:enumeration value="Coconino"/>
+						<xsd:enumeration value="Gila"/>
+						<xsd:enumeration value="Graham"/>
+						<xsd:enumeration value="Greenlee"/>
+						<xsd:enumeration value="Maricopa"/>
+						<xsd:enumeration value="Mohave"/>
+						<xsd:enumeration value="Navajo"/>
+						<xsd:enumeration value="Pima"/>
+						<xsd:enumeration value="Pinal"/>
+						<xsd:enumeration value="Santa Cruz"/>
+						<xsd:enumeration value="Yavapai"/>
+						<xsd:enumeration value="Yuma"/>
+						<xsd:enumeration value="La Paz"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- NOTE: The ZIPCode field requires a maxlength of 20 characters without further restrictions
+        to handle out of country addresses -->
+			<xsd:element name="ZIPCode">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmploymentType">
+		<xsd:annotation>
+			<xsd:documentation>Encapsulate information about an individual's employment state. This type will provide the fields necessary for both the Employment Summary screens and for printing the Licenses.  This type might also come into play for handling immediate severs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="EmploymentID" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Backend system's internal identifier for this employment record. Wrapping it back in subsequent requests makes processing those requests more efficient.  Specifically, there is a potential need for a new message to handle immediate severs, where we could pass back the SessionID and EmploymentID.  The backend system could derive the EmploymentID based on the current business rule that the employment change function is not provided to users with more than one active employer, but if this is ever changed, then it would need to know which employer they were severing from.
+          </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HireDate" type="xsd:date"/>
+			<xsd:element name="EmploymentTypeDescription">
+				<xsd:annotation>
+					<xsd:documentation>Employment Type represents the role the individual has with their employer independent from their License Type.  For example: A person who has a Broker license can be employed as a Salesperson and have the same level of responsibility and authority that a person with a Sales license would have employed as a Salesperson.        </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Employer" type="dre:EntityType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EntityType">
+		<xsd:annotation>
+			<xsd:documentation>The Entity type encapsulates all the fields related to a business. This type will be used for Employer information screens and also for the Employer fields on the License.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="EntityID" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Backend system's internal identifier for this Entity.  It is used to identify the new employer to which a user has requested to change his/her employment.  License numbers are not used as unique identifiers as the 2 character alpha prefix can change over time.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LicenseNumber" type="dre:LicenseNumberType"/>
+			<xsd:element name="LegalName">
+				<xsd:annotation>
+					<xsd:documentation>An Entity's Legal Name is the business' official legally binding name.        </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="70"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DBAName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>An Entity's DBA, or Doing Business As, name is an optional alias that can be used for advertising and other purposes.        </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="70"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PhoneNumber" type="dre:TelephoneNumberType" minOccurs="0"/>
+			<xsd:element name="MailingAddress" type="dre:AddressType"/>
+			<xsd:element name="BusinessAddress" type="dre:AddressType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UserFunctionType">
+		<xsd:annotation>
+			<xsd:documentation>Information about application Functions.  The design allows for even disabled functions to be listed with an explanatory message.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FunctionID">
+				<xsd:annotation>
+					<xsd:documentation>A specific identifier of which function is being described. These identifiers are hardcoded to map to specific application capabilities.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:positiveInteger">
+						<xsd:minInclusive value="1"/>
+						<xsd:maxInclusive value="11"/>
+					</xsd:restriction>
+					<!-- IDEA: Consider enumerated string instead with function names -->
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Fee" type="xsd:positiveInteger" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The fee associated with completing this function for the current user.  Some users might have different fees or no fee at all.  The amount is an integer number of cents.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Disallowed" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Whether this function is disallowed for the user.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DisallowedReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Textual description of why this particular function is not allowed for this user.  This element should not be sent, and should be ignored if sent, if the Disallowed flag is not set to True.  If the flag is set but this element is miissing, the function should be disabled in the application menu.    </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ActionType">
+		<xsd:annotation>
+			<xsd:documentation>Encapsulate information about a pending or historical activity for a particular user.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ActionTypeID">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="Renewal"/>
+						<xsd:enumeration value="Hire"/>
+						<xsd:enumeration value="Sever"/>
+						<xsd:enumeration value="Change Personal Information"/>
+						<xsd:enumeration value="Transfer"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Name" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>For individual Pending actions, this is the name of the Entity that must approve the Hire or Renewal. If a DBAName exists for this Entity, that name will be used.  Otherwise the Entity's LegalName will be used.  For Broker actions awaiting approval, this is the name of the Individual to whom the action belongs.  It should be a concatenated string containing LastName + ', ' + FirstName.   </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:maxLength value="70"/>
+					</xsd:restriction>
+					<!-- NOTE: If this element has a maxLength restriction will need to
+                     reflect the combined lengths -->
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LicenseNumber" type="dre:LicenseNumberType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The Entity's License Number is also listed to differentiate between offices.  The Main Office and any Branch Offices all have the same Legal and DBA names.  We are listing the Entity's information for an Action because from the Individual's viewpoint it is the Entity that is performing the Action even though it is actually one or potentially more brokers at the Entity that need to certify the Action.       </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DateSubmitted" type="xsd:date"/>
+			<xsd:element name="DateDue" type="xsd:date" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ApproveActionType">
+		<xsd:annotation>
+			<xsd:documentation>Encapsulate information about a pending user activity that requires approval by a broker.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="dre:ActionType">
+				<xsd:sequence>
+					<xsd:element name="QueueID" type="xsd:positiveInteger">
+						<xsd:annotation>
+							<xsd:documentation>The QueueID is the internal unique identifier for the specific action.  A list of QueueID's will be passed back in the SubmitApprovals message that represent the Actions that have been certified.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IndividualID" type="xsd:positiveInteger">
+						<xsd:annotation>
+							<xsd:documentation>The back-end identifier for the employee.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Office" type="xsd:token">
+						<xsd:annotation>
+							<xsd:documentation>The description of the office that the employee has requested a transaction to be approved at.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="HistoryActionType">
+		<xsd:complexContent>
+			<xsd:extension base="dre:ActionType">
+				<xsd:sequence>
+					<xsd:element name="Result" type="xsd:token"/>
+					<xsd:element name="DateProcessed" type="xsd:date" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="QuestionnaireQuestionType">
+		<xsd:annotation>
+			<xsd:documentation>Represents a question for the questionaire.  Contains question identifier along with the text of the question.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="QuestionID" type="xsd:int"/>
+			<xsd:element name="QuestionText" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BrokerAuditDeclarationFormType">
+		<xsd:sequence>
+			<xsd:element name="LastUpdate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="HomeOffice" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="NumLicensedEmployees" type="xsd:nonNegativeInteger" minOccurs="0"/>
+			<xsd:element name="NumUnlicensedEmployees" type="xsd:nonNegativeInteger" minOccurs="0"/>
+			<xsd:element name="NumSalesAndLeaseTransactions" type="xsd:nonNegativeInteger" minOccurs="0"/>
+			<xsd:element name="ResidentialRealEstate" type="xsd:boolean"/>
+			<xsd:element name="CommercialSales" type="xsd:boolean"/>
+			<xsd:element name="BusinessBrokerage" type="xsd:boolean"/>
+			<xsd:element name="FarmAndRanch" type="xsd:boolean"/>
+			<xsd:element name="ResidentialPropMgmt" type="xsd:boolean"/>
+			<xsd:element name="CommercialPropMgmt" type="xsd:boolean"/>
+			<xsd:element name="NewHomeSubdivision" type="xsd:boolean"/>
+			<xsd:element name="OtherSubdivision" type="xsd:boolean"/>
+			<xsd:element name="Timeshare" type="xsd:boolean"/>
+			<xsd:element name="Other" type="xsd:boolean"/>
+			<xsd:element name="OtherText" type="xsd:string" minOccurs="0"/>
+			<!-- Y,N,N/A questions -->
+			<xsd:element name="BrokerAnswer" type="dre:BrokerAuditAnswerType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="GeneralTrustAccount" type="dre:TrustAccountType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="NumSingleFamilyHomes" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="NumMultiFamilyUnits" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="NumOtherResidential" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="NumShoppingCenters" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="NumCommercialBuildings" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="NumOtherCommercial" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="PropMgmtAccount" type="dre:TrustAccountType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AdditionalInformationComments" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Affirmation" type="xsd:boolean"/>
+			<xsd:element name="FormCompleted" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BrokerAuditAnswerType">
+		<xsd:sequence>
+			<xsd:element name="QuestionID" type="xsd:int"/>
+			<xsd:element name="Answer">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+						<xsd:enumeration value="N/A"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Explanation" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+            This element should always be sent only if the Answer element is
+            "No".
+        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TrustAccountType">
+		<xsd:sequence>
+			<xsd:element name="Title" type="xsd:token"/>
+			<xsd:element name="FinancialInstitutionName" type="xsd:token"/>
+			<!-- NOTE: this address not broken into individual fields -->
+			<xsd:element name="FinancialInstitutionAddress" type="xsd:string"/>
+			<xsd:element name="AccountNumber" type="xsd:token"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PasswordHintQuestionType">
+		<xsd:sequence>
+			<xsd:element name="PasswordHintQuestionID" type="xsd:positiveInteger"/>
+			<xsd:element name="PasswordHintQuestion" type="xsd:token"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PasswordInformationType">
+		<xsd:sequence>
+			<xsd:element name="Password" type="dre:PasswordType"/>
+			<xsd:element name="PasswordHintQuestionID" type="xsd:positiveInteger"/>
+			<xsd:element name="PasswordHintAnswer" type="xsd:token"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UserPreferencesType">
+		<xsd:sequence>
+			<xsd:element name="PasswordInformation" type="dre:PasswordInformationType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

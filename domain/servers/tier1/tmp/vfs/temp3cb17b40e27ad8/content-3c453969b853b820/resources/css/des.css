@@ -1,0 +1,62 @@
+h2 {
+    height: auto;
+    text-transform: uppercase;
+}
+
+.localAltbreadcrumb {
+	/*border-bottom: 1px solid #666666;*/
+    color: #006666;
+    font-size: 1.5em;
+    margin: 10px 0 5px;
+    padding: 0;	
+}
+
+.localAltbreadcrumb a {	
+    color: #006666; 
+    float:right;
+    font-size: .8em;
+}
+/*
+a.logoutLink {
+	float:right;
+	color: #006666;
+	margin: 10px 0 5px;
+}*/
+
+.welcome_image {	
+	float:right;
+}
+
+.errMessage {
+    color: red;
+}
+
+h2.custom {
+	font-size: 1.0em;
+}
+
+h2.wide {
+	background: #396d95;
+	width: auto;
+}
+
+h1.pageTitle {
+	border-bottom: 1px solid #666666;
+    color: #006666;
+    font-size: 1.5em;
+    margin: 10px 0 5px;
+    padding: 0;
+    text-align: left;
+}
+
+.important {
+    color: #FF0000;
+    font-weight: bold;
+}
+
+
+#breadcrumb2  {
+	display: inline;
+	text-transform: none;
+	border-bottom: none;
+}

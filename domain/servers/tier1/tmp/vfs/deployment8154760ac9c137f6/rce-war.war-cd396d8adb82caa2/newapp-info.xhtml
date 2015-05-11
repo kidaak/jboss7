@@ -1,0 +1,415 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="Applicant Information"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <a href="index.xhtml" target="_self">Home</a> &gt; <s:link view="/newapp-asrcp.xhtml" value=" New Application"/> &gt; <s:link view="/newapp-terms.xhtml" value=" Terms and Conditions"/> &gt; <s:link view="/newapp-citizen.xhtml" value=" Citizenship"/> &gt; Applicant Information
+        </div>
+    </ui:define>
+
+    <ui:define name="body">
+
+        <h:form class="form" id="form2">
+
+            <div class="form">
+
+                <div class="instructions"><h:outputText value="#{splashManager.newappInfoInstructions}" escape="false"></h:outputText></div>
+
+                <!-- top-of-section 'Previous' navigation button -->
+                <fieldset>
+                    <div class="grid-6-12">
+                        <s:button id="btnTopPrevious" view="/newapp-citizen.xhtml" value="Previous" styleClass="submit_button"/>
+                    </div>
+                </fieldset>
+
+                <div align="left"><label class="required">Indicates required fields</label>  
+                </div>  
+
+                <center>
+                    <div class="error" id="errors" style="display:none;"><br /><br />
+                        <div class="errror_message">The following error(s) have been found: <div class="clear"></div>      
+                            <ul class="error_list">
+                                <li>First Name, Last Name, Address, City, State, Zip, DOB, Height Ft., Height In., Weight, Eyes, Hair, Sex is a required field. </li>
+                                <li>The email address you entered is not in the correct format. Email address should contain the following: username@isp.com.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </center>
+
+                <s:validateAll>
+
+                    <h2>Applicant Contact Information  </h2>
+                    <div class="display_table">
+                        <fieldset>
+                            <div class="grid-4-12"> 
+                                <label class="required">First Name:</label>
+
+                                <h:inputText required="true" 
+                                             requiredMessage="First Name is required." 
+                                             class="textfield" 
+                                             value="#{newApplication.contact.nameFirst}" 
+                                             converter="#{stringTrimConverter}"/>
+
+                            </div>
+                            <div class="grid-3-12"> 
+                                <label> Middle Name:</label>
+
+                                <h:inputText class="textfield" 
+                                             value="#{newApplication.contact.nameMiddle}" />
+
+
+                            </div>
+                            <div class="grid-4-12"> 
+                                <label  class="required">Last Name:</label>
+
+                                <h:inputText required="true" 
+                                             requiredMessage="Last Name is required." 
+                                             class="textfield" 
+                                             value="#{newApplication.contact.nameLast}" 
+                                             converter="#{stringTrimConverter}"/>
+
+                            </div>
+                            <div class="grid-1-12"> 
+                                <label>Suffix:</label>
+                                <h:selectOneMenu id="Suffix" value="#{newApplication.contact.nameSuffix}" class="dropmenu">
+                                    <f:selectItem itemValue="" itemLabel=""/>
+                                    <f:selectItem itemValue="Jr." itemLabel="Jr."/>
+                                    <f:selectItem itemValue="Sr." itemLabel="Sr."/>
+                                    <f:selectItem itemValue="I" itemLabel="I"/>
+                                    <f:selectItem itemValue="II" itemLabel="II"/>
+                                    <f:selectItem itemValue="III" itemLabel="III"/>
+                                    <f:selectItem itemValue="IV" itemLabel="IV"/>
+                                </h:selectOneMenu>
+
+                            </div>
+                        </fieldset> 
+                        <fieldset>
+                            <div class="grid-7-12"> 
+                                <label class="required">Street Address:</label>
+
+                                <h:inputText required="true" 
+                                             requiredMessage="Street Address is required." 
+                                             class="textfield" 
+                                             value="#{newApplication.contact.homeStreet}" 
+                                             converter="#{stringTrimConverter}"/>
+
+
+                            </div>
+                            <div class="grid-5-12"> 
+                                <label  class="required">City:</label>
+
+                                <h:inputText required="true" 
+                                             requiredMessage="City is required." 
+                                             class="textfield" 
+                                             value="#{newApplication.contact.homeCity}" 
+                                             converter="#{stringTrimConverter}"/>
+
+                            </div>
+                        </fieldset> 
+                        <fieldset>
+                            <div class="grid-2-12"> 
+                                <label  class="required">County:</label><div class="clear"></div>
+
+
+                                <h:selectOneMenu id="county"
+                                                 required="true"
+                                                 requiredMessage="County is required."
+                                                 class="dropmenu"
+                                                 value="#{newApplication.contact.homeCounty}"
+                                                 title="Select a County">
+                                    <f:selectItems    value="#{newApplication.countyList}"/>
+                                </h:selectOneMenu>
+
+                            </div>
+                            <div class="grid-3-12"> 
+                                <label class="required">State</label><div class="clear"></div>
+
+
+                                <h:selectOneMenu id="applicantContactInformationState"
+                                                 value="#{newApplication.contact.homeState}"
+                                                 required="true"
+                                                 class="dropmenu"
+                                                 requiredMessage="State is required."
+                                                 title="Select a State">
+                                    <f:selectItems    value="#{newApplication.stateList}"/>
+                                </h:selectOneMenu>
+
+                            </div>
+                            <div class="grid-2-12"> 
+                                <label  class="required">Zip Code</label>
+
+                                <h:inputText required="true" 
+                                             requiredMessage="Zip Code is required." 
+                                             class="textfield" 
+                                             value="#{newApplication.contact.homeZip}" 
+                                             maxlength="10"
+                                             converter="#{stringTrimConverter}"/>
+
+                            </div>
+                            <div class="grid-2-12"> 
+                                <label  class="required">Phone</label>
+
+                                <h:inputText required="true" 
+                                             requiredMessage="Phone is required." 
+                                             class="input_mask mask_phone textfield"
+                                             value="#{newApplication.contact.homePhone}" 
+                                             converter="#{stringTrimConverter}"/>
+
+                            </div>
+                            <div class="grid-3-12"> 
+                                <label  class="required">Email:</label>
+
+                                <h:inputText required="true" 
+                                             requiredMessage="Email is required." 
+                                             class="textfield" 
+                                             value="#{newApplication.contact.homeEmail}" 
+                                             converter="#{stringTrimConverter}"/>
+                                <div class="note">Note: License Cards will only be sent to this email address.</div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="grid-12-12"> 
+
+                                <h:selectBooleanCheckbox
+                                    title="Permanent address difference than application contact information address."
+                                    value="#{newApplication.displayPermanentAddressSection}" >
+                                    <a4j:support ajaxSingle="true" actionListener="#{newApplication.changeOnDisplayPermanentAddressSection}" event="onclick" reRender="displayPermanentAddressSection"/>
+                                </h:selectBooleanCheckbox>
+                                <label >Check here if permanent address is different than above address.  </label>
+                            </div>
+                        </fieldset>
+
+                    </div>
+                    <a4j:outputPanel id="displayPermanentAddressSection">
+                        <s:div rendered="#{newApplication.displayPermanentAddressSection}">
+                            <div class="mailingaddress" id="mailingaddress">
+                                <h2>Permanent Address (if different from above) </h2>
+
+                                <div class="display_table">
+                                    <p>If you have a permanent address, different from the above, please enter it here. </p>   
+                                    <fieldset>
+                                        <div class="grid-7-12"> 
+                                            <label class="required">Street Address:</label>
+
+                                            <h:inputText class="textfield" 
+                                                         value="#{newApplication.contact.mailStreet}" 
+                                                         required="true"
+                                                         requiredMessage="Permanent Street Address is required."
+                                                         converter="#{stringTrimConverter}"/>
+                                        </div>
+                                        <div class="grid-5-12"> 
+                                            <label  class="required">City:</label>
+
+                                            <h:inputText class="textfield"
+                                                         required="true"
+                                                         requiredMessage="Permanent City is required." 
+                                                         value="#{newApplication.contact.mailCity}" 
+                                                         converter="#{stringTrimConverter}"/>
+                                        </div>
+                                    </fieldset> 
+
+                                    <fieldset>
+                                        <div class="grid-3-12"> 
+                                            <label class="required">State</label><div class="clear"></div>
+
+                                            <h:selectOneMenu id="permanentState"
+                                                             class="dropmenu"
+                                                             value="#{newApplication.contact.mailState}"
+                                                             title="Select a State"
+                                                             required="true"
+                                                             requiredMessage="Permanent State is required.">
+                                                <f:selectItems    value="#{newApplication.stateList}"/>
+                                            </h:selectOneMenu>   
+
+                                        </div>
+                                        <div class="grid-2-12"> 
+                                            <label  class="required">Zip Code</label>
+
+                                            <h:inputText class="textfield" 
+                                                         value="#{newApplication.contact.mailZip}" 
+                                                         required="true"
+                                                         requiredMessage="Permanent Zip Code is required."
+                                                         maxlength="10"
+                                                         converter="#{stringTrimConverter}"/>
+
+                                        </div>
+                                    </fieldset>
+                                </div>                                                                                                      
+                            </div>
+                        </s:div>
+                    </a4j:outputPanel>
+
+                    <a name="identificationInformation" id="identificationInformation"></a>
+
+                    <h2>Identification Information </h2>
+                    <div class="display_table">
+                        <fieldset>
+                            <div class="grid-3-12"> 
+                                <label class="required">Date of Birth:</label>
+
+                                <rich:calendar id="dob" 
+                                               jointPoint="top-right"
+                                               direction="top-right"
+                                               value="#{newApplication.contact.dob}" 
+                                               required="true" 
+                                               showWeeksBar="false"
+                                               popup="true"
+                                               showFooter="false"
+                                               inputSize="15"
+                                               enableManualInput="true"
+                                               converterMessage="Please use a mm/dd/yyyy format for the Date of Birth."
+                                               style="width: 150px;" 
+                                               requiredMessage="Date of Birth is required." 
+                                               datePattern="MM/dd/yyyy"
+                                               inputClass="input_mask mask_date_us">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                </rich:calendar>
+                            </div>
+
+                            <div class="grid-3-12"> 
+                                <label  class="required">Gender:</label><div class="clear"></div>
+
+                                <h:selectOneRadio id="gender" value="#{newApplication.contact.gender}" required="true" requiredMessage="Gender is required.">  
+                                    <f:selectItem itemValue="Male" itemLabel="Male" />  
+                                    <f:selectItem itemValue="Female" itemLabel="Female"/>  
+                                </h:selectOneRadio> 
+
+                            </div>
+                            <div class="grid-12-12"> 
+                                <label>Have you ever been known by any other name? If so, enter it here:</label>
+                                <h:inputText class="textfield" id="otherName"
+                                             value="#{newApplication.contact.otherName}"/>
+                            </div>
+
+                        </fieldset> 
+                        <fieldset>
+                            <div class="grid-2-12"> 
+                                <label  class="required">Height: feet </label>
+
+                                <h:selectOneMenu id="heightInFeet"
+                                                 value="#{newApplication.contact.heightFt}"
+                                                 required="true"
+                                                 styleClass="dropDownMenuSmall"
+                                                 requiredMessage="Height in Feet is required."
+                                                 title="Select height in feet">
+                                    <f:selectItems    value="#{newApplication.heightInFeetList}"/>
+                                </h:selectOneMenu>
+                            </div>
+
+                            <div class="grid-2-12"> 
+                                <label class="required">inches</label>
+
+                                <h:selectOneMenu id="heightInInches"
+                                                 value="#{newApplication.contact.heightInches}" 
+                                                 required="true"
+                                                 styleClass="dropDownMenuSmall"
+                                                 requiredMessage="Height in Inches is required."
+                                                 title="Select height in inches">
+                                    <f:selectItems    value="#{newApplication.heightInInchesList}"/>
+                                </h:selectOneMenu>
+
+                            </div>   
+
+                            <div class="grid-3-12"> 
+                                <label  class="required">Weight in Lbs.:</label>
+
+                                <h:inputText id="weightInLBS"
+                                             class="textfield"
+                                             value="#{newApplication.contact.weightLbs}" 
+                                             required="true"
+                                             requiredMessage="Weight in Lbs. is required."
+                                             converterMessage="Weight must be numeric."/>
+                            </div>
+
+                            <div class="grid-2-12"> 
+                                <label class="required">Hair Color:</label>
+
+                                <h:selectOneMenu id="hairColor"
+                                                 value="#{newApplication.contact.hairColor}" 
+                                                 required="true"
+                                                 styleClass="dropDownMenuSmall"
+                                                 requiredMessage="Hair Color is required."
+                                                 title="Select hair color">
+                                    <f:selectItems    value="#{hairAndEyeColor.hairColorList}"/>
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="grid-2-12"> 
+                                <label class="required">Eye Color:</label>
+
+                                <h:selectOneMenu id="eyeColor"
+                                                 value="#{newApplication.contact.eyeColor}" 
+                                                 required="true"
+                                                 styleClass="dropDownMenuSmall"
+                                                 requiredMessage="Eye Color is required."
+                                                 title="Select eye color">
+                                    <f:selectItems    value="#{hairAndEyeColor.eyeColorList}"/>
+                                </h:selectOneMenu>
+                            </div>
+                        </fieldset>    
+                        <fieldset>
+                            <div class="grid-3-12"> 
+                                <label class="required">SSN:</label>
+
+                                <h:inputText class="input_mask mask_ssn" id="ssn"
+                                             value="#{newApplication.contact.ssnEncrypted}" 
+                                             required="true"
+                                             requiredMessage="Social Security Number is required."/>
+
+                            </div>
+                            <div class="grid-3-12"> 
+                                <label class="required">Confirm SSN:</label>
+
+                                <h:inputText class="input_mask mask_ssn" id="confirmSSN"
+                                             value="#{newApplication.confirmSSN}" 
+                                             required="true"
+                                             requiredMessage="Confirm SSN is required."/>
+                            </div>
+                        </fieldset> 
+                    </div>
+
+                </s:validateAll>
+
+                <!-- bottom-of-page navigation buttons --> 
+                <fieldset>
+                    <div class="grid-6-12">
+                        <s:button view="/newapp-citizen.xhtml" value="Previous" styleClass="submit_button"/>
+                    </div>
+
+                    <div class="grid-6-12 form-right">
+                        <h:commandButton id="Continue"
+                                         styleClass="submit_button"
+                                         value="Continue"
+                                         action="#{newApplication.newAppInfoContinue}">
+                        </h:commandButton>
+
+                    </div>
+                </fieldset>
+
+            </div>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

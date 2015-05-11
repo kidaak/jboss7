@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<tiles-definitions>
+
+    <!-- Templates -->
+
+    <definition name=".real.base" path="/tiles/layouts/layout.jsp">
+        <put name="browserTitle"    value="REaL"/>
+        <put name="contentTitle"    value="REaL"/>
+        <put name="tile.header"     value="/tiles/banner.jsp"/>
+        <put name="tile.headerNav"  value="/tiles/menuline.jsp"/>
+        <put name="tile.metaInfo"   value="/tiles/meta_info.jsp"/>
+        <put name="tile.nav"        value="/tiles/services.jsp"/>
+        <put name="tile.title"      value="/tiles/contentTitle.jsp"/>
+        <put name="tile.footer"     value="/tiles/footer.jsp"/>
+        <put name="tile.content"    value="${tile.content}"/>
+    </definition>
+    
+    <definition name=".real.workflow.base" path="/tiles/layouts/workflowLayout.jsp">
+        <put name="browserTitle"    value="REaL"/>
+        <put name="contentTitle"    value="REaL"/>
+        <put name="tile.header"     value="/tiles/banner.jsp"/>
+        <put name="tile.headerNav"  value="/tiles/menuline.jsp"/>
+        <put name="tile.metaInfo"   value="/tiles/meta_info.jsp"/>
+        <put name="tile.nav"        value="/tiles/workflowServices.jsp"/>
+        <put name="tile.title"      value="/tiles/workflowContentTitle.jsp"/>
+        <put name="tile.footer"     value="/tiles/footer.jsp"/>
+        <put name="tile.content"    value="${tile.content}"/>
+    </definition>
+    
+    <definition name=".real.audit.base" extends=".real.workflow.base">
+        <put name="tile.messages"   value="/tiles/baMessages.jsp"/>
+        <put name="tile.nav"        value="/tiles/services_ba.jsp"/>
+        <put name="tile.headerNav"  value="/tiles/menuline.jsp"/>
+    </definition>
+
+    <definition name=".real.popup.base" path="/tiles/layouts/popupLayout.jsp">
+        <put name="browserTitle"    value="REal"/>
+        <put name="tile.metaInfo"   value="/tiles/meta_info.jsp"/>
+        <put name="tile.content"    value="${tile.content}"/>
+    </definition>
+
+    <!-- Pages -->
+
+    <definition name=".real.00challenge" extends=".real.base">
+        <put name="tile.content"        value="/pages/00challenge.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL Login"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="contentTitle"        value="Real Estate Licensing Login"/>
+    </definition>
+
+    <definition name=".real.disallowed" extends=".real.base">
+        <put name="tile.content"        value="/pages/disallowedReason.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="Service Not Available"/>
+        <put name="contentTitle"        value="Service Not Available"/>
+    </definition>
+
+    <definition name=".real.01main" extends=".real.base">
+        <put name="tile.content"        value="/pages/01main.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL for Agents"/>
+        <put name="tile.nav"            value="/tiles/services.jsp"/>
+        <put name="contentTitle"        value="Home"/>
+    </definition>
+    
+    <definition name=".real.05terms" extends=".real.base">
+        <put name="tile.content"        value="/pages/05terms.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Terms and Conditions"/>
+        <put name="contentTitle"        value="Terms and Conditions"/>
+    </definition>
+
+    <definition name=".real.06nogo" extends=".real.base">
+        <put name="tile.content"        value="/pages/06nogo.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Not Eligible for Online Access"/>
+        <put name="contentTitle"        value="Not Eligible for Online Access"/>
+    </definition>
+
+    <definition name=".real.07email" extends=".real.base">
+        <put name="tile.content"        value="/pages/07email.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Enter E-Mail Address"/>
+        <put name="contentTitle"        value="Enter E-Mail Address"/>
+    </definition>
+    
+    <definition name=".real.08password" extends=".real.base">
+        <put name="tile.content"        value="/pages/08password.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Enter Password Information"/>
+        <put name="contentTitle"        value="Enter Password Information"/>
+    </definition>
+    
+    <definition name=".real.09pin" extends=".real.base">
+        <put name="tile.content"        value="/pages/09pin.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Enter PIN"/>
+        <put name="contentTitle"        value="Enter PIN"/>
+    </definition>
+    
+    <definition name=".real.10preferences" extends=".real.base">
+        <put name="tile.content"        value="/pages/10preferences.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/services.jsp"/>
+        <put name="browserTitle"        value="REaL Change User Preferences"/>
+        <put name="contentTitle"        value="Change User Preferences"/>
+    </definition>
+    
+    <definition name=".real.11resetPassword" extends=".real.base">
+        <put name="tile.content"        value="/pages/11resetPassword.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Email Password"/>
+        <put name="contentTitle"        value="Email Password"/>
+    </definition>
+    
+    <!-- Workflow Pages -->
+    <definition name=".real.workflow" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/workflow.jsp"/>
+    </definition>
+    
+    <definition name=".real.startWorkflow" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/startWorkflow.jsp"/>
+    </definition>
+    
+    <definition name=".real.payWorkflow" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/payWorkflow.jsp"/>
+    </definition>
+    
+    <definition name=".real.cancelWorkflow" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/cancelWorkflow.jsp"/>
+    </definition>
+    
+    <!-- Individual License Renewal pages -->    
+    <definition name=".real.viewQuestionnaire" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewLicense/viewQuestionnaire.jsp"/>
+    </definition>
+    
+    <definition name=".real.confirmQuestionnaire" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewLicense/confirmQuestionnaire.jsp"/>
+    </definition>
+    
+    <definition name=".real.continuingEducation" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewLicense/continuingEducation.jsp"/>
+    </definition>
+    
+    <definition name=".real.verifyContinuingEducation" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewLicense/verifyContinuingEducation.jsp"/>
+    </definition>
+    
+    <definition name="real.corpStatus.individual" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewLicense/corporationStatus.jsp"/>
+    </definition>
+    
+    <definition name="real.continueEntityRenewal" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewLicense/contiuneEntityRenewal.jsp"/>
+    </definition>
+    
+    <definition name=".real.inactiveOffices.individual" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewLicense/selectInactiveOffice.jsp"/>
+    </definition>
+    
+    <definition name=".real.viewEntityQuestionnaire.individual" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewLicense/viewEntityQuestionnaire.jsp"/>
+    </definition>
+    
+    <definition name=".real.confirmEntityQuestionnaire.individual" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewLicense/confirmEntityQuestionnaire.jsp"/>
+    </definition>
+    
+    <definition name="real.corpStatus.individual.entity" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewLicense/entityCorporationStatus.jsp"/>
+    </definition>
+    
+    <definition name=".real.reviewRenewal" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewLicense/reviewRenewal.jsp"/>
+    </definition>
+
+    <definition name=".real.confirmRenewal" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewLicense/confirmRenewal.jsp"/>
+    </definition>
+    
+    <!-- Entity License Renewal pages -->
+    <definition name=".real.inactiveOffices" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewEntity/selectInactiveOffice.jsp"/>
+    </definition>
+    
+    <definition name=".real.viewEntityQuestionnaire" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewEntity/viewQuestionnaire.jsp"/>
+    </definition>
+    
+    <definition name=".real.confirmEntityQuestionnaire" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewEntity/confirmQuestionnaire.jsp"/>
+    </definition>
+    
+    <definition name="real.corpStatus.entity" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewEntity/corporationStatus.jsp"/>
+    </definition>
+    
+    <definition name=".real.reviewEntityRenewal" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewEntity/reviewRenewal.jsp"/>
+    </definition>
+
+    <definition name=".real.confirmEntityRenewal" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/renewEntity/confirmRenewal.jsp"/>
+    </definition>
+    
+    <!-- Change Personal Information pages -->
+    <definition name=".real.changeAddress" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/changeInfo/changeAddress.jsp"/>
+    </definition>
+
+    <definition name=".real.reviewChangeAddress" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/changeInfo/reviewChangeAddress.jsp"/>
+    </definition>
+
+    <definition name=".real.confirmChangeAddress" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/changeInfo/confirmChangeAddress.jsp"/>
+    </definition>
+
+    <!-- Change Employment pages -->
+    <definition name=".real.changeEmployment" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/changeEmployment/changeEmployment.jsp"/>
+    </definition>
+    
+    <definition name=".real.affirmChangeEmployment" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/changeEmployment/affirmSeverEmployment.jsp"/>
+    </definition>
+    
+    <definition name=".real.reviewChangeEmployment" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/changeEmployment/reviewChangeEmployment.jsp"/>
+    </definition>
+        
+    <definition name=".real.confirmChangeEmployment" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/changeEmployment/confirmChangeEmployment.jsp"/>
+    </definition>
+        
+    <!-- Sever Employment pages -->
+    <definition name=".real.severEmployment" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/severEmployment/severEmployment.jsp"/>
+    </definition>
+    
+    <definition name=".real.affirmSeverEmployment" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/severEmployment/affirmSeverEmployment.jsp"/>
+    </definition>
+
+    <definition name=".real.reviewSeverEmployment" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/severEmployment/reviewSeverEmployment.jsp"/>
+    </definition>
+    
+    <definition name=".real.confirmSeverEmployment" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/severEmployment/confirmSeverEmployment.jsp"/>
+    </definition>
+    
+    <!-- View Pending Approvals pages -->
+    <definition name=".real.viewPending" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/pendingApprovals/viewPending.jsp"/>
+    </definition>
+    
+    <definition name=".real.confirmApproval" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/pendingApprovals/confirmApprovals.jsp"/>
+    </definition>
+    
+    <definition name=".real.popupDetails" extends=".real.popup.base">
+        <put name="tile.content"        value="/pages/pendingApprovals/detailsPopup.jsp"/>
+        <put name="browserTitle"        value="REaL Details"/>
+    </definition>
+    
+    <definition name=".real.reviewForPrinting" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/pendingApprovals/reviewForPrinting.jsp"/>
+    </definition>
+    
+    <definition name=".real.printLicenses" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/pendingApprovals/printLicenses.jsp"/>
+    </definition>
+    
+    <definition name=".real.printingResults" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/pendingApprovals/printingResults.jsp"/>
+    </definition>
+    
+    <definition name=".real.approvalReceipt" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/pendingApprovals/approvalReceipt.jsp"/>
+    </definition>
+    
+    <!-- Sever/Transfer Employees -->
+    <definition name=".real.searchEmployees" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/severTransfer/searchEmployees.jsp"/>
+    </definition>
+    
+    <definition name=".real.selectEmployees" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/severTransfer/selectEmployees.jsp"/>
+        <put name="param.onLoad"        value="initialDisable()"/>
+    </definition>
+    
+    <definition name=".real.listEmployees" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/severTransfer/listEmployees.jsp"/>
+    </definition>
+    
+    <definition name=".real.reviewEmployees" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/severTransfer/reviewEmployees.jsp"/>
+    </definition>
+    
+    <definition name=".real.confirmCloseOffice" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/severTransfer/confirmCloseOffice.jsp"/>
+    </definition>
+    
+    <definition name=".real.confirmEmployees" extends=".real.workflow.base">
+        <put name="tile.content"        value="/pages/severTransfer/confirmEmployees.jsp"/>
+    </definition>
+    
+    <!-- View Personal History Pages -->
+    <definition name=".real.personalHistoryInput" extends=".real.base">
+        <put name="tile.content"        value="/pages/viewHistory/personalHistoryInput.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL View History - Input Date Range"/>
+        <put name="contentTitle"        value="View My Transaction History"/>
+    </definition>
+    
+    <definition name=".real.viewPersonalHistory" extends=".real.base">
+        <put name="tile.content"        value="/pages/viewHistory/viewPersonalHistory.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL View History - Personal"/>
+        <put name="contentTitle"        value="View My Transaction History"/>
+    </definition>
+    
+    <!-- View Employee History Pages -->
+    <definition name=".real.employeeHistoryInput" extends=".real.base">
+        <put name="tile.content"        value="/pages/viewHistory/employeeHistoryInput.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL View History - Input Date Range"/>
+        <put name="contentTitle"        value="View Employee Transaction History"/>
+    </definition>
+
+    <definition name=".real.viewEmployeeHistory" extends=".real.base">
+        <put name="tile.content"        value="/pages/viewHistory/viewEmployeeHistory.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL View History - Entity"/>
+        <put name="contentTitle"        value="View Employee Transaction History"/>
+    </definition>
+
+    <!-- View Status -->
+    <definition name=".real.viewStatus" extends=".real.base">
+        <put name="tile.content"        value="/pages/viewStatus/viewStatus.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL Agent View Pending Transactions"/>
+        <put name="contentTitle"        value="View Pending Transactions"/>
+    </definition>
+
+    <definition name=".real.36print" extends=".real.base">
+        <put name="tile.content"        value="/pages/36print.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL Print"/>
+        <put name="contentTitle"        value="View Pending Approvals: Print"/>
+    </definition>
+
+    <definition name=".real.37printDetails" extends=".real.base">
+        <put name="tile.content"        value="/pages/37printDetails.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL Print Details"/>
+        <put name="contentTitle"        value="View Pending Approvals: Print Details"/>
+    </definition>
+
+    <definition name=".real.38confirmApproval" extends=".real.base">
+        <put name="tile.content"        value="/pages/38confirmApproval.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL Confirm Approval"/>
+        <put name="contentTitle"        value="View Pending Approvals: Confirm Approval"/>
+    </definition>
+
+    <definition name=".real.39printFail" extends=".real.base">
+        <put name="tile.content"        value="/pages/39printFail.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL Print License Failed"/>
+        <put name="contentTitle"        value="View Pending Approvals: Print License Failed"/>
+    </definition>
+
+    <definition name=".real.40confirmDenial" extends=".real.base">
+        <put name="tile.content"        value="/pages/40confirmDenial.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL Confirm Denial"/>
+        <put name="contentTitle"        value="View Pending Approvals: Confirm Denial"/>
+    </definition>
+
+    <definition name=".real.43questions" extends=".real.base">
+        <put name="tile.content"        value="/pages/43questions.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL Questionnaire"/>
+        <put name="contentTitle"        value="Renew License: Questionnaire"/>
+    </definition>
+
+    <definition name=".real.46renewNoQualify" extends=".real.base">
+        <put name="tile.content"        value="/pages/46renewNoQualify.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL Not Qualified for Online Renewal"/>
+        <put name="contentTitle"        value="Renew License: Not Qualified for Online Renewal"/>
+    </definition>
+
+    <definition name=".real.50details" extends=".real.base">
+        <put name="tile.content"        value="/pages/50details.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL Details"/>
+        <put name="contentTitle"        value="Details"/>
+    </definition>
+
+    <definition name=".real.51popupDetails" extends=".real.popup.base">
+        <put name="tile.content"        value="/pages/51detailsPopup.jsp"/>
+        <put name="browserTitle"        value="REaL Details"/>
+    </definition>
+
+    <definition name=".real.80help" extends=".real.base">
+        <put name="tile.content"        value="/pages/80help.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Broker Help"/>
+        <put name="contentTitle"        value="Help"/>
+    </definition>
+
+    <definition name=".real.81survey" extends=".real.base">
+        <put name="tile.content"        value="/pages/81survey.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Broker Survey"/>
+        <put name="contentTitle"        value="Survey"/>
+    </definition>
+
+    <definition name=".real.82faq" extends=".real.base">
+        <put name="tile.content"        value="/pages/82faq.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Frequently Asked Questions"/>
+        <put name="contentTitle"        value="Frequently Asked Questions"/>
+    </definition>
+
+    <definition name=".real.84surveyThanks" extends=".real.base">
+        <put name="tile.content"        value="/pages/84surveyThanks.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Thank You"/>
+        <put name="contentTitle"        value="Thank You"/>
+    </definition>
+
+    <definition name=".real.90agentTutorial" extends=".real.base">
+        <put name="tile.content"        value="/pages/90agentTutorial.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Tutorial"/>
+        <put name="contentTitle"        value="Tutorial"/>
+    </definition>
+
+    <definition name=".real.91brokerTutorial" extends=".real.base">
+        <put name="tile.content"        value="/pages/91brokerTutorial.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Broker Tutorial"/>
+        <put name="contentTitle"        value="Broker Tutorial"/>
+    </definition>
+
+    <definition name=".real.systemError" extends=".real.base">
+        <put name="tile.content"        value="/pages/systemError.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="browserTitle"        value="REaL System Unavailable"/>
+        <put name="contentTitle"        value="System Error"/>
+    </definition>
+
+    <definition name=".real.92privacyPolicy" extends=".real.base">
+        <put name="tile.content"        value="/pages/92privacyPolicy.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Privacy Policy"/>
+        <put name="contentTitle"        value="Privacy Policy"/>
+    </definition>
+
+    <definition name=".real.93usabilityCompliance" extends=".real.base">
+        <put name="tile.content"        value="/pages/93usabilityCompliance.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Usability Compliance"/>
+        <put name="contentTitle"        value="Usability Compliance"/>
+    </definition>
+
+    <definition name=".real.94acceptableUse" extends=".real.base">
+        <put name="tile.content"        value="/pages/94acceptableUse.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Acceptable Use"/>
+        <put name="contentTitle"        value="Acceptable Use"/>
+    </definition>
+
+    <definition name=".real.95contact" extends=".real.base">
+        <put name="tile.content"        value="/pages/95contact.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Contact"/>
+        <put name="contentTitle"        value="Contact"/>
+    </definition>
+
+    <definition name=".real.96disclaimer" extends=".real.base">
+        <put name="tile.content"        value="/pages/96disclaimer.jsp"/>
+        <put name="tile.headerNav"      value="/tiles/menuline.jsp"/>
+        <put name="tile.nav"            value="/tiles/basicServices.jsp"/>
+        <put name="browserTitle"        value="REaL Disclaimer"/>
+        <put name="contentTitle"        value="Disclaimer"/>
+    </definition>
+
+
+    <!-- Broker Audit Pages -->
+
+    <definition name=".real.100baMain" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/100baMain.jsp"/>
+        <put name="tile.nav"            value="/tiles/workflowServices.jsp"/>
+    </definition>
+
+    <definition name=".real.101baExplain" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/101baExplain.jsp"/>
+    </definition>
+
+    <definition name=".real.110baData" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/110baData.jsp"/>
+    </definition>
+    
+    <definition name=".real.120baDataNum" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/120baDataNum.jsp"/>
+    </definition>
+    
+    <definition name=".real.130baDataGrc" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/130baDataGrc.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.140baDataBr" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/140baDataBr.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.150baDataEc" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/150baDataEc.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.160baDataD" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/160baDataD.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.170baDataSltr" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/170baDataSltr.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.180baDataEd" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/180baDataEd.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.191baDataGsetaCont" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/191baDataGsetaCont.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.200baDataDa" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/200baDataDa.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.210baDataBsc" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/210baDataBsc.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.230baDataBsp" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/230baDataBsp.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.260baDataPmn" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/260baDataPmn.jsp"/>
+    </definition>
+    
+    <definition name=".real.270baDataPma" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/270baDataPma.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.280baDataPmr" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/280baDataPmr.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.290baDataPmta" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/290baDataPmta.jsp"/>
+    </definition>
+    
+    <definition name=".real.300baDataPmtaList" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/300baDataPmtaList.jsp"/>
+    </definition>
+    
+    <definition name=".real.320baDataGsetaList" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/320baDataGsetaList.jsp"/>
+    </definition>
+    
+    <definition name=".real.330baDataPmtaq" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/330baDataPmtaq.jsp"/>
+        <put name="tile.messages"       value="/tiles/baMessagesNoHeader.jsp"/>
+    </definition>
+    
+    <definition name=".real.390baAdditionalInfo" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/390baAdditionalInfo.jsp"/>
+    </definition>
+    
+    <definition name=".real.400baAffirm" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/400baAffirm.jsp"/>
+        <put name="tile.nav"            value="/tiles/workflowServices.jsp"/>
+    </definition>
+    
+    <definition name=".real.401baConfirm" extends=".real.audit.base">
+        <put name="tile.content"        value="/pages/brokerAudit/400baAffirm.jsp"/>
+        <put name="tile.nav"            value="/tiles/workflowServices.jsp"/>
+    </definition>
+    
+    <definition name=".real.440baAffirm.simple" path="/tiles/layouts/simpleBodyLayout.jsp">
+        <put name="tile.content"        value="/pages/brokerAudit/400baAffirm.jsp"/>
+        <put name="tile.metaInfo"       value="/tiles/brokerAuditReviewMetaInfo.jsp"/>
+        <put name="browserTitle"        value="400 Audit Declaration Affirmation"/>
+    </definition>
+
+
+</tiles-definitions>

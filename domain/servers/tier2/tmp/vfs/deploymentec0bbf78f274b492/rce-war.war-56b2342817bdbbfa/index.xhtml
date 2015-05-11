@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value=""/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - Licensing Application"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+        <style type="text/css">
+            h1 {
+                display:none;
+                padding:0;
+                margin:0;
+            }
+        </style>
+    </ui:define>
+
+
+    <ui:define name="body">
+        <h:form id="theForm">
+
+            <div align="center">
+                <div class="welcome_wrapper">
+
+                    <img src="img/azrce-banner.jpg" alt="Arizona Board of Respiratory Care Examiners banner" style="width:100%"/>
+
+                    <div class="instructions"><h:outputText value="#{splashManager.splashWelcome}" escape="false"></h:outputText></div>
+
+
+                    <div><h:outputText value="#{splashManager.splashPleaseNote}" escape="false"></h:outputText></div>
+                    <br></br>
+                    <p>Please choose an option below to continue:</p>
+
+                    <div id="buttons_wrapper">
+                        <div class="welcome_button"><a href="newapp-asrcp.xhtml" target="_self">Apply for a New License</a></div>
+                        <div class="welcome_button"><a href="appstatus-inquiry.xhtml" target="_self">View a License Status</a></div>
+                        <div class="welcome_button"><a href="complaint-form.xhtml" target="_self">File a Complaint</a></div>
+                        <div class="welcome_button">
+                            <h:commandLink value="License Holder Login" action="login"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </h:form>
+    </ui:define>      
+</ui:composition>

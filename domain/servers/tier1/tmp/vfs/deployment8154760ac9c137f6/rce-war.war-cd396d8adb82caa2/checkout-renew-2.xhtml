@@ -1,0 +1,302 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="Payment Review"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <a href="index.xhtml" target="_self">Home</a> &gt;
+            . . . &gt;
+            <s:link view="/licenserenewal-reviewpage.xhtml" value=" Application Summary"/> &gt;
+            <s:link view="/checkout-renew-1.xhtml" value=" Payment Info"/> &gt; Checkout Step 2 of 2: Payment Review
+        </div>
+    </ui:define>
+
+    <ui:define name="pageJs">
+        <script type="text/javascript">
+            /* <![CDATA[ */
+            var page_submitted = false;
+
+            function submitForm() {
+
+                var buttonId = "chargeButtons";
+                var textId = "submitText";
+
+                if (page_submitted) {
+                    return false;
+                } else {
+                    page_submitted = true;
+                }
+
+                var button = (document.getElementById) ? document.getElementById(buttonId) : (document.all) ? document.all[buttonId] : (document.layers) ? document.layers[buttonId] : null;
+                var text = (document.getElementById) ? document.getElementById(textId) : (document.all) ? document.all[textId] : (document.layers) ? document.layers[textId] : null;
+
+                if (!button)
+                    return;
+
+                var cntnt = "<span class='errorMessage'>Your request is being processed.</span><div id='overlay'></div>";
+
+                if (typeof button.innerHTML != "undefined") {
+                    button.style.visibility = 'hidden';
+                    text.innerHTML = cntnt;
+                }
+                return true;
+            }
+            /* ]]> */
+        </script>
+    </ui:define>
+
+    <ui:define name="localCss">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+
+        <style type="text/css">
+            td:nth-last-child(1).rich-table-subfootercell { text-align:right !important; }
+            .errorMessage {
+                background-color: #FFFFFF;
+                border: 1px solid #000000;
+                height: 56px;
+                left: 50%;
+                margin-left: -125px;
+                margin-top: -28px;
+                padding-top: 45px;
+                position: fixed;
+                text-align: center;
+                top: 50%;
+                width: 250px;
+                font-weight: bold;
+                z-index:100;
+            }
+
+            #overlay {   
+                position: absolute;
+                left: 0%;
+                top: 0%; 
+                background-color: black;
+                -moz-opacity: 0.7;
+                opacity: .70;
+                filter: alpha(opacity=70);
+                width: 100%;
+                height: 100%;
+                z-index: 90;
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="body">
+
+        <h:form class="form" id="checkout-renew-2" onsubmit="return submitForm();">
+
+            <div class="home_table">
+
+                <!-- top-of-section 'Previous' navigation button -->
+                <fieldset style="border:none">
+                    <div class="grid-6-12">
+                        <s:button id="btnTopPrevious" view="/checkout-renew-1.xhtml" value="Previous" styleClass="submit_button"/>
+                    </div>
+                </fieldset>
+
+                <div class="instructions">
+                    <p>
+                        Please review your order and ensure the information below is correct before proceeding. 
+                        If you agree with the information as displayed: please click the "Authorize" button to
+                        process the credit card payment.
+                    </p>
+
+                    <p>You are also authorizing the Arizona Department of Respiratory Care Examiners to charge your credit card for the total amount listed below.</p>
+                </div>
+
+                <h2>Billing Information</h2>
+
+                <div class="display_table">
+
+                    <fieldset style="line-height:1.125em;">
+                        <div class="grid-6-12">
+                            <h:outputText value="#{renewalApplication.billingInfo.billingFirstName} #{renewalApplication.billingInfo.billingLastName}"/>
+                        </div>
+                    </fieldset>
+
+                    <fieldset style="line-height:1.125em;">
+                        <div class="grid-6-12">
+
+                            <h:outputText value="#{renewalApplication.billingInfo.billingAddress}"/>
+                        </div>
+                    </fieldset>
+
+                    <fieldset style="line-height:1.125em;">
+                        <div class="grid-10-12">
+                            <h:outputText value="#{renewalApplication.billingInfo.billingCity}, "/>
+
+                            <h:outputText
+                                value="#{renewalApplication.billingInfo.billingState} "
+                                rendered="#{not renewalApplication.billingInfo.isForeignAddress}"/>
+
+                            <h:outputText
+                                value="#{renewalApplication.billingInfo.billingState} "
+                                rendered="#{renewalApplication.billingInfo.isForeignAddress}"/>
+
+                            <h:outputText value="#{renewalApplication.billingInfo.billingZip}" />
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset style="line-height:1.125em;">
+                        <div class="grid-3-12">
+                            <h:outputText id="ccn" value="#{renewalApplication.billingInfo.ccNumberMasked}" />
+                        </div>
+                    </fieldset>
+
+                </div>
+
+                <h2>Transaction Summary</h2>
+
+                <div class="display_table">
+
+                    <fieldset>
+                        <div class="grid-4-12">
+                            <h:outputLabel for="orderID" value="Order Number: "/>
+                            <h:outputText id="orderID" value="#{renewalApplication.order.ordersIdnt}" />
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="grid-9-12 ">
+
+                            <table class="lgrey wv100 searchResults">
+                                <thead>
+                                    <tr>
+                                        <th class="heading" scope="colgroup" style="width:80%">Description</th>
+                                        <th class="heading" scope="colgroup">Amount</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr class="even">
+                                        <td>AZ Board of Respiratory Care Examines - New License</td>
+                                        <td><h:outputText value="#{renewalApplication.orderTotalAmount}" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </fieldset>
+
+                </div>
+
+                <h2>Transaction Detail</h2>
+
+                <div class="display_table">
+
+                    <fieldset>
+                        <div class="grid-9-12 ">
+                            <rich:dataTable
+                                id="productTable"
+                                var="product"
+                                value="#{renewalApplication.tpeProductList}"
+                                border="0"
+                                cellspacing="1"
+                                cellpadding="5"
+                                width="100%"
+                                styleClass="lgrey wv100 searchResults"
+                                headerClass="heading"
+                                footerClass=""
+                                rowClasses="even,odd">
+
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value=" "/>
+                                    </f:facet>
+
+                                    <h:outputText style="text-align:right" value="#{rowCounter.row}"/>
+                                </rich:column>
+
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Product Code"/>
+                                    </f:facet>
+
+                                    <h:outputText value="#{product.sku}"/>
+                                </rich:column>
+
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Description"/>
+                                    </f:facet>
+
+                                    <h:outputText value="#{product.description}"/>
+
+                                    <f:facet name="footer">
+                                        <h:outputText value="Total: " />
+                                    </f:facet>
+                                </rich:column>
+
+                                <rich:column style="text-align:right">
+                                    <f:facet name="header">
+                                        <h:outputText value="Amount" />
+                                    </f:facet>
+
+                                    <h:outputText value="#{product.unitPrice}">
+                                        <f:convertNumber type="currency" currencySymbol="$"/>
+                                    </h:outputText>
+
+                                    <f:facet name="footer">
+                                        <h:outputText value="#{renewalApplication.orderTotalAmount}" />
+                                    </f:facet>
+                                </rich:column>
+                            </rich:dataTable>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+                <div id="chargeButtons">
+                    <fieldset>
+                        <div class="grid-6-12">
+
+                            <s:button value="Previous" 
+                                      id="previousBottom"
+                                      styleClass="submit_button"
+                                      accesskey="b"               
+                                      view="/checkout-renew-1.xhtml" /> 
+                        </div>
+
+                        <div class="grid-6-12 form-right">
+                            <h:commandButton type="submit" value="Authorize" 
+                                             id="continue"
+                                             styleClass="submit_button"
+                                             accesskey="c"
+                                             action="#{renewalApplication.checkout2ProcessPaymentAction}" />
+                        </div> 
+                    </fieldset>
+                </div>
+
+                <fieldset>
+                    <div class="grid-6-12">
+                        <div id="submitText" class="errorTitle" style=""></div>        
+                    </div>
+                </fieldset>
+            </div>
+        </h:form>
+
+
+    </ui:define> 
+</ui:composition>
+

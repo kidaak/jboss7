@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   xmlns:nic="http://java.sun.com/jsf/composite/components"
+   template="/WEB-INF/templates/destemplate.xhtml">
+   
+<ui:param name="title" value="Take Survey" />
+<ui:define name="localAltbreadcrumb">
+	Success Payment
+</ui:define>   
+<ui:define name="pageCss"/>
+<ui:define name="localBody">
+<div align="center">      
+<h:form id="surveyLogoutForm">
+<table width="80%" border="0" cellspacing="0" cellpadding="2" class="home_table">  
+    <tr>
+      <td align="left"> <!-- main table td -->
+      
+          <p align="left">Thank you for using  the Arizona Department of Economic Security (DES) Online Payment System.  Note that the payment will not be shown on  your online statement for several days.  If  the delay is longer than this, you should contact the DES switchboard at (602)  252-0024 or toll free in the state of Arizona at 1-800-236-1475 for more  information.</p>
+          <p align="left">If you would like to take our online survey,  please click the "Take Survey" button below, otherwise select the "Return Home" button, or select the "Log Out"  link above to log off the Online Payment System.</p>
+          
+          <table class="button_table" width="100%" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td nowrap="nowrap" valign="top" width="50%">
+	            <h:commandButton id="survey" action="survey.jsf?faces-redirect=true" value="Take Survey"  accesskey="s" styleClass="submit_button" immediate="true"/>            
+            </td>
+                      
+            <td nowrap="nowrap" valign="top" width="50%" align="right">
+               <span class="adjustright">		
+		        <h:commandButton id="logout" action="#{loginController.logout}"  styleClass="submit_button" value="Return Home"/>				
+               </span>
+            </td>
+         </tr>                 
+        </table>
+        <div id="testdiv1"></div>        
+ </td></tr></table>  
+</h:form> 
+
+</div>
+</ui:define></ui:composition>

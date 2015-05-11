@@ -1,0 +1,86 @@
+06:44:20,463 INFO  [org.jboss.modules] (main) JBoss Modules version 1.1.3.GA
+06:44:22,593 INFO  [org.jboss.msc] (main) JBoss MSC version 1.0.2.GA
+06:44:23,031 INFO  [org.jboss.as] (MSC service thread 1-2) JBAS015899: JBoss AS 7.1.4.Final-SNAPSHOT "Arges" starting
+06:44:24,069 INFO  [org.xnio] (MSC service thread 1-1) XNIO Version 3.0.7.GA
+06:44:24,226 INFO  [org.xnio.nio] (MSC service thread 1-1) XNIO NIO Implementation Version 3.0.7.GA
+06:44:24,281 INFO  [org.jboss.remoting] (MSC service thread 1-1) JBoss Remoting version 3.2.13.GA
+06:45:05,372 INFO  [org.jboss.as.logging] (MSC service thread 1-1) JBAS011502: Removing bootstrap log handlers
+17:30:21,295 INFO  [org.jboss.as.logging] (MSC service thread 1-2) JBAS011503: Restored bootstrap log handlers
+17:30:21,296 INFO  [org.jboss.as.messaging] (ServerService Thread Pool -- 128) JBAS011605: Unbound messaging object to jndi name java:/ConnectionFactory
+17:30:21,332 INFO  [org.jboss.osgi.framework] (MSC service thread 1-1) JBOSGI011005: Bundle uninstalled: jboss-osgi-logging:1.0.0
+17:30:21,361 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 139) JBAS011403: Stopping Persistence Unit Service 'rce.ear/rce-ejb.jar#rcePU'
+17:30:21,363 INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (ServerService Thread Pool -- 139) ISPN000078: Starting JGroups Channel
+17:30:21,441 INFO  [stdout] (ServerService Thread Pool -- 139) 
+17:30:21,441 INFO  [stdout] (ServerService Thread Pool -- 139) -------------------------------------------------------------------
+17:30:21,441 INFO  [stdout] (ServerService Thread Pool -- 139) GMS: address=devazapp10:tier1/hibernate, cluster=hibernate, physical address=10.251.30.5:55200
+17:30:21,441 INFO  [stdout] (ServerService Thread Pool -- 139) -------------------------------------------------------------------
+17:30:21,535 WARN  [org.hornetq.core.protocol.core.impl.RemotingConnectionImpl] (Thread-5 (HornetQ-client-global-threads-267380084)) Connection failure has been detected: The connection was disconnected because of server shutdown [code=4]
+17:30:21,536 INFO  [org.jboss.as.messaging] (ServerService Thread Pool -- 129) JBAS011605: Unbound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+17:30:21,631 INFO  [org.hornetq.core.server.cluster.impl.BridgeImpl] (Thread-15 (HornetQ-server-HornetQServerImpl::serverUUID=5415b955-dfb2-11e4-a20f-c98243543d28-509281454)) stopped bridge sf.my-cluster.547fec9f-dfb2-11e4-b552-f348fc93969e
+17:30:21,631 WARN  [org.hornetq.core.protocol.core.impl.RemotingConnectionImpl] (Thread-6 (HornetQ-client-global-threads-267380084)) Connection failure has been detected: The connection was disconnected because of server shutdown [code=4]
+17:30:21,682 INFO  [jacorb.poa] (POADestructor) POA Naming destroyed
+17:30:21,683 INFO  [jacorb.poa] (POADestructor) POA IRPOA destroyed
+17:30:21,733 INFO  [jacorb.poa] (POADestructor) POA RootPOA destroyed
+17:30:21,733 WARN  [org.hornetq.core.protocol.core.impl.RemotingConnectionImpl] (Thread-1 (HornetQ-client-global-threads-267380084)) Connection failure has been detected: The connection was disconnected because of server shutdown [code=4]
+17:30:21,801 INFO  [org.hornetq.ra.HornetQResourceAdapter] (MSC service thread 1-2) HornetQ resource adapter stopped
+17:30:21,910 INFO  [org.infinispan.eviction.PassivationManagerImpl] (MSC service thread 1-1) ISPN000029: Passivating all entries to disk
+17:30:21,911 INFO  [org.infinispan.eviction.PassivationManagerImpl] (MSC service thread 1-1) ISPN000030: Passivated 0 entries in 0 milliseconds
+17:30:21,913 INFO  [org.jboss.as.clustering.infinispan] (MSC service thread 1-1) JBAS010282: Stopped default-host/app/bha cache from web container
+17:30:21,947 INFO  [org.infinispan.eviction.PassivationManagerImpl] (MSC service thread 1-1) ISPN000029: Passivating all entries to disk
+17:30:21,948 INFO  [org.infinispan.eviction.PassivationManagerImpl] (MSC service thread 1-1) ISPN000030: Passivated 0 entries in 0 milliseconds
+17:30:22,006 INFO  [jacorb.orb] (ServerService Thread Pool -- 148) prepare ORB for shutdown...
+17:30:22,006 INFO  [jacorb.orb] (ServerService Thread Pool -- 148) ORB going down...
+17:30:22,038 INFO  [org.jboss.as.clustering.infinispan] (MSC service thread 1-1) JBAS010282: Stopped default-host/app/desops cache from web container
+17:30:22,041 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016009: Stopping weld service for deployment dre.ear
+17:30:22,070 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016009: Stopping weld service for deployment ejbs.ear
+17:30:22,083 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016009: Stopping weld service for deployment tpe-ejb.ear
+17:30:22,084 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016009: Stopping weld service for deployment bha.war
+17:30:22,102 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016009: Stopping weld service for deployment desops2.war
+17:30:22,116 INFO  [jacorb.orb] (ServerService Thread Pool -- 148) ORB shutdown complete
+17:30:22,116 INFO  [jacorb.orb.iiop] (ServerSocketListener) Listener exited
+17:30:22,117 INFO  [jacorb.util.tpool] (ServerMessageReceptor0) ConsumerTie exited
+17:30:22,117 INFO  [jacorb.orb] (ORB Run Thread) ORB run, exit
+17:30:22,119 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 148) JBAS011403: Stopping Persistence Unit Service 'ejbs.ear/ejbs-ejb-1.0-SNAPSHOT.jar#primary'
+17:30:22,119 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 129) JBAS011403: Stopping Persistence Unit Service 'tpe-ejb.ear/tpe-ejb-ejb-1.0-SNAPSHOT.jar#primary'
+17:30:22,120 INFO  [org.infinispan.eviction.PassivationManagerImpl] (MSC service thread 1-2) ISPN000029: Passivating all entries to disk
+17:30:22,131 INFO  [org.infinispan.eviction.PassivationManagerImpl] (MSC service thread 1-2) ISPN000030: Passivated 0 entries in 11 milliseconds
+17:30:22,152 INFO  [org.jboss.as.clustering.infinispan] (MSC service thread 1-2) JBAS010282: Stopped repl cache from web container
+17:30:22,171 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 129) JBAS011403: Stopping Persistence Unit Service 'bha.war#primary'
+17:30:22,200 WARN  [org.hornetq.core.protocol.core.impl.RemotingConnectionImpl] (Thread-6 (HornetQ-client-global-threads-267380084)) Connection failure has been detected: The connection was disconnected because of server shutdown [code=4]
+17:30:22,346 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-1) HornetQ Server version 2.2.21.SNAPSHOT (HQ_2_2_21_final, 122) [5415b955-dfb2-11e4-a20f-c98243543d28] stopped
+17:30:22,347 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 129) JBAS011403: Stopping Persistence Unit Service 'desops2.war#primary'
+17:30:22,395 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment mssql-dre-prodtest-ds.xml in 1849ms
+17:30:22,533 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment bha.war in 1987ms
+17:30:22,668 INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (MSC service thread 1-2) ISPN000080: Disconnecting and closing JGroups Channel
+17:30:22,685 INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (MSC service thread 1-2) ISPN000082: Stopping the RpcDispatcher
+17:30:22,826 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment desops2.war in 2280ms
+17:30:22,836 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment ejbs-ejb-1.0-SNAPSHOT.jar in 2273ms
+17:30:22,837 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment ejbs-web-1.0-SNAPSHOT.war in 2274ms
+17:30:22,837 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment tpe-ejb-web-1.0-SNAPSHOT.war in 2228ms
+17:30:22,837 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment tpe-ejb-ejb-1.0-SNAPSHOT.jar in 2274ms
+17:30:22,838 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment mssql-bha-prodtest-ds.xml in 2292ms
+17:30:22,841 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment mssql-desops-prodtest-ds.xml in 2295ms
+17:30:22,841 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment ejbs.ear in 2295ms
+17:30:22,841 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment tpe-ejb.ear in 2295ms
+17:30:22,886 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment dre.war in 2323ms
+17:30:22,901 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment dre.ear in 2357ms
+17:30:23,525 INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (ServerService Thread Pool -- 139) ISPN000094: Received new cluster view: [devazapp10:tier1/hibernate|0] [devazapp10:tier1/hibernate]
+17:30:23,580 INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (ServerService Thread Pool -- 139) ISPN000079: Cache local address is devazapp10:tier1/hibernate, physical addresses are [10.251.30.5:55200]
+17:30:23,659 INFO  [org.infinispan.jmx.CacheJmxRegistration] (ServerService Thread Pool -- 139) ISPN000031: MBeans were successfully registered to the platform mbean server.
+17:30:23,687 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 139) JBAS010281: Started local-query cache from hibernate container
+17:30:23,718 INFO  [com.arjuna.ats.jbossatx] (MSC service thread 1-2) ARJUNA032018: Destroying TransactionManagerService
+17:30:23,719 INFO  [com.arjuna.ats.jbossatx] (MSC service thread 1-2) ARJUNA032014: Stopping transaction recovery manager
+17:30:23,799 INFO  [org.jboss.as.clustering.infinispan] (MSC service thread 1-1) JBAS010282: Stopped local-query cache from hibernate container
+17:30:23,812 INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (MSC service thread 1-1) ISPN000080: Disconnecting and closing JGroups Channel
+17:30:23,830 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment jboss-seam-2.2.2.Final.jar in 3283ms
+17:30:23,832 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment rce-ejb.jar in 3269ms
+17:30:23,832 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment rce-war.war in 3288ms
+17:30:23,852 INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (MSC service thread 1-1) ISPN000082: Stopping the RpcDispatcher
+17:30:23,900 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment rce.ear in 3356ms
+17:30:23,901 INFO  [org.jboss.as.controller] (MSC service thread 1-1) JBAS014774: Service status report
+JBAS014776:    Newly corrected services:
+      service jboss.logging.handler.EJB-client (new available)
+      service jboss.naming.context.java.module.ejbs."ejbs-ejb-1.0-SNAPSHOT"."MelisaDataEjb!com.nicusa.az.ejbs.melisaData.remote.MelisaDataEjbRemote" (new available)
+      service jboss.server.controller.management.security_realm.ApplicationRealm (new available)
+
+17:30:23,914 INFO  [org.jboss.as] (MSC service thread 1-1) JBAS015950: JBoss AS 7.1.4.Final-SNAPSHOT "Arges" stopped in 3336ms

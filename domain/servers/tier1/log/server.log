@@ -1,0 +1,11 @@
+17:30:20,514 INFO  [org.jboss.as.controller] (MSC service thread 1-2) JBAS014774: Service status report
+JBAS014775:    New missing/unsatisfied dependencies:
+      service jboss.naming.context.java.module.ejbs."ejbs-ejb-1.0-SNAPSHOT"."MelisaDataEjb!com.nicusa.az.ejbs.melisaData.remote.MelisaDataEjbRemote" (missing) dependents: [service jboss.deployment.subunit."ejbs.ear"."ejbs-ejb-1.0-SNAPSHOT.jar".jndiDependencyService] 
+
+17:30:20,596 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-2) Pausing Coyote HTTP/1.1 on http-/10.251.30.5:8080
+17:30:20,596 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-2) Stopping Coyote HTTP/1.1 on http-/10.251.30.5:8080
+17:30:20,611 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) JBAS010410: Unbound JCA ConnectionFactory [java:/JmsXA]
+17:30:20,695 INFO  [org.jboss.jaxr] (MSC service thread 1-2) JBAS014002: UnBinding JAXR ConnectionFactory: java:jboss/jaxr/ConnectionFactory
+17:30:20,756 INFO  [org.apache.coyote.ajp.AjpProtocol] (MSC service thread 1-1) Pausing Coyote AJP/1.3 on ajp-/10.251.30.5:8009
+17:30:20,757 INFO  [org.apache.coyote.ajp.AjpProtocol] (MSC service thread 1-1) Stopping Coyote AJP/1.3 on ajp-/10.251.30.5:8009
+17:30:20,759 INFO  [org.apache.catalina.core.StandardContext] (MSC service thread 1-2) Container org.apache.catalina.core.ContainerBase.[jboss.web].[default-host].[/] has not been started

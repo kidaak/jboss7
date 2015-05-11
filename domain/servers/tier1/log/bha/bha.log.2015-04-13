@@ -1,0 +1,32 @@
+12:53:34,344 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> init
+12:53:34,345 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) TRACE: In Post Construct of Init Controller
+12:53:34,345 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> initStateList
+12:53:34,345 DEBUG [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) state list is null
+12:53:34,345 DEBUG [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) state list size is zero
+12:53:34,660 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- initStateList
+12:53:34,660 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> initCountyList
+12:53:34,665 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- initCountyList
+12:53:34,665 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> initNewLicenseApplicationList
+12:53:34,700 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- initNewLicenseApplicationList
+12:53:34,700 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> initNewLicenseIssuanceList
+12:53:34,751 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- initNewLicenseIssuanceList
+12:53:34,751 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> initRenewBhaProducts
+12:53:34,782 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) LicenseRenewProduct = Renewal Fee350.00
+12:53:34,782 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) HalfLicenseRenewProduct = Half Price Renewal Fee175.00
+12:53:34,782 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) LateLicenseRenewProduct = Late Renewal Fee100.00
+12:53:34,782 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- initRenewBhaProducts
+12:53:34,782 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> initOthersList
+12:53:34,828 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- initOthersList
+12:53:34,828 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> initConvenienceFeeProducts
+12:53:34,828 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> findNewLicenseConvenienceFee
+12:53:34,831 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- findNewLicenseConvenienceFee
+12:53:34,831 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> findRenewLicenseConvenienceFee
+12:53:34,834 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- findRenewLicenseConvenienceFee
+12:53:34,834 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> findOtherLicenseConvenienceFee
+12:53:34,837 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- findOtherLicenseConvenienceFee
+12:53:34,837 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- initConvenienceFeeProducts
+12:53:34,837 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> initMonthList
+12:53:34,837 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- initMonthList
+12:53:34,837 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> initYearList
+12:53:34,837 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- initYearList
+12:53:34,837 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- init

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   template="/WEB-INF/templates/destemplate.xhtml">
+   
+ <ui:param name="title" value="Login" />
+ <ui:define name="localMetadata">
+	<f:metadata/>
+	<f:event listener="#{navigationValidator.verifyPaymentAccess}" type="preRenderView"/>  
+ </ui:define>
+ 
+ <ui:define name="localAltbreadcrumb">
+ 	Online Payment System: Selections
+ </ui:define>   
+ <ui:define name="pageCss"/>
+ <ui:define name="localJs"/>
+
+	   
+  <ui:define name="localBody">
+
+		<table width="80%" border="0" cellspacing="0" cellpadding="2" class="home_table">
+			<tr>
+				<td align="left">
+				<p align="left">You have selected to make a payment on your	account. To continue to the payment screen, click the "Pay" button.
+				To quit without paying, click "Quit/Logout". To select a different account to pay, click "Back."</p>
+				<h2 class="wide"></h2>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+					<tr>
+						<td width="50%" align="left" valign="top">
+							<label>DES Account Number:</label><br/>
+							<h:outputText id="clientIdText" value="#{desUser.desNumber}">
+								<f:convertNumber minIntegerDigits="10" maxIntegerDigits="10" integerOnly="true"/>
+							</h:outputText>
+						</td>
+
+						<td width="50%" align="left" valign="top">
+							<label>Name:</label>
+							<br/>
+							<h:outputText id="clientNameText" value="#{desUser.clientName}"/>
+						</td>
+					</tr>
+				</table>
+
+				<h2 class="wide">Program Information</h2>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display_table">
+					<tr>
+						<td align="left" valign="top">
+						<h:dataTable id="tableEx1" footerClass="programFooter"
+								value="#{desUser.paymentStatements}"
+								var="statement" styleClass="data_table"
+								columnClasses=",,debtsColumn,,,,,,"
+								border="0" cellpadding="2" cellspacing="0">
+								
+								<h:column id="columnEx1">
+									<f:facet name="header">
+										<h:outputText styleClass="outputText" value="Program Type" id="text1" />
+									</f:facet>
+									<div class="list" style="position:relative;">
+										<!-- <hx:outputLinkEx onmouseover="this.style.color = '#D17E62'; domTT_activate(this, event, 'content', '#{pc_List.programValue[statement.programType]}', 'trail', true, 'fade', 'both', 'fadeMax', 87, 'styleClass', 'niceTitle');" onmouseout="this.style.color = ''; domTT_mouseout(this, event);" onclick="return false;" id="linkEx1">-->
+										<h:outputText id="textProgramType1" value="#{statement.programType}" styleClass="outputText" />										
+										<h:outputText value=""/>
+									</div>
+									<f:facet name="footer">
+										<h:outputText value="Total" id="text21" rendered="#{desUser.generalPayment}"/>
+									</f:facet>
+								</h:column>
+								<h:column id="columnEx5">
+									<f:facet name="header">
+										<h:outputText styleClass="outputText" value="Previous Balance" id="text5" />
+									</f:facet>
+									<h:outputText id="textPreviousBalance1"	value="#{statement.previousBalance}" styleClass="outputText">
+										<f:convertNumber type="currency" currencySymbol="$"/>
+									</h:outputText>
+									<f:facet name="footer">
+										<h:outputText id="text10" styleClass="programFooter"  value="#{desUser.total.previousBalance}" rendered="#{desUser.generalPayment}">
+											<f:convertNumber type="currency" currencySymbol="$"/>
+										</h:outputText>
+									</f:facet>
+								</h:column>
+								<h:column id="columnEx3">
+									<f:facet name="header">
+										<h:outputText styleClass="outputText"
+											value="Debts/ Interest/ Adjust" id="text3"></h:outputText>
+									</f:facet>
+									<h:outputText id="textNewDebt1"
+										value="#{statement.newDebt}" styleClass="outputText">
+										<f:convertNumber type="currency" currencySymbol="$"/>
+									</h:outputText>
+									<f:facet name="footer">
+										<h:outputText id="text11" styleClass="programFooter" value="#{desUser.total.newDebt}" rendered="#{desUser.generalPayment}">
+											<f:convertNumber type="currency" currencySymbol="$"/>
+										</h:outputText>
+									</f:facet>
+								</h:column>
+								<h:column id="columnEx9">
+									<f:facet name="header">
+										<h:outputText styleClass="outputText" value="Cash Paid"	id="text9"/>
+									</f:facet>
+									<h:outputText id="textCashPaid1" value="#{statement.cashPaid}" styleClass="outputText">
+										<f:convertNumber type="currency" currencySymbol="$"/>
+									</h:outputText>
+									<f:facet name="footer">
+										<h:outputText id="text12" styleClass="programFooter" value="#{desUser.total.cashPaid}" rendered="#{desUser.generalPayment}">
+											<f:convertNumber type="currency" currencySymbol="$"/>
+										</h:outputText>
+									</f:facet>
+									
+								</h:column>
+								<h:column id="columnEx8">
+									<f:facet name="header">
+										<h:outputText styleClass="outputText" value="Food Stamps" id="text8"/>
+									</f:facet>
+									<h:outputText id="textFoodStamps1" value="#{statement.foodStamps}" styleClass="outputText">
+										<f:convertNumber type="currency" currencySymbol="$"/>
+									</h:outputText>
+									<f:facet name="footer">
+										<h:outputText id="text13" styleClass="programFooter" value="#{desUser.total.foodStamps}" rendered="#{desUser.generalPayment}">
+											<f:convertNumber type="currency" currencySymbol="$"/>
+										</h:outputText>
+									</f:facet>
+								</h:column>
+								<h:column id="columnEx2">
+									<f:facet name="header">
+										<h:outputText styleClass="outputText" value="Recoup Offset"	id="text2"/>
+									</f:facet>
+									<h:outputText id="textRcpOffset1" value="#{statement.rcpOffset}" styleClass="outputText">
+										<f:convertNumber type="currency" currencySymbol="$"/>
+									</h:outputText>
+									<f:facet name="footer">
+										<h:outputText id="text14" styleClass="programFooter" value="#{desUser.total.rcpOffset}" rendered="#{desUser.generalPayment}">
+											<f:convertNumber type="currency" currencySymbol="$"/>
+										</h:outputText>
+									</f:facet>
+								</h:column>
+																
+								<h:column id="columnEx6">
+									<f:facet name="header">
+										<h:outputText styleClass="outputText" value="Credit/    Adjust"	id="text6"/>
+									</f:facet>
+									<h:outputText id="textCreditAdjustment1" value="#{statement.creditAdjustment}" styleClass="outputText">
+										<f:convertNumber type="currency" currencySymbol="$"/>
+									</h:outputText>
+									<f:facet name="footer">
+										<h:outputText id="text15" styleClass="programFooter" value="#{desUser.total.creditAdjustment}" rendered="#{desUser.generalPayment}">
+											<f:convertNumber type="currency" currencySymbol="$"/>
+										</h:outputText>
+									</f:facet>
+								</h:column>
+								<h:column id="columnEx7">
+									<f:facet name="header">
+										<h:outputText styleClass="outputText" value="Total Refunds" id="text7"/>
+									</f:facet>
+									<h:outputText id="textRefunds1"	value="#{statement.refunds}" styleClass="outputText">
+										<f:convertNumber type="currency" currencySymbol="$"/>
+									</h:outputText>
+									<f:facet name="footer" >
+										<h:outputText id="text20" styleClass="programFooter" value="#{desUser.total.refunds}" rendered="#{desUser.generalPayment}">
+											<f:convertNumber type="currency" currencySymbol="$"/>
+										</h:outputText>
+									</f:facet>
+								</h:column>							
+								
+								<h:column id="columnEx4">
+									<f:facet name="header">
+										<h:outputText styleClass="outputText" value="Ending Balance" id="endBalance"/>
+									</f:facet>
+									<h:outputText id="textEndingBalance1"
+										value="#{statement.endingBalance}"
+										styleClass="outputText">
+										<f:convertNumber type="currency" currencySymbol="$"/>
+									</h:outputText>
+									<f:facet name="footer">
+										<h:outputText id="text16" styleClass="programFooter" value="#{desUser.total.endingBalance}" rendered="#{desUser.generalPayment}">
+											<f:convertNumber type="currency" currencySymbol="$"/>
+										</h:outputText>
+									</f:facet>
+								</h:column>
+							</h:dataTable>						
+							<br />
+						</td>
+					</tr>
+				</table>
+				<h2 class="wide"></h2>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+					<tr>
+						<td align="left" valign="top">
+							<span class="important">
+								You will be paying 
+								<h:outputText id="text4" style="font-size:1.5em" value="#{desUser.paymentAmount}">
+									<f:convertNumber currencySymbol="$" type="currency"/>
+								</h:outputText>	
+								on your account. <br/>
+								This amount will be applied to Program Type: 
+								<h:outputText id="text17" value="#{desUser.product.description}"/>.
+							</span>
+						</td>
+					</tr>
+				</table>
+				<h:form id="form1" styleClass="form">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="button_table">
+					<tr>
+						<td width="39%" align="left" valign="top" nowrap="nowrap">														
+							<h:commandButton  value="Back" id="back" styleClass="submit_button" action="list"/>			
+							<h:commandButton value="Quit/Logout" id="quit"	styleClass="submit_button" action="#{loginController.logout}"/>
+							<h:commandButton value="Pay" id="pay" styleClass="submit_button" action="#{userManager.requestPay}"/>
+						</td>
+						<td width="50%" align="right" valign="top" nowrap="nowrap"></td>
+					</tr>
+				</table>
+				</h:form>
+			</td>
+			</tr>
+		</table>
+		<div id="testdiv1"></div> 	
+   
+   
+   </ui:define>
+</ui:composition>

@@ -1,0 +1,460 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+<ui:param name="pageTitle" value="Complaint Form"/>
+<ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+<ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="applicationName2" value="Complaint Form"/>
+<ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="appImage" value="azstate_logo.jpg"/>
+<ui:param name="donotRenderHelp" value="true"/>
+
+
+<ui:define name="localCss">
+	<link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+</ui:define>
+
+
+
+<ui:define name="altbreadcrumb">
+<div id="breadcrumb2">
+	<a href="index.xhtml" target="_self">Home</a> &gt; Complaint Form
+</div>
+</ui:define>
+<ui:define name="body">
+    <h:form class="form">
+    <s:validateAll>
+    <div class="home_table">      
+      <div class="instructions"><h:outputText value="#{complaintFormSplashManager.complaintFormInstructions}" escape="false"></h:outputText></div>
+      <div align="left"><label class="required">Indicates required fields</label>
+      <!--<span id="error-show"><a href="#" onclick="showHide('errors', 'block')">Show/Hide  Errors</a></span>-->
+      </div>
+      <h2>Complainant Status </h2>
+      
+   	  <div class="display_table">
+          <fieldset>
+            <div class="grid-12-12"> 
+                <label class="required">Complaint Received From:</label><div class="spacer"></div>
+                
+                    	<h:selectOneRadio value="#{fileComplaint.complaint.receivedFrom}" required="true" requiredMessage="Complaint Received From is a required field.">  
+    						<f:selectItem itemValue="Employer" itemLabel="Employer" />  
+    						<f:selectItem itemValue="Self Report" itemLabel="Self Report"/>  
+    						<f:selectItem itemValue="Other" itemLabel="Other"/>  
+    						<a4j:support oncomplete="jQuery('.mask_phone').mask('999-999-9999')" ajaxSingle="true" actionListener="#{fileComplaint.changeOnComplaintReceivedFrom}" event="onclick" reRender="inputSection"/>
+						</h:selectOneRadio> 
+					
+                 <!--<input type="radio"  value=""  onclick="showEl('employer'),hideEl('selfemployer'),hideEl('otheremployer')" /><label>Employer</label>-->
+                 <!--<input type="radio"  value=""  onclick="showEl('selfemployer'),hideEl('employer'),hideEl('otheremployer')" /><label>Self Report</label>-->
+                 <!--<input type="radio"  value=""  onclick="showEl('otheremployer'),hideEl('selfemployer'),hideEl('employer')" /><label>Other</label>-->
+            </div>
+          </fieldset> 
+      </div>
+     <br />
+     
+   	  <a4j:outputPanel id="inputSection">
+   	  		<s:div rendered="#{fileComplaint.complaint.receivedFrom == 'Employer'}">
+			      <!--<div class="employer" id="employer">-->
+			         
+			          <h2>Employer Complainant Information </h2>
+			          <div class="display_table">
+			            <fieldset>
+			            <div class="grid-6-12"> 
+			                <label class="required">Complainant First Name:</label>
+			                
+		                    	<h:inputText required="true" 
+			                    	requiredMessage="Complainant First Name is required." 
+			                    	class="textfield" 
+			                    	value="#{fileComplaint.complaint.complaintantNameFirst}" 
+			                    	converter="#{stringTrimConverter}"/>
+                    		
+			                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+			            </div>
+			            <div class="grid-6-12"> 
+			                <label class="required">Complainant Last Name:</label>
+			                
+		                    	<h:inputText required="true" 
+			                    	requiredMessage="Complainant Last Name is required." 
+			                    	class="textfield" 
+			                    	value="#{fileComplaint.complaint.complaintantNameLast}" 
+			                    	converter="#{stringTrimConverter}"/>
+                    		
+			                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+			            </div>
+			            </fieldset>
+			            <fieldset>
+			            <div class="grid-6-12"> 
+			                <label  class="required">Complainant Contact Number:</label>
+			                
+		                    	<h:inputText required="true" 
+			                    	requiredMessage="Complainant Contact Number is required." 
+			                    	class="input_mask mask_phone textfield" 
+			                    	value="#{fileComplaint.complaint.complaintantContactNumber}" 
+			                    	converter="#{stringTrimConverter}"/>
+                    		
+			                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+			            </div>
+			            <div class="grid-6-12"> 
+			                <label class="required">Complainant Relationship to Licensee:</label>
+			                
+		                    	<h:inputText required="true" 
+			                    	requiredMessage="Complainant Relationship to Licensee is required." 
+			                    	class="textfield" 
+			                    	value="#{fileComplaint.complaint.relationshiptoLicensee}" 
+			                    	converter="#{stringTrimConverter}"/>
+                    		
+			                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+			            </div>
+			              </fieldset>
+			            <fieldset>
+			            <div class="grid-6-12"> 
+			                <label class="required">Licensee First Name:</label>
+			                
+		                    	<h:inputText required="true" 
+			                    	requiredMessage="Licensee First Name is required." 
+			                    	class="textfield" 
+			                    	value="#{fileComplaint.complaint.licenseeNameFirst}" 
+			                    	converter="#{stringTrimConverter}"/>
+                    		
+			                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+			            </div>
+			            <div class="grid-6-12"> 
+			                <label  class="required">Licensee Last Name:</label>
+			                
+		                    	<h:inputText required="true" 
+			                    	requiredMessage="Licensee Last Name is required." 
+			                    	class="textfield" 
+			                    	value="#{fileComplaint.complaint.licenseeNameLast}" 
+			                    	converter="#{stringTrimConverter}"/>
+                    		
+			                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+			            </div>
+			           </fieldset> 
+			            <fieldset>
+			            <div class="grid-6-12"> 
+			            	<label  class="required">Employer Business Name:</label>
+			            	
+		                    	<h:inputText required="true" 
+			                    	requiredMessage="Employer Business Name is required." 
+			                    	class="textfield" 
+			                    	value="#{fileComplaint.complaint.bizName}" 
+			                    	converter="#{stringTrimConverter}"/>
+                    		
+			                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+			            </div>
+			            <div class="grid-6-12"> 
+			                <label  class="required">Employer Street Address:</label>
+			                
+		                    	<h:inputText required="true" 
+			                    	requiredMessage="Employer Street Address is required." 
+			                    	class="textfield" 
+			                    	value="#{fileComplaint.complaint.bizStreet}" 
+			                    	converter="#{stringTrimConverter}"/>
+                    		
+			                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+			            </div>
+			            </fieldset>
+			            <fieldset>
+			            <div class="grid-6-12"> 
+			                <label  class="required">Employer City:</label>
+			                
+		                    	<h:inputText required="true" 
+			                    	requiredMessage="Employer City is required." 
+			                    	class="textfield" 
+			                    	value="#{fileComplaint.complaint.bizCity}" 
+			                    	converter="#{stringTrimConverter}"/>
+                    		
+			                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+			            </div>
+			            <div class="grid-3-12"> 
+			                 <label  class="required">Employer State</label><div class="clear"></div>
+			                 
+			                    <h:selectOneMenu id="state"
+											value="#{fileComplaint.complaint.bizState}"
+											required="true"
+											requiredMessage="Employer State is required."
+											title="Select a State">
+									<f:selectItems 	value="#{newApplication.stateList}"/>
+								</h:selectOneMenu>
+							 
+							 
+			                      
+			            </div>
+			            <div class="grid-3-12"> 
+			                <label  class="required">Employer Zip Code:</label>
+			                
+				            	<h:inputText required="true" 
+				                	requiredMessage="Employer Zip Code is required." 
+				                    class="textfield" 
+				                    value="#{fileComplaint.complaint.bizZip}" 
+				                    maxlength="10"
+				                    converter="#{stringTrimConverter}"/>
+                			
+			                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+			            </div>
+			            </fieldset>
+			            <fieldset>
+			            <div class="grid-6-12"> 
+			                <label class="required">Supervisor's Name:</label>
+			                
+		                    	<h:inputText required="true" 
+			                    	requiredMessage="Supervisor's Name is required." 
+			                    	class="textfield" 
+			                    	value="#{fileComplaint.complaint.bizSupervisorName}" 
+			                    	converter="#{stringTrimConverter}"/>
+                    		
+			                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+			            </div>
+			            <div class="grid-6-12"> 
+			                <label  class="required">Supervisor's Title:</label>
+			                
+		                    	<h:inputText required="true" 
+			                    	requiredMessage="Supervisor's Title is required." 
+			                    	class="textfield" 
+			                    	value="#{fileComplaint.complaint.bizSupervisorTitle}" 
+			                    	converter="#{stringTrimConverter}"/>
+                    		
+			                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+			            </div>
+			            </fieldset>  
+			            <fieldset>
+			            <div class="grid-6-12"> 
+			                <label class="required">Supervisor's Phone:</label>
+			                
+				            	<h:inputText required="true" 
+				                	requiredMessage="Supervisor's Phone is required." 
+				                	class="input_mask mask_phone textfield"
+				                    value="#{fileComplaint.complaint.bizPhone}" 
+				                    converter="#{stringTrimConverter}"/>
+                			
+			                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+			            </div>
+			            <div class="grid-6-12"> 
+			                <label  class="required">Supervisor's Fax Number:</label>
+			                
+				            	<h:inputText required="true" 
+				                	requiredMessage="Supervisor's Fax Number is required." 
+				                	class="input_mask mask_phone textfield"
+				                    value="#{fileComplaint.complaint.bizFax}" 
+				                    converter="#{stringTrimConverter}"/>
+                			
+			                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+			            </div>
+			           </fieldset>  
+			            <fieldset>
+			            <div class="grid-12-12"> 
+			                <label class="required">Description of Complaint:</label>
+			                
+				                <h:inputTextarea rows="7" id="descriptionOfComplaintEmployer"
+				                	cols="120" 
+				                	value="#{fileComplaint.complaint.notes}" 
+				                	class="textfield"
+				                	required="true"
+				                	requiredMessage="Description of Complaint is required."
+				                	converter="#{stringTrimConverter}"/>
+		                	
+			                <!--<textarea name="Notes" rows="7" cols="120"></textarea>-->
+			            </div>
+			           </fieldset>  
+			          </div><!-- end .display-table -->
+			         <!--</div>--> <!-- end .employer --> 
+	         </s:div>
+	         
+	         <s:div rendered="#{fileComplaint.complaint.receivedFrom == 'Self Report'}">
+		         <div class="selfemployer" id="selfemployer">
+		         <h2>Self Employer Complainant Information </h2>
+		          <div class="display_table">
+		            <fieldset>
+		            <div class="grid-6-12"> 
+		                <label class="required">Licensee First Name:</label>
+		                
+	                    	<h:inputText required="true" 
+		                    	requiredMessage="Licensee First Name is required." 
+		                    	class="textfield" 
+		                    	value="#{fileComplaint.complaint.licenseeNameFirst}" 
+		                    	converter="#{stringTrimConverter}"/>
+                    	
+		                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+		            </div>
+		            <div class="grid-6-12"> 
+		                <label class="required">Licensee Last Name:</label>
+		                
+	                    	<h:inputText required="true" 
+		                    	requiredMessage="Licensee Last Name is required." 
+		                    	class="textfield" 
+		                    	value="#{fileComplaint.complaint.licenseeNameLast}" 
+		                    	converter="#{stringTrimConverter}"/>
+                    	
+		                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+		            </div>
+		            </fieldset>
+		            <fieldset>
+		            <div class="grid-6-12"> 
+		                <label  class="required">Licensee Contact Number:</label>
+		                
+	                    	<h:inputText required="true" 
+		                    	requiredMessage="Licensee Contact Number is required." 
+		                    	class="input_mask mask_phone textfield"
+		                    	value="#{fileComplaint.complaint.licenseePhone}" 
+		                    	converter="#{stringTrimConverter}"/>
+                    	
+		                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+		            </div>
+		            
+		              </fieldset>
+		        
+		            <fieldset>
+		            <div class="grid-12-12"> 
+		                <label class="required">Description of Complaint:</label>
+		                
+			                <h:inputTextarea rows="7" id="descriptionOfComplaintSelf"
+			                	cols="120" 
+			                	value="#{fileComplaint.complaint.notes}" 
+			                	class="textfield"
+			                	required="true"
+			                	requiredMessage="Description of Complaint is required."
+			                	converter="#{stringTrimConverter}"/>
+		                
+		                <!--<textarea name="Notes" rows="7" cols="120"></textarea>-->
+		            </div>
+		           </fieldset> 
+		           </div><!-- end .display-table --> 
+		         </div> <!-- end .selfemployer --> 
+	         </s:div>
+	         
+	         <s:div rendered="#{fileComplaint.complaint.receivedFrom == 'Other'}">
+	         <div class="otheremployer" id="otheremployer">
+	         <h2>Other Complainant Information </h2>
+	          <div class="display_table">
+	            <fieldset>
+	            <div class="grid-6-12"> 
+	                <label class="required">Complainant First Name:</label>
+	                
+                    	<h:inputText required="true" 
+	                    	requiredMessage="Complainant First Name is required." 
+	                    	class="textfield" 
+	                    	value="#{fileComplaint.complaint.complaintantNameFirst}" 
+	                    	converter="#{stringTrimConverter}"/>
+                    
+	                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+	            </div>
+	            <div class="grid-6-12"> 
+	                <label class="required">Complainant Last Name:</label>
+	                
+                    	<h:inputText required="true" 
+	                    	requiredMessage="Complainant Last Name is required." 
+	                    	class="textfield" 
+	                    	value="#{fileComplaint.complaint.complaintantNameLast}" 
+	                    	converter="#{stringTrimConverter}"/>
+                    
+	                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+	            </div>
+	            </fieldset>
+	            <fieldset>
+	            <div class="grid-6-12"> 
+	                <label  class="required">Complainant Contact Number:</label>
+	                
+                    	<h:inputText required="true" 
+	                    	requiredMessage="Complainant Contact Number is required." 
+	                    	class="input_mask mask_phone textfield" 
+	                    	value="#{fileComplaint.complaint.complaintantContactNumber}" 
+	                    	converter="#{stringTrimConverter}"/>
+                    
+	                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+	            </div>
+	            <div class="grid-6-12"> 
+	                <label class="required">Complainant Relationship to Licensee:</label>
+	                
+                    	<h:inputText required="true" 
+	                    	requiredMessage="Complainant Relationship to Licensee is required." 
+	                    	class="textfield" 
+	                    	value="#{fileComplaint.complaint.relationshiptoLicensee}" 
+	                    	converter="#{stringTrimConverter}"/>
+                    
+	                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+	            </div>
+	              </fieldset>
+	            <fieldset>
+	            <div class="grid-6-12"> 
+	                <label class="required">Licensee First Name:</label>
+	                
+                    	<h:inputText required="true" 
+	                    	requiredMessage="Licensee First Name is required." 
+	                    	class="textfield" 
+	                    	value="#{fileComplaint.complaint.licenseeNameFirst}" 
+	                    	converter="#{stringTrimConverter}"/>
+                    
+	                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+	            </div>
+	            <div class="grid-6-12"> 
+	                <label  class="required">Licensee  Last Name:</label>
+	                
+                    	<h:inputText required="true" 
+	                    	requiredMessage="Licensee Last Name is required." 
+	                    	class="textfield" 
+	                    	value="#{fileComplaint.complaint.licenseeNameLast}" 
+	                    	converter="#{stringTrimConverter}"/>
+                    
+	                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+	            </div>
+	           </fieldset> 
+	          
+	            <fieldset>
+	            <div class="grid-12-12"> 
+	                <label class="required">Description of Complaint:</label>
+	                
+		                <h:inputTextarea rows="7" id="descriptionOfComplaintOther"
+		                	cols="120" 
+		                	value="#{fileComplaint.complaint.notes}" 
+		                	class="textfield"
+		                	required="true"
+		                	requiredMessage="Description of Complaint is required."
+		                	converter="#{stringTrimConverter}"/>
+		             
+	                <!--<textarea name="Notes" rows="7" cols="120"></textarea>-->
+	            </div>
+	           </fieldset>  
+	           </div><!-- end .display-table -->
+	         </div> <!-- end .selfemployer --> 
+	         </s:div>
+      
+      </a4j:outputPanel>
+      
+       
+      <!-- Nav buttons --> 
+      <fieldset>
+               	<div class="grid-6-12">
+                	<input type="button" name="" id="" value="Previous" accesskey="p" class="submit_button" onclick="location.href='index.xhtml'" />
+                	<h:commandButton
+						id="exit" value="Cancel" styleClass="submit_button"
+						action="#{fileComplaint.exit}"
+						immediate="true"
+						accesskey="b"
+						onclick="return confirm('Are you sure that you would like to exit?');"
+						/>
+                </div>
+                <div class="grid-6-12 form-right">
+                	<h:commandButton id="submitComplaint"
+                			styleClass="submit_button"
+                          	value="Submit"
+                         	action="#{fileComplaint.submitComplaint}">
+      				</h:commandButton>
+                    <!--<input type="button" name="" id="" value="Continue" accesskey="c" class="submit_button" onclick="location.href='newapp-employment.html'" />-->
+                </div>
+                
+       </fieldset>
+       </div><!-- end of .home_table  -->
+       </s:validateAll>
+      </h:form>
+     </ui:define>
+     
+</ui:composition>

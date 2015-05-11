@@ -1,0 +1,39 @@
+06:44:20,889 INFO  [org.jboss.modules] (main) JBoss Modules version 1.1.3.GA
+06:44:22,919 INFO  [org.jboss.msc] (main) JBoss MSC version 1.0.2.GA
+06:44:23,479 INFO  [org.jboss.as] (MSC service thread 1-2) JBAS015899: JBoss AS 7.1.4.Final-SNAPSHOT "Arges" starting
+06:44:24,243 INFO  [org.xnio] (MSC service thread 1-2) XNIO Version 3.0.7.GA
+06:44:24,460 INFO  [org.xnio.nio] (MSC service thread 1-2) XNIO NIO Implementation Version 3.0.7.GA
+06:44:24,498 INFO  [org.jboss.remoting] (MSC service thread 1-2) JBoss Remoting version 3.2.13.GA
+06:44:35,028 INFO  [org.jboss.as.logging] (MSC service thread 1-2) JBAS011502: Removing bootstrap log handlers
+17:30:21,200 INFO  [org.jboss.as.logging] (MSC service thread 1-2) JBAS011503: Restored bootstrap log handlers
+17:30:21,230 INFO  [jacorb.poa] (POADestructor) POA Naming destroyed
+17:30:21,231 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016009: Stopping weld service for deployment tpe-ejb.ear
+17:30:21,231 INFO  [jacorb.poa] (POADestructor) POA IRPOA destroyed
+17:30:21,245 INFO  [jacorb.poa] (POADestructor) POA RootPOA destroyed
+17:30:21,246 INFO  [org.hornetq.ra.HornetQResourceAdapter] (MSC service thread 1-1) HornetQ resource adapter stopped
+17:30:21,261 INFO  [jacorb.orb] (ServerService Thread Pool -- 66) prepare ORB for shutdown...
+17:30:21,261 INFO  [jacorb.orb] (ServerService Thread Pool -- 66) ORB going down...
+17:30:21,284 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016009: Stopping weld service for deployment ejbs.ear
+17:30:21,298 INFO  [jacorb.orb] (ServerService Thread Pool -- 66) ORB shutdown complete
+17:30:21,298 INFO  [jacorb.orb.iiop] (ServerSocketListener) Listener exited
+17:30:21,299 INFO  [jacorb.util.tpool] (ServerMessageReceptor0) ConsumerTie exited
+17:30:21,299 INFO  [jacorb.orb] (ORB Run Thread) ORB run, exit
+17:30:21,457 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 66) JBAS011403: Stopping Persistence Unit Service 'tpe-ejb.ear/tpe-ejb-ejb-1.0-SNAPSHOT.jar#primary'
+17:30:21,467 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 65) JBAS011403: Stopping Persistence Unit Service 'ejbs.ear/ejbs-ejb-1.0-SNAPSHOT.jar#primary'
+17:30:21,572 INFO  [org.hornetq.core.server.cluster.impl.BridgeImpl] (Thread-21 (HornetQ-server-HornetQServerImpl::serverUUID=547fec9f-dfb2-11e4-b552-f348fc93969e-2035256218)) stopped bridge sf.my-cluster.5415b955-dfb2-11e4-a20f-c98243543d28
+17:30:21,698 WARN  [org.hornetq.core.protocol.core.impl.RemotingConnectionImpl] (Thread-0 (HornetQ-client-global-threads-203482442)) Connection failure has been detected: The connection was disconnected because of server shutdown [code=4]
+17:30:21,705 INFO  [com.arjuna.ats.jbossatx] (MSC service thread 1-1) ARJUNA032018: Destroying TransactionManagerService
+17:30:21,766 INFO  [com.arjuna.ats.jbossatx] (MSC service thread 1-1) ARJUNA032014: Stopping transaction recovery manager
+17:30:21,845 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-2) HornetQ Server version 2.2.21.SNAPSHOT (HQ_2_2_21_final, 122) [547fec9f-dfb2-11e4-b552-f348fc93969e] stopped
+17:30:21,845 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment tpe-ejb-web-1.0-SNAPSHOT.war in 1170ms
+17:30:21,845 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment tpe-ejb-ejb-1.0-SNAPSHOT.jar in 1186ms
+17:30:21,846 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment ejbs-ejb-1.0-SNAPSHOT.jar in 1170ms
+17:30:21,851 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment tpe-ejb.ear in 1176ms
+17:30:21,876 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment ejbs-web-1.0-SNAPSHOT.war in 1219ms
+17:30:21,877 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment ejbs.ear in 1219ms
+17:30:21,878 INFO  [org.jboss.as.controller] (MSC service thread 1-1) JBAS014774: Service status report
+JBAS014776:    Newly corrected services:
+      service jboss.logging.handler.EJB-client (new available)
+      service jboss.server.controller.management.security_realm.ApplicationRealm (new available)
+
+17:30:21,883 INFO  [org.jboss.as] (MSC service thread 1-1) JBAS015950: JBoss AS 7.1.4.Final-SNAPSHOT "Arges" stopped in 1223ms

@@ -1,0 +1,135 @@
+06:44:41,037 INFO  [org.jboss.jaxr] (MSC service thread 1-2) JBAS014000: Started JAXR subsystem, binding JAXR connection factory into JNDI as: java:jboss/jaxr/ConnectionFactory
+06:44:41,001 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-1) JBAS015400: Bound mail session [java:jboss/mail/Default]
+06:44:41,887 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 56) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+06:44:41,969 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 56) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+06:44:42,561 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-1) Starting Coyote HTTP/1.1 on http-/10.251.30.5:8280
+06:44:42,541 INFO  [org.apache.coyote.ajp.AjpProtocol] (MSC service thread 1-2) Starting Coyote AJP/1.3 on ajp-/10.251.30.5:8209
+06:44:42,956 WARN  [com.arjuna.ats.arjuna] (Transaction Expired Entry Monitor) ARJUNA012210: Unable to use InetAddress.getLocalHost() to resolve address.
+06:44:44,350 WARN  [org.jboss.as.messaging] (MSC service thread 1-2) JBAS011600: AIO wasn't located on this platform, it will fall back to using pure Java NIO. If your platform is Linux, install LibAIO to enable the AIO journal
+06:44:44,456 INFO  [org.jboss.as.jacorb] (MSC service thread 1-1) JBAS016330: CORBA ORB Service started
+06:44:45,350 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-1) live server is starting with configuration HornetQ Configuration (clustered=true,backup=false,sharedStore=true,journalDirectory=/opt/jboss/domain/servers/tier2/data/messagingjournal,bindingsDirectory=/opt/jboss/domain/servers/tier2/data/messagingbindings,largeMessagesDirectory=/opt/jboss/domain/servers/tier2/data/messaginglargemessages,pagingDirectory=/opt/jboss/domain/servers/tier2/data/messagingpaging)
+06:44:45,351 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-1) Waiting to obtain live lock
+06:44:45,986 INFO  [org.hornetq.core.persistence.impl.journal.JournalStorageManager] (MSC service thread 1-1) Using NIO Journal
+06:44:46,540 INFO  [org.jboss.as.jacorb] (MSC service thread 1-2) JBAS016328: CORBA Naming Service started
+06:44:47,351 INFO  [org.hornetq.core.server.impl.FileLockNodeManager] (MSC service thread 1-1) Waiting to obtain live lock
+06:44:47,351 INFO  [org.hornetq.core.server.impl.FileLockNodeManager] (MSC service thread 1-1) Live Server Obtained live lock
+06:44:47,377 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) JBAS010400: Bound data source [java:jboss/datasources/RCE]
+06:44:47,401 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) JBAS010400: Bound data source [java:jboss/datasources/ExampleDS]
+06:44:47,559 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) JBAS014784: Failed executing subsystem modcluster boot operations
+06:44:48,837 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015876: Starting deployment of "ejbs.ear"
+06:44:48,870 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015876: Starting deployment of "tpe-ejb.ear"
+06:44:49,745 INFO  [org.hornetq.core.remoting.impl.netty.NettyAcceptor] (MSC service thread 1-1) Started Netty Acceptor version 3.2.6.Final-20df069 10.251.30.5:5646 for CORE protocol
+06:44:49,764 INFO  [org.hornetq.core.remoting.impl.netty.NettyAcceptor] (MSC service thread 1-1) Started Netty Acceptor version 3.2.6.Final-20df069 10.251.30.5:5655 for CORE protocol
+06:44:49,789 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-1) Server is now live
+06:44:49,790 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-1) HornetQ Server version 2.2.21.SNAPSHOT (HQ_2_2_21_final, 122) [547fec9f-dfb2-11e4-b552-f348fc93969e]) started
+06:44:50,605 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015876: Starting deployment of "ejbs-ejb-1.0-SNAPSHOT.jar"
+06:44:50,605 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015876: Starting deployment of "ejbs-web-1.0-SNAPSHOT.war"
+06:44:50,591 INFO  [org.jboss.as.messaging] (ServerService Thread Pool -- 44) JBAS011601: Bound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+06:44:50,684 INFO  [org.jboss.as.messaging] (ServerService Thread Pool -- 62) JBAS011601: Bound messaging object to jndi name java:/ConnectionFactory
+06:44:51,028 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) JBAS010406: Registered connection factory java:/JmsXA
+06:44:51,428 INFO  [org.hornetq.ra.HornetQResourceAdapter] (MSC service thread 1-2) HornetQ resource adaptor started
+06:44:51,428 INFO  [org.jboss.as.connector.services.resourceadapters.ResourceAdapterActivatorService$ResourceAdapterActivator] (MSC service thread 1-2) IJ020002: Deployed: file://RaActivatorhornetq-ra
+06:44:55,813 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) JBAS011401: Read persistence.xml for primary
+06:44:55,898 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) JBAS010401: Bound JCA ConnectionFactory [java:/JmsXA]
+06:44:56,187 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015876: Starting deployment of "tpe-ejb-web-1.0-SNAPSHOT.war"
+06:44:56,187 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015876: Starting deployment of "tpe-ejb-ejb-1.0-SNAPSHOT.jar"
+06:44:56,258 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016002: Processing weld deployment ejbs.ear
+06:44:56,508 INFO  [org.jboss.as.jpa] (MSC service thread 1-1) JBAS011401: Read persistence.xml for primary
+06:44:56,712 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016002: Processing weld deployment ejbs-web-1.0-SNAPSHOT.war
+06:44:56,858 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016002: Processing weld deployment ejbs-ejb-1.0-SNAPSHOT.jar
+06:44:56,906 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named SasEjb in deployment unit subdeployment "ejbs-ejb-1.0-SNAPSHOT.jar" of deployment "ejbs.ear" are as follows:
+
+	java:global/ejbs/ejbs-ejb-1.0-SNAPSHOT/SasEjb!com.nicusa.az.ejb.bean.SasEjbRemote
+	java:app/ejbs-ejb-1.0-SNAPSHOT/SasEjb!com.nicusa.az.ejb.bean.SasEjbRemote
+	java:module/SasEjb!com.nicusa.az.ejb.bean.SasEjbRemote
+	java:jboss/exported/ejbs/ejbs-ejb-1.0-SNAPSHOT/SasEjb!com.nicusa.az.ejb.bean.SasEjbRemote
+	java:global/ejbs/ejbs-ejb-1.0-SNAPSHOT/SasEjb
+	java:app/ejbs-ejb-1.0-SNAPSHOT/SasEjb
+	java:module/SasEjb
+
+06:44:56,926 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named MelisaDataEjb in deployment unit subdeployment "ejbs-ejb-1.0-SNAPSHOT.jar" of deployment "ejbs.ear" are as follows:
+
+	java:global/ejbs/ejbs-ejb-1.0-SNAPSHOT/MelisaDataEjb!com.nicusa.az.ejbs.melisaData.remote.MelisaDataEjbRemote
+	java:app/ejbs-ejb-1.0-SNAPSHOT/MelisaDataEjb!com.nicusa.az.ejbs.melisaData.remote.MelisaDataEjbRemote
+	java:module/MelisaDataEjb!com.nicusa.az.ejbs.melisaData.remote.MelisaDataEjbRemote
+	java:jboss/exported/ejbs/ejbs-ejb-1.0-SNAPSHOT/MelisaDataEjb!com.nicusa.az.ejbs.melisaData.remote.MelisaDataEjbRemote
+	java:global/ejbs/ejbs-ejb-1.0-SNAPSHOT/MelisaDataEjb
+	java:app/ejbs-ejb-1.0-SNAPSHOT/MelisaDataEjb
+	java:module/MelisaDataEjb
+
+06:44:56,933 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named CtsEjb in deployment unit subdeployment "ejbs-ejb-1.0-SNAPSHOT.jar" of deployment "ejbs.ear" are as follows:
+
+	java:global/ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote
+	java:app/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote
+	java:module/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote
+	java:jboss/exported/ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb!com.nicusa.az.ejbs.cts.remote.CtsEjbRemote
+	java:global/ejbs/ejbs-ejb-1.0-SNAPSHOT/CtsEjb
+	java:app/ejbs-ejb-1.0-SNAPSHOT/CtsEjb
+	java:module/CtsEjb
+
+06:44:56,945 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named EmailEjb in deployment unit subdeployment "ejbs-ejb-1.0-SNAPSHOT.jar" of deployment "ejbs.ear" are as follows:
+
+	java:global/ejbs/ejbs-ejb-1.0-SNAPSHOT/EmailEjb!com.nicusa.az.ejbs.email.remote.EmailEjbRemote
+	java:app/ejbs-ejb-1.0-SNAPSHOT/EmailEjb!com.nicusa.az.ejbs.email.remote.EmailEjbRemote
+	java:module/EmailEjb!com.nicusa.az.ejbs.email.remote.EmailEjbRemote
+	java:jboss/exported/ejbs/ejbs-ejb-1.0-SNAPSHOT/EmailEjb!com.nicusa.az.ejbs.email.remote.EmailEjbRemote
+	java:global/ejbs/ejbs-ejb-1.0-SNAPSHOT/EmailEjb
+	java:app/ejbs-ejb-1.0-SNAPSHOT/EmailEjb
+	java:module/EmailEjb
+
+06:44:57,105 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016005: Starting Services for CDI deployment: ejbs.ear
+06:44:57,470 INFO  [org.jboss.weld.Version] (MSC service thread 1-1) WELD-000900 1.1.10 (Final)
+06:44:57,570 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016002: Processing weld deployment tpe-ejb.ear
+06:44:58,572 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016002: Processing weld deployment tpe-ejb-web-1.0-SNAPSHOT.war
+06:44:58,576 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016002: Processing weld deployment tpe-ejb-ejb-1.0-SNAPSHOT.jar
+06:44:58,589 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-2) JNDI bindings for session bean named TpeEjb in deployment unit subdeployment "tpe-ejb-ejb-1.0-SNAPSHOT.jar" of deployment "tpe-ejb.ear" are as follows:
+
+	java:global/tpe-ejb/tpe-ejb-ejb-1.0-SNAPSHOT/TpeEjb!com.nicusa.az.tpe.remote.TpeEjbRemote
+	java:app/tpe-ejb-ejb-1.0-SNAPSHOT/TpeEjb!com.nicusa.az.tpe.remote.TpeEjbRemote
+	java:module/TpeEjb!com.nicusa.az.tpe.remote.TpeEjbRemote
+	java:jboss/exported/tpe-ejb/tpe-ejb-ejb-1.0-SNAPSHOT/TpeEjb!com.nicusa.az.tpe.remote.TpeEjbRemote
+	java:global/tpe-ejb/tpe-ejb-ejb-1.0-SNAPSHOT/TpeEjb
+	java:app/tpe-ejb-ejb-1.0-SNAPSHOT/TpeEjb
+	java:module/TpeEjb
+
+06:44:58,745 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 62) JBAS011402: Starting Persistence Unit Service 'ejbs.ear/ejbs-ejb-1.0-SNAPSHOT.jar#primary'
+06:44:58,840 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016005: Starting Services for CDI deployment: tpe-ejb.ear
+06:44:59,240 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 44) JBAS011402: Starting Persistence Unit Service 'tpe-ejb.ear/tpe-ejb-ejb-1.0-SNAPSHOT.jar#primary'
+06:44:59,945 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 62) HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+06:45:00,009 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 62) HHH000412: Hibernate Core {4.1.6.Final}
+06:45:00,011 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 62) HHH000206: hibernate.properties not found
+06:45:00,039 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 62) HHH000021: Bytecode provider name : javassist
+06:45:00,138 INFO  [org.hibernate.ejb.Ejb3Configuration] (ServerService Thread Pool -- 44) HHH000204: Processing PersistenceUnitInfo [
+	name: primary
+	...]
+06:45:00,186 INFO  [org.hibernate.ejb.Ejb3Configuration] (ServerService Thread Pool -- 62) HHH000204: Processing PersistenceUnitInfo [
+	name: primary
+	...]
+06:45:01,660 INFO  [org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator] (ServerService Thread Pool -- 62) HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+06:45:01,670 INFO  [org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator] (ServerService Thread Pool -- 44) HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+06:45:03,580 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 44) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+06:45:03,598 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 44) HHH000431: Unable to determine H2 database version, certain features may not work
+06:45:03,596 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 62) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+06:45:03,612 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 62) HHH000431: Unable to determine H2 database version, certain features may not work
+06:45:03,613 INFO  [org.hibernate.engine.jdbc.internal.LobCreatorBuilder] (ServerService Thread Pool -- 62) HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+06:45:03,629 INFO  [org.hibernate.engine.jdbc.internal.LobCreatorBuilder] (ServerService Thread Pool -- 44) HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+06:45:03,701 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] (ServerService Thread Pool -- 62) HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jta.CMTTransactionFactory
+06:45:03,713 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] (ServerService Thread Pool -- 44) HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jta.CMTTransactionFactory
+06:45:03,748 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] (ServerService Thread Pool -- 62) HHH000397: Using ASTQueryTranslatorFactory
+06:45:03,762 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] (ServerService Thread Pool -- 44) HHH000397: Using ASTQueryTranslatorFactory
+06:45:04,546 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016008: Starting weld service for deployment tpe-ejb.ear
+06:45:04,556 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016008: Starting weld service for deployment ejbs.ear
+06:45:13,587 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (MSC service thread 1-2) Initializing Mojarra 2.1.13-jbossorg-1 20120919-1641 for context '/ejbs'
+06:45:24,321 INFO  [org.hornetq.core.server.cluster.impl.BridgeImpl] (Thread-8 (HornetQ-server-HornetQServerImpl::serverUUID=547fec9f-dfb2-11e4-b552-f348fc93969e-2035256218)) Bridge ClusterConnectionBridge@7d6545e [name=sf.my-cluster.5415b955-dfb2-11e4-a20f-c98243543d28, queue=QueueImpl[name=sf.my-cluster.5415b955-dfb2-11e4-a20f-c98243543d28, postOffice=PostOfficeImpl [server=HornetQServerImpl::serverUUID=547fec9f-dfb2-11e4-b552-f348fc93969e]]@83ceb57 targetConnector=ServerLocatorImpl (identity=(Cluster-connection-bridge::ClusterConnectionBridge@7d6545e [name=sf.my-cluster.5415b955-dfb2-11e4-a20f-c98243543d28, queue=QueueImpl[name=sf.my-cluster.5415b955-dfb2-11e4-a20f-c98243543d28, postOffice=PostOfficeImpl [server=HornetQServerImpl::serverUUID=547fec9f-dfb2-11e4-b552-f348fc93969e]]@83ceb57 targetConnector=ServerLocatorImpl [initialConnectors=[org-hornetq-core-remoting-impl-netty-NettyConnectorFactory?port=5446&host=10-251-30-5], discoveryGroupConfiguration=null]]::ClusterConnectionImpl@520557879[nodeUUID=547fec9f-dfb2-11e4-b552-f348fc93969e, connector=org-hornetq-core-remoting-impl-netty-NettyConnectorFactory?port=5646&host=10-251-30-5, address=jms, server=HornetQServerImpl::serverUUID=547fec9f-dfb2-11e4-b552-f348fc93969e])) [initialConnectors=[org-hornetq-core-remoting-impl-netty-NettyConnectorFactory?port=5446&host=10-251-30-5], discoveryGroupConfiguration=null]] is connected
+06:45:25,076 INFO  [org.hibernate.validator.util.Version] (MSC service thread 1-2) Hibernate Validator 4.2.0.Final
+06:45:26,570 INFO  [org.jboss.web] (MSC service thread 1-2) JBAS018210: Registering web context: /ejbs
+06:45:26,846 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (MSC service thread 1-1) Initializing Mojarra 2.1.13-jbossorg-1 20120919-1641 for context '/tpe-ejb'
+06:45:27,815 INFO  [org.jboss.web] (MSC service thread 1-1) JBAS018210: Registering web context: /tpe-ejb
+06:45:28,948 INFO  [org.jboss.as.server] (Controller Boot Thread) JBAS018559: Deployed "ejbs.ear"
+06:45:28,961 INFO  [org.jboss.as.server] (Controller Boot Thread) JBAS018559: Deployed "tpe-ejb.ear"
+06:45:28,965 INFO  [org.jboss.as.controller] (Controller Boot Thread) JBAS014774: Service status report
+JBAS014775:    New missing/unsatisfied dependencies:
+      service jboss.logging.handler.EJB-client (missing) dependents: [service jboss.logging.logger-handler."com.nicusa.az.ejbclient".EJB-client] 
+      service jboss.server.controller.management.security_realm.ApplicationRealm (missing) dependents: [service jboss.remoting.authentication_provider.remoting-connector] 
+
+06:45:28,977 ERROR [org.jboss.as] (Controller Boot Thread) JBAS015875: JBoss AS 7.1.4.Final-SNAPSHOT "Arges" started (with errors) in 70371ms - Started 489 of 696 services (49 services failed or missing dependencies, 156 services are passive or on-demand)

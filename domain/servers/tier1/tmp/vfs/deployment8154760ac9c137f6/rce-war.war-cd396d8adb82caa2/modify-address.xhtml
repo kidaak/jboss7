@@ -1,0 +1,316 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+<ui:param name="pageTitle" value="Address Change Information"/>
+<ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+<ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="applicationName2" value="Address Change Information"/>
+<ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="appImage" value="azstate_logo.jpg"/>
+<ui:param name="donotRenderHelp" value="true"/>
+
+
+<ui:define name="localCss">
+	<link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+</ui:define>
+
+
+
+<ui:define name="altbreadcrumb">
+<div id="breadcrumb2">
+	<s:link view="/licenseholder-options.xhtml" value="Home"/>  &gt; Address Change Information
+</div>
+</ui:define>
+<ui:define name="body">
+
+
+	<script type="text/javascript">
+		window.onload = function() {
+	    	document.getElementById('inputForm:homeStreetAddressField:homeStreetAddress').focus();
+	}
+   		</script> 
+
+	<h:form id="inputForm" class="form">
+    <div class="home_table">      
+      <div class="instructions"><h:outputText value="#{addressChangeSplashManager.addressChangeInstructions}" escape="false"></h:outputText></div> 
+      <div align="left"><label class="required">Indicates required fields</label>
+     <!--<span id="error-show"><a href="#" onclick="showEl('errors'),hideEl('error-show'),showEl('error-hide') ">Show Errors</a></span>-->
+     <span id="error-hide" style="display:none;"><a href="#" onclick="hideEl('errors'),hideEl('error-hide'),showEl('error-show')">Hide Errors</a></span>
+    </div>  
+   
+    <center>
+    <div class="error" id="errors" style="display:none;"><br /><br />
+      <div class="errror_message">The following error(s) have been found: <div class="clear"></div>		
+        <ul class="error_list">
+          <li>First Name, Last Name, Address, City, State, Zip, DOB, Height Ft., Height In., Weight, Eyes, Hair, Sex is a required field. </li>
+          <li>The email address you entered is not in the correct format. Email address should contain the following: username@isp.com.</li>
+          </ul>
+        </div>
+      </div>
+    </center>
+    
+   	<s:validateAll>
+      <h2>Applicant Contact Information  </h2>
+   	  <div class="display_table">
+          <fieldset>
+            <div class="grid-4-12"> 
+                <label>First Name:</label><br></br>
+                
+	            	<h:outputText value="#{addressChange.contact.nameFirst}"/>
+               
+                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+            </div>
+            <div class="grid-3-12"> 
+                <label> Middle Name:</label><br></br>
+                
+	            	<h:outputText value="#{addressChange.contact.nameMiddle}" />
+               
+                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+            </div>
+            <div class="grid-4-12"> 
+                <label>Last Name:</label><br></br>
+                
+	            	<h:outputText value="#{addressChange.contact.nameLast}"/>
+               	
+                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+            </div>
+            <div class="grid-1-12"> 
+                <label>Suffix:</label><br></br>
+                <h:outputText id="Suffix" value="#{addressChange.contact.nameSuffix}" />
+                
+            </div>
+           </fieldset> 
+           
+           	
+ 	  		
+            <fieldset>
+            <div class="grid-7-12"> 
+                <label class="required">Street Address:</label>
+                
+	            	<h:inputText required="true" id="homeStreetAddress"
+	                	requiredMessage="Street Address is required." 
+	                    class="textfield" 
+	                    value="#{addressChange.contact.homeStreet}" 
+	                    converter="#{stringTrimConverter}"/>
+               	
+                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+            </div>
+            <div class="grid-5-12"> 
+                <label  class="required">City:</label>
+                
+	            	<h:inputText required="true" 
+	                	requiredMessage="City is required." 
+	                    class="textfield" 
+	                    value="#{addressChange.contact.homeCity}" 
+	                    converter="#{stringTrimConverter}"/>
+               	
+                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+            </div>
+            
+            </fieldset>
+            
+            
+            
+            <fieldset>
+            
+            <div class="grid-2-12"> 
+                <label  class="required">County:</label><div class="clear"></div>
+                	
+	            	<h:selectOneMenu id="county"
+	            		required="true"
+	            		requiredMessage="County is required."
+	            		class="dropmenu"
+						value="#{addressChange.contact.homeCounty}"
+						title="Select a County">
+							<f:selectItems 	value="#{addressChange.countyList}"/>
+					</h:selectOneMenu>
+				
+                		
+            </div>
+            
+            <div class="grid-2-12"> 
+                 <label class="required">State</label><div class="clear"></div>
+                 	
+	             	<h:selectOneMenu id="applicantContactInformationState"
+						value="#{addressChange.contact.homeState}"
+						required="true"
+						class="dropmenu"
+						requiredMessage="State is required."
+						title="Select a State">
+							<f:selectItems 	value="#{addressChange.stateList}"/>
+					</h:selectOneMenu>
+            </div>
+            
+            <div class="grid-1-12"><h:outputText value=" " /></div>
+            <div class="grid-2-12"> 
+                <label  class="required">Zip Code</label>
+                
+	            	<h:inputText required="true" 
+	                	requiredMessage="Zip Code is required." 
+	                    class="textfield" 
+	                    value="#{addressChange.contact.homeZip}" 
+	                    maxlength="10"
+	                    converter="#{stringTrimConverter}"/>
+                
+                
+                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+            </div>
+            
+            
+            
+                <div class="grid-2-12"> 
+	                <label  class="required">Phone</label>
+		            	<h:inputText required="true" 
+		                	requiredMessage="Phone is required." 
+		                	class="input_mask mask_phone textfield"
+		                    value="#{addressChange.contact.homePhone}" 
+		                    converter="#{stringTrimConverter}"/>
+	                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+            	</div>
+            	
+                <div class="grid-3-12"> 
+                <label  class="required">Email:</label>
+                
+	            	<h:inputText required="true" 
+	                	requiredMessage="Email is required." 
+	                    class="textfield" 
+	                    value="#{addressChange.contact.homeEmail}" 
+	                    converter="#{stringTrimConverter}"/>
+               
+                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+                <br />
+                <div class="note">Note: License Cards will only  be emailed to this email address.</div>
+            	</div>
+            </fieldset>
+            
+            
+            
+            <fieldset>
+            <div class="grid-12-12"> 
+            
+            	<h:selectBooleanCheckbox
+ 					title="Permanent address difference than application contact information address."
+  					value="#{addressChange.contact.useMailAddressAndNotHomeAddress}" >
+  					<a4j:support ajaxSingle="true" actionListener="#{addressChange.changeOnDisplayPermanentAddressSection}" event="onclick" reRender="displayPermanentAddressSection"/>
+				</h:selectBooleanCheckbox>
+                <!--<input name="" id="" type="checkbox" value=""  onclick="hideEl('mailingaddress')"/>--> <label >Check here if permanent address is different than above address.  </label>
+            </div>
+            </fieldset>
+            
+      </div>
+      <a4j:outputPanel id="displayPermanentAddressSection">
+		<s:div rendered="#{addressChange.contact.useMailAddressAndNotHomeAddress}">
+		      <div class="mailingaddress" id="mailingaddress">
+		      <h2>Permanent Address (if different from above) </h2>
+		      
+		   	  <div class="display_table">
+		      <p>If you have a permanent address, different from the above, please enter it here. </p>   
+		            <fieldset>
+		            <div class="grid-7-12"> 
+		                <label class="required">Street Address:</label>
+		                
+		                	<h:inputText class="textfield" 
+			                    value="#{addressChange.contact.mailStreet}" 
+			                    required="true"
+			                    requiredMessage="Permanent Street Address is required."
+			                    converter="#{stringTrimConverter}"/>
+			            
+		                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+		            </div>
+		            <div class="grid-5-12"> 
+		                <label  class="required">City:</label>
+		                
+		                	<h:inputText class="textfield"
+		                		required="true"
+		                		requiredMessage="Permanent City is required." 
+			                    value="#{addressChange.contact.mailCity}" 
+			                    converter="#{stringTrimConverter}"/>
+			            
+		                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+		            </div>
+		            </fieldset> 
+		            
+		            
+		            
+		            <fieldset>
+		           
+		            <div class="grid-3-12"> 
+		                 <label class="required">State</label><div class="clear"></div>
+		                 	
+		                 	<h:selectOneMenu id="permanentState"
+		                 		class="dropmenu"
+								value="#{addressChange.contact.mailState}"
+								title="Select a State"
+								required="true"
+								requiredMessage="Permanent State is required.">
+									<f:selectItems 	value="#{addressChange.stateList}"/>
+								</h:selectOneMenu>	
+						
+		                      
+		            </div>
+		            <div class="grid-2-12"> 
+		                <label  class="required">Zip Code</label>
+		                
+		                	<h:inputText class="textfield" 
+			                    value="#{addressChange.contact.mailZip}" 
+			                    required="true"
+			                    requiredMessage="Permanent Zip Code is required."
+			                    maxlength="10"
+			                    converter="#{stringTrimConverter}"/>
+			            
+			            
+		                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+		            </div>
+		            </fieldset>
+		      </div>																																		
+      		</div>
+      </s:div>
+      </a4j:outputPanel>
+       
+       	
+       
+      
+     </s:validateAll>
+      <!-- Nav buttons --> 
+      <fieldset>
+               	<div class="grid-6-12">
+                	<!--<input type="button" name="" id="" value="Previous" accesskey="p" class="submit_button" onclick="location.href='address-change.xhtml'" />-->
+                	<h:commandButton action="#{addressChange.cancel}"
+               			value="Cancel" 
+               			styleClass="submit_button"
+               			onclick="return confirm('Are you sure that you would like to cancel?');"/>
+                </div>
+                
+                
+                <div class="grid-6-12 form-right">
+                	<h:commandButton id="Continue"
+                			styleClass="submit_button"
+                          	value="Continue"
+                          	accesskey="s"
+                         	action="#{addressChange.continueToConfirmationPage}">
+      				</h:commandButton>
+                    <!--<input type="button" name="" id="" value="Continue" accesskey="c" class="submit_button" onclick="location.href='newapp-employment.html'" />-->
+                </div>
+                
+       </fieldset>
+       </div><!-- end of .home_table  -->
+     <!--</form>-->
+     </h:form>
+
+
+
+
+
+</ui:define>
+</ui:composition>

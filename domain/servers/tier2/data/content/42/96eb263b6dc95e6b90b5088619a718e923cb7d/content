@@ -1,0 +1,29 @@
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema">
+ 
+<datasource jndi-name="java:jboss/datasources/huntdraw" pool-name="huntdrawDB" enabled="true" use-java-context="true">
+   <url-delimiter>|</url-delimiter>
+    <connection-url>jdbc:sqlserver://tazgovsql02:1433;databaseName=HUNTDRAW;schemaName=dbo;sendStringParametersAsUnicode=false|jdbc:sqlserver://10.1.7.190:1433;databaseName=HUNTDRAW;schemaName=dbo;sendStringParametersAsUnicode=false</connection-url>
+    <driver>sqljdbc</driver>
+    <new-connection-sql>select 1</new-connection-sql>
+    <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+    <pool>
+        <min-pool-size>1</min-pool-size>
+        <max-pool-size>2</max-pool-size>
+    </pool>
+    <security>
+        <user-name>huntdrawuser</user-name>
+        <password>pswd4huntdraw</password>
+    </security>
+    <validation>
+        <check-valid-connection-sql>select 1</check-valid-connection-sql>
+    </validation>
+    <timeout>
+        <set-tx-query-timeout>true</set-tx-query-timeout>
+        <blocking-timeout-millis>5000</blocking-timeout-millis>
+        <idle-timeout-minutes>15</idle-timeout-minutes>
+    </timeout>
+    <statement>
+        <track-statements>false</track-statements>
+    </statement>
+</datasource>
+</datasources>

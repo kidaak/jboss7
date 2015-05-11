@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   xmlns:nic="http://java.sun.com/jsf/composite/components"
+   template="/WEB-INF/templates/destemplate.xhtml">
+   
+<ui:param name="title" value="Survey" />
+<ui:define name="localAltbreadcrumb">
+	Survey
+</ui:define>   
+<ui:define name="pageCss"/>
+<ui:define name="localBody">
+
+<h:form id="survey" style="text-align:left;">
+  <table width="80%" border="0" cellspacing="0" cellpadding="2" class="home_table">
+        
+          <tr>
+            <td align="left"> <h2>DES - Survey</h2>
+              <table width="100%" border="0" cellpadding="0" cellspacing="0"  class="display_table">
+                  <tr>
+                    <td align="left" valign="top">
+<p>Thank you for your interest in taking this short survey. Your responses are anonymous.</p>
+</td>
+                    </tr>
+
+                </table><br/>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table survey_table">
+                  <tr>
+                    <td width="60%" height="187" align="left" valign="top">
+                    	<strong>How did  you find out about the Online Payment System? </strong><br />
+	                    <h:selectOneRadio styleClass="radioButton" layout="pageDirection" value="#{survey.foundBy}">                      							
+							<f:selectItem itemLabel="Radio" itemValue="R" />
+							<f:selectItem itemLabel="Television" itemValue="T" />
+							<f:selectItem itemLabel="Search Engine" itemValue="S" />
+							<f:selectItem itemLabel="Newspaper/Print Media" itemValue="N" />
+							<f:selectItem itemLabel="Internet" itemValue="I" />
+							<f:selectItem itemLabel="Monthly Statement" itemValue="M" />
+							<f:selectItem itemLabel="Other" itemValue="O" />				
+						</h:selectOneRadio>
+					</td>
+                    <td width="40%" align="left" valign="top"></td>
+                  </tr>
+                 
+                  <tr>
+                    <td width="60%" height="110" align="left" valign="top">
+						<strong>How  satisfied were you using the Online Payment System? </strong><br />
+	                     <h:selectOneRadio styleClass="radioButton" layout="pageDirection" value="#{survey.satisfied}">  
+		                     <f:selectItem itemLabel="Very Satisfied" itemValue="V" />
+		                     <f:selectItem itemLabel="Somewhat Satisfied" itemValue="S" />
+		                     <f:selectItem itemLabel="Not Satisfied" itemValue="N" />
+	                     </h:selectOneRadio>
+	                    
+                    </td>
+
+                    <td align="left" valign="top">
+					<strong>Was the  application easy to use? </strong><br />
+    	                <h:selectOneRadio styleClass="radioButton" layout="pageDirection" value="#{survey.easyToUse}">  
+		                     <f:selectItem itemLabel="Yes" itemValue="Y" />
+		                     <f:selectItem itemLabel="No" itemValue="N" />
+		                     <f:selectItem itemLabel="Not Used" itemValue="O" />
+	                     </h:selectOneRadio>
+					</td>
+                  </tr>
+                
+                  <tr>
+                    <td align="left" valign="top">
+					<strong>Was the help easy to find? </strong><br />
+                    <h:selectOneRadio styleClass="radioButton" layout="pageDirection" value="#{survey.helpEasy}">  
+		                     <f:selectItem itemLabel="Yes" itemValue="Y" />
+		                     <f:selectItem itemLabel="No" itemValue="N" />
+		                     <f:selectItem itemLabel="Not Used" itemValue="O" />
+	                     </h:selectOneRadio>	               
+					</td>
+
+                    <td align="left" valign="top">
+					<strong>Was the help useful? </strong><br />
+                     <h:selectOneRadio styleClass="radioButton" layout="pageDirection" value="#{survey.helpUseful}">  
+		                     <f:selectItem itemLabel="Yes" itemValue="Y" />
+		                     <f:selectItem itemLabel="No" itemValue="N" />
+		                     <f:selectItem itemLabel="Not Used" itemValue="O" />
+	                     </h:selectOneRadio>             
+					</td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top">
+                      <p><label>Please give us your comments about the Online Payment System:</label> </p>
+                        <h:inputTextarea id="comments" rows="5" cols="40" styleClass="textfield" value="#{survey.comments}" validator="#{surveyController.validate}"/>
+                    </td>
+                    <td align="left" valign="top"></td>
+                  </tr>
+                </table>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="button_table">
+                  <tr>
+                    <td width="39%" align="left" valign="top" nowrap="nowrap">
+                    <h:commandButton type="submit" value="Submit Your Survey Responses" id="submitSurvey"
+							styleClass="submit_button" action="#{surveyController.save}"/>
+                    
+                   </td>
+                    <td width="50%" align="right" valign="top" nowrap="nowrap"></td>
+                  </tr>
+
+                </table>
+                </td>
+          </tr>
+        </table>
+ </h:form>
+</ui:define></ui:composition>

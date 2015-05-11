@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/WEB-INF/templates/bhaTemplate.xhtml">
+
+	<ui:param name="title" value="Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName1"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName2" value="Online Payment Service" />
+	<ui:param name="agencyName"
+		value="Board of Behavioral Health Examiners" />
+	<ui:param name="appImage" value="agencylogo_bbhe.jpg" />
+	<ui:param name="donotRenderHelp" value="true" />
+
+
+	<ui:define name="body">
+
+    <form action="" method="post"> 
+        
+        
+        <div id="main">
+
+        
+        			Session is : <h:outputText value="#{bha.session}" />
+		       		
+			</div>	
+	    
+        </form>
+        
+      
+	
+	</ui:define>
+	
+</ui:composition>

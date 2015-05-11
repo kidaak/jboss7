@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   xmlns:nic="http://java.sun.com/jsf/composite/components"
+   template="/WEB-INF/templates/destemplate.xhtml">
+   
+<ui:param name="title" value="Thank you for taking survey" />
+<ui:define name="localAltbreadcrumb">
+	Survey Submission
+</ui:define>   
+<ui:define name="pageCss"/>
+<ui:define name="localBody">
+<div align="center">
+         <table width="80%" border="0" cellspacing="0" cellpadding="2" class="home_table">       
+          <tr>
+            <td align="left"><h2>DES - Thank You</h2>
+              <table width="100%" border="0" cellpadding="0" cellspacing="0"  class="display_table">
+                  <tr>
+                    <td align="left" valign="top"><p>Thank you. Your results have been recorded.</p>
+                      </td>
+                    </tr>
+                </table>   
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="button_table">
+                <tr>
+                  <td width="39%" align="left" valign="top" nowrap="nowrap">
+                  <h:form id="lastLogoutForm">
+	                    <h:commandButton id="logout" action="#{loginController.logout}" styleClass="submit_button" value="Log Out" immediate="true"/>
+					</h:form>
+                  </td>
+                  <td width="50%" align="right" valign="top" nowrap="nowrap"></td>
+                </tr>
+              </table>
+              </td>
+          </tr>
+        </table>
+
+        <div id="testdiv1"></div>
+      </div>
+</ui:define></ui:composition>

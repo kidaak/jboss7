@@ -1,0 +1,136 @@
+13:09:38,022 INFO  [org.jboss.modules] (main) JBoss Modules version 1.1.3.GA
+13:09:40,224 INFO  [org.jboss.msc] (main) JBoss MSC version 1.0.2.GA
+13:09:40,767 INFO  [org.jboss.as] (MSC service thread 1-2) JBAS015899: JBoss AS 7.1.4.Final-SNAPSHOT "Arges" starting
+13:09:41,786 INFO  [org.xnio] (MSC service thread 1-2) XNIO Version 3.0.7.GA
+13:09:41,840 INFO  [org.xnio.nio] (MSC service thread 1-2) XNIO NIO Implementation Version 3.0.7.GA
+13:09:41,935 INFO  [org.jboss.remoting] (MSC service thread 1-2) JBoss Remoting version 3.2.13.GA
+13:10:17,685 INFO  [org.jboss.as.logging] (MSC service thread 1-1) JBAS011502: Removing bootstrap log handlers
+13:12:20,778 INFO  [org.jboss.as.logging] (MSC service thread 1-1) JBAS011503: Restored bootstrap log handlers
+13:12:20,779 INFO  [stdout] (MSC service thread 1-2) 164780 [MSC service thread 1-2] DEBUG com.nicusa.az.rce.action.ApplicationConfig  - --> stop(): ApplicationConfig is being destroyed...
+13:12:20,780 INFO  [stdout] (MSC service thread 1-2) 164782 [MSC service thread 1-2] DEBUG com.nicusa.az.rce.action.ApplicationConfig  - <-- stop().
+13:12:20,792 INFO  [org.jboss.as.messaging] (ServerService Thread Pool -- 31) JBAS011605: Unbound messaging object to jndi name java:/ConnectionFactory
+13:12:20,912 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 31) JBAS011403: Stopping Persistence Unit Service 'rce.ear/rce-ejb.jar#rcePU'
+13:12:20,920 INFO  [org.jboss.as.messaging] (ServerService Thread Pool -- 3) JBAS011605: Unbound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+13:12:20,913 INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (ServerService Thread Pool -- 31) ISPN000078: Starting JGroups Channel
+13:12:21,177 INFO  [jacorb.poa] (POADestructor) POA Naming destroyed
+13:12:21,178 INFO  [stdout] (ServerService Thread Pool -- 31) 
+13:12:21,178 INFO  [stdout] (ServerService Thread Pool -- 31) -------------------------------------------------------------------
+13:12:21,178 INFO  [stdout] (ServerService Thread Pool -- 31) GMS: address=master:tier1/hibernate, cluster=hibernate, physical address=0.0.0.0:55300
+13:12:21,178 INFO  [stdout] (ServerService Thread Pool -- 31) -------------------------------------------------------------------
+13:12:21,239 INFO  [jacorb.poa] (POADestructor) POA IRPOA destroyed
+13:12:21,244 INFO  [org.hornetq.ra.HornetQResourceAdapter] (MSC service thread 1-2) HornetQ resource adapter stopped
+13:12:21,281 INFO  [org.infinispan.eviction.PassivationManagerImpl] (MSC service thread 1-1) ISPN000029: Passivating all entries to disk
+13:12:21,285 INFO  [org.infinispan.eviction.PassivationManagerImpl] (MSC service thread 1-1) ISPN000030: Passivated 0 entries in 3 milliseconds
+13:12:21,304 INFO  [org.jboss.as.clustering.infinispan] (MSC service thread 1-1) JBAS010282: Stopped default-host/app/bha cache from web container
+13:12:21,403 INFO  [jacorb.poa] (POADestructor) POA RootPOA destroyed
+13:12:21,179 ERROR [org.jboss.as.jpa] (ServerService Thread Pool -- 31) JBAS011406: Failed to stop persistence unit service rce.ear/rce-ejb.jar#rcePU: org.infinispan.manager.EmbeddedCacheManagerStartupException: org.infinispan.CacheException: Unable to invoke method public void org.infinispan.remoting.transport.jgroups.JGroupsTransport.start() on object of type JGroupsTransport
+	at org.infinispan.factories.GlobalComponentRegistry.start(GlobalComponentRegistry.java:223)
+	at org.infinispan.manager.DefaultCacheManager.wireCache(DefaultCacheManager.java:684)
+	at org.infinispan.manager.DefaultCacheManager.createCache(DefaultCacheManager.java:649)
+	at org.infinispan.manager.DefaultCacheManager.getCache(DefaultCacheManager.java:549)
+	at org.infinispan.manager.DefaultCacheManager.getCache(DefaultCacheManager.java:563)
+	at org.jboss.as.clustering.infinispan.DefaultEmbeddedCacheManager.getCache(DefaultEmbeddedCacheManager.java:125)
+	at org.jboss.as.clustering.infinispan.DefaultEmbeddedCacheManager.getCache(DefaultEmbeddedCacheManager.java:116)
+	at org.jboss.as.clustering.infinispan.DefaultEmbeddedCacheManager.getCache(DefaultEmbeddedCacheManager.java:107)
+	at org.hibernate.cache.infinispan.InfinispanRegionFactory.stopCacheRegions(InfinispanRegionFactory.java:339)
+	at org.hibernate.cache.infinispan.InfinispanRegionFactory.stop(InfinispanRegionFactory.java:333)
+	at org.hibernate.internal.CacheImpl.close(CacheImpl.java:279)
+	at org.hibernate.internal.SessionFactoryImpl.close(SessionFactoryImpl.java:1340)
+	at org.hibernate.ejb.EntityManagerFactoryImpl.close(EntityManagerFactoryImpl.java:194)
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$2.run(PersistenceUnitServiceImpl.java:124)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886) [rt.jar:1.6.0_33]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908) [rt.jar:1.6.0_33]
+	at java.lang.Thread.run(Thread.java:662) [rt.jar:1.6.0_33]
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122) [jboss-threads-2.0.0.GA.jar:2.0.0.GA]
+Caused by: org.infinispan.CacheException: Unable to invoke method public void org.infinispan.remoting.transport.jgroups.JGroupsTransport.start() on object of type JGroupsTransport
+	at org.infinispan.util.ReflectionUtil.invokeAccessibly(ReflectionUtil.java:238)
+	at org.infinispan.factories.AbstractComponentRegistry$PrioritizedMethod.invoke(AbstractComponentRegistry.java:894)
+	at org.infinispan.factories.AbstractComponentRegistry.invokeStartMethods(AbstractComponentRegistry.java:644)
+	at org.infinispan.factories.AbstractComponentRegistry.internalStart(AbstractComponentRegistry.java:633)
+	at org.infinispan.factories.AbstractComponentRegistry.start(AbstractComponentRegistry.java:536)
+	at org.infinispan.factories.GlobalComponentRegistry.start(GlobalComponentRegistry.java:201)
+	... 17 more
+Caused by: org.infinispan.CacheException: Unable to start JGroups Channel
+	at org.infinispan.remoting.transport.jgroups.JGroupsTransport.startJGroupsChannelIfNeeded(JGroupsTransport.java:186)
+	at org.infinispan.remoting.transport.jgroups.JGroupsTransport.start(JGroupsTransport.java:175)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.6.0_33]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39) [rt.jar:1.6.0_33]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) [rt.jar:1.6.0_33]
+	at java.lang.reflect.Method.invoke(Method.java:597) [rt.jar:1.6.0_33]
+	at org.infinispan.util.ReflectionUtil.invokeAccessibly(ReflectionUtil.java:236)
+	... 22 more
+Caused by: java.lang.IllegalArgumentException: failed to start server socket
+	at org.jgroups.protocols.FD_SOCK.down(FD_SOCK.java:308)
+	at org.jgroups.protocols.FD.down(FD.java:308)
+	at org.jgroups.protocols.VERIFY_SUSPECT.down(VERIFY_SUSPECT.java:80)
+	at org.jgroups.protocols.pbcast.NAKACK.down(NAKACK.java:533)
+	at org.jgroups.protocols.UNICAST2.down(UNICAST2.java:485)
+	at org.jgroups.protocols.pbcast.STABLE.down(STABLE.java:328)
+	at org.jgroups.protocols.pbcast.GMS.down(GMS.java:924)
+	at org.jgroups.protocols.FlowControl.down(FlowControl.java:351)
+	at org.jgroups.protocols.FlowControl.down(FlowControl.java:351)
+	at org.jgroups.protocols.FRAG2.down(FRAG2.java:147)
+	at org.jgroups.protocols.RSVP.down(RSVP.java:143)
+	at org.jgroups.stack.ProtocolStack.down(ProtocolStack.java:1033)
+	at org.jgroups.JChannel.down(JChannel.java:730)
+	at org.jgroups.JChannel.connect(JChannel.java:290)
+	at org.jgroups.JChannel.connect(JChannel.java:261)
+	at org.infinispan.remoting.transport.jgroups.JGroupsTransport.startJGroupsChannelIfNeeded(JGroupsTransport.java:184)
+	... 28 more
+Caused by: java.net.BindException: bind_addr /0.0.0.0 is not a valid interface: java.net.BindException: Address already in use
+	at org.jgroups.util.Util.createServerSocket(Util.java:3172)
+	at org.jgroups.protocols.FD_SOCK.startServerSocket(FD_SOCK.java:568)
+	at org.jgroups.protocols.FD_SOCK.down(FD_SOCK.java:305)
+	... 43 more
+
+13:12:21,487 WARN  [org.hornetq.core.protocol.core.impl.RemotingConnectionImpl] (Thread-3 (HornetQ-client-global-threads-1402104267)) Connection failure has been detected: The connection was disconnected because of server shutdown [code=4]
+13:12:21,488 WARN  [org.hornetq.core.protocol.core.impl.RemotingConnectionImpl] (Thread-5 (HornetQ-client-global-threads-1402104267)) Connection failure has been detected: The connection was disconnected because of server shutdown [code=4]
+13:12:21,488 WARN  [org.hornetq.core.protocol.core.impl.RemotingConnectionImpl] (Thread-6 (HornetQ-client-global-threads-1402104267)) Connection failure has been detected: The connection was disconnected because of server shutdown [code=4]
+13:12:21,570 INFO  [org.infinispan.eviction.PassivationManagerImpl] (MSC service thread 1-2) ISPN000029: Passivating all entries to disk
+13:12:21,572 INFO  [org.infinispan.eviction.PassivationManagerImpl] (MSC service thread 1-2) ISPN000030: Passivated 0 entries in 2 milliseconds
+13:12:21,574 INFO  [org.jboss.as.clustering.infinispan] (MSC service thread 1-2) JBAS010282: Stopped default-host/app/desops cache from web container
+13:12:21,621 INFO  [jacorb.orb] (ServerService Thread Pool -- 31) prepare ORB for shutdown...
+13:12:21,621 INFO  [jacorb.orb] (ServerService Thread Pool -- 31) ORB going down...
+13:12:21,654 INFO  [org.hornetq.core.server.cluster.impl.BridgeImpl] (Thread-22 (HornetQ-server-HornetQServerImpl::serverUUID=5415b955-dfb2-11e4-a20f-c98243543d28-527887735)) stopped bridge sf.my-cluster.547fec9f-dfb2-11e4-b552-f348fc93969e
+13:12:21,680 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016009: Stopping weld service for deployment tpe-ejb.ear
+13:12:21,684 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016009: Stopping weld service for deployment bha.war
+13:12:21,686 INFO  [jacorb.orb] (ServerService Thread Pool -- 31) ORB shutdown complete
+13:12:21,695 INFO  [jacorb.orb] (ORB Run Thread) ORB run, exit
+13:12:21,698 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016009: Stopping weld service for deployment dre.ear
+13:12:21,700 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016009: Stopping weld service for deployment ejbs.ear
+13:12:21,750 INFO  [jacorb.orb.iiop] (ServerSocketListener) Listener exited
+13:12:21,790 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016009: Stopping weld service for deployment desops2.war
+13:12:21,918 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 31) JBAS011403: Stopping Persistence Unit Service 'tpe-ejb.ear/tpe-ejb-ejb-1.0-SNAPSHOT.jar#primary'
+13:12:21,922 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 31) JBAS011403: Stopping Persistence Unit Service 'ejbs.ear/ejbs-ejb-1.0-SNAPSHOT.jar#primary'
+13:12:21,923 INFO  [org.infinispan.eviction.PassivationManagerImpl] (MSC service thread 1-1) ISPN000029: Passivating all entries to disk
+13:12:21,923 INFO  [org.infinispan.eviction.PassivationManagerImpl] (MSC service thread 1-1) ISPN000030: Passivated 0 entries in 0 milliseconds
+13:12:21,941 INFO  [org.jboss.as.clustering.infinispan] (MSC service thread 1-1) JBAS010282: Stopped repl cache from web container
+13:12:22,027 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 31) JBAS011403: Stopping Persistence Unit Service 'bha.war#primary'
+13:12:22,108 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-2) HornetQ Server version 2.2.21.SNAPSHOT (HQ_2_2_21_final, 122) [5415b955-dfb2-11e4-a20f-c98243543d28] stopped
+13:12:22,172 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 31) JBAS011403: Stopping Persistence Unit Service 'desops2.war#primary'
+13:12:22,269 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment mssql-dre-prodtest-ds.xml in 2228ms
+13:12:22,270 INFO  [com.arjuna.ats.jbossatx] (MSC service thread 1-2) ARJUNA032018: Destroying TransactionManagerService
+13:12:22,271 INFO  [com.arjuna.ats.jbossatx] (MSC service thread 1-2) ARJUNA032014: Stopping transaction recovery manager
+13:12:22,348 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment bha.war in 2307ms
+13:12:22,746 INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (MSC service thread 1-1) ISPN000080: Disconnecting and closing JGroups Channel
+13:12:22,820 INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (MSC service thread 1-1) ISPN000082: Stopping the RpcDispatcher
+13:12:22,825 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment jboss-seam-2.2.2.Final.jar in 2764ms
+13:12:22,869 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment rce-ejb.jar in 2808ms
+13:12:22,870 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment rce-war.war in 2844ms
+13:12:22,872 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment desops2.war in 2831ms
+13:12:22,873 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment tpe-ejb-web-1.0-SNAPSHOT.war in 2766ms
+13:12:22,873 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment tpe-ejb-ejb-1.0-SNAPSHOT.jar in 2812ms
+13:12:22,873 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment ejbs-ejb-1.0-SNAPSHOT.jar in 2812ms
+13:12:22,883 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment ejbs-web-1.0-SNAPSHOT.war in 2822ms
+13:12:22,983 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment mssql-bha-prodtest-ds.xml in 2942ms
+13:12:22,985 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment rce.ear in 2959ms
+13:12:22,985 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment tpe-ejb.ear in 2944ms
+13:12:22,985 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment mssql-desops-prodtest-ds.xml in 2908ms
+13:12:22,986 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment ejbs.ear in 2945ms
+13:12:23,004 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment dre.war in 2943ms
+13:12:23,024 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment dre.ear in 2947ms
+13:12:23,025 INFO  [org.jboss.as.controller] (MSC service thread 1-2) JBAS014774: Service status report
+JBAS014776:    Newly corrected services:
+      service jboss.logging.handler.EJB-client (new available)
+
+13:12:23,078 INFO  [org.jboss.as] (MSC service thread 1-1) JBAS015950: JBoss AS 7.1.4.Final-SNAPSHOT "Arges" stopped in 3001ms

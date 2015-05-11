@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	template="/WEB-INF/templates/bhaTemplate.xhtml">
+
+	<ui:param name="title" value="Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName1"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName2" value="Online Payment Service" />
+	<ui:param name="agencyName"
+		value="Board of Behavioral Health Examiners" />
+	<ui:param name="appImage" value="agencylogo_bbhe.jpg" />
+	<ui:param name="donotRenderHelp" value="true" />
+	<ui:param name="donotRenderFAQ" value="true" />
+
+	<ui:define name="localCss">
+	<link href="resources/assets/css/azgov.css" rel="stylesheet"
+			type="text/css" media="screen" />
+		<link href="resources/assets/css/azbbhe.css" rel="stylesheet"
+			type="text/css" media="screen" />
+		
+	</ui:define>
+
+	<ui:define name="localJs">
+		<script type="text/javascript"
+			src="http://prodtest.az.gov/static/portal/js/jquery-1.3.js" />
+		<script type="text/javascript"
+			src="http://prodtest.az.gov/static/portal/js/jquery.maskedinput-1.2.2.js" />
+	</ui:define>
+	
+<ui:define name="body">
+    
+    <div align="center">
+        <div class="error">
+          <div class="errror_message"> <span style="font-size:1.2em">We are sorry about the inconvenience</span> <br />
+              <br />
+            The Web page you have requested could not be found on our server. Please check back later.<br />
+            <p><a href="http://www.az.gov" target="_self">Return to AZ.gov</a> or hit the back button to return
+                to the previous page.<br />
+            </p>
+          </div>
+        </div>
+      </div>
+
+ </ui:define> 
+</ui:composition>

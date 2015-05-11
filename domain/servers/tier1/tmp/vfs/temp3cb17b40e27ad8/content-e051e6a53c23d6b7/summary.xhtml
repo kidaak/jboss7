@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/WEB-INF/templates/bhaTemplate.xhtml">
+	<ui:param name="pageTitle" value="Summary" />
+	<ui:param name="title"
+		value="Arizona Board of Behavioral Health Examiners | Order Summary" />
+	<ui:param name="applicationName1"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName2" value="Online Payment Service" />
+	<ui:param name="agencyName"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="appImage" value="agencylogo_bbhe.jpg" />
+	<ui:param name="donotRenderHelp" value="true" />
+	<ui:param name="donotRenderFAQ" value="true" />
+
+	<ui:define name="localCss">
+		<link href="resources/assets/css/azbbhe.css" rel="stylesheet"
+			type="text/css" media="screen" />
+	</ui:define>
+
+	<ui:define name="localJs">
+	</ui:define>
+
+	<ui:define name="breadcrumb"></ui:define>
+
+	<ui:define name="altbreadcrumb">
+		<div id="breadcrumb2">
+			<!--<a href="index.jsf" target="_self">Home</a> &gt; <a
+				href="personalInfo.jsf" target="_self">Personal Information</a> &gt;
+			 <a href="#{bha.previousPage}" target="_self">#{bha.previousPageName}</a> &gt;
+			SUMMARY -->
+			<h:form>
+			<h:commandLink action="personalInfo?faces-redirect=true">Personal Information &gt;</h:commandLink>
+			<h:commandLink action="#{bha.getPreviousPage}">#{bha.previousPageName} &gt;</h:commandLink>
+			 SUMMARY
+			</h:form>
+		</div>
+		<!--  <h1>Order Information</h1> -->
+	</ui:define>
+	<ui:define name="body">
+
+		<h:form id="mainform" class="form">
+			<div class="home_table">
+					<h:commandLink target="_self" action="paymentPopUp?faces-redirect=true"  rendered="#{bha.newPaymentNeeded}" immediate="true" >
+               	Our records show you already processed a payment for this order, if this is a new order click here.
+              </h:commandLink>
+			
+			
+				<div class="instructions">Please review the following for accuracy before proceeding to checkout.</div>
+				<h2>Order Summary</h2>
+				<div class="display_table lgrey">
+					<!-- Form content -->
+
+					<h3>PERSONAL INFORMATION</h3>
+					
+					<blockquote>
+
+					<fieldset class="submitted">
+						<!-- From personal information -->
+					
+						<div class="grid-11-12">
+						
+						<h:outputText value="#{bha.customer.firstName}" />
+						<h:outputText value=" "  rendered="#{not empty bha.customer.middleInitial}"/>
+						<h:outputText value="#{bha.customer.middleInitial}" />
+						<h:outputText value=" " />
+						<h:outputText value="#{bha.customer.lastName}" />
+						<br />
+						<h:outputText value="#{bha.customer.address}" />
+						<br />
+						<h:outputText value="#{bha.customer.city}" />, <h:outputText value=" #{bha.customer.state}" />
+						<h:outputText value=" #{bha.customer.zipcode}" />
+						<br />
+						<br />
+						<b><h:outputText value="County: "/></b>
+						<h:outputText value="#{bha.customer.county}" />
+						<br />
+						<b><h:outputText value="Date of Birth: " /></b>
+						<h:outputText value="#{bha.customer.dob}" >
+						<f:convertDateTime pattern="MM/dd/yyyy" />
+						<br />
+						</h:outputText>
+						<br />
+						<b><h:outputText value="Last 4 SSN: " /></b> 
+						<h:outputText value="#{bha.customer.last4ssn}" />
+						</div>
+						
+						<div class="grid-1-12">
+							<h:commandButton id="Edit" styleClass="submit_button"
+							value="Edit" action="#{bha.setShowRetunToSummary(true)}"/>
+						</div>
+						
+					</fieldset>
+					</blockquote>
+
+					<h3>PRODUCT and FEES</h3>
+
+					<blockquote>
+           
+             <fieldset class="header"> 
+               
+                <div class="grid-3-12"><h3>Product</h3></div>
+                <div class="grid-2-12"><h3><h:outputText value="License #" rendered="#{bha.optionalColumns}"/></h3></div>
+                <div class="grid-2-12"><h3><h:outputText value=" Expiration Date" rendered="#{bha.optionalColumns}"/></h3></div>
+                <div class="grid-1-12"></div>
+                <div class="grid-2-12">
+                	<div class="grid-12-12">
+                   		 <h3>Fee</h3>
+                    </div>
+                </div>
+                
+                <div class="grid-1-12"></div>
+                <div class="grid-1-12"></div>
+             </fieldset>
+             
+							<ui:repeat value="#{bha.summaryList}" var="o">
+
+								<fieldset class="submitted">
+
+            		 					  
+           							      <div class="grid-3-12">
+           							      		<h:outputText value="#{o.bhaProduct.name}" />
+           							      </div>
+													
+           							      <div class="grid-2-12">
+           							      	<h:outputText value="#{o.licenseNumber}"/>
+           							      </div>
+           							      
+               							  <div class="grid-2-12">
+               							  	<h:outputText value="#{o.expirationDate}">
+               							  		<f:convertDateTime pattern="M-dd-yyyy" />
+               							  	</h:outputText>
+										 </div>
+										 
+										 <div class="grid-2-12 ">
+         						          <div class="grid-12-12 form-right">
+         						          	<h:outputText value="$"/>
+         						          	<h:outputText value="#{o.bhaProduct.price}"/>
+         						          </div>
+         						          </div>
+         						           <div class="grid-1-12"></div>
+                						  <div class="grid-1-12"> </div>
+                                          <div class="grid-1-12"></div>
+             					
+								</fieldset>
+							</ui:repeat>
+
+						<fieldset class="total">
+							<div class="grid-5-12"></div>
+							<div class="grid-2-12 ">
+								<h3>TOTAL:</h3>
+							</div>
+							<div class="grid-2-12">
+							<div class="grid-12-12  form-right">
+								<h3 class="form-right">
+									<h:outputText value="$"/>
+									<h:outputText value="#{bha.totalStr}" />
+								</h3>
+							</div>
+							</div>
+     						 <div class="grid-3-12"> </div>
+						</fieldset>
+						</blockquote>
+				</div>
+				<!-- Grey area -->
+
+				<fieldset>
+					<div class="grid-5-12">
+						<h:commandButton id="previousCommand" styleClass="submit_button"
+							value="Previous" action="#{bha.findPreviousPage}">
+						</h:commandButton>
+					</div>
+
+					<div class="grid-6-12 form-right">
+						<h:commandButton id="Continue" styleClass="submit_button"
+							value="Proceed to checkout" action="#{bha.proceedToCheckout}">
+						</h:commandButton>
+					</div>
+				</fieldset>
+
+			</div>
+			<!-- Display table  -->
+			<!-- home_table -->
+		</h:form>
+	</ui:define>
+
+</ui:composition>

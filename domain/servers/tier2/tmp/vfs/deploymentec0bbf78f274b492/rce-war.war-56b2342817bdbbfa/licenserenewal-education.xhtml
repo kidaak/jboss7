@@ -1,0 +1,488 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="Education Information"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <s:link view="/licenseholder-options.xhtml" value="Home"/> &gt;
+            <s:link view="/licenserenewal-renewal.xhtml" value=" License Renewal"/> &gt; 
+            <s:link view="/licenserenewal-terms.xhtml" value=" Terms and Conditions"/> &gt; 
+            <s:link view="/licenserenewal-citizen.xhtml" value=" Citizenship"/> &gt;
+            <s:link view="/licenserenewal-info.xhtml" value=" Applicant Information"/> &gt;
+            <s:link view="/licenserenewal-employment.xhtml" value=" Employment" /> &gt; Education
+        </div>
+    </ui:define>
+
+    <ui:define name="body">
+
+        <h:form class="form" id="educationForm">
+            <s:validateAll>
+
+                <div class="instructions"><h:outputText value="#{splashManager.newappEducationInstructions}" escape="false"></h:outputText></div>
+
+                <!-- top-of-section 'Previous' navigation button -->
+                <fieldset style="border:none">
+                    <div class="grid-6-12">
+                        <s:button id="btnTopPrevious" view="/licenserenewal-employment.xhtml" value="Previous" styleClass="submit_button"/>
+                    </div>
+                </fieldset>
+
+                <div align="left"><label class="required">Indicates required fields</label></div>
+
+                <h2>Certifications</h2>
+
+                <!-- NBRC CRT OR RRT certified -->
+                <div class="display_table">
+                    <fieldset>
+                        <div class="grid-12-12">
+                            <label class="required">Are you NBRC CRT or RRT certified?</label>
+                            <h:selectOneRadio id="nbrcCertified" value="#{renewalApplication.contact.nbrccrtrrtcertified}" required="true" requiredMessage="Please indicate if you are CRT or RRT certified.">  
+                                <f:selectItem itemValue="True" itemLabel="Yes" />  
+                                <f:selectItem itemValue="False" itemLabel="No"/>  
+                                <a4j:support oncomplete="jQuery('.mask_date_us').mask('99/99/9999')" ajaxSingle="true" actionListener="#{renewalApplication.changeOnNBRCCRTRRTCertified}" event="onclick" reRender="descriptionForNoOnNBRCCertifiedTable, schoolCompletionDateOutputPanel, educationHighestCompleteDateOutputPanel"/>
+                            </h:selectOneRadio> 
+                        </div>
+                    </fieldset>
+
+                    <a4j:outputPanel id="descriptionForNoOnNBRCCertifiedTable">
+
+                        <s:div rendered="#{!renewalApplication.contact.nbrccrtrrtcertified}">
+                            <fieldset>
+                                <div class="grid-12-12">
+                                    <label class="required">If you are not NBRC Certified, please provide an explanation.</label>
+                                    <h:inputTextarea rows="4" id="notNBRCCertified"
+                                                     cols="7" 
+                                                     value="#{renewalApplication.contact.nbrcexplanation}" 
+                                                     class="textfield"
+                                                     required="true"
+                                                     requiredMessage="If you are not NBRC Certified, please provide an explanation."
+                                                     converter="#{stringTrimConverter}"/>
+                                </div>
+                            </fieldset>
+                        </s:div>
+
+                        <s:div rendered="#{renewalApplication.contact.nbrccrtrrtcertified}">
+                            <fieldset>
+                                <div class="grid-4-12">
+                                    <label>Date of CRT Test.</label>
+                                    <rich:calendar id="nbrcCertExamDate"
+                                                   jointPoint="top-right"
+                                                   direction="top-right"
+                                                   showWeeksBar="false"
+                                                   popup="true"
+                                                   showFooter="false"
+                                                   inputSize="15"
+                                                   enableManualInput="true"
+                                                   converterMessage="Please use a mm/dd/yyyy format for NBRC CRT Test Date." 
+                                                   value="#{renewalApplication.contact.nbrccrttexamDate}" 
+                                                   datePattern="MM/dd/yyyy" 
+                                                   style="width: 150px;" 
+                                                   inputClass="input_mask mask_date_us">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                    </rich:calendar>
+                                </div>
+
+                                <div class="grid-4-12">
+                                    <label>Date of RRT Test.</label>
+                                    <rich:calendar id="rrtExamDate" 
+                                                   jointPoint="top-right"
+                                                   direction="top-right"
+                                                   showWeeksBar="false"
+                                                   popup="true"
+                                                   showFooter="false"
+                                                   inputSize="15"
+                                                   enableManualInput="true"
+                                                   converterMessage="Please use a mm/dd/yyyy format for NBRC RRT Test Date."
+                                                   value="#{renewalApplication.contact.nbrcrrtexamDate}" 
+                                                   datePattern="MM/dd/yyyy" 
+                                                   style="width: 150px;" 
+                                                   inputClass="input_mask mask_date_us">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                    </rich:calendar>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <div class="grid-12-12">
+                                    <p>
+                                        <label>You may attach a copy of your NBRC certification as one of the following file-types:
+                                            <br/>.doc, .jpg, .gif, .tif,. rtf, .pdf, .docx</label>
+                                    </p>
+
+                                    <a4j:region id="regionNBRC">
+
+                                        <rich:fileUpload uploadData="#{renewalApplication.nbrcUploadItems}"
+                                                         fileUploadListener="#{renewalApplication.fileUploadListener('NBRC Attachment')}"
+                                                         addControlLabel="Upload attachment..."
+                                                         id="uploadNBRCAttachment"
+                                                         listHeight="50"
+                                                         listWidth="350"
+                                                         immediateUpload="true"
+                                                         maxFilesQuantity="3"
+                                                         acceptedTypes="doc, jpg, gif, tif, rtf, pdf, docx">
+
+                                            <a4j:support event="onuploadcomplete"
+                                                         reRender="uploadNBRCAttachment, listOfNBRCAttachments"
+                                                         actionListener="#{renewalApplication.onUploadCompleteActionListenerNBRC}"/>
+
+                                            <a4j:support event="onclear" reRender="listOfNBRCAttachments, uploadNBRCAttachment">
+                                                <a4j:actionparam  name="fname" noEscape="true" value="(event.memo.entry)?event.memo.entry.fileName:'' "
+                                                                  assignTo="#{renewalApplication.onClearActionParam}"
+                                                                  actionListener="#{renewalApplication.onClearActionListenerNBRC}"/>
+                                            </a4j:support>
+
+                                            <f:facet name="progress">
+                                                <rich:progressBar style="width: 100%;"/>
+                                            </f:facet>
+                                        </rich:fileUpload>
+
+                                        <p><rich:message for="uploadNBRCAttachment" styleClass="message"/></p>
+
+                                    </a4j:region>
+
+                                </div>   
+                            </fieldset>
+
+                            <a4j:outputPanel id="listOfNBRCAttachments">
+                                <fieldset>
+                                    <div class="grid-9-12 ">
+                                        <a4j:region>
+                                            <h:dataTable id="NBRCTable"
+                                                         var="item"
+                                                         rendered="#{not empty renewalApplication.nbrcUploadItems}"
+                                                         styleClass="searchResults"
+                                                         headerClass="attachmentTableHeader"
+                                                         value="#{renewalApplication.nbrcUploadItems}">
+
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Attachment" />
+                                                    </f:facet>
+
+                                                    <h:outputText value="#{renewalApplication.getFileName(item.fileName)}"/>
+                                                </h:column>
+
+                                                <!--  delete action  -->
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Action" />
+                                                    </f:facet>
+                                                    <a4j:commandLink reRender="uploadNBRCAttachment, listOfNBRCAttachments"
+                                                                     title="Remove"
+                                                                     actionListener="#{renewalApplication.removeNBRCAttachmentActionListener}"
+                                                                     style="text-decoration:none;">
+                                                        <h:graphicImage url="/img/delete.gif" />
+                                                        <f:attribute name="uploadItem" value="#{item}" />
+                                                    </a4j:commandLink>
+                                                </h:column>
+                                            </h:dataTable>
+                                        </a4j:region>
+                                    </div>
+                                </fieldset>
+                            </a4j:outputPanel>
+
+                        </s:div>
+
+                    </a4j:outputPanel>
+                </div><!-- End of display_table for certifications -->
+
+
+                <h2>Education Information</h2>
+                <div class="display_table">
+                    <fieldset>
+                        <div class="grid-12-12">
+                            <label class="required">Name of school</label>
+                            <h:inputText value="#{renewalApplication.contact.educationName}" 
+                                         id="nameOfSchool"
+                                         class="textfield"
+                                         required="true"
+                                         requiredMessage="Name of School is required."
+                                         converter="#{stringTrimConverter}"/>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="grid-7-12">
+                            <label>Street Address</label>
+                            <h:inputText value="#{renewalApplication.contact.educationStreet}"
+                                         id="schoolStreetAddress" 
+                                         class="textfield"
+                                         converter="#{stringTrimConverter}"/> 
+                        </div>   
+
+                        <div class="grid-5-12">
+                            <label class="required">City</label>
+                            <h:inputText value="#{renewalApplication.contact.educationCity}" 
+                                         id="schoolCity"
+                                         class="textfield"
+                                         required="true"
+                                         requiredMessage="City is required."
+                                         converter="#{stringTrimConverter}"/>                
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="grid-3-12">
+                            <label class="required">State</label>
+
+                            <h:selectOneMenu id="schoolState"
+                                             value="#{renewalApplication.contact.educationState}"
+                                             class="dropmenu"
+                                             title="Select a State"
+                                             required="true"
+                                             requiredMessage="State is required.">
+                                <f:selectItems    value="#{renewalApplication.stateList}"/>
+                            </h:selectOneMenu>   
+                        </div> 
+
+                        <div class="grid-2-12">
+                            <label class="required">Zip code</label>
+                            <h:inputText value="#{renewalApplication.contact.educationZip}" 
+                                         id="zipCode"
+                                         class="textfield"
+                                         required="true"
+                                         requiredMessage="Zip Code is required."/>  
+                        </div> 
+
+                        <div class="grid-3-12">
+                            <label class="required">Country</label>
+
+                            <h:selectOneMenu id="schoolCountry"
+                                             value="#{renewalApplication.contact.educationCountry}"
+                                             required="true"
+                                             requiredMessage="Country is required."
+                                             title="Select a Country">
+                                <f:selectItems    value="#{renewalApplication.countryList}"/>
+                            </h:selectOneMenu>
+                        </div>
+
+                        <div class="grid-1-12"><h:outputText value=" "/></div>
+
+
+                    </fieldset>
+
+                    <!-- for date to work correctly using jQuery mask, had to put other dates in an outputPanel and reRender them. -->
+                    <a4j:outputPanel id="schoolCompletionDateOutputPanel">
+                        <fieldset>
+                            <div class="grid-4-12">
+                                <label class="required">Training Completion Date</label>
+                                <rich:calendar id="schoolCompletionDate" 
+                                               jointPoint="top-right"
+                                               direction="top-right"
+                                               showWeeksBar="false"
+                                               popup="true"
+                                               showFooter="false"
+                                               inputSize="15"
+                                               enableManualInput="true"
+                                               converterMessage="Please use a mm/dd/yyyy format for Training Completion Date."
+                                               value="#{renewalApplication.contact.trainingCompDate}" 
+                                               datePattern="MM/dd/yyyy" 
+                                               style="width: 150px;" 
+                                               required="true"
+                                               requiredMessage="Training Completion Date is required."
+                                               inputClass="input_mask mask_date_us">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                </rich:calendar>
+                            </div>
+                        </fieldset>
+                    </a4j:outputPanel>
+
+                    <fieldset>
+                        <div class="grid-12-12">
+
+                            <p>
+                                <label>
+                                    You may attach a copy of your Degree, Diploma, or Letter of Completion received<br/>
+                                    as one of the following file-types: .doc, .jpg, .gif, .tif,. rtf, .pdf, .docx
+                                </label>
+                            </p>
+
+                            <a4j:region>
+
+                                <rich:fileUpload uploadData="#{renewalApplication.diplomaUploadItems}" 
+                                                 fileUploadListener="#{renewalApplication.fileUploadListener('Diploma Attachment')}"
+                                                 addControlLabel="Upload attachment..."
+                                                 id="uploadDiplomaAttachment"
+                                                 listHeight="50"
+                                                 listWidth="350"
+                                                 immediateUpload="true"
+                                                 maxFilesQuantity="3"
+                                                 acceptedTypes="doc, jpg, gif, tif, rtf, pdf, docx">
+
+                                    <a4j:support event="onuploadcomplete"
+                                                 reRender="uploadDiplomaAttachment, listOfDiplomaAttachments"
+                                                 actionListener="#{renewalApplication.onUploadCompleteActionListenerDiploma}"/>
+
+                                    <f:facet name="progress">
+                                        <rich:progressBar style="width: 100%;"/>
+                                    </f:facet>
+                                </rich:fileUpload>
+
+                                <p><rich:message for="uploadDiplomaAttachment" styleClass="message"/></p>
+
+                            </a4j:region>
+                        </div>
+                    </fieldset>    
+
+                    <a4j:outputPanel id="listOfDiplomaAttachments">
+                        <fieldset>
+                            <div class="grid-9-12 ">
+                                <a4j:region>
+                                    <h:dataTable id="DiplomaTable"
+                                                 var="item"
+                                                 rendered="#{not empty renewalApplication.diplomaUploadItems}"
+                                                 styleClass="searchResults"
+                                                 headerClass="attachmentTableHeader"
+                                                 value="#{renewalApplication.diplomaUploadItems}">
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Attachment" />
+                                            </f:facet>
+
+                                            <h:outputText value="#{item.fileName}"/>
+                                        </h:column>
+
+                                        <!--  delete action  -->
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Action" />
+                                            </f:facet>
+                                            <a4j:commandLink reRender="uploadDiplomaAttachment, listOfDiplomaAttachments"
+                                                             title="Remove"
+                                                             actionListener="#{renewalApplication.removeDiplomaAttachmentActionListener}"
+                                                             style="text-decoration:none;">
+                                                <h:graphicImage url="/img/delete.gif" />
+                                                <f:attribute name="uploadItem" value="#{item}" />
+                                            </a4j:commandLink>
+                                        </h:column>
+                                    </h:dataTable>
+                                </a4j:region>
+                            </div>
+                        </fieldset>
+                    </a4j:outputPanel>
+
+                    <br/>
+
+                    <fieldset>
+                        <div class="grid-5-12">
+                            <label class="required">Highest Level of Education Completed</label>
+                            <h:selectOneMenu id="highestLebelOfEducationCompleted"
+                                             value="#{renewalApplication.contact.educationCompleted}"
+                                             required="true"
+                                             requiredMessage="Highest Level of Education Completed is required."
+                                             title="Select Highest Level Of Education Completed">
+                                <a4j:support ajaxSingle="true" actionListener="#{renewalApplication.changeOnHighestLevelOfEducationCompleted}" event="onchange" reRender="highestLevelOfEducationCompletedOtherSection"/>
+                                <f:selectItems    value="#{renewalApplication.highestLevelOfEducationCompletedList}"/>
+                            </h:selectOneMenu>
+                        </div>
+
+                        <a4j:outputPanel id="educationHighestCompleteDateOutputPanel">
+
+                            <div class="grid-4-12">
+                                <label class="required">Date of Completion/Graduation</label>
+                                <rich:calendar id="educationHighestCompleteDate" 
+                                               jointPoint="top-right"
+                                               direction="top-right"
+                                               value="#{renewalApplication.contact.educationHighestCompDate}" 
+                                               showWeeksBar="false"
+                                               popup="true"
+                                               showFooter="false"
+                                               inputSize="15"
+                                               enableManualInput="true"
+                                               converterMessage="Please use a mm/dd/yyyy format for Date of Completion/Graduation."
+                                               datePattern="MM/dd/yyyy" 
+                                               style="width: 150px;" 
+                                               required="true"
+                                               requiredMessage="Date of Completion/Graduation is required."
+                                               inputClass="input_mask mask_date_us">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                </rich:calendar> 
+                            </div>
+
+                        </a4j:outputPanel>
+                    </fieldset>
+
+                    <fieldset>
+                        <a4j:outputPanel id="highestLevelOfEducationCompletedOtherSection" >
+
+                            <s:div rendered="#{renewalApplication.contact.educationCompleted=='Other'}">
+                                <fieldset>
+                                    <div class="grid-5-12">
+                                        <label class="required">Level Completed</label>
+                                        <h:inputText value="#{renewalApplication.contact.educationCompletedOther}" 
+                                                     id="highestLevelOfEducationCompletedOther"
+                                                     class="textfield"
+                                                     required="true"
+                                                     requiredMessage="Level completed is required."
+                                                     converter="#{stringTrimConverter}"/>   
+                                    </div>
+                                </fieldset>
+                            </s:div>
+                        </a4j:outputPanel>   
+                    </fieldset>
+
+
+                </div><!-- end of display_table for education -->
+
+                <h2>Continuing Education</h2>
+                <div class="display_table">
+                    <p>To renew your license, you must have completed 20 hours of approved, continuing education. Pursant to R4-45-101, all CEU's must be approved by the American Association for Respiratory Care or the Arizona Society for Respiratory Care.</p>
+                    <fieldset>
+                        <div class="grid-12-12">
+                            <label class="required">Have you completed twenty (20) hours of approved continuing education?</label>
+                            <h:selectOneRadio id="continuingEducation" value="#{renewalApplication.continuingEducation}" required="true" requiredMessage="Continuing Education is required.">  
+                                <f:selectItem itemValue="True" itemLabel="Yes" />  
+                                <f:selectItem itemValue="False" itemLabel="No"/>  
+                            </h:selectOneRadio>  
+                        </div>
+                    </fieldset>
+                </div>
+
+            </s:validateAll>
+
+            <!-- Nav buttons --> 
+            <fieldset>
+                <div class="grid-6-12">
+
+                    <s:button view="/licenserenewal-employment.xhtml" value="Previous" styleClass="submit_button"/>
+
+                </div>
+                <div class="grid-6-12 form-right">
+                    <h:commandButton id="Continue"
+                                     styleClass="submit_button"
+                                     value="Continue"
+                                     action="#{renewalApplication.licenseRenewalEducationContinue}">
+                    </h:commandButton>
+
+                </div>
+
+            </fieldset>
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>

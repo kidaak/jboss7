@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/WEB-INF/templates/bhaTemplate.xhtml">
+	<ui:param name="pageTitle" value="Order Information" />
+	<ui:param name="title"
+		value="Arizona Board of Behavioral Health Examiners | Order Information" />
+	<ui:param name="applicationName1"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName2" value="Online Payment Service" />
+	<ui:param name="agencyName"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="appImage" value="agencylogo_bbhe.jpg" />
+	<ui:param name="donotRenderHelp" value="true" />
+	<ui:param name="donotRenderFAQ" value="true" />
+
+	<ui:define name="localCss">
+		<link href="resources/assets/css/azbbhe.css" rel="stylesheet"
+			type="text/css" media="screen" />
+	</ui:define>
+
+	<ui:define name="localJs">
+	</ui:define>
+
+	<ui:define name="breadcrumb"></ui:define>
+
+	<ui:define name="altbreadcrumb">
+		<div id="breadcrumb2">
+			<a href="index.jsf" target="_self">Home</a>  &gt; <a href="personalInfo.jsf" target="_self">Personal Information</a> &gt; Order Information
+		</div>
+		<!--  <h1>Order Information</h1> -->
+	</ui:define>
+	<ui:define name="body">
+		<h:form id="mainform" class="form">
+			<div class="home_table">
+					
+			<h:commandLink target="_self" action="paymentPopUp?faces-redirect=true"  rendered="#{bha.newPaymentNeeded}" immediate="true" >
+                 	Our records show you already processed a payment for this order, if this is a new order click here.
+              </h:commandLink>
+			
+			
+			<!-- <div class="instructions">Please select at least one miscellaneous item
+          	</div> -->
+          	
+          	<!-- <div align="left"><img src="resources/assets/images/icon-required.gif" alt="*" />Indicates required fields  
+			</div> -->
+				<h2>Other Services</h2>
+				
+				
+				<div class="display_table">
+					<FIELDSET>
+
+					
+					<!-- <blockquote> -->
+					
+					
+					<div class="grid-12-12">
+					<div class="instructionsCheckBox">
+							<h:selectManyCheckbox id="manyCheckBoxes"
+								value="#{bha.selectedOtherLicenses}" layout= "pageDirection">
+								<f:selectItems value="#{initController.othersList}"  />
+								
+							</h:selectManyCheckbox>
+							</div>
+					</div>
+					</FIELDSET>
+					
+					<FIELDSET>
+						<!-- </blockquote> -->
+						<p class="noteimportant">NOTE. There may be a $3.00 online
+							convenience fee added to your transaction.</p>
+					</FIELDSET>
+					
+					<FIELDSET>
+						<div class="grid-6-12">
+							<h:commandButton id="Previous" styleClass="submit_button"
+								value="Previous" action="personalInfo">
+							</h:commandButton>
+						</div>
+						<div class="grid-6-12 form-right">
+							<h:commandButton id="Continue" styleClass="submit_button"
+								value="Continue"
+								action="#{bha.toSummaryFromOther}">
+							</h:commandButton>
+						</div>
+
+					</FIELDSET>
+				</div>
+			</div>
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

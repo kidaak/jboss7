@@ -1,0 +1,27 @@
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema">
+<datasource jndi-name="java:jboss/datasources/watercraft" pool-name="watercraftDB" enabled="true" use-java-context="true">
+    <connection-url>jdbc:sqlserver://tazgovsql02:1433;databaseName=WATERCRAFT;schemaName=dbo;loginTimeout=30</connection-url>
+    <driver>sqljdbc</driver>
+    <new-connection-sql>select 1</new-connection-sql>
+    <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+    <pool>
+        <min-pool-size>1</min-pool-size>
+        <max-pool-size>2</max-pool-size>
+    </pool>
+    <security>
+        <user-name>boatuser</user-name>
+        <password>pswd4boat</password>
+    </security>
+    <validation>
+        <check-valid-connection-sql>select 1</check-valid-connection-sql>
+    </validation>
+    <timeout>
+        <set-tx-query-timeout>true</set-tx-query-timeout>
+        <blocking-timeout-millis>5000</blocking-timeout-millis>
+        <idle-timeout-minutes>15</idle-timeout-minutes>
+    </timeout>
+    <statement>
+        <track-statements>false</track-statements>
+    </statement>
+</datasource>
+</datasources>

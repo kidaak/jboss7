@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	template="/WEB-INF/templates/bhaTemplate_NoBackBtn.xhtml">
+
+	<ui:param name="title" value="" />
+	<ui:param name="applicationName1"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName2" value="Online Payment Service" />
+	<ui:param name="agencyName"
+		value="Board of Behavioral Health Examiners" />
+	<ui:param name="appImage" value="agencylogo_bbhe.jpg" />
+	<ui:param name="donotRenderHelp" value="true" />
+	<ui:param name="donotRenderFAQ" value="true" />
+
+	<ui:define name="localCss">
+	<link href="resources/assets/css/azgov.css" rel="stylesheet"
+			type="text/css" media="screen" />
+		<link href="resources/assets/css/azbbhe.css" rel="stylesheet"
+			type="text/css" media="screen" />
+			
+			<link href="resources/assets/css/print.css" rel="stylesheet"
+			type="text/css" media="print" />
+			
+		
+	</ui:define>
+
+	<ui:define name="localJs">
+		<script type="text/javascript"
+			src="#{initController.staticWebPath}/static/portal/js/jquery-1.3.js" />
+		<script type="text/javascript"
+			src="#{initController.staticWebPath}/static/portal/js/jquery.maskedinput-1.2.2.js" />
+	</ui:define>
+	<ui:define name="body">
+	
+		<div class="instructions" style="text-align: center;">Please click <FONT COLOR="#FF0000">Finish</FONT> when done viewing this page.  Do not use the back button as you could possibly duplicate your payment.</div>
+	
+	<h1>Payment Receipt Confirmation</h1>
+	<h1>Confirmation Code is: <FONT COLOR="#FF0000"> #{bha.tpeResponse.getOrderId().toString()}</FONT></h1>
+	<h1 style="font-size: 1.0em">A copy of this receipt has been emailed to <FONT COLOR="#FF0000">#{bha.billingInfo.getEmail()}</FONT></h1>
+  
+    <div id = "receipt" class="receipt" style="font-size: 0.90em">
+   <h:form target="_blank"> 
+
+		<div id="main">
+		
+         <div id="transInfo">
+        <h2>Transaction Summary</h2>
+        	
+        <table id="transSum">
+				<thead>
+					<tr>
+						<th>Description</th>
+						 <ui:fragment rendered="#{bha.optionalColumns}">
+						 <th>LicenseNumber</th>
+               			<th>Expiration Date</th>				 
+						</ui:fragment>
+						
+						<th style="text-align: center;">Amount</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+				 <ui:repeat value="#{bha.summaryList}" var="o">
+				 <tr>
+						<td>
+						<h:outputText value="#{o.bhaProduct.name}" />
+						</td>
+						
+						<ui:fragment rendered="#{bha.optionalColumns}">
+						<td>
+						<h:outputText value="#{o.licenseNumber}"  rendered="#{bha.optionalColumns}"/>
+       					</td>
+           							      
+           				<td>
+               				<h:outputText value="#{o.expirationDate}"  rendered="#{bha.optionalColumns}">
+               					  <f:convertDateTime pattern="M-dd-yyyy" />
+               				</h:outputText>
+						</td>
+						</ui:fragment>
+						
+						<td  style="text-align: right">
+							<h:outputText value="$" />
+         					<h:outputText value="#{o.bhaProduct.price}"/>
+						</td>
+						
+					</tr>
+					</ui:repeat>
+				    
+					<tr>
+						<td><b>Total Amount Paid</b></td>
+						 <ui:fragment rendered="#{bha.optionalColumns}">
+						 	<td></td>
+						 	<td></td>
+						 </ui:fragment>
+						<td style="text-align: right;"><b>$<h:outputText value="#{bha.totalStr}" /></b></td>
+					</tr>				
+				</tbody>
+
+			</table>
+			
+		</div>	
+				 	<div id="billingInfo">
+						
+						<div class="grid-6-12 grey">
+						<h3 class="billingSubHeading">Customer Information</h3>
+						<ul class="billingList">
+							<li><span class="label category">Name</span><div class="col">#{bha.customer.getFirstName()} #{bha.customer.getLastName()}</div> </li>
+							<li><span class="label category">Phone Number</span><div class="col">#{bha.customer.getPhone()}</div></li>
+							<li><span class="label category">Email Address</span>
+								<div class="col">#{bha.customer.getEmail()}</div>
+							</li>
+							<li><span class="label category">Address</span>
+								<div class="col">#{bha.customer.address}</div>
+							</li>
+							<li><span class="label category">City, State</span>
+								<div class="col">#{bha.customer.city}, #{bha.customer.state}</div>
+							</li>
+							<li><span class="label category">Zip</span>
+								<div class="col">#{bha.customer.zipcode}</div>
+							</li>
+							
+							</ul>
+						</div>
+						<div class="grid-6-12 grey">
+						<h3 class="billingSubHeading">Payment Information</h3>
+						<ul class="billingList">
+						
+							<li><span class="label category" >Receipt Date</span>
+					<div class="col">
+					<h:outputText value="#{bha.recieptDate}" >
+              				<f:convertDateTime pattern="MM/dd/yyyy" type="date" timeZone="MST"/>
+					 </h:outputText></div>
+					 </li>
+					 
+					 <li><span class="label category">Receipt Time</span>
+					<div class="col">
+					<h:outputText value="#{bha.recieptDate}" >
+              				<f:convertDateTime pattern="HH:mm:ss a z" type="time" timeZone="MST"/>
+					 </h:outputText>
+					 </div>
+					</li>
+					
+					<li><div class="label category">Payment Type</div><div class="col">Credit Card</div></li>
+					<li><div class="label category">Credit Card Type</div><div class="col">#{bha.billingInfo.getCcType()}</div></li>
+					<li><div class="label category">Credit Card Number</div><div class="col">*****
+					<h:outputText value="#{bha.getLast4CC()}" />
+					</div>
+					</li>
+					
+					<li><div class="label category">Name</div><div class="col">#{bha.billingInfo.getFirstName()} #{bha.billingInfo.getLastName()}</div></li>	
+					<li><div class="label category">Phone Number</div><div class="col">#{bha.billingInfo.getPhone()}</div></li>
+					<li><div class="label category">Email Address</div>
+						<div class="col">#{bha.billingInfo.getEmail()}</div>
+					</li>
+									
+						</ul>
+						</div>
+						
+					</div>
+					
+			
+			
+			 <div class="grid-4-12">
+			 <h:commandButton id="PrintReciept"
+                			styleClass="submit_button"
+                          	value="Print"
+                         onclick="window.print()" />
+                         	
+			 
+			</div>
+					
+			<div class="grid-6-12 form-right">
+                <h:commandButton id="Continue"
+                			styleClass="submit_button"
+                          	value="Finish"
+                         	action="#{bha.logout()}" onclick="this.form.target='_self'"/>
+      				 
+             </div>
+	  </div><!-- main -->
+        </h:form>
+        
+      
+	</div>
+	</ui:define>
+	
+</ui:composition>

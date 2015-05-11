@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://jboss.com/products/seam/pages"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd"
+>
+<!--
+      conversation-required="true" 
+      no-conversation-view-id="/index.xhtml">
+-->
+      
+      <!--
+      This has been moved to the ccpSuccessAction
+      <action execute="#{renewalApplication.persistRenewalApplication}"/>
+      -->
+      
+<!--
+      <action expression="#{licenseLogin.setShowLicenseRenewLink( false )}"/>
+-->
+
+      <!--
+      this was removed given the centralized log in piece.
+      now, put link in page to continue, which takes user to licenseholder-options.xhtml page.
+      from there, the user can log out. 
+      <navigation from-action="#{renewalApplication.persistRenewalApplication}">
+      
+            <rule if-outcome="success">
+                <end-conversation/>
+            </rule>
+        </navigation>
+       -->
+
+      <navigation>
+          <end-conversation/>
+      </navigation>
+</page>

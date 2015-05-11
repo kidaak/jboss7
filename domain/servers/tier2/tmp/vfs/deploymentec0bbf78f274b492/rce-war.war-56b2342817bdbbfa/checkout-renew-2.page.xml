@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page xmlns="http://jboss.com/products/seam/pages"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd"
+      conversation-required="true" 
+      no-conversation-view-id="/index.xhtml">
+
+    <navigation from-action="#{renewalApplication.checkout2ProcessPaymentAction}">
+
+        <rule if-outcome="success">
+            <redirect view-id="/licenserenewal-receipt.xhtml"/>
+        </rule>
+
+        <rule if-outcome="fail">
+            <redirect view-id="/checkout-renew-1.xhtml"/>
+        </rule>
+
+        <rule if-outcome="error">
+          <redirect view-id="/error.xhtml"/>
+        </rule>
+
+     </navigation>
+</page>

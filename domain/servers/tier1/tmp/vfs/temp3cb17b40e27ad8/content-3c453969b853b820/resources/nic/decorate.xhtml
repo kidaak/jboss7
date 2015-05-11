@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface componentType="org.jboss.seam.faces.InputContainer" name="decorator" />
+
+<composite:implementation>
+ <div> 
+	 <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk" rendered="#{cc.attrs.required}"/>
+  	 <h:outputLabel id="label" value="#{cc.attrs.label}" styleClass="#{cc.attrs.invalid ? 'invalid' : ''}"/>
+	   
+	 <br />
+	  <!-- h:panelGroup is a workaround for a JSF bug, see http://java.net/jira/browse/JAVASERVERFACES-1991  -->
+	  <h:panelGroup styleClass="value #{invalid?'errors':''}" id="decorator_group" >
+   		<composite:insertChildren />
+	  </h:panelGroup>
+
+  	<h:message id="message" errorClass="invalid message" rendered="#{cc.attrs.invalid}" />
+ </div>
+</composite:implementation>
+</html>

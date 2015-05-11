@@ -1,0 +1,510 @@
+/* Form outline style 2 - normal data entry field width
+                style 3 - a little smaller on the left
+                style 4 - same as 1, but exactly the right height for a single text input field  */
+DIV.f1, DIV.f3, DIV.f4 {
+    border-style: none; border-width: 3; border-color: red;
+    position: relative;
+    padding-bottom: .5em;
+}
+
+/* Form style 1, column 1: label */
+DIV.fc11 {
+    border-style: none; border-width: 2; border-color: green;
+    position: relative; left: 0em; width: 15em;
+    text-align: right;
+    padding-right: 1em;
+}
+
+/* Form style 1, column 2: entry field */
+DIV.fc12 {
+    border-style: none; border-width: 2; border-color: blue;
+    position: absolute; left: 16em; top: 0px;
+}
+
+/* Form outline style 2 - long data entry field width */
+DIV.f2 {
+    border-style: none; border-width: 3; border-color: red;
+    position: relative;
+    padding-bottom: 1.2em;
+}
+/* Form style 2, column 1: label */
+DIV.fc21 {
+    border-style: none; border-width: 2; border-color: green;
+    position: relative; left: 0em; width: 400px;
+    text-align: right;
+    padding-right: 0px;
+}
+
+/* Form style 2, column 2: entry field */
+DIV.fc22 {
+    border-style: none; border-width: 2; border-color: blue;
+    position: absolute; left: 410px; top: 0px;
+}
+
+/* Form style 3, column 1: label - a little smaller */
+DIV.fc31 {
+    border-style: none; border-width: 2; border-color: green;
+    position: absolute; left: 0em; width: 11em; top: 0px;
+    text-align: right;
+    padding-right: 0em;
+}
+
+/* Form style 3, column 2: entry field */
+DIV.fc32 {
+    border-style: none; border-width: 2; border-color: blue;
+    position: relative; left: 13em; width: 65%;
+}
+
+/* Form style 4 - exatcly the right height for text input */
+DIV.f4 {
+    height: 1.8em;
+}
+
+/* Form button line, style 1 */
+DIV.fb1 {
+    position: relative;
+    padding-top: 2em;
+}
+
+/* subtitle within a form */
+DIV.dataReviewSection
+{
+    padding: 8px 0px 0px 0px;
+    margin: 0px;
+    color: #006699;
+    font-weight: bold;
+}
+
+
+/* for the application name */
+SPAN.appname
+{
+    font-weight: bold;
+}
+
+
+SPAN.dreBoldUnderline
+{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+SPAN.dreBold
+{
+    font-weight: bold;
+}
+
+
+UL.dreBulletList
+{
+    padding: 0px 0px 0px 10px;
+    margin: 0px 0px 0px 20px;
+}
+LI.dreBulletList
+{
+    padding: 0px 0px 0px 5px;
+    margin: 0px 0px 0px 0px;
+}
+
+
+/* for the "existing data" */
+TABLE.dataReview,
+TD.dataReviewData
+{
+    padding: 0px;
+    margin: 0px;
+    width: 650px;
+}
+TD.dataReviewLabel
+{
+    text-align: right;
+    padding: 0px 10px 0px 30px;
+    margin: 0px;
+}
+TD.dataReviewSection
+{
+    padding: 8px 0px 0px 0px;
+    margin: 0px;
+    color: #006699;
+    font-weight: bold;
+}
+
+
+/* Used in the menuline*/
+TD.dreMenuline,
+A.dreMenuline:link,
+A.dreMenuline:active,
+A.dreMenuline:visited
+{
+color: #333366;
+font-weight: normal;
+font-size: 10.5px;
+font-family: verdana, arial, helvetica, sans-serif;
+text-decoration: none;
+display:none }
+
+/* This is used when you want a section to be displayed on the screen, but not printed.
+   Use this style for all HTML elements that do not already have a style attached to them. */
+.noprint {display: none;}
+
+
+A.dreMenuline:hover {
+color: #EEEEEE; font-weight: normal; font-size: 10.5px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+
+TABLE.dreMenuline,
+TR.dreMenuline
+{
+    background-color: #bbcccc;
+    color: #333366;
+}
+
+
+/* Currently, this does nothing unique. */
+P, P.dreInstruction, DIV.dreInstruction
+{
+    font-family: arial, sans-serif; font-size: 12px;
+    font-weight: normal;
+    margin: 0px 0px 8px 0px;
+}
+/* This is used for the configurable instruction section.
+   For the prototypes, this is italics and an orange box. */
+P.dreInstructionConfig,
+SPAN.dreInstructionConfig,
+DIV.dreInstructionConfig
+{ font-weight: normal; font-style: normal;
+    font-family: arial, sans-serif; font-size: 12px;
+/*    border-style: solid;
+    border-width: thin;
+    border-color: #ff9900;*/
+  margin: 0px 0px 8px 0px;
+}
+
+/* This is used for the instructions that are returned during web services.
+   For the prototypes, this is italics and a green box. */
+P.dreInstructionDyn,
+SPAN.dreInstructionDyn,
+DIV.dreInstructionDyn
+{ font-weight: normal; font-style: normal;
+    font-family: arial, sans-serif; font-size: 12px;
+/*    border-style: solid;
+    border-width: thin;
+    border-color: #73e373;*/
+  margin: 0px 0px 8px 0px;
+}
+/* The DIV is for prototypes only. */
+DIV.config
+{
+    font-style: italic;
+    border-style: solid;
+    border-width: thin;
+    border-color: #ff9900;
+    padding: 8px 8px 8px 8px;
+}
+
+/* A little less trailing space than the normal paragraph */
+P.dreInstructionCompact { margin: 6px 0px 0px 0px; }
+
+/* This is used for the configurable instruction section.
+   For the prototypes, this is italics. */
+/* A little less trailing space than the normal paragraph */
+P.dreInstructionCompactConfig
+{ margin: 6px 0px 0px 0px;
+ font-style: italic;
+/*    border-style: solid;
+    border-width: thin;
+    border-color: #ff9900;*/
+}
+
+/* This is used for the emphasized header in the questionnaire.
+   Originally, I used color #006699 (the blue-gray of the headers, but it didn't stand out enough.
+*/
+SPAN.dreQuestionH1
+{
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+
+SPAN.dreStatus {
+    font-weight: bold;
+}
+
+PRE.dreData {
+    color: #006699;
+}
+
+/* all users, This style is used for the asterisk that marks required form fields: see User Interface Guidelines section 9.5 */
+.dreRequired {
+    font-family: arial, sans-serif;
+    font-size: 16px;
+    color: #CC6600; }
+
+/* all users, This style is used for the "* Required Field" text on form: see User Interface Guidelines section 9.5 */
+.dreRequiredDesc { font-family: arial, sans-serif; font-size: 12px; font-style: italic; color: #CC6600; }
+
+
+.errorMessage,
+.dreError {
+color: #CC3333;
+font-weight: bold;
+font-family: verdana, arial, helvetica, sans-serif;
+text-decoration: none }
+
+/* TBD - remove this */
+.blackText12 {
+color: #000000; font-weight: normal; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+
+
+
+
+/* Used in the footer */
+.grayText {
+color: #333333; font-weight: normal; font-size: 10px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+.grayTextDark {
+color: #666666; font-weight: normal; font-size: 10px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+
+
+
+/* green = 339900 */
+/* orange = ff6600 */
+/* light blue = 3399CC */
+/* dark blue = 006699 */
+H1 {
+    color: #006699; font-weight: normal; font-size: 24px;
+    font-family: "Futura Md BT", "Trebuchet MS", arial, helvetica, sans-serif;
+    text-decoration: none;
+    margin: 6px 0px 8px 0px;
+}
+H2 {
+    color: #006699; font-weight: normal; font-size: 18px;
+    font-family: "Futura Md BT", "Trebuchet MS", arial, helvetica, sans-serif;
+    text-decoration: underline;
+    margin: 8px 0px 8px 0px;
+}
+/* same as H2, but with no underline */
+H2.dreQuestion {
+    color: #006699; font-weight: normal; font-size: 18px;
+    font-family: "Futura Md BT", "Trebuchet MS", arial, helvetica, sans-serif;
+    text-decoration: none;
+    margin: 8px 0px 8px 0px;
+}
+H3 {
+    color: #006699; font-weight: bold; font-size: 14px;
+    font-family: "Futura Md BT", "Trebuchet MS", arial, helvetica, sans-serif;
+    text-decoration: none;
+    margin: 8px 0px 4px 0px;
+}
+
+/* odd lines in the "Services" menu */
+.servicesOdd, .servicesOdd:visited {
+    color: #000000; background-color: #bbcccc; line-height: 20px; text-align: left;
+    font-weight: normal; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+.servicesOdd:hover {
+    color: #888888; background-color: #bbcccc; line-height: 20px; text-align: left;
+    font-weight: normal; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+.servicesEven, .servicesEven:visited {
+    color: #000000; background-color: #aaCCCC; line-height: 20px; text-align: left;
+    font-weight: normal; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+.servicesEven:hover {
+    color: #888888; background-color: #aacccc; line-height: 20px; text-align: left;
+    font-weight: normal; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+.servicesOddDisallowed, .servicesOddDisallowed:visited {
+    color: #888888; background-color: #bbCCCC; line-height: 20px; text-align: left;
+    font-weight: normal; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+.servicesOddDisallowed:hover {
+    color: #888888; background-color: #bbcccc; line-height: 20px; text-align: left;
+    font-weight: normal; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+.servicesEvenDisallowed, .servicesEvenDisallowed:visited {
+    color: #888888; background-color: #aaCCCC; line-height: 20px; text-align: left;
+    font-weight: normal; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+.servicesEvenDisallowed:hover {
+    color: #888888; background-color: #aacccc; line-height: 20px; text-align: left;
+    font-weight: normal; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+
+
+/* This is used for the line between the services odd and even rows */
+.servicesDivider {
+    background-color: #333366; }
+/* This is used for the area under the services (yellow for azportal) */
+.servicesColumn {
+    background-color: #bbcccc; }
+
+/* This is the white on green title bar */
+.appTitle {
+    color: #FFFFFF; background-color: #333366; line-height: 20px; text-align: left;
+    font-weight: bold; font-size: 16px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+.appTitle3 {
+    color: #FFFFFF; background-color: #333366; line-height: 3px; text-align: left;
+    font-weight: bold; font-size: 3px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+.appTitle1 {
+    color: #FFFFFF; background-color: #333366; line-height: 1px; text-align: left;
+    font-weight: bold; font-size: 1px; font-family: verdana, arial, helvetica, sans-serif;  text-decoration: none }
+
+
+/* default, General styles                                                             */
+a, .fakeLink { color: #3366CC; text-decoration: underline;}
+
+/* default, General styles                                                             */
+a:visited { color: #666699; }
+
+/* default, General styles                                                             */
+a:hover, .fakeLink:hover { color: #6699CC; }
+
+table, tr, td, select, input, form, li, textarea {
+    font-family: arial, sans-serif; font-size: 12px; }
+
+.dreExampleText {
+    font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+    color: #777777; font-style: normal; font-weight: normal}
+.dreARS {
+    font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+    color: #006699; font-style: normal; font-weight: normal}
+
+
+.button,
+.button72,
+.button100,
+.button140,
+.button180,
+.button240
+{ font-family: arial, sans-serif; font-size: 11px;
+  color: black; background-color: #bbcccc;
+  font-weight: bold;
+}
+.button72  { width:  72px;  }
+.button100 { width: 100px;  }
+.button140 { width: 140px;  }
+.button180 { width: 180px;  }
+.button240 { width: 240px;  }
+
+TABLE.data_table
+{
+    padding: 2px 2px 2px 2px;
+    FONT: "Verdana", "Arial","sans-serif";
+    COLOR: #cccccc;
+    BACKGROUND-COLOR: #00334C;
+}
+
+TD.data_table_header,
+TH.data_table_header,
+TD.input_table_head,
+TD.data_table_button_header,
+.HEADER {
+    BORDER-TOP: #cccccc 1pt solid;
+    padding-bottom: 2px;
+    FONT: bold 8pt "Verdana", "Arial","sans-serif";
+    COLOR: #cccccc;
+    BACKGROUND-COLOR: #00334C;
+}
+
+TABLE.data_table2
+{
+    padding: 2px 2px 2px 2px;
+    FONT: "Verdana", "Arial","sans-serif";
+    COLOR: #dddddd;
+    BACKGROUND-COLOR: #333366;
+}
+
+TD.data_table_header2,
+TH.data_table_header2,
+TD.input_table_head2,
+TD.data_table_button_header2,
+.HEADER {
+    BORDER-TOP: #cccccc 1pt solid;
+    padding-bottom: 2px;
+    FONT: bold 8pt "Verdana", "Arial","sans-serif";
+    COLOR: #dddddd;
+    BACKGROUND-COLOR: #333366;
+}
+TD.data_table_button_header
+{
+    padding: 5px 10px 2px 10px;
+}
+TR.data_row_selected
+{
+    background-color: #BBBBBB;
+}
+TR.data_row_even
+{
+    background-color: #f0f0f0;
+}
+TR.data_row_odd
+{
+    background-color: #FFFFFF;
+}
+TD.data,
+TD.form_field,
+.DATA {
+    WORD-SPACING: normal;
+    FONT: 8pt "Verdana", "Arial","sans-serif";
+    COLOR: #022839;
+    WHITE-SPACE: normal;
+    LETTER-SPACING: normal;
+    padding: 1px 5px 1px 5px;
+}
+TD.data_center {
+    WORD-SPACING: normal;
+    FONT: 8pt "Verdana", "Arial","sans-serif";
+    COLOR: #022839;
+    WHITE-SPACE: normal;
+    LETTER-SPACING: normal;
+    text-align: center;
+    padding: 1px 5px 1px 5px;
+}
+TD.data_right {
+    WORD-SPACING: normal;
+    FONT: 8pt "Verdana", "Arial","sans-serif";
+    COLOR: #022839;
+    WHITE-SPACE: normal;
+    LETTER-SPACING: normal;
+    text-align: right;
+    padding: 1px 5px 1px 5px;
+}
+
+TABLE.question_table
+{
+    padding: 2px 2px 2px 2px;
+    FONT: "Verdana", "Arial","sans-serif";
+    COLOR: #000000;
+    BACKGROUND-COLOR: #FFFFFF;
+}
+TR.question_row,
+TD.question_row
+{
+    background-color: #FFFFFF;
+}
+
+TABLE.dataTableReview
+{
+    xpadding: 0px 4px 0px 4px;
+    FONT: "Verdana", "Arial","sans-serif";
+    COLOR: black;
+    BACKGROUND-COLOR: white;
+    xborder: 1px solid #333366;
+    margin: 0px 0px 0px 20px;
+    width: 650px;
+}
+TH.dataTableReviewHeaderCenter
+{
+    padding: 2px 4px 2px 4px;
+    text-align: center;
+    border: 1px solid #333366;
+}
+TD.dataTableReviewCell
+{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #333366;
+}
+
+
+DIV.mockupLine {
+	color: gray;
+	size:  8px;
+	text-align: right;
+}
+
+/* This is used on the data review page for the Broker Audit questions. */
+SPAN.explain {
+    color: red;
+    }

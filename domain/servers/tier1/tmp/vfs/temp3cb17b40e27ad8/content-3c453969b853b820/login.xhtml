@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   template="/WEB-INF/templates/destemplate.xhtml">
+   
+   <ui:param name="title" value="Login" />
+   <ui:define name="localAltbreadcrumb">   	
+	   Login
+   </ui:define>
+   
+   <ui:define name="pageSubTitle">
+	   <div align="left">
+	   		<h:graphicImage library="images" name="asterisk.gif"  alt="*" />Indicates required fields
+		</div>
+   </ui:define>
+   
+   <ui:define name="localBody">	  
+      	<h:form id="form1" styleClass="form">      
+		<table class="home_table">
+			<tr>
+				<td align="left">
+				<p align="left">Thank you for choosing to pay your bill online.
+				You will need your ten-digit account number, including zeros, 
+				which is printed on the Monthly Statement of Accounts. For 
+				identity you will be asked for your date of birth (month/day). 
+				To pay online you will need a Visa, MasterCard, Discover Card, 
+				American Express credit card, or a bank debit card displaying the Visa logo.</p>
+				<p align="left"><em>Note:  If you are making COURT ORDERED RESTITUTION or PAYING OFF A JUDGMENT
+				you SHOULD NOT use this online system before contacting OARC at 602-252-0024 
+				for payment instructions.</em></p>
+				<p align="left">This online payment system is used to pay
+				Office of Accounts Receivable and Collections (OARC) balances only, 
+				including Unemployment Insurance Benefit (UIB) overpayments.</p>
+				<p align="left">For <a
+					href="https://egov.azdes.gov/cmsinternet/main.aspx?menu=24&amp;ID=2652">Child
+				Support payments</a> and <a
+					href="https://www.azdes.gov/esa/wtfilinginstr.asp">Employer UI
+				Tax payments</a>, please contact those offices for the proper
+				procedures.</p>
+				<p align="left">You may view your 
+					<u><a	href="http://egov.azdes.gov/dbf/estatement/Hello.htm">Online E-Statement</a></u> by selecting this link.
+				</p>
+				<p class="errMessage">
+					<strong>
+						The DES Mainframe System is unavailable for payments on Saturdays between 3:00 - 5:00 p.m. 
+					</strong>
+				</p>
+				<h2>Login</h2>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+					<tr>
+						<td width="50%" align="left" valign="top">
+							<label>
+								<h:graphicImage library="images" name="asterisk.gif" alt="*" width="9" height="9" />
+									DES Account Number 
+								<span class="helper">(10 numbers, include leading zeroes)</span>:<br />
+								<h:inputText id="custName" styleClass="textfield" size="20" maxlength="10" value="#{loginController.desUser.desNumber}"/>
+							</label>
+						</td>
+
+						<td width="50%" align="left" valign="top">
+							<label>
+							<h:graphicImage library="images" name="asterisk.gif" alt="*" width="9" height="9" />
+								Month and Day of Birth 
+								<span class="helper">(mmdd)</span>:<br />
+								<h:inputText id="custBirthday" size="10" maxlength="4" styleClass="textfield" value="#{loginController.desUser.birthDate}"/>
+						</label></td>
+					</tr>
+				</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="button_table">
+					<tr>
+						<td width="39%" align="left" valign="top" nowrap="nowrap">						
+             			  <h:commandButton id="login" action="#{loginController.login}" value="Login" styleClass="submit_button"/>							
+						</td>
+						<td width="50%" align="right" valign="top" nowrap="nowrap"></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+	</h:form>        
+
+   </ui:define>
+</ui:composition>

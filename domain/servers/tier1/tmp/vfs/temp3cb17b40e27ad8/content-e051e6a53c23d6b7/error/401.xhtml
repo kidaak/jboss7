@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/WEB-INF/templates/bhaTemplate.xhtml">
+
+	<ui:param name="title" value="Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName1"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName2" value="Online Payment Service" />
+	<ui:param name="agencyName"
+		value="Board of Behavioral Health Examiners" />
+	<ui:param name="appImage" value="agencylogo_bbhe.jpg" />
+	<ui:param name="donotRenderHelp" value="true" />
+	<ui:param name="donotRenderFAQ" value="true" />
+
+	<ui:define name="localCss">
+		<link href="resources/assets/css/azbbhe.css" rel="stylesheet"
+			type="text/css" media="screen" />
+	</ui:define>
+
+	<ui:define name="localJs">
+		<script type="text/javascript"
+			src="http://prodtest.az.gov/static/portal/js/jquery-1.3.js" />
+		<script type="text/javascript"
+			src="http://prodtest.az.gov/static/portal/js/jquery.maskedinput-1.2.2.js" />
+
+	</ui:define>
+
+	<ui:define name="breadcrumb"></ui:define>
+	
+<ui:define name="body">
+    
+    <div align="center">
+        <div class="error">
+          <div class="errror_message">
+            <p><span style="font-size:1.2em">We are sorry about the inconvenience</span> <br />
+                <br />
+              AZ.gov Subscription Required Service</p>
+            <p>The service you are trying to access requires an AZ.gov subscription. If you have a current account with Colorado.gov and you feel you have reached this message in error, please press the back button on your browser and try logging in again. If you need assistance with your username and/or password please contact the Webmaster for further assistance.<br />
+                <br />
+              What is an AZ.gov subscription? <br />
+              <br />
+              It is an account you hold with AZ.gov, which provides you with a unique username and password. This is a way for the state to ensure that the transactions taking place online are indeed from you. It also allows you to receive a monthly invoice for all your transactions, instead of paying for each transaction individually.<br />
+              <br />
+              What are the benefits of being an AZ.gov subscriber? <br />
+              <br />
+              There are numerous benefits for being an AZ.gov subscriber. The most obvious is the time and money you save by transacting your business with the state online. No more standing in line or driving to a local state office. It's all right here for you to use in the comfort of your home or office. You also receive the benefit of lowering your business's overhead by paying for all your transactions at the end of each month instead of on a transaction-by-transaction basis.<br />
+              <br />
+              Is it safe to transact business with the state online? <br />
+              <br />
+              As with anytime you give your confidential information to someone, there is a certain amount of risk involved. AZ.gov has the most up-to-date security in place to ensure you are protected from unsolicited involvement of a third party.<br />
+            </p>
+          </div>
+       </div>
+       </div>
+
+ </ui:define> 
+</ui:composition>

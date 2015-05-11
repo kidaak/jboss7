@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   template="/WEB-INF/templates/popuptemplate.xhtml">
+ 
+<ui:param name="documentTitle" value="FAQ" />
+<ui:param name="pageTitle" value="Online Payment System: FAQ" />
+<ui:param name="breadcrumb" value=""/>
+<ui:param name="title" value="FAQ"/>
+<ui:param name="applicationName2" value="Payment System"/>
+<ui:param name="applicationName1" value="DES Online"/>
+
+
+<ui:define name="localCss">
+	<link href="resources/css/stylesheet.css" rel="stylesheet" type="text/css"  media="screen" />
+</ui:define>
+
+<ui:define name = "localBody">	
+	<div align="center">
+        <table width="80%" border="0" cellspacing="0" cellpadding="2" class="home_table">
+
+        
+          <tr>
+            <td align="left">
+               
+                <h2>Frequently Asked Questions<br />
+                </h2>
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+                  <tr>
+                    <td width="50%" align="left" valign="top">
+                    <label>What is this system used for?</label>
+                    </td>
+
+                    </tr>
+                  <tr>
+                    <td align="left" valign="top"><ul>                  
+                    
+                        <li>This online payment system is used to pay Office of Accounts Receivable and Collections (OARC) balances only.  For <u><a href="https://egov.azdes.gov/cmsinternet/main.aspx?menu=24&amp;ID=2652">Child  Support payments</a></u> and <u><a href="https://www.azdes.gov/esa/wtfilinginstr.asp">Employer UI Tax payments</a></u>, please contact those offices for the proper procedures.  Note that you should use this online system to make your Unemployment Insurance Benefit Overpayment payment.</li>
+                      </ul>                      
+                      </td>
+
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top"></td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top"><label>Can I see a demonstration of how the system works?</label></td>
+                  </tr>
+                  <tr>
+
+                    <td align="left" valign="top"><ul><li>
+					<a href="demo.html" target="_blank"
+			onclick="window.open(this.href,this.target,'height=700, width=700,scrollbars=yes');return false;">
+					View Tutorial</a>.</li></ul></td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top"></td>
+                  </tr>
+                   <tr>
+                    <td align="left" valign="top"><label>How can I see my online E-Statement?</label></td>
+
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top"><ul><li><a href="https://egov.azdes.gov/dbf/estatement/Hello.htm">View your online E-Statement</a>.</li></ul></td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top"></td>
+                  </tr>
+
+                  <tr>
+                    <td align="left" valign="top">
+                      <label>When will my payment be applied to my bill?</label>                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top">
+             
+                      <ul>
+                        <li>We process all credit card transactions immediately for the amount that you authorize, however, your credit card statement may not reflect the transaction for several days.  Your credit card transaction will appear with the name of "AZ DEPT OF ECONOMIC SEC".<br /><br /></li>
+
+                      </ul>
+                     <strong>Note:</strong> Any online payment will not be reflected on your online statement for 24 hours.  If the delay is longer than 24 hours, you should contact the DES switchboard at (602) 252-0024 or toll free in the state of Arizona at 1-800-236-1475 for more information.</td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top"></td>
+                  </tr>
+                  <tr>
+
+                    <td align="left" valign="top"><label>How do I get a refund?</label></td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top"><ul>
+                    <li>Online payments will not be issued as a cash refund.  All refunds will be issued directly to your credit card.</li>
+ <li>Since your credit card information is not retained in our records, you may be contacted to provide information necessary to process your refund.</li>
+<li>To get a refund, please contact the DES switchboard at (602) 252-0024 or toll free in the State of Arizona at 1-800-236-1475 for more information.  You can also e-mail us for further information.</li>
+
+</ul>
+
+                   </td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top"></td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top"><label>What is a Credit Card Verification Number?</label></td>
+
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top"><ul><li>The card verification number is a security requirement implemented by credit card companies to help reduce fraud for internet, phone or mail transactions.  Since the card verification number is listed on your credit card but not stored anywhere, the only way to have the card verification number is to physically have possession of the credit card.</li></ul></td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top"></td>
+                  </tr>
+                  <tr>
+
+                    <td align="left" valign="top"><label>Where can I find the card verification number on my credit card?</label></td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top"><ul><li>The card verification number for American Express is the 4 digits printed (not embossed) on the front of the card above the credit card number on the right.</li>
+                        </ul>
+                      <p><img src="${pageContext.request.contextPath}/assets/images/amexcvv.gif" alt="american express" width="200" height="140" /></p>
+                      <ul>
+                        <li>The card verification number for MasterCard, Visa, or Discover is the last 3 digits of the number in the signature area on the back of your card.</li>
+
+                      </ul>
+                      <p><img src="${pageContext.request.contextPath}/assets/images/Visa.gif" alt="visa" width="204" height="164" /></p>                      </td>
+                  </tr>
+                </table>
+              
+              <div align="center"></div></td>
+          </tr>
+        </table>
+        <div id="testdiv1"></div>
+      </div>
+</ui:define></ui:composition>

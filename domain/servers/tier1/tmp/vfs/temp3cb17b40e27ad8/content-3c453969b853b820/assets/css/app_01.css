@@ -1,0 +1,131 @@
+h1{
+	font-size:1.5em;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #666666;
+	padding: 0px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+	color: #006666;
+	text-align: left;
+	}
+	
+h1 a{
+	font-size: 0.7em;
+	float: right;
+	text-decoration: underline;
+	color: #006666;
+	}
+
+h2 {
+	font-weight: bold;
+	background: #01C6315 url(../images/app_01/h2_back.jpg) repeat-x left top;
+	color: #FFFFFF;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	margin-top: 5px;
+	font-size: 1em;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	text-align: left;
+}
+
+
+#azlogo{
+	height: 75px;
+	float: left;
+	width: 302px;
+	background: url(../images/app_01/azagency_logo.jpg) no-repeat right;
+	text-align: left;
+	}
+
+.seal{
+	float: right;
+	background: url(../images/app_01/azlogo.jpg) no-repeat left;
+	height: 75px;
+	width: 302px;
+	text-align: right;
+	}
+
+#helpmenu{
+	width: 100%;
+	height: 1.5em; /*Height of top frame div*/
+	overflow: hidden;
+	text-align: right;
+	display: table;
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 1.5em;
+	font-size: 0.9em;
+	margin: 1px;
+	}
+
+#helpmenu a{
+	color: #FFFFFF;
+	text-decoration: none;
+	padding-right: 5px;
+	padding-left: 5px;
+	}
+#bnr_wrapper {
+	background: url(../images/app_01/back_bnr.jpg) repeat-x left top;	
+}
+#bnr_text {
+	color: #FFFFFF;
+	margin-top: 0.2em;
+	font-size: 1.8em;
+	font-weight: bold;
+	line-height: 1.4em;
+}
+
+#breadcrumb {
+	
+	color: #333333;
+	background: #AAA878;
+	border-bottom-color: #333333;
+}
+#breadcrumb a {
+	color: #333333;
+	text-decoration: none;
+}
+#helpmenu{
+	color: #FFFFFF;
+	}
+
+#helpmenu a{
+	color: #FFFFFF;
+	text-decoration: none;
+	padding-right: 5px;
+	padding-left: 5px;
+	}
+.data_table {
+	background: #CCCCCC;
+	border: 1px solid #666666;
+}
+.data_table th {
+	background: #CCC;
+	text-align: left;
+	font-size: .8em;
+}
+.data_table td {
+	background: #FFF;
+	text-align: left;
+	font-size: .9em;
+}
+.submit_button {
+	color: #FFFFFF;
+
+	border: 1px solid #000000;
+	background: #666 url(../images/app_01/btn_back.jpg) no-repeat left top;
+}
+.submit_button:hover {
+	background: #333 url(../images/app_01/btn_back_roll.jpg) no-repeat left top;
+	}
+.submit_button:focus {
+	cursor: pointer;
+	background: #333 url(../images/app_01/btn_back_roll.jpg) no-repeat left top;
+	}

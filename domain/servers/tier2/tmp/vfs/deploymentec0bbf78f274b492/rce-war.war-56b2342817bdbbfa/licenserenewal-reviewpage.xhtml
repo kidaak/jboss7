@@ -1,0 +1,655 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="Review Page"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <s:link view="/licenseholder-options.xhtml" value="Home"/> &gt;
+. . . &gt;
+            <s:link view="/licenserenewal-info.xhtml" value=" Applicant Information"/> &gt;
+            <s:link view="/licenserenewal-employment.xhtml" value=" Employment" /> &gt; 
+            <s:link view="/licenserenewal-education.xhtml" value=" Education" /> &gt;
+            <s:link view="/licenserenewal-attestations.xhtml" value=" Attestations" /> &gt; Review Page
+        </div>
+    </ui:define>
+
+    <ui:define name="body">
+
+        <h2>Instructions</h2>
+        <div class="instructions">Please review the following data for accuracy.</div>
+
+        <!-- top-of-section 'Previous' navigation button -->
+        <fieldset style="border:none; padding: 0px">
+            <div class="grid-6-12">
+                <s:button id="btnTopPrevious" view="/licenserenewal-attestations.xhtml" value="Previous" styleClass="submit_button"/>
+            </div>
+        </fieldset>
+
+        <div class="home_table">
+
+            <div class="display_table lgrey">
+                <h3>Citizenship or National Status Declaration</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12">
+                            <strong>Citizen or National: </strong>#{renewalApplication.contact.citizenorNational ? 'Yes' : 'No'} <br></br>
+                            <strong>City of birth: </strong>#{renewalApplication.contact.citizenPlaceofBirthCity} <br></br>
+                            <strong>State of birth: </strong>#{renewalApplication.contact.citizenStateofBirth} <br></br>
+
+                            <ui:fragment rendered="#{not empty renewalApplication.contact.citizenEquivStateofBirth}">
+                                <strong>Equivalent State of birth: </strong>#{renewalApplication.contact.citizenEquivStateofBirth} <br></br>
+                            </ui:fragment>
+
+                            <strong>Country of Birth: </strong>#{renewalApplication.contact.citizenPlaceofBirthCountry} <br></br>
+
+                            <ui:fragment rendered="#{!renewalApplication.contact.citizenorNational}">
+                                <strong>Qualified Alien Status: </strong>
+                                <h:outputText value="An alien lawfully admitted for permanent residence under the Immigration and Nationality Act (INA)."
+                                              rendered="#{renewalApplication.contact.asd1}"><br></br></h:outputText>
+                                <h:outputText value="An alien who is granted asylum under Section 208 of the INA."
+                                              rendered="#{renewalApplication.contact.asd2}"><br></br></h:outputText>
+                                <h:outputText value="A refuge admitted to the United States under Section 207 of the INA."
+                                              rendered="#{renewalApplication.contact.asd3}"><br></br></h:outputText>
+                                <h:outputText value="An alien paroled into the United States for at least one year under Section 212(d)(5) of the INA."
+                                              rendered="#{renewalApplication.contact.asd4}"><br></br></h:outputText>
+                                <h:outputText value="An alien whose deportation is being withheld under Section 243(h) of the INA."
+                                              rendered="#{renewalApplication.contact.asd5}"><br></br></h:outputText>
+                                <h:outputText value="An alien granted conditional entry under Section 203(a)(7) of the INA as in effect prior to April 1, 1980."
+                                              rendered="#{renewalApplication.contact.asd6}"><br></br></h:outputText>
+                                <h:outputText value="An alien who is a Cuban and Haitian entrant (as defined in Section 501(e) of the Refugee Education Assistance Act of 1980)."
+                                              rendered="#{renewalApplication.contact.asd7}"><br></br></h:outputText>
+                                <h:outputText value="An alien who has, or whose child or child's parent has, been declared a 'battered alien' or an alien subject to extreme cruelty in the United States." 
+                                              rendered="#{renewalApplication.contact.asd8}"><br></br></h:outputText>
+                                <h:outputText value="An alien not in categories 1 through 8 who has been admitted to the United States for a limited period of time (a nonimmigrant). Nonimmigrants are persons who have temporary status for a specific purpose."
+                                              rendered="#{renewalApplication.contact.asd9}"><br></br></h:outputText>
+
+                                <ui:fragment rendered="#{renewalApplication.contact.asd9}">
+                                    <br></br>
+                                    <strong>Nonimmigrant visa: </strong>
+                                    <h:outputText value="#{renewalApplication.contact.item9yesNo ? 'You do have' : 'You do not have'} a nonimmigrant visa for entry that is related to employment in the United States for which you are applying for a license."><br></br></h:outputText>
+                                </ui:fragment>
+
+                                <ui:fragment rendered="#{renewalApplication.contact.asd10}">
+                                    <br></br>
+                                    <strong>Alien paroled into the United States for less than one year: </strong>
+                                    <h:outputText value="An alien paroled into the United States for less than one year under Section 212(d)(5) of the INA."
+                                                  rendered="#{renewalApplication.contact.asd10}"><br></br></h:outputText>
+                                </ui:fragment>
+                            </ui:fragment>
+                        </div>
+
+                        <div class="grid-1-12">
+                            <s:link view="/licenserenewal-citizen.xhtml" value="Edit" styleClass="submit_button"/>
+                        </div>
+                    </fieldset>
+                </blockquote>
+
+
+                <h3>Applicant Contact Information</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12">
+                            #{renewalApplication.contact.nameFirst} #{renewalApplication.contact.nameMiddle} #{renewalApplication.contact.nameLast} #{renewalApplication.contact.nameSuffix} <br></br>
+                            #{renewalApplication.contact.homeStreet} <br></br>
+                            #{renewalApplication.contact.homeCity} <br></br>
+                            #{renewalApplication.contact.homeCounty} <br></br>
+                            #{renewalApplication.contact.homeState} <br></br>
+                            #{renewalApplication.contact.homeZip} <br></br>
+                            #{renewalApplication.contact.homePhone} <br></br>
+                            #{renewalApplication.contact.homeEmail} <br></br>
+
+
+                            <ui:fragment rendered="#{renewalApplication.contact.useMailAddressAndNotHomeAddress}">
+                                <br></br>
+                                <h3>Permanent Mailing Address</h3>
+                                #{renewalApplication.contact.mailStreet} <br></br>
+                                #{renewalApplication.contact.mailCity} <br></br>
+                                #{renewalApplication.contact.mailState} <br></br>
+                                #{renewalApplication.contact.mailZip} <br></br>
+                            </ui:fragment>
+                        </div>
+
+                        <div class="grid-1-12">
+                            <s:link view="/licenserenewal-info.xhtml" value="Edit" styleClass="submit_button"/>
+                        </div>
+                    </fieldset>
+                </blockquote>
+                <h3>Identification Information</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12">
+                            <strong>Date of Birth: </strong>
+                            <h:outputText value="#{renewalApplication.contact.dob}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                            </h:outputText><br></br>
+                            <strong>Gender: </strong>#{renewalApplication.contact.gender} <br></br>
+                            <strong>Alias: </strong>#{renewalApplication.contact.otherName} <br></br>
+                            <strong>Height: feet: </strong>#{renewalApplication.contact.heightFt} <br></br>
+                            <strong>Height: inches: </strong>#{renewalApplication.contact.heightInches} <br></br>
+                            <strong>Weight in lbs: </strong>#{renewalApplication.contact.weightLbs} <br></br>
+                            <strong>Hair color: </strong>#{renewalApplication.contact.hairColor} <br></br>
+                            <strong>Eye color: </strong>#{renewalApplication.contact.eyeColor} <br></br>
+                        </div>
+
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/licenserenewal-info.xhtml?cid=#{conversation.id}#identificationInformation" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+
+                    </fieldset>
+                </blockquote>
+
+                <h3>Employment Information</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12">
+                            <strong>Currently employed: </strong>#{renewalApplication.contact.employmentStatus ? 'Yes' : 'No'} <br></br>
+
+
+                            <ui:fragment rendered="#{renewalApplication.contact.employmentStatus}">
+                                <strong>Employed status: </strong>#{renewalApplication.contact.employedStatus} <br></br>
+                                <strong>Principle Field of Employment: </strong>#{renewalApplication.contact.principleFieldofEmployment} <br></br>
+
+                                <ui:fragment rendered="#{not empty renewalApplication.contact.principleFieldofEmploymentOther}">
+                                    <strong>Other or Non Respiratory Field Description: </strong>#{renewalApplication.contact.principleFieldofEmploymentOther} <br></br>
+                                </ui:fragment>
+
+                                <strong>Employer Name: </strong>#{renewalApplication.contact.bizName} <br></br>
+                                <strong>Street address: </strong>#{renewalApplication.contact.bizStreet} <br></br>
+                                <strong>City: </strong>#{renewalApplication.contact.bizCity} <br></br>
+                                <strong>County: </strong>#{renewalApplication.contact.bizCounty} <br></br>
+                                <strong>State: </strong>#{renewalApplication.contact.bizState} <br></br>
+                                <strong>Zip code: </strong>#{renewalApplication.contact.bizZip} <br></br>
+                                <strong>Phone: </strong>#{renewalApplication.contact.bizPhone} <br></br>
+                                <strong>Current position: </strong>#{renewalApplication.contact.bizCurrentPosition} <br></br>
+                                <strong>Employment Start Date: </strong>
+                                <h:outputText value="#{renewalApplication.contact.bizEmploymentStart}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                </h:outputText><br></br>
+                                <strong>Supervisor's name: </strong>#{renewalApplication.contact.managerName} <br></br>
+                                <strong>Area of Care or Specialty: </strong>#{renewalApplication.contact.bizAreaofCareSpecialty} <br></br>
+                            </ui:fragment>
+                        </div>
+
+                        <div class="grid-1-12">
+                            <s:link view="/licenserenewal-employment.xhtml" value="Edit" styleClass="submit_button"/>
+                        </div>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Education</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12">
+
+                            <strong>NBRC CRT or RRT certified: </strong>#{renewalApplication.contact.nbrccrtrrtcertified ? 'Yes' : 'No'} <br></br>
+
+                            <ui:fragment rendered="#{renewalApplication.contact.nbrccrtrrtcertified}">
+                                <ui:fragment rendered="#{not empty renewalApplication.contact.nbrccrttexamDate}">
+                                    <strong>Date of CRT Test: </strong>
+                                    <h:outputText value="#{renewalApplication.contact.nbrccrttexamDate}">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                    </h:outputText>   <br></br>
+                                </ui:fragment>
+
+                                <ui:fragment rendered="#{not empty renewalApplication.contact.nbrcrrtexamDate}">
+                                    <strong>Date of RRT Test: </strong>
+                                    <h:outputText value="#{renewalApplication.contact.nbrcrrtexamDate}">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                    </h:outputText> <br></br>   
+
+                                </ui:fragment>
+                            </ui:fragment>
+
+                            <ui:fragment rendered="#{!renewalApplication.contact.nbrccrtrrtcertified}">
+                                <strong>Explanation: </strong><h:outputText value="#{renewalApplication.contact.nbrcexplanation}"></h:outputText><br></br>
+                            </ui:fragment>
+
+                            <strong>Name of school: </strong>#{renewalApplication.contact.educationName} <br></br>
+                            <strong>Street address: </strong>#{renewalApplication.contact.educationStreet} <br></br>
+                            <strong>City: </strong>#{renewalApplication.contact.educationCity} <br></br>
+                            <strong>State: </strong>#{renewalApplication.contact.educationState} <br></br>
+                            <strong>Country: </strong>#{renewalApplication.contact.educationCountry} <br></br>
+                            <strong>Zip code: </strong>#{renewalApplication.contact.educationZip} <br></br>
+                            <strong>Training Completion Date: </strong>
+                            <h:outputText value="#{renewalApplication.contact.trainingCompDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                            </h:outputText> <br></br>   
+                            <strong>Highest level of education completed: </strong>#{renewalApplication.contact.educationCompleted} <br></br>
+
+
+                            <ui:fragment rendered="#{renewalApplication.contact.educationCompletedOther !=null}">
+                                <strong>Level Completed: </strong>#{renewalApplication.contact.educationCompletedOther} <br></br>
+                            </ui:fragment>
+
+                            <strong>Date of Completion/Graduation: </strong>
+                            <h:outputText value="#{renewalApplication.contact.educationHighestCompDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                            </h:outputText> <br></br>
+
+                            <strong>Completed 20 hours of continuing education: </strong>#{renewalApplication.continuingEducation ? 'Yes' : 'No'} <br></br>
+                        </div>
+
+                        <div class="grid-1-12">
+                            <s:link view="/licenserenewal-education.xhtml" value="Edit" styleClass="submit_button"/>
+                        </div>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Attestations</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12">
+                            <ui:fragment rendered="#{renewalApplication.questionWorkDoneOnExpiredLicense}">
+                                <!-- the logic on presenting work done on expired license is: the questionWorkDoneOnExpiredLicense
+                                is a Boolean for this license renewal. however, if someone says yes, then the business logic demands
+                                that an entry be recorded. thus, a person can say no on this renewal. in which case, this inside area
+                                would never be accessed. but, if it is, then the answer is going to be yes. however, for consistency,
+                                used workHistories to determine if a yes or no is provided. -->
+                                <strong>Work done on an expired license: </strong> #{renewalApplication.contact.workHistories.size==0 ? 'No' : 'Yes'}<br></br>
+                            </ui:fragment>
+                            <strong>Arrests, charges, convictions: </strong>#{renewalApplication.arrestsChargesConvictionBooleanAttestationQuestion ? 'Yes' : 'No'} <br></br>
+                            <strong>Traffic Violations: </strong> #{renewalApplication.trafficViolationBooleanAttestationQuestion ? 'Yes' : 'No'} <br></br>
+                            <strong>Civil/Malpractice Cases: </strong> #{renewalApplication.civilMalpracticeCasesBooleanAttestationQuestion ? 'Yes' : 'No'} <br></br>
+                            <strong>License Actions: </strong> #{renewalApplication.licenseActionsBooleanAttestationQuestion ? 'Yes' : 'No'} <br></br>
+                            <strong>Substance Abuse Problems: </strong> #{renewalApplication.substanceAbuseProblemsBooleanAttestationQuestion ? 'Yes' : 'No'} <br></br>
+                            <strong>Disciplinary Actions: </strong> #{renewalApplication.disciplinaryActionBooleanAttestationQuestion ? 'Yes' : 'No'} <br></br>
+                        </div>
+                        <div class="grid-1-12">
+                            <s:link view="/licenserenewal-attestations.xhtml" value="Edit" styleClass="submit_button"/>
+                        </div>
+                    </fieldset>
+                </blockquote>
+
+
+
+                <s:div rendered="#{renewalApplication.questionWorkDoneOnExpiredLicense}">
+                    <!-- this section only needs to render if someone did/could have work(ed) on an expired license. else, this question 
+                    may not have even displayed for a user. in which case, the answer would be no from the start.-->
+                    <h3>Work done on an expired license</h3>
+                    <blockquote>
+                        <fieldset class="submitted">
+                            <div class="grid-11-12"> 
+                                <h:outputText rendered="#{renewalApplication.contact.workHistories.size==0}" value="No work done on an expired license entries."></h:outputText>
+                                <s:div rendered="#{renewalApplication.contact.workHistories.size>0}">
+                                    <h:outputText value="The following work done on an expired license is on record."></h:outputText>
+                                    <ui:repeat value="#{renewalApplication.contact.workHistories}" var="work">
+                                        <s:div rendered="#{work.workDecIdnt lt 1}">
+                                            <fieldset  class="submitted"> 
+                                                <div class="grid-11-12">
+                                                    <h3><h:outputText value="#{work.wdestartDate}"><f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/></h:outputText> <h:outputText value=" "/> to <h:outputText value=" "/> <h:outputText value="#{work.wdeendDate}"><f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/></h:outputText></h3> 
+                                                </div>
+
+                                                <div class="grid-11-12">
+                                                    Employer Name: #{work.wdeemployer}<br />   
+                                                    Supervisor Name: #{work.wdesupervisor}<br />
+                                                    Phone: #{work.wdesupervisorPhone}<br />
+                                                </div>    
+
+                                                <!--<div class="grid-1-12"> <input type="button" name="" id="" value="Edit" accesskey="p" class="submit_button" onclick="location.href='#'"/> </div>-->
+                                            </fieldset>  
+                                        </s:div>
+                                    </ui:repeat>
+                                </s:div>
+                            </div>
+
+                            <div class="grid-1-12">
+                                <s:link view="/licenserenewal-expired-license.xhtml" value="Edit" styleClass="submit_button"/>
+                            </div>
+                        </fieldset>         
+                    </blockquote>
+                </s:div>
+
+                <h3>Arrests, Charges, and Convictions</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12"> 
+                            <h:outputText rendered="#{renewalApplication.contact.chargeses.size==0}" value="No arrests, charges, convictions."></h:outputText>
+                            <s:div rendered="#{renewalApplication.contact.chargeses.size>0}">
+                                <h:outputText value="The following arrests, charges, convictions are on record."></h:outputText>
+                                <fieldset class="submitted"> 
+                                    <div class="grid-2-12"> 
+                                        <h3>Date</h3>
+                                    </div>
+                                    <div class="grid-0-12"> 
+                                    </div>
+                                    <div class="grid-5-12"> 
+                                        <h3>Explanation</h3>
+                                    </div>
+                                </fieldset>
+
+                                <ui:repeat value="#{renewalApplication.contact.chargeses}" var="charges">
+                                    <s:div rendered="#{charges.chargesIdnt lt 1}">
+                                        <fieldset class="submitted"> 
+                                            <div class="grid-2-12"> 
+                                                <h:outputText value="#{charges.chargesDate}">
+                                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                                </h:outputText>
+                                            </div>
+                                            <div class="grid-0-12"> 
+                                            </div>
+                                            <div class="grid-5-12"> 
+                                                #{charges.chargesExplanation}
+                                            </div>
+                                        </fieldset>
+                                    </s:div>   
+                                </ui:repeat>
+                            </s:div>
+                        </div>
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/licenserenewal-attestations.xhtml?cid=#{conversation.id}#arrestsChargesAndConvictions" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>         
+                </blockquote>
+
+                <h3>Traffic Violations</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12"> 
+                            <h:outputText rendered="#{renewalApplication.contact.trafficViolations.size==0}" value="No traffic violations."></h:outputText>
+                            <s:div rendered="#{renewalApplication.contact.trafficViolations.size>0}">
+                                <h:outputText value="The following traffic violations are on record."></h:outputText>
+                                <fieldset class="submitted"> 
+                                    <div class="grid-11-12"> 
+                                        <h3>Explanation</h3>
+                                    </div>
+
+                                </fieldset>
+
+                                <ui:repeat value="#{renewalApplication.contact.trafficViolations}" var="hasTrafficViolations">
+                                    <s:div rendered="#{hasTrafficViolations.trafficeViolationsIdnt lt 1}">
+                                        <fieldset class="submitted"> 
+                                            <div class="grid-11-12"> 
+                                                #{hasTrafficViolations.trafficViolationExplanation}
+                                            </div>
+                                        </fieldset>   
+                                    </s:div>
+                                </ui:repeat>
+                            </s:div>
+                        </div>
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/licenserenewal-attestations.xhtml?cid=#{conversation.id}#trafficViolations" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>         
+                </blockquote>
+
+                <h3>Civil/Malpractice Cases</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12"> 
+                            <h:outputText rendered="#{renewalApplication.contact.civilMalpracticeCases.size==0}" value="No civil/malpractice cases."></h:outputText>
+                            <s:div rendered="#{renewalApplication.contact.civilMalpracticeCases.size>0}">
+                                <h:outputText value="The following civil/malpractice cases are on record."></h:outputText>
+                                <fieldset class="submitted">
+                                    <div class="grid-11-12">
+                                        <h3>Explanation</h3>
+                                    </div>
+                                </fieldset>
+
+                                <ui:repeat value="#{renewalApplication.contact.civilMalpracticeCases}" var="hasCivilMalpracticeCases">
+                                    <s:div rendered="#{hasCivilMalpracticeCases.civilMalpracticeCasesIdnt lt 1}">
+                                        <fieldset class="submitted">
+                                            <div class="grid-11-12">
+                                                #{hasCivilMalpracticeCases.civilMalpracticeCasesExplanation}
+                                            </div>
+                                        </fieldset>
+                                    </s:div>
+                                </ui:repeat>
+                            </s:div>
+                        </div>
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/licenserenewal-attestations.xhtml?cid=#{conversation.id}#civilMalpracticeCases" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>         
+                </blockquote>
+
+                <h3>License Actions</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12">
+                            <h:outputText rendered="#{renewalApplication.contact.licenseRenewalLicenseActions.size==0}" value="No license actions."></h:outputText>
+                            <s:div rendered="#{renewalApplication.contact.licenseRenewalLicenseActions.size>0}">
+                                <h:outputText value="The following license actions are on record."></h:outputText>
+                                <fieldset class="submitted"> 
+                                    <div class="grid-2-12"> 
+                                        <h3> State</h3>
+                                    </div>
+
+                                    <div class="grid-2-12"> 
+                                        <h3>Date</h3>
+                                    </div>
+                                    <div class="grid-0-12"> 
+                                    </div>
+                                    <div class="grid-5-12"> 
+                                        <h3>Explanation</h3>
+                                    </div>
+
+                                </fieldset>
+
+                                <ui:repeat value="#{renewalApplication.contact.licenseRenewalLicenseActions}" var="licenseAction">
+                                    <s:div rendered="#{licenseAction.licenseRenewalLicenseActionsIdnt lt 1}">
+                                        <fieldset class="submitted"> 
+                                            <div class="grid-2-12"> 
+                                                #{licenseAction.licenseRenewalLicenseActionsState}
+                                            </div>
+
+                                            <div class="grid-2-12"> 
+                                                <h:outputText value="#{licenseAction.licenseRenewalLicenseActionsDate}">
+                                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                                </h:outputText>
+                                            </div>
+                                            <div class="grid-0-12"> 
+                                            </div>
+                                            <div class="grid-5-12"> 
+                                                #{licenseAction.licenseRenewalLicenseActionsExplanation}
+                                            </div>
+                                        </fieldset>
+                                    </s:div>   
+                                </ui:repeat>
+
+                            </s:div>
+                        </div>
+
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/licenserenewal-attestations.xhtml?cid=#{conversation.id}#licenseActions" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>
+
+                </blockquote>
+
+                <h3>Substance Abuse Problems</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12"> 
+                            <h:outputText rendered="#{renewalApplication.contact.abuses.size==0}" value="No substance abuse problems."></h:outputText>
+                            <s:div rendered="#{renewalApplication.contact.abuses.size>0}">
+                                <h:outputText value="The following substance abuse problems are on record."></h:outputText>
+                                <fieldset class="submitted"> 
+                                    <div class="grid-2-12"> 
+                                        <h3> State</h3>
+                                    </div>
+
+                                    <div class="grid-2-12"> 
+                                        <h3>Date</h3>
+                                    </div>
+                                    <div class="grid-0-12"> 
+                                    </div>
+                                    <div class="grid-5-12"> 
+                                        <h3>Explanation</h3>
+                                    </div>
+
+                                </fieldset>
+
+                                <ui:repeat value="#{renewalApplication.contact.abuses}" var="abuse">
+                                    <s:div rendered="#{abuse.abuseIdnt lt 1}">
+                                        <fieldset class="submitted"> 
+                                            <div class="grid-2-12"> 
+                                                #{abuse.substanceAbuseProgramState}
+                                            </div>
+
+                                            <div class="grid-2-12"> 
+                                                <h:outputText value="#{abuse.substanceAbuseProgramDate}">
+                                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                                </h:outputText>
+                                            </div>
+                                            <div class="grid-0-12"> 
+                                            </div>
+                                            <div class="grid-5-12"> 
+                                                #{abuse.substanceAbuseProgramExplanation}
+                                            </div>
+                                        </fieldset>
+                                    </s:div>   
+                                </ui:repeat>
+
+
+                            </s:div>
+                        </div>
+
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/licenserenewal-attestations.xhtml?cid=#{conversation.id}#substanceAbuseProblems" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Disciplinary Actions</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12"> 
+
+                            <h:outputText rendered="#{renewalApplication.contact.disciplines.size==0}" value="No pending disciplinary actions."></h:outputText>
+                            <s:div rendered="#{renewalApplication.contact.disciplines.size>0}">
+                                <h:outputText value="The following disciplinary actions are on record." />
+
+                                <fieldset class="submitted"> 
+                                    <div class="grid-2-12"> 
+                                        <h3> Employer</h3>
+                                    </div>
+
+                                    <div class="grid-2-12"> 
+                                        <h3>Date</h3>
+                                    </div>
+                                    <div class="grid-0-12"> 
+                                    </div>
+                                    <div class="grid-5-12"> 
+                                        <h3>Explanation</h3>
+                                    </div>
+
+                                </fieldset>
+
+                                <ui:repeat value="#{renewalApplication.contact.disciplines}" var="discipline">
+                                    <s:div rendered="#{discipline.disciplineIdnt lt 1}">
+                                        <fieldset class="submitted"> 
+                                            <div class="grid-2-12"> 
+                                                #{discipline.disciplinaryEmployer}
+                                            </div>
+
+                                            <div class="grid-2-12"> 
+                                                <h:outputText value="#{discipline.pendingDisciplinaryDate}">
+                                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                                </h:outputText>
+                                            </div>
+                                            <div class="grid-0-12"> 
+                                            </div>
+                                            <div class="grid-5-12"> 
+                                                #{discipline.pendingDisciplinaryExplanation}
+                                            </div>
+                                        </fieldset>
+                                    </s:div>   
+                                </ui:repeat>
+
+                            </s:div>
+                        </div>
+
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/licenserenewal-attestations.xhtml?cid=#{conversation.id}#disciplinaryActions" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+
+                    </fieldset>
+                </blockquote>
+
+
+                <h3>Contact files</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-12-12"> 
+                            <h:outputText rendered="#{renewalApplication.contact.contactFiles.size==0}" value="No files uploaded."></h:outputText>
+                            <s:div rendered="#{renewalApplication.contact.contactFiles.size>0}">
+                                <h:outputText value="The following files are on record."></h:outputText>
+                                <fieldset class="submitted"> 
+                                    <div class="grid-11-12">
+                                        <h3>Type of file(s) uploaded</h3>
+                                    </div>
+                                </fieldset>
+
+                                <ui:repeat value="#{renewalApplication.contact.contactFiles}" var="contactFile">
+                                    <s:div rendered="#{contactFile.contactFilesIdnt lt 1}">
+                                        <fieldset class="submitted">
+                                            <div class="grid-11-12">
+                                                #{contactFile.fileType}
+                                            </div>
+                                        </fieldset>
+                                    </s:div>
+                                </ui:repeat>
+                            </s:div>
+                        </div>
+                    </fieldset>
+                </blockquote>
+
+            </div><!-- end of display_table_lgrey -->
+        </div><!-- end of home_table for page -->
+        <h:form class="form">
+            <!-- Nav buttons --> 
+            <fieldset>
+                <div class="grid-6-12">
+
+                    <s:button view="/licenserenewal-attestations.xhtml" value="Previous" styleClass="submit_button"/>
+                </div>
+                <div class="grid-6-12 form-right">
+                    <h:commandButton id="payFeesButton"
+                                     styleClass="submit_button"
+                                     value="Checkout"
+                                     action="#{renewalApplication.checkoutAction}"/>
+                </div>
+
+            </fieldset>
+
+        </h:form>
+
+
+    </ui:define>
+</ui:composition>

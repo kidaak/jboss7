@@ -1,0 +1,238 @@
+<rich:toolBar
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:rich="http://richfaces.org/rich">
+    <rich:toolBarGroup>
+        <h:outputText value="#{projectName}:"/>
+        <s:link id="menuHomeId" view="/home.xhtml" value="Home" propagation="none"/>
+    </rich:toolBarGroup>
+    <rich:dropDownMenu showDelay="250" hideDelay="0" submitMode="none">
+        <f:facet name="label">Browse data</f:facet>
+	<rich:menuItem>
+    	<s:link view="/ContactNameChangeList.xhtml"
+           	value="ContactNameChange List"
+           	id="ContactNameChangeId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/SurrenderList.xhtml"
+           	value="Surrender List"
+           	id="SurrenderId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/AbuseList.xhtml"
+           	value="Abuse List"
+           	id="AbuseId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/DeniedList.xhtml"
+           	value="Denied List"
+           	id="DeniedId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/WorkHistoryList.xhtml"
+           	value="WorkHistory List"
+           	id="WorkHistoryId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/ContactList.xhtml"
+           	value="Contact List"
+           	id="ContactId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/LicenseList.xhtml"
+           	value="License List"
+           	id="LicenseId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/ComplaintNotesList.xhtml"
+           	value="ComplaintNotes List"
+           	id="ComplaintNotesId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/ApplicationList.xhtml"
+           	value="Application List"
+           	id="ApplicationId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/CasesList.xhtml"
+           	value="Cases List"
+           	id="CasesId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/ComplaintHistoryList.xhtml"
+           	value="ComplaintHistory List"
+           	id="ComplaintHistoryId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/LicenseRenewalTaskArchiveList.xhtml"
+           	value="LicenseRenewalTaskArchive List"
+           	id="LicenseRenewalTaskArchiveId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/ComplaintWebList.xhtml"
+           	value="ComplaintWeb List"
+           	id="ComplaintWebId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/ContactNotesList.xhtml"
+           	value="ContactNotes List"
+           	id="ContactNotesId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/CaseNotesList.xhtml"
+           	value="CaseNotes List"
+           	id="CaseNotesId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/WorkHistoryHistoryList.xhtml"
+           	value="WorkHistoryHistory List"
+           	id="WorkHistoryHistoryId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/WebAdminList.xhtml"
+           	value="WebAdmin List"
+           	id="WebAdminId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/LicenseHistoryList.xhtml"
+           	value="LicenseHistory List"
+           	id="LicenseHistoryId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/ContactHistoryList.xhtml"
+           	value="ContactHistory List"
+           	id="ContactHistoryId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/OtherTwoList.xhtml"
+           	value="OtherTwo List"
+           	id="OtherTwoId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/SubpoenaList.xhtml"
+           	value="Subpoena List"
+           	id="SubpoenaId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/ProblemsList.xhtml"
+           	value="Problems List"
+           	id="ProblemsId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/ComplaintList.xhtml"
+           	value="Complaint List"
+           	id="ComplaintId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/LicenseTaskArchiveList.xhtml"
+           	value="LicenseTaskArchive List"
+           	id="LicenseTaskArchiveId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/ChargesList.xhtml"
+           	value="Charges List"
+           	id="ChargesId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/LicenseNotesList.xhtml"
+           	value="LicenseNotes List"
+           	id="LicenseNotesId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/FeeList.xhtml"
+           	value="Fee List"
+           	id="FeeId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/CaseHistoryList.xhtml"
+           	value="CaseHistory List"
+           	id="CaseHistoryId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/InterviewList.xhtml"
+           	value="Interview List"
+           	id="InterviewId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/SurveyList.xhtml"
+           	value="Survey List"
+           	id="SurveyId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+	<rich:menuItem>
+    	<s:link view="/DisciplineList.xhtml"
+           	value="Discipline List"
+           	id="DisciplineId"
+			includePageParams="false"
+     		propagation="none"/>
+     </rich:menuItem>
+    </rich:dropDownMenu>
+    <!-- @newMenuItem@ -->
+    <rich:toolBarGroup location="right">
+        <h:outputText id="menuWelcomeId" value="signed in as: #{credentials.username}" rendered="#{identity.loggedIn}"/>
+        <s:link id="menuLoginId" view="/login.xhtml" value="Login" rendered="#{not identity.loggedIn}" propagation="none"/>
+        <s:link id="menuLogoutId" view="/home.xhtml" action="#{identity.logout}" value="Logout" rendered="#{identity.loggedIn}" propagation="none"/>
+    </rich:toolBarGroup>
+</rich:toolBar>

@@ -1,0 +1,120 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+<ui:param name="pageTitle" value="Address Change Confirmation Page"/>
+<ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+<ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="applicationName2" value="Address Change Information"/>
+<ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="appImage" value="azstate_logo.jpg"/>
+<ui:param name="donotRenderHelp" value="true"/>
+
+
+<ui:define name="localCss">
+	<link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+</ui:define>
+
+
+
+<ui:define name="altbreadcrumb">
+<div id="breadcrumb2">
+	<s:link view="/licenseholder-options.xhtml" value="Home"/> &gt; Address Change Information
+</div>
+</ui:define>
+<ui:define name="body">
+
+	<h:form class="form">
+       		<div class="home_table">
+       			<div class="instructions"><h:outputText value="#{addressChangeSplashManager.addressChangeReviewInstructions}" escape="false"></h:outputText></div>
+       				<div class="display_table lgrey">
+       					<h3>Applicant Contact Information</h3>
+       					<blockquote>
+       						<fieldset class="submitted">
+       							<div class="grid-11-12">
+					            	#{addressChange.contact.nameFirst} #{addressChange.contact.nameMiddle} #{addressChange.contact.nameLast} #{addressChange.contact.nameSuffix}
+					           		<br/>
+					            	#{addressChange.contact.homeStreet}
+					     			<br/>	
+					            	#{addressChange.contact.homeCity}, #{addressChange.contact.homeState} <h:outputText value=" "></h:outputText>  #{addressChange.contact.homeZip}
+					            	<br></br>
+					            	#{addressChange.contact.homePhone}
+					            	<br></br>	
+					            	#{addressChange.contact.homeEmail}
+				            	</div>
+				            	
+				            	<div class="grid-1-12">
+                 					<s:link view="/modify-address.xhtml" value="Edit" styleClass="submit_button"/>
+                 				</div>
+				            </fieldset>
+			            </blockquote>
+            		
+            	
+            	<ui:fragment rendered="#{addressChange.contact.useMailAddressAndNotHomeAddress}">
+	                 <h3>Permanent Mailing Address</h3>
+	                 <blockquote>
+	                 	<fieldset class="submitted">
+	                 		<div class="grid-11-12">
+			            			
+			            		#{addressChange.contact.mailStreet}
+			            		<br></br>	
+			                 	#{addressChange.contact.mailCity}, #{addressChange.contact.mailState} <h:outputText value=" "></h:outputText> #{addressChange.contact.mailZip}
+			                 	<br></br>
+			               </div>
+			               <div class="grid-1-12">
+                 				<s:link view="/modify-address.xhtml" value="Edit" styleClass="submit_button"/>
+                 		   </div>
+	            		</fieldset>
+	            	 </blockquote>
+            		
+                 </ui:fragment>
+                 </div> <!-- end of display_table lgrey -->
+     		</div> <!-- end of home_table -->
+     		
+     		
+ 	  		
+     
+ 	
+ 		<fieldset>
+ 			<div class="grid-6-12">
+	 			<h:commandButton
+						id="edit" value="Previous" styleClass="submit_button"
+						action="#{addressChange.editFromConfirmationPage}"/>
+				<h:outputText value=" "/>
+				<h:commandButton action="#{addressChange.cancel}"
+               			value="Cancel" 
+               			styleClass="submit_button"
+               			onclick="return confirm('Are you sure that you would like to cancel?');"/>
+			</div>
+				
+			
+				
+			<div class="grid-6-12 form-right">
+               	
+				<h:commandButton id="update"
+               			styleClass="submit_button"
+                        value="Submit"
+                       	action="#{addressChange.updateAddress}"
+                       	accesskey="s">
+     			</h:commandButton>
+                
+			</div>
+					
+                    
+              
+ 			</fieldset>
+ 	
+ 	
+ 	</h:form>
+
+</ui:define>
+</ui:composition>

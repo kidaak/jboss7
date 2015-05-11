@@ -1,0 +1,49 @@
+ <!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="#{rceAppConfig.staticServerName}/static/portal/app/popuptemplate_2014.xhtml">
+<ui:param name="pageTitle" value="Feedback Processed"/>
+<ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+<ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="applicationName2" value="Licensing Application"/>
+<ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="appImage" value="azstate_logo.jpg"/>
+<ui:param name="donotRenderHelp" value="true"/>
+
+
+<ui:define name="localCss">
+	<link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+</ui:define>
+
+
+
+<ui:define name="altbreadcrumb">
+<!-- <div id="breadcrumb2">
+	Feedback Processed
+</div> -->
+</ui:define>
+<ui:define name="body">
+	
+	  <div align="center">
+	<table width="80%" border="0" cellspacing="0" cellpadding="2" class="home_table">
+		<tr><td>
+		<div>
+		<h3>Thank You for submitting your feedback.</h3>
+		<p>A message has been sent to support.</p>
+		<p>Someone will contact you with any questions about your feedback if you provided an email address.</p>
+		
+		</div></td>
+		</tr>
+	</table>
+</div>
+	</ui:define>
+</ui:composition>

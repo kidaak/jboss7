@@ -1,0 +1,101 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+<ui:param name="pageTitle" value="License Holder Login"/>
+<ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+<ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="applicationName2" value="Licensing Application"/>
+<ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="appImage" value="azstate_logo.jpg"/>
+<ui:param name="donotRenderHelp" value="true"/>
+
+
+<ui:define name="localCss">
+	<link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+</ui:define>
+
+
+
+<ui:define name="altbreadcrumb">
+<div id="breadcrumb2">
+	<a href="index.xhtml" target="_self">Home</a> &gt; License holder login
+</div>
+</ui:define>
+<ui:define name="body">
+	<div class="instructions">
+		<h:outputText value="#{licenseRenewalSplashManager.renewalsInstructions}" escape="false"></h:outputText>
+	</div>
+	
+	<h:form class="form">
+		<s:validateAll>
+			<h2>Login</h2>
+			<div class="display_table">
+       			<fieldset>
+       				<div class="grid-4-12">
+       					<label class="required">License Number:</label>
+                		
+	            		<h:inputText required="true" id="licenseNumber"
+		                	requiredMessage="License Number is required." 
+		                    class="textfield" 
+		                    maxlength="6"
+		                    size="6"
+		                    value="#{licenseLogin.licenseNumber}" 
+		                    converter="#{stringTrimConverter}"/>
+		                
+		                
+		                <div class="note">Your current, six digit license number (no letters) </div> 
+               			
+       				</div>
+       				
+       				<div class="grid-4-12"> 
+                		<label class="required">Last four digits of your SSN:</label>
+                		
+	            		<h:inputText required="true" id="lastFourDigitsOfSSN"
+		                	requiredMessage="Last four digits of licensee SSN is required." 
+		                    class="textfield" 
+		                    maxlength="4"
+		                    size="4"
+		                    value="#{licenseLogin.ssnLastFour}" 
+		                    converter="#{stringTrimConverter}"/>
+               			
+            		</div>
+       			</fieldset>
+       			
+       		</div>
+		
+			
+		
+		
+		</s:validateAll>
+		
+		
+		
+		<fieldset>
+               	<div class="grid-6-12">
+               		<input type="button" name="Previous" id="Previous" value="Previous" accesskey="p" class="submit_button" onclick="location.href='index.xhtml'" />
+                </div>
+                
+                <div class="grid-6-12 form-right">
+                	<h:commandButton id="submit"
+                			styleClass="submit_button"
+                          	value="Submit"
+                         	action="#{licenseLogin.login}">
+      				</h:commandButton>
+                    <!--<input type="button" name="" id="" value="Continue" accesskey="c" class="submit_button" onclick="location.href='newapp-employment.html'" />-->
+                </div>
+                
+       </fieldset> 
+	</h:form>
+	
+	
+</ui:define>
+</ui:composition>

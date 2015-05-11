@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j">
+
+    <!-- Begin Print Content -->
+    <div class="printwrapper">
+        Payment Receipt Confirmation
+    </div>
+
+    <!-- End Print Content -->
+
+    <div class="text">
+
+        <h:form id="receipt">
+            <table width="80%" border="0" cellspacing="0" cellpadding="2"
+                   class="home_table">
+                <tr>
+                    <td align="left">
+                        <div class="instructions">
+                            <p> <strong>Thank you for your payment.</strong> </p>
+                            <p>
+                                Please keep this receipt for your records.
+                                <br />
+                                A copy of this receipt will also be e-mailed to you at the address you provided during check-out.
+                            </p>
+                            <p>
+                                <s:link styleClass="submit_button" value="View Receipt as a PDF" action="#{reportpocmanager.createPDF}" propagation="join" />
+                                <br/><br/>
+                                <!--
+                                <img src="img/pdficon.gif" alt="Download Acrobat Reader" />
+                                -->
+                                To view PDF files you must have Adobe Acrobat Reader installed on your computer. Download Adobe Acrobat Reader
+                                <a id="ContentPlaceHolder1_aNOIImage" accesskey="a" tabindex="2" href="http://get.adobe.com/reader/" target="_blank">here</a>.
+                            </p>
+                        </div>
+
+                        <div id="divToExport">
+                            <table class="table_summary" border="0" cellpadding="5"
+                                   cellspacing="0" width="100%">
+                                <tr class="total">
+                                    <td  class="total"  style="font-size:1.2em;" width="60%">Order ID: <h:outputText
+                                            value=" #{receiptOrder.orderId}" /></td>                           
+                                </tr>
+                            </table>
+
+                            <!-- Receipt Line Items -->
+
+                            <h:dataTable var="_receiptLineItem"
+                                         value="#{receiptOrder.products}" border="0"
+                                         cellspacing="1" cellpadding="5" width="100%"
+                                         columnClasses="left, right"
+                                         styleClass="table_summary" rowClasses="subsec">
+
+                                <h:column headerClass="center">
+                                    <f:facet name="header">
+                                        <h:outputText value="Description" />
+                                    </f:facet>
+                                    <h:outputText styleClass="left" value="#{_receiptLineItem.description}" />
+                                </h:column>
+
+                                <h:column headerClass="right">
+                                    <f:facet name="header">
+                                        <h:outputText value="Fee" />
+                                    </f:facet>
+                                    <h:outputText styleClass="right"
+                                                  value="#{_receiptLineItem.fee}">
+                                        <f:convertNumber type="currency" currencySymbol="$" />
+                                    </h:outputText>                        
+                                </h:column>
+
+                            </h:dataTable>
+
+                            <!-- Total Paid Now -->
+
+                            <table class="table_summary" border="0" cellspacing="0"
+                                   cellpadding="5" width="100%">
+                                <tr class="total">
+                                    <td width="60%" class="total" style="font-size:1.2em;"><h:outputText value="Total Paid:" />
+                                    </td>
+                                    <td class="total" style="float:right;font-size:1.2em;" ><h:outputText
+                                            value="#{receiptOrder.amount}">
+                                            <f:convertNumber type="currency" currencySymbol="$" />
+                                        </h:outputText></td>
+                                </tr>
+                            </table>
+
+                            <table class="table_summary" border="0" cellpadding="5"
+                                   cellspacing="1" width="100%">
+
+                                <tr class="even">
+                                    <th align="left" valign="top" colspan="2">Payment Information:</th>
+                                </tr>                        
+                                <tr>
+                                    <td width="35%"><h:outputText value="Card: " /></td>
+                                    <td><h:outputText value="#{receiptOrder.cardType} ****#{receiptOrder.last4}" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td width="35%"><h:outputText value="Expiration Date: " /></td>
+                                    <td><h:outputText value="#{receiptOrder.expirationDate}" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td width="35%"><h:outputText value="Name: " /></td>
+                                    <td><h:outputText value="#{receiptOrder.name}" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Transaction Date:</td>
+                                    <td><h:outputText value="#{receiptOrder.date}">
+                                            <s:convertDateTime pattern="#{dateTimePattern}" />
+                                        </h:outputText></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Billing Name:</td>
+                                    <td><h:outputText value="#{receiptOrder.name}" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Billing Address:</td>
+                                    <td><h:outputText value="#{receiptOrder.address}" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Billing City, State:</td>
+                                    <td><h:outputText value="#{receiptOrder.city} #{receiptOrder.state}" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Billing ZIP, Country:</td>
+                                    <td><h:outputText value="#{receiptOrder.zip} #{receiptOrder.country}" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Phone Number:</td>
+                                    <td><h:outputText value="#{receiptOrder.phoneNumber}" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Email:</td>
+                                    <td><h:outputText value="#{receiptOrder.email}" /></td>
+                                </tr>
+                            </table>                     
+                        </div>                  
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+
+    </div>
+
+</ui:composition>

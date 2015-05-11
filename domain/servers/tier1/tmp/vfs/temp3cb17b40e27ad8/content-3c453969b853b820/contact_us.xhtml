@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   template="/WEB-INF/templates/popuptemplate.xhtml">
+ 
+<ui:param name="documentTitle" value="DES Contact Us" />
+<ui:param name="pageTitle" value="Online Payment System: Contact Us" />
+<ui:param name="breadcrumb" value=""/>
+<ui:param name="title" value="Contact Us"/>
+<ui:param name="applicationName2" value="Payment System"/>
+<ui:param name="applicationName1" value="DES Online"/>
+
+<ui:define name="localCss">
+	<link href="resources/css/stylesheet.css" rel="stylesheet" type="text/css"  media="screen" />
+</ui:define>
+
+<ui:define name = "localBody">	
+		<div align="center">
+		<h:form id="contact">
+			<table width="80%" border="0" cellspacing="0" cellpadding="2" class="home_table">
+
+
+				<tr>
+					<td align="left">
+
+					<h2>Overview</h2>
+					<table width="100%" border="0" cellpadding="0" cellspacing="0"	bgcolor="#FFFFFF" class="display_table">
+						<tr>
+							<td width="50%" align="left" valign="top">The DES Online
+							Payment System is used to pay accounts due to the Office of
+							Accounts Receivable and Collections (OARC). Payments for Child
+							Support and Employer UI Tax do not use this system. <br />
+							<br />
+
+							Payments should be mailed to the following address. <br />
+							Make your payment payable to the "Arizona Department of Economic
+							Security".<br />
+							Arizona Department of
+							Economic Security, Office of Accounts Receivable &amp; Collections<br />
+							P.O. Box 504097<br />
+							St. Louis, MO 63150-4097 <br />
+							<br />
+							To offer comments about this DES web site, contact: <br />
+							By Telephone: (602) 542-4296 <br />
+							By Fax: (602) 254-8457 <br />
+							By Mail: <br />
+							Department of Economic
+							Security <br />
+							050Z-1 1717 W. Jefferson <br />
+							Phoenix, AZ 85007</td>
+						</tr>
+						<tr>
+							<td align="left" valign="top"></td>
+						</tr>
+					</table>
+					<h2 class="a">Contact Information</h2>
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+						<tr>
+							<td class="contactAtt">e-mail:</td>
+							<td class="contactVal"><a href="mailto:oarc@azdes.gov">oarc@azdes.gov</a></td>
+						</tr>
+						<tr>
+							<td class="contactAtt" style="white-space: nowrap">Phone Number:</td>
+							<td class="contactVal">(602) 252-0024</td>
+						</tr>
+						<tr>
+							<td class="contactAtt" style="white-space: nowrap">Toll-free Phone Number:</td>
+
+							<td class="contactVal">(800) 236-1475 (in state only)</td>
+						</tr>
+						<tr>
+							<td class="contactAtt" style="white-space: nowrap" valign="top">Address:</td>
+							<td class="contactVal">DES OARC 833C<br />
+							P.O. Box 60<br />
+							Phoenix, AZ85001-0060<br />
+							</td>
+						</tr>
+						<tr>
+							<td class="contactAtt" style="white-space: nowrap">Hours of Operation:</td>
+							<td class="contactVal">Monday through Friday 8:00 a.m. to
+							5:00 p.m. except for state holidays.</td>
+						</tr>
+						<tr>
+							<td class="contactAtt" style="white-space: nowrap">DES Web Site:</td>
+							<td class="contactVal"><a href="http://www.azdes.gov/">http://www.azdes.gov/</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="contactAtt" style="white-space: nowrap">DES Webmaster:</td>
+
+							<td class="contactVal"><a href="mailto:webmaster@azdes.gov">webmaster@azdes.gov</a>
+							</td>
+						</tr>
+
+					</table>
+					<h2>Send E-mail Now</h2>
+					
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+						<tr>
+							<td>
+							<div align="left"><h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>Indicates required fields</div> <br />
+					          <br />
+							<p align="left">All inquiries will be responded to within three business
+							days.</p>
+
+							<p><a name="form"></a></p>
+							<div align="left">
+							<table>
+								<tbody>
+									<tr>
+										<td align="right" height="25" width="110">
+										<h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+										<label for="body:viewFragment1:contact:name">Your Name</label>:</td>
+										<td align="left" height="25" width="700">
+											<h:inputText id="name" size="30" value="#{contactUs.name}" />
+											<h:message for="name" styleClass="errMessage"/>
+										</td>
+									</tr>
+									<tr>
+										<td align="right" height="25">
+										<h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+										<label for="body:viewFragment1:contact:email">Your E-mail</label>:</td>
+										<td align="left">
+											<h:inputText id="email" size="30" value="#{contactUs.email}"/>										
+											<h:message for="email" styleClass="errMessage"/>
+										</td>
+									</tr>
+									<tr>
+										<td align="right" height="25">
+										<h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+										<label for="body:viewFragment1:contact:subject">Subject</label>:</td>
+
+										<td align="left">
+											<h:inputText id="subject" size="60" value="#{contactUs.subject}"/>
+											<h:message for="subject" styleClass="errMessage"/>
+										</td>
+									</tr>
+									<tr>
+										<td align="right" height="25">
+										<h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+										<label for="body:viewFragment1:contact:category">Category</label>:</td>
+										<td align="left">
+										<h:selectOneMenu id="category"  value="#{contactUs.category}">
+											<f:selectItem itemValue="Webmaster" itemLabel="Webmaster" />
+											<f:selectItem itemValue="Questions About Billing Charges"
+												itemLabel="Questions About Billing Charges" />
+											<f:selectItem itemValue="Child Support Payments"
+												itemLabel="Child Support Payments" />
+											<f:selectItem itemValue="Unemployment Insurance"
+												itemLabel="Unemployment Insurance" />
+											<f:selectItem itemValue="Web Site/Technical Questions"
+												itemLabel="Web Site/Technical Questions" />
+											<f:selectItem itemValue="All Other Questions" 	itemLabel="All Other Questions" />
+										</h:selectOneMenu>
+										<h:message for="category" styleClass="errMessage"/>
+										 </td>
+									</tr>
+									<tr>
+										<td align="left" height="55" valign="top"></td>
+										<td align="left" height="55" valign="top">*Use a proper
+										e-mail for response. <i><br/>
+										(example:</i> <i>rgarc9089@aol.com)</i></td>
+									</tr>
+									<tr>
+										<td colspan="2" align="left" height="1">
+										<div style="margin: 0px 0px 0px 10px;">
+										<h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk"/>
+										<label for="body:viewFragment1:contact:emailBody">Question or comment</label>: <span class="helper">please don't include personal identifiable
+										information (i.e. SSN, financial information) in your email:</span></div>
+										<br />
+										<h:message for="emailBody" styleClass="errMessage"/>
+										</td>
+									</tr>
+
+									<tr>
+										<td colspan="2" align="left" height="62" valign="top" width="100%">										   									
+											<h:inputTextarea id="emailBody" rows="10" cols="75" value="#{contactUs.body}" />																					
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="button_table">
+								<tr>
+									<td width="100%" align="center" valign="top" style="white-space: nowrap">
+										<a4j:commandButton action="#{contactUsController.reset}" value="Start over" id="resetButton" styleClass="submit_button"/>
+										<h:commandButton value="Send email" id="sendButton" styleClass="submit_button" action="#{contactUsController.sendEmail}"/>										
+								</td>
+
+								</tr>
+							</table>
+
+							</div>
+							</td>
+						</tr>
+					</table>
+					</td>
+					</tr>
+					</table>
+		</h:form>
+		<div id="testdiv1"></div>
+		</div>
+</ui:define></ui:composition>

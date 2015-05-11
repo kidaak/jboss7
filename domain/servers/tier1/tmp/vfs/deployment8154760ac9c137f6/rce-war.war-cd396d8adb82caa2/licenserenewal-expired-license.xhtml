@@ -1,0 +1,219 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="Expired License"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <s:link view="/licenseholder-options.xhtml" value="Home"/> &gt; Expired License
+        </div>
+    </ui:define>
+
+    <ui:define name="body">
+
+        <h:form class="form">
+
+            <div class="home_table">
+
+                <div class="instructions">
+                    <h:outputText value="#{licenseRenewalSplashManager.renewalsExpiredLicense}" escape="false"></h:outputText>
+                </div>
+
+                <!-- top-of-section 'Previous' navigation button -->
+                <fieldset style="border:none">
+                    <div class="grid-6-12">
+                        <s:button id="btnTopPrevious" view="/licenserenewal-citizen.xhtml" value="Previous" styleClass="submit_button"/>
+                    </div>
+                </fieldset>
+
+                <div align="left"><label class="required">Indicates required fields</label></div>  
+
+                <center>
+                    <div class="error" id="errors" style="display:none;">
+                        <div class="errror_message">The following error(s) have been found: <div class="clear"></div>		
+                            <ul class="error_list">
+                                <li>First Name, Last Name, Address, City, State, Zip, DOB, Height Ft., Height In., Weight, Eyes, Hair, Sex is a required field. </li>
+                                <li>The email address you entered is not in the correct format. Email address should contain the following: username@isp.com.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </center>
+
+                <h2>Work Declaration</h2>
+                <div class="display_table">
+                    <p><strong>Did you work in the field of respiratory care during the period of your license expiration?  </strong></p>
+                    <fieldset>
+                        <div class="grid-12-12"> 
+
+                            <label class="required">For the above question:</label> 
+                            <h:selectOneRadio value="#{renewalApplication.questionWorkDoneOnExpiredLicense}" required="true" requiredMessage="Please indicate if you worked in the field of respiratory care during the period of your license expiration.">  
+                                <f:selectItem itemValue="true" itemLabel="Yes" />  
+                                <f:selectItem itemValue="false" itemLabel="No"/>  
+                                <a4j:support ajaxSingle="true" oncomplete="jQuery('.mask_date_us').mask('99/99/9999'); jQuery('.mask_phone').mask('999-999-9999')" actionListener="#{renewalApplication.changeOnWorkOnExpiredLicense}" event="onclick" reRender="periodsOfEmployment"/>
+                            </h:selectOneRadio> 
+
+                        </div>
+                    </fieldset> 
+
+                    <a4j:outputPanel id="periodsOfEmployment">
+                        <s:div rendered="#{renewalApplication.questionWorkDoneOnExpiredLicense}">
+                            <p>Please enter the periods that you worked during your expiration.  Please enter your most current employment first. </p>
+                            <ui:fragment rendered="#{not empty renewalApplication.contact.workHistories}">
+                                <h3>Work History on Expired License</h3>
+                                <ui:repeat value="#{renewalApplication.contact.workHistories}" var="work">
+                                    <s:div rendered="#{work.workDecIdnt lt 1}">
+                                        <fieldset  class="submitted"> 
+                                            <div class="grid-12-12">
+                                                <h3><h:outputText value="#{work.wdestartDate}"><f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/></h:outputText> <h:outputText value=" "/> to <h:outputText value=" "/> <h:outputText value="#{work.wdeendDate}"><f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/></h:outputText></h3> 
+                                            </div>    
+                                            <div class="grid-9-12">
+                                                Employer Name: #{work.wdeemployer}<br />	
+                                                Supervisor Name: #{work.wdesupervisor}<br />
+                                                Phone: #{work.wdesupervisorPhone}<br />
+                                            </div>    
+                                            <div class="grid-3-12"> 
+                                                <h:commandButton styleClass="submit_button" immediate="true" rendered="#{work.workDecIdnt le 0}" value="Delete" action="#{renewalApplication.deleteWorkDuringExpiredLicense(work.workDecIdnt)}"/>
+                                                <h:commandButton styleClass="submit_button" immediate="true" rendered="#{work.workDecIdnt le 0}" value="Edit" action="#{renewalApplication.editWorkDuringExpiredLicense(work.workDecIdnt)}"/>
+                                            </div>
+
+                                        </fieldset>
+                                    </s:div><!-- end of rendering entry if new entry -->  
+                                </ui:repeat>
+                            </ui:fragment>
+
+                            <p>
+                                <a4j:commandButton styleClass="submit_button" oncomplete="jQuery('.mask_date_us').mask('99/99/9999'); jQuery('.mask_phone').mask('999-999-9999')" value="Add More" reRender="addAnotherWorkDuringExpired" actionListener="#{renewalApplication.addAnotherWorkDuringExpiredLicense}" />
+                            </p>  
+                            <a4j:outputPanel id="addAnotherWorkDuringExpired">
+                                <s:div rendered = "#{renewalApplication.displayAddAnotherWorkDuringExpiredLicense}">
+                                    <fieldset>
+                                        <div class="grid-2-12"> 
+                                            <label class="required">Start Date:</label>
+
+                                        </div>
+                                        <div class="grid-3-12">
+                                            <rich:calendar id="startDate"
+                                                           jointPoint="top-right"
+                                                           direction="top-right" 
+                                                           value="#{renewalApplication.workHistory.wdestartDate}" 
+                                                           showWeeksBar="false"
+                                                           popup="true"
+                                                           showFooter="false"
+                                                           inputSize="15"
+                                                           enableManualInput="true"
+                                                           converterMessage="Please use a mm/dd/yyyy format for Date."
+                                                           datePattern="MM/dd/yyyy" 
+                                                           style="width: 150px;" 
+                                                           required="true"
+                                                           requiredMessage="Start Date is required."
+                                                           inputClass="input_mask mask_date_us">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </rich:calendar> 
+                                        </div>
+                                        <div class="grid-2-12"> 
+                                            <label class="required">End Date:</label>
+
+                                        </div>
+                                        <div class="grid-3-12">
+                                            <rich:calendar id="endDate" 
+                                                           jointPoint="top-right"
+                                                           direction="top-right"
+                                                           value="#{renewalApplication.workHistory.wdeendDate}" 
+                                                           showWeeksBar="false"
+                                                           popup="true"
+                                                           showFooter="false"
+                                                           inputSize="15"
+                                                           enableManualInput="true"
+                                                           converterMessage="Please use a mm/dd/yyyy format for Date."
+                                                           datePattern="MM/dd/yyyy" 
+                                                           style="width: 150px;" 
+                                                           required="true"
+                                                           requiredMessage="End Date is required."
+                                                           inputClass="input_mask mask_date_us">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </rich:calendar> 
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <s:validateAll>
+                                            <div class="grid-5-12"> 
+                                                <label class="required">Employer:</label>
+                                                <h:inputText required="true" 
+                                                             requiredMessage="Employer is required." 
+                                                             class="textfield" 
+                                                             value="#{renewalApplication.workHistory.wdeemployer}" 
+                                                             converter="#{stringTrimConverter}"/>
+                                            </div>
+                                            <div class="grid-4-12"> 
+                                                <label class="required">Supervisor Name:</label>
+                                                <h:inputText required="true" 
+                                                             requiredMessage="Supervisor Name is required." 
+                                                             class="textfield" 
+                                                             value="#{renewalApplication.workHistory.wdesupervisor}" 
+                                                             converter="#{stringTrimConverter}">
+
+                                                </h:inputText>
+                                            </div>
+                                            <div class="grid-3-12"> 
+                                                <label class="required">Supervisor Phone:</label>
+                                                <h:inputText required="true" 
+                                                             requiredMessage="Supervisor Phone is required." 
+                                                             class="input_mask mask_phone textfield"
+                                                             value="#{renewalApplication.workHistory.wdesupervisorPhone}" 
+                                                             converter="#{stringTrimConverter}"/>
+                                            </div>
+                                        </s:validateAll>
+                                    </fieldset>      
+                                    <p>
+                                        <h:commandButton id="Save"
+                                                         styleClass="submit_button"
+                                                         value="Save"	
+                                                         action="#{renewalApplication.saveWorkDuringExpiredLicense}">
+                                        </h:commandButton>
+                                        <h:outputText value="  "></h:outputText>
+                                        <a4j:commandButton styleClass="submit_button" immediate="true" value="Discard and remove from list" reRender="periodsOfEmployment" actionListener="#{renewalApplication.discardAnotherWorkDuringExpiredLicense}" />
+                                    </p>
+                                </s:div>
+                            </a4j:outputPanel>  
+                        </s:div>
+                    </a4j:outputPanel>
+                </div><!-- end of display_table-->
+
+                <!-- Nav buttons --> 
+                <fieldset>
+                    <div class="grid-6-12">
+                        <s:button view="/licenserenewal-citizen.xhtml" value="Previous" styleClass="submit_button"/>
+                    </div>
+                    <div class="grid-6-12 form-right">
+                        <h:commandButton id="Continue"
+                                         styleClass="submit_button"
+                                         value="Continue"
+                                         action="#{renewalApplication.licenseRenewalExpiredLicenseContinue}"/>
+                    </div>
+                </fieldset>
+            </div>
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>

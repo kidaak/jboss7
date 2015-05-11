@@ -1,0 +1,236 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="License Status Inquiry"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="License Status Inquiry"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <a href="index.xhtml" target="_self">Home</a> &gt; License Status Inquiry
+        </div>
+    </ui:define>
+    <ui:define name="body">
+
+        <script type="text/javascript">
+            window.onload = function() {
+                document.getElementById('inquiryForm:lastName').focus();
+            }
+        </script> 
+
+        <h:form id="inquiryForm" class="form">
+
+            <div class="home_table">      
+                <div class="instructions"><h:outputText value="#{appStatusSplashManager.appstatusInquiryInstructions}" escape="false"></h:outputText></div>
+                <h2>License Status Search </h2>
+
+                <div class="display_table">
+                    <a4j:outputPanel id="inputTable">
+                        <fieldset>
+                            <div class="grid-3-12"> 
+                                <label>Last Name:</label>
+
+                                <h:inputText id="lastName"
+                                             class="textfield" 
+                                             value="#{licenseStatusInquiry.lastName}" 
+                                             converter="#{stringTrimConverter}"/>
+
+
+                                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+                            </div>
+                            <div class="grid-0-12">
+                                <br /><strong>OR</strong>
+                            </div>
+                            <div class="grid-3-12"> 
+                                <label>First Name:</label>
+
+                                <h:inputText id="firstName"
+                                             class="textfield" 
+                                             value="#{licenseStatusInquiry.firstName}" 
+                                             converter="#{stringTrimConverter}"/>
+
+                                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+                            </div>
+                            <div class="grid-0-12">
+                                <br /><strong>OR</strong>
+                            </div>
+                            <div class="grid-3-12"> 
+                                <label>License Number:</label>
+
+                                <h:inputText id="licenseNumber"
+                                             class="textfield" 
+                                             maxlength="6"
+                                             size="6"
+                                             value="#{licenseStatusInquiry.licenseNumber}" 
+                                             converter="#{stringTrimConverter}"/>
+
+                                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+                            </div>
+                        </fieldset>     
+                    </a4j:outputPanel>
+
+                    <fieldset>
+                        <div class="grid-5-12">
+                            <input type="button" name="" id="" value="Previous" accesskey="p" class="submit_button" onclick="location.href = 'index.xhtml'" />
+                        </div>
+                        <div class="grid-2-12">
+
+                            <h:commandButton id="clear" 
+                                             value="Clear" 
+                                             styleClass="submit_button"
+                                             action="#{licenseStatusInquiry.clear}">
+                                <a4j:support event="onclick" reRender="searchResults, inputTable" bypassUpdates="false" ajaxSingle="true" />
+                            </h:commandButton>
+
+                        </div>
+
+                        <div class="grid-5-12 form-right">
+                            <h:commandButton id="search" 
+                                             value="Search" 
+                                             styleClass="submit_button"
+                                             action="#{licenseStatusInquiry.queryLicenseStatus}"
+                                             accesskey="s">
+                                <s:defaultAction/>
+                                <a4j:support event="onclick" reRender="searchStatus" bypassUpdates="false" ajaxSingle="true" />
+                            </h:commandButton>
+                        </div>
+                    </fieldset>
+
+             <br></br>
+             <br></br> 
+
+        <a4j:outputPanel id="searchStatus">
+           
+
+           <!--   <h:dataTable styleClass="lgrey wv100 searchResults"
+                         rowClasses="even,odd"
+                         headerClass="heading"
+                         rendered="#{licenseStatusInquiryList.rowCount gt 0}"
+                         value="#{licenseStatusInquiry.licenseStatusInquiryList}" var="result">
+
+                <h:column>
+                    <f:facet name="header">License</f:facet>
+                        #{result.licenseNumber}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                        #{result.nameFirst} #{result.nameLast}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Date Issued</f:facet>
+                    <h:outputText value="#{result.entityStatus=='Application Pending' or result.entityStatus=='Reapplication' ? '' : (result.licenseType=='Temporary License' ? result.tempEffectiveFrom : result.effectiveFrom)}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Expiration</f:facet>
+                    <h:outputText value="#{licenseStatusInquiry.getExpirationDate(result)}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Status</f:facet>
+                        #{licenseStatusInquiry.getStatus(result)}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">License Type</f:facet>
+                        #{result.entityStatus=='Application Pending' ? '' : result.licenseType}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"><h:outputText value="Board Action"/></f:facet>
+                        #{result.entityStatus=='Application Pending' ? '' : (result.boardAction ? 'Yes' : 'No')}
+                </h:column>
+
+            </h:dataTable>-->
+            
+               <rich:dataTable styleClass="lgrey wv100 searchResults"
+                                        rowClasses="even,odd"
+                                        headerClass="heading"
+                         				value="#{licenseStatusInquiry.licenseStatusInquiryList}" var="result" 
+                         				rendered="#{licenseStatusInquiryList.rowCount != null}">
+
+                            <rich:column>
+                                <f:facet name="header">
+                                    <h:outputText value="License" />
+                                </f:facet>
+                                
+                             	<h:outputText value="#{result.licenseNumber}">
+                                </h:outputText>
+                            </rich:column>
+
+                            <rich:column>
+                    				<f:facet name="header"><h:outputText value="Name" /></f:facet>
+                      			 	<h:outputText value="#{result.nameFirst} #{result.nameLast}">
+                                	</h:outputText>
+                			</rich:column>
+                          
+							<rich:column>
+                    			<f:facet name="header"><h:outputText value="Date Issued" /></f:facet>
+                    			<h:outputText value="#{result.entityStatus=='Application Pending' or result.entityStatus=='Reapplication' ? '' : (result.licenseType=='Temporary License' ? result.tempEffectiveFrom : result.effectiveFrom)}">
+                       				 <f:convertDateTime pattern="MM/dd/yyyy" />
+                   				 </h:outputText>
+                			</rich:column>
+                			
+                			<rich:column>
+                			  <f:facet name="header"><h:outputText value="Expiration" /></f:facet>
+                    			<h:outputText value="#{licenseStatusInquiry.getExpirationDate(result)}">
+                        		<f:convertDateTime pattern="MM/dd/yyyy" />
+                   			 	</h:outputText>
+                    		</rich:column>
+                    		
+                    		 <rich:column>
+                    			<f:facet name="header"><h:outputText value="Status" /></f:facet>
+                    			<h:outputText value="#{licenseStatusInquiry.getStatus(result)}">
+                                	</h:outputText>
+                        		
+                			</rich:column>
+
+                			<rich:column>
+                    			<f:facet name="header"><h:outputText value="License Type" /></f:facet>
+                      			 <h:outputText value="#{result.entityStatus=='Application Pending' ? '' : result.licenseType}">
+                                	</h:outputText>
+                			</rich:column>
+
+               				<rich:column>
+                   				<f:facet name="header"><h:outputText value="Board Action"/></f:facet>
+                        		<h:outputText value="#{result.entityStatus=='Application Pending' ? '' : (result.boardAction ? 'Yes' : 'No')}">
+                                	</h:outputText>
+                			</rich:column>
+                			
+                        </rich:dataTable>
+                        <h:outputText rendered="#{licenseStatusInquiryList.rowCount==0}" value="The license search returned no results."></h:outputText>
+
+        </a4j:outputPanel>
+
+        <!-- end left content -->
+        <!-- InstanceEndEditable -->
+ 				 </div>
+            </div>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

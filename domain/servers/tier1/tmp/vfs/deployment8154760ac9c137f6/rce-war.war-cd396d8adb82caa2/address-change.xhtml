@@ -1,0 +1,165 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+<ui:param name="pageTitle" value="Address Change Request Login"/>
+<ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+<ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="applicationName2" value="Licensing Application"/>
+<ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+<ui:param name="appImage" value="azstate_logo.jpg"/>
+<ui:param name="donotRenderHelp" value="true"/>
+
+
+<ui:define name="localCss">
+	<link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+</ui:define>
+
+
+
+<ui:define name="altbreadcrumb">
+<div id="breadcrumb2">
+	<a href="index.xhtml" target="_self">Home</a> &gt; Address Change Request Login
+</div>
+</ui:define>
+<ui:define name="body">
+    
+    <script type="text/javascript">
+		window.onload = function() {
+	    	document.getElementById('inputForm:licenseNumberField:licenseNumber').focus();
+		}
+	</script>
+    
+    
+    <h:form id="form2" class="form">
+    <!--<form class="form" action="" method="get" enctype="multipart/form-data" name="form2" id="form2">-->
+     
+    
+   
+   
+    <center>
+    <div class="error" id="errors" style="display:none;">
+      <div class="errror_message">The following error(s) have been found: <div class="clear"></div>		
+        <ul class="error_list">
+          <li>First Name, Last Name, Address, City, State, Zip, DOB, Height Ft., Height In., Weight, Eyes, Hair, Sex is a required field. </li>
+          <li>The email address you entered is not in the correct format. Email address should contain the following: username@isp.com.</li>
+          </ul>
+        </div>
+      </div>
+    </center>
+    
+    <div class="home_table">      
+      <div class="instructions"><h:outputText value="#{addressChangeSplashManager.addressChangeRetrieveInstructions}" escape="false"></h:outputText></div>
+      	<div align="left"><label class="required">Indicates required fields </label>
+     	<!--<span id="error-show"><a href="#" onclick="showEl('errors'),hideEl('error-show'),showEl('error-hide') ">Show Errors</a></span>-->
+     	<!--<span id="error-hide" style="display:none;"><a href="#" onclick="hideEl('errors'),hideEl('error-hide'),showEl('error-show')">Hide Errors</a></span><br /><br />-->
+    	</div> 
+      <h2>Login Requirements</h2>
+   	  <div class="display_table">
+   	  <s:validateAll>
+          <fieldset>
+          
+          	<div class="grid-25-12"> 
+                <label class="required">License Number:</label>
+                
+	            	<h:inputText required="true" id="licenseNumber"
+	                	requiredMessage="License Number is required." 
+	                    class="textfield" 
+	                    maxlength="6"
+	                    size="6"
+	                    value="#{addressChange.licenseNumber}" 
+	                    converter="#{stringTrimConverter}"/>
+               	
+                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+            </div>	
+          
+            <div class="grid-35-12"> 
+                <label class="required">Last four digits of your SSN:</label>
+                
+	            	<h:inputText required="true" id="lastFourDigitsOfSSN"
+	                	requiredMessage="Last four digits of SSN is required." 
+	                    class="textfield" 
+	                    maxlength="4"
+	                    size="4"
+	                    value="#{addressChange.ssnLastFour}" 
+	                    converter="#{stringTrimConverter}"/>
+               	
+                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+            </div>
+          
+       
+            <div class="grid-25-12"> 
+                <label  class="required">Last Name:</label>
+                
+	            	<h:inputText required="true" id="lastName"
+	                	requiredMessage="Last Name is required." 
+	                    class="textfield" 
+	                    value="#{addressChange.lastName}" 
+	                    converter="#{stringTrimConverter}"/>
+               	
+                <!--<input name="" id=""  type="text" class="textfield" value="" />-->
+            </div>
+           
+            <div class="grid-3-12"> 
+                <label class="required">Date of Birth:</label>
+                
+				
+						<rich:calendar id="dateOfBirth" 
+							jointPoint="top-right"
+							direction="top-right"
+							value="#{addressChange.dateOfBirth}" 
+							required="true" 
+							showWeeksBar="false"
+							popup="true"
+							showFooter="false"
+							inputSize="15"
+							enableManualInput="true"
+							converterMessage="Date of Birth is invalid."
+							requiredMessage="Date of Birth is required." 
+							datePattern="MM/dd/yyyy"
+							inputClass="input_mask mask_date_us">
+							<f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+						</rich:calendar>
+			   			
+       				
+                <!--<input name="" id="" type="text" class="textfield" value="" />-->
+            </div>
+            </fieldset>     
+            
+            </s:validateAll>
+     
+         
+        
+        </div>
+      
+      	
+      <!--Nav buttons--> 
+      <fieldset>
+               	<div class="grid-6-12">
+                	<input type="button" name="" id="" value="Previous" accesskey="p" class="submit_button" onclick="location.href='index.xhtml'" />
+                </div>
+                <div class="grid-6-12 form-right">
+                	<h:commandButton id="Continue"
+                			styleClass="submit_button"
+                          	value="Continue"
+                         	action="#{addressChange.getContactForAddressChange}">
+      				</h:commandButton>
+                    <!--<input type="button" name="" id="" value="Continue" accesskey="c" class="submit_button" onclick="location.href='newapp-employment.html'" />-->
+                </div>
+                
+       </fieldset> 
+       </div><!-- end of .home_table  -->
+     <!--</form>-->
+     </h:form>
+  </ui:define>
+  </ui:composition>
+ 

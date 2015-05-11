@@ -1,0 +1,234 @@
+06:41:48,850 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> init
+06:41:48,850 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) TRACE: In Post Construct of Init Controller
+06:41:48,850 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> initStateList
+06:41:48,850 DEBUG [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) state list is null
+06:41:48,850 DEBUG [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) state list size is zero
+06:42:03,610 ERROR [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: Could not open connection: javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: Could not open connection
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1377) [hibernate-entitymanager-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1300) [hibernate-entitymanager-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.ejb.QueryImpl.getResultList(QueryImpl.java:266) [hibernate-entitymanager-4.1.6.Final.jar:4.1.6.Final]
+	at org.jboss.as.jpa.container.QueryNonTxInvocationDetacher.getResultList(QueryNonTxInvocationDetacher.java:58) [jboss-as-jpa-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at com.nicusa.az.bha.controller.InitController.initStateList(InitController.java:296) [classes:]
+	at com.nicusa.az.bha.controller.InitController.init(InitController.java:237) [classes:]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.6.0_33]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39) [rt.jar:1.6.0_33]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) [rt.jar:1.6.0_33]
+	at java.lang.reflect.Method.invoke(Method.java:597) [rt.jar:1.6.0_33]
+	at org.jboss.as.ee.component.ManagedReferenceLifecycleMethodInterceptorFactory$ManagedReferenceLifecycleMethodInterceptor.processInvocation(ManagedReferenceLifecycleMethodInterceptorFactory.java:130) [jboss-as-ee-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.as.weld.injection.WeldInjectionInterceptor.processInvocation(WeldInjectionInterceptor.java:73) [jboss-as-weld-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.as.ee.component.ManagedReferenceFieldInjectionInterceptorFactory$ManagedReferenceFieldInjectionInterceptor.processInvocation(ManagedReferenceFieldInjectionInterceptorFactory.java:115) [jboss-as-ee-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.as.ee.component.ManagedReferenceInterceptorFactory$ManagedReferenceInterceptor.processInvocation(ManagedReferenceInterceptorFactory.java:106) [jboss-as-ee-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.as.ee.component.TCCLInterceptor.processInvocation(TCCLInterceptor.java:45) [jboss-as-ee-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.ChainedInterceptor.processInvocation(ChainedInterceptor.java:61) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:161) [jboss-as-ee-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.as.ee.component.BasicComponent.createInstance(BasicComponent.java:95) [jboss-as-ee-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.as.web.deployment.component.WebComponentInstantiator$2.<init>(WebComponentInstantiator.java:96) [jboss-as-web-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.as.web.deployment.component.WebComponentInstantiator.initializeInstance(WebComponentInstantiator.java:94) [jboss-as-web-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.as.web.deployment.WebInjectionContainer.newInstance(WebInjectionContainer.java:89) [jboss-as-web-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.as.jsf.deployment.JsfInjectionProvider.invokePostConstruct(JsfInjectionProvider.java:68) [jboss-as-jsf-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at com.sun.faces.mgbean.BeanBuilder.invokePostConstruct(BeanBuilder.java:223) [jsf-impl-2.1.13-jbossorg-1.jar:]
+	at com.sun.faces.mgbean.BeanBuilder.build(BeanBuilder.java:105) [jsf-impl-2.1.13-jbossorg-1.jar:]
+	at com.sun.faces.mgbean.BeanManager.createAndPush(BeanManager.java:409) [jsf-impl-2.1.13-jbossorg-1.jar:]
+	at com.sun.faces.mgbean.BeanManager.create(BeanManager.java:269) [jsf-impl-2.1.13-jbossorg-1.jar:]
+	at com.sun.faces.mgbean.BeanManager.create(BeanManager.java:256) [jsf-impl-2.1.13-jbossorg-1.jar:]
+	at com.sun.faces.config.ConfigureListener.contextInitialized(ConfigureListener.java:253) [jsf-impl-2.1.13-jbossorg-1.jar:]
+	at org.apache.catalina.core.StandardContext.contextListenerStart(StandardContext.java:3392) [jbossweb-7.0.17.Final.jar:]
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:3850) [jbossweb-7.0.17.Final.jar:]
+	at org.jboss.as.web.deployment.WebDeploymentService.start(WebDeploymentService.java:89) [jboss-as-web-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1811)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1746)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886) [rt.jar:1.6.0_33]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908) [rt.jar:1.6.0_33]
+	at java.lang.Thread.run(Thread.java:662) [rt.jar:1.6.0_33]
+Caused by: org.hibernate.exception.GenericJDBCException: Could not open connection
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:54) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:125) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:110) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.obtainConnection(LogicalConnectionImpl.java:304) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.getConnection(LogicalConnectionImpl.java:169) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler.extractPhysicalConnection(ConnectionProxyHandler.java:82) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler.continueInvocation(ConnectionProxyHandler.java:138) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.proxy.AbstractProxyHandler.invoke(AbstractProxyHandler.java:81) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at $Proxy206.prepareStatement(Unknown Source)	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:147) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:166) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:145) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:1720) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1697) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:832) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:293) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2382) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2368) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2198) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2193) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:470) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:355) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:195) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1248) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:101) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.ejb.QueryImpl.getResultList(QueryImpl.java:257) [hibernate-entitymanager-4.1.6.Final.jar:4.1.6.Final]
+	... 44 more
+Caused by: java.sql.SQLException: javax.resource.ResourceException: IJ000453: Unable to get managed connection for java:/BHADataSource
+	at org.jboss.jca.adapters.jdbc.WrapperDataSource.getConnection(WrapperDataSource.java:147)
+	at org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider.getConnection(InjectedDataSourceConnectionProvider.java:70) [hibernate-entitymanager-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.internal.AbstractSessionImpl$NonContextualJdbcConnectionAccess.obtainConnection(AbstractSessionImpl.java:281) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.obtainConnection(LogicalConnectionImpl.java:297) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	... 66 more
+Caused by: javax.resource.ResourceException: IJ000453: Unable to get managed connection for java:/BHADataSource
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:390)
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:302)
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.allocateConnection(AbstractConnectionManager.java:464)
+	at org.jboss.jca.adapters.jdbc.WrapperDataSource.getConnection(WrapperDataSource.java:139)
+	... 69 more
+Caused by: javax.resource.ResourceException: IJ000658: Unexpected throwable while trying to create a connection: null
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.getConnection(SemaphoreArrayListManagedConnectionPool.java:378)
+	at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getSimpleConnection(AbstractPool.java:397)
+	at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getConnection(AbstractPool.java:365)
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:329)
+	... 72 more
+Caused by: javax.resource.ResourceException: Could not create connection
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.getLocalManagedConnection(LocalManagedConnectionFactory.java:282)
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createManagedConnection(LocalManagedConnectionFactory.java:240)
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.createConnectionEventListener(SemaphoreArrayListManagedConnectionPool.java:775)
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.getConnection(SemaphoreArrayListManagedConnectionPool.java:345)
+	... 75 more
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host ecdcldsqldev02, port 1433 has failed. Error: "null. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:190)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:241)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2243)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:491)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:1309)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:991)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:827)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:1012)
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.getLocalManagedConnection(LocalManagedConnectionFactory.java:254)
+	... 78 more
+
+06:42:03,680 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- init
+06:46:50,164 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> init
+06:46:50,165 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) TRACE: In Post Construct of Init Controller
+06:46:50,165 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) --> initStateList
+06:46:50,165 DEBUG [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) state list is null
+06:46:50,165 DEBUG [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) state list size is zero
+06:47:05,587 ERROR [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: Could not open connection: javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: Could not open connection
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1377) [hibernate-entitymanager-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1300) [hibernate-entitymanager-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.ejb.QueryImpl.getResultList(QueryImpl.java:266) [hibernate-entitymanager-4.1.6.Final.jar:4.1.6.Final]
+	at org.jboss.as.jpa.container.QueryNonTxInvocationDetacher.getResultList(QueryNonTxInvocationDetacher.java:58) [jboss-as-jpa-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at com.nicusa.az.bha.controller.InitController.initStateList(InitController.java:296) [classes:]
+	at com.nicusa.az.bha.controller.InitController.init(InitController.java:237) [classes:]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.6.0_33]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39) [rt.jar:1.6.0_33]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) [rt.jar:1.6.0_33]
+	at java.lang.reflect.Method.invoke(Method.java:597) [rt.jar:1.6.0_33]
+	at org.jboss.as.ee.component.ManagedReferenceLifecycleMethodInterceptorFactory$ManagedReferenceLifecycleMethodInterceptor.processInvocation(ManagedReferenceLifecycleMethodInterceptorFactory.java:130) [jboss-as-ee-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.as.weld.injection.WeldInjectionInterceptor.processInvocation(WeldInjectionInterceptor.java:73) [jboss-as-weld-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.as.ee.component.ManagedReferenceFieldInjectionInterceptorFactory$ManagedReferenceFieldInjectionInterceptor.processInvocation(ManagedReferenceFieldInjectionInterceptorFactory.java:115) [jboss-as-ee-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.as.ee.component.ManagedReferenceInterceptorFactory$ManagedReferenceInterceptor.processInvocation(ManagedReferenceInterceptorFactory.java:106) [jboss-as-ee-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.as.ee.component.TCCLInterceptor.processInvocation(TCCLInterceptor.java:45) [jboss-as-ee-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.invocation.ChainedInterceptor.processInvocation(ChainedInterceptor.java:61) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+	at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:161) [jboss-as-ee-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.as.ee.component.BasicComponent.createInstance(BasicComponent.java:95) [jboss-as-ee-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.as.web.deployment.component.WebComponentInstantiator$2.<init>(WebComponentInstantiator.java:96) [jboss-as-web-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.as.web.deployment.component.WebComponentInstantiator.initializeInstance(WebComponentInstantiator.java:94) [jboss-as-web-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.as.web.deployment.WebInjectionContainer.newInstance(WebInjectionContainer.java:89) [jboss-as-web-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.as.jsf.deployment.JsfInjectionProvider.invokePostConstruct(JsfInjectionProvider.java:68) [jboss-as-jsf-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at com.sun.faces.mgbean.BeanBuilder.invokePostConstruct(BeanBuilder.java:223) [jsf-impl-2.1.13-jbossorg-1.jar:]
+	at com.sun.faces.mgbean.BeanBuilder.build(BeanBuilder.java:105) [jsf-impl-2.1.13-jbossorg-1.jar:]
+	at com.sun.faces.mgbean.BeanManager.createAndPush(BeanManager.java:409) [jsf-impl-2.1.13-jbossorg-1.jar:]
+	at com.sun.faces.mgbean.BeanManager.create(BeanManager.java:269) [jsf-impl-2.1.13-jbossorg-1.jar:]
+	at com.sun.faces.mgbean.BeanManager.create(BeanManager.java:256) [jsf-impl-2.1.13-jbossorg-1.jar:]
+	at com.sun.faces.config.ConfigureListener.contextInitialized(ConfigureListener.java:253) [jsf-impl-2.1.13-jbossorg-1.jar:]
+	at org.apache.catalina.core.StandardContext.contextListenerStart(StandardContext.java:3392) [jbossweb-7.0.17.Final.jar:]
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:3850) [jbossweb-7.0.17.Final.jar:]
+	at org.jboss.as.web.deployment.WebDeploymentService.start(WebDeploymentService.java:89) [jboss-as-web-7.1.4.Final-SNAPSHOT.jar:7.1.4.Final-SNAPSHOT]
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1811)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1746)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886) [rt.jar:1.6.0_33]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908) [rt.jar:1.6.0_33]
+	at java.lang.Thread.run(Thread.java:662) [rt.jar:1.6.0_33]
+Caused by: org.hibernate.exception.GenericJDBCException: Could not open connection
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:54) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:125) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:110) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.obtainConnection(LogicalConnectionImpl.java:304) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.getConnection(LogicalConnectionImpl.java:169) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler.extractPhysicalConnection(ConnectionProxyHandler.java:82) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler.continueInvocation(ConnectionProxyHandler.java:138) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.proxy.AbstractProxyHandler.invoke(AbstractProxyHandler.java:81) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at $Proxy206.prepareStatement(Unknown Source)	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:147) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:166) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:145) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:1720) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1697) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:832) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:293) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2382) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2368) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2198) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2193) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:470) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:355) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:195) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1248) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:101) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.ejb.QueryImpl.getResultList(QueryImpl.java:257) [hibernate-entitymanager-4.1.6.Final.jar:4.1.6.Final]
+	... 44 more
+Caused by: java.sql.SQLException: javax.resource.ResourceException: IJ000453: Unable to get managed connection for java:/BHADataSource
+	at org.jboss.jca.adapters.jdbc.WrapperDataSource.getConnection(WrapperDataSource.java:147)
+	at org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider.getConnection(InjectedDataSourceConnectionProvider.java:70) [hibernate-entitymanager-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.internal.AbstractSessionImpl$NonContextualJdbcConnectionAccess.obtainConnection(AbstractSessionImpl.java:281) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	at org.hibernate.engine.jdbc.internal.LogicalConnectionImpl.obtainConnection(LogicalConnectionImpl.java:297) [hibernate-core-4.1.6.Final.jar:4.1.6.Final]
+	... 66 more
+Caused by: javax.resource.ResourceException: IJ000453: Unable to get managed connection for java:/BHADataSource
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:390)
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:302)
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.allocateConnection(AbstractConnectionManager.java:464)
+	at org.jboss.jca.adapters.jdbc.WrapperDataSource.getConnection(WrapperDataSource.java:139)
+	... 69 more
+Caused by: javax.resource.ResourceException: IJ000658: Unexpected throwable while trying to create a connection: null
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.getConnection(SemaphoreArrayListManagedConnectionPool.java:378)
+	at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getSimpleConnection(AbstractPool.java:397)
+	at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getConnection(AbstractPool.java:365)
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:329)
+	... 72 more
+Caused by: javax.resource.ResourceException: Could not create connection
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.getLocalManagedConnection(LocalManagedConnectionFactory.java:282)
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createManagedConnection(LocalManagedConnectionFactory.java:240)
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.createConnectionEventListener(SemaphoreArrayListManagedConnectionPool.java:775)
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.getConnection(SemaphoreArrayListManagedConnectionPool.java:345)
+	... 75 more
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host ecdcldsqldev02, port 1433 has failed. Error: "null. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:190)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:241)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2243)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:491)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:1309)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:991)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:827)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:1012)
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.getLocalManagedConnection(LocalManagedConnectionFactory.java:254)
+	... 78 more
+
+06:47:05,675 TRACE [com.nicusa.az.bha.controller.InitController] (MSC service thread 1-1) <-- init

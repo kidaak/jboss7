@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/WEB-INF/templates/bhaTemplate.xhtml">
+	<ui:param name="pageTitle" value="Order Information" />
+	<ui:param name="title"
+		value="Arizona Board of Behavioral Health Examiners | Order Information" />
+	<ui:param name="applicationName1"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="applicationName2" value="Online Payment Service" />
+	<ui:param name="agencyName"
+		value="Arizona Board of Behavioral Health Examiners" />
+	<ui:param name="appImage" value="agencylogo_bbhe.jpg" />
+	<ui:param name="donotRenderHelp" value="true" />
+	<ui:param name="donotRenderFAQ" value="true" />
+
+	<ui:define name="localCss">
+		<link href="resources/assets/css/azbbhe.css" rel="stylesheet"
+			type="text/css" media="screen" />
+	</ui:define>
+
+	<ui:define name="localJs">
+	</ui:define>
+
+	<ui:define name="breadcrumb"></ui:define>
+
+	<ui:define name="altbreadcrumb">
+		<div id="breadcrumb2">
+			<a href="index.jsf" target="_self">Home</a>  &gt; <a href="personalInfo.jsf" target="_self">Personal Information</a> &gt; Order Information
+		</div>
+	<!--  <h1>Order Information</h1> -->
+	</ui:define>
+	<ui:define name="body">
+	<h:form id="newLicenseForm" class="form">
+			<div class="home_table">
+			
+			  <h:commandLink target="_self" action="paymentPopUp?faces-redirect=true"  rendered="#{bha.newPaymentNeeded}" immediate="true" >
+               	Our records show you already processed a payment for this order, if this is a new order click here.
+              </h:commandLink>
+			
+			
+          	<div align="left"><img src="resources/assets/images/icon-required.gif" alt="*" />Indicates required fields  
+			</div>
+			<h2>Apply for a New License </h2>
+			<div class="display_table">
+			<fieldset>
+			
+			<div class="grid-10-12">
+				<label class="required">Have you already paid your application fee for a license and received your approval letter from the Board of Behavioral Health?</label>
+				<h:selectOneRadio id="yes_no" value="#{bha.answer}">
+				<f:selectItem itemValue="true"  itemLabel="Yes" />
+				<f:selectItem itemValue="false" itemLabel="No" />
+				<f:ajax render="listPanel notePanel" />
+					</h:selectOneRadio>
+			</div>
+			<div class="grid-12-12">
+			<h:panelGroup id="listPanel">
+				<h:outputLabel value="#{bha.newLicenseHeading}"  styleClass="required" rendered="#{bha.answer eq false or bha.answer eq true}" />
+			<div class="clear" />
+				<h:selectOneMenu id="applicationMenu" required="false"
+					requiredMessage="Product selection is required" class="dropmenu"
+					value="#{bha.selectedApplicationItem}" title="Select Application License"
+					hideNoSelectionOption="false" styleClass="grid-3-12"  rendered="#{bha.answer eq false}">
+					<f:selectItems value="#{initController.newLicenseApplicationList}"/>
+				</h:selectOneMenu>
+				
+				<h:selectOneMenu id="issuanceMenu" required="false"
+					requiredMessage="Product selection is required" class="dropmenu"
+					value="#{bha.selectedIssuanceItem}" title="Select Application License"
+					hideNoSelectionOption="false" styleClass="grid-3-12"  rendered="#{bha.answer}">
+					<f:selectItems value="#{initController.newLicenseIssuanceList}"/>
+				</h:selectOneMenu>
+				
+			</h:panelGroup>
+			</div>
+			
+			
+			<div class="grid-8-12">
+			<h:panelGroup id="notePanel">
+			<br/>
+			<h:outputText styleClass="noteimportant" value="NOTE. If you have not received your approval letter do NOT pay the issuance fee for your license type, refunds will NOT be available." rendered="#{bha.answer}"/>
+				<br />
+				<br/>
+				<h:outputText styleClass="noteimportant" value="NOTE: There may be a $3.00 online convenience fee added to your transaction." />
+			</h:panelGroup>
+			</div>				
+			</fieldset>
+			</div>
+
+			<fieldset>
+               	<div class="grid-6-12">
+              		<!-- <s:button view="/index.xhtml" value="Previous" styleClass="submit_button"/>  -->
+					<input type="button" name="prevButton" id="previousBtn" value="Previous"  class="submit_button" onclick="location.href='personalInfo.jsf'" />
+                </div>
+                <div class="grid-6-12 form-right">
+                	<h:commandButton id="Continue"
+                			styleClass="submit_button"
+                          	value="Continue"
+                         	action="#{bha.toSummaryFromNew}">
+      				</h:commandButton>
+                    
+                </div>
+       </fieldset>
+		</div><!-- home_table -->
+	</h:form>
+
+		
+	</ui:define>
+	</ui:composition>

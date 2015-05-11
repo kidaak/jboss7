@@ -1,0 +1,36 @@
+<ui:component
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:cc="http://java.sun.com/jsf/composite"
+    xmlns:my="http://java.sun.com/jsf/composite/components">
+    <cc:interface>
+        <cc:attribute name="label" required="true" />
+        <cc:attribute name="value" required="true" />
+        <cc:attribute name="required" required="true" />
+        <cc:attribute name="size" required="false" />
+        <cc:attribute name="styleClass" required="false" />
+        <cc:attribute name="maxlength" required="false" />
+        <cc:attribute name="requiredMessage" required="false" />
+        <cc:attribute name="validator" required="false" />
+        <cc:editableValueHolder name="id" targets="inputFieldId" />
+    </cc:interface>
+    
+    <cc:implementation>
+	  <div> 
+	 <h:graphicImage library="images" name="asterisk.gif" width="9" height="9" alt="asterisk" rendered="#{cc.attrs.required}"/>
+  	 <h:outputLabel id="label" for="inputFieldId" value="#{cc.attrs.label}" styleClass="#{cc.attrs.invalid ? 'invalid' : ''}"/>
+	 <br />
+	  <h:panelGroup styleClass="value #{invalid?'errors':''}" id="decorator_group" >
+			 <h:inputText id="inputFieldId" 
+	                     size="#{cc.attrs.size}"
+	                     styleClass="#{cc.attrs.styleClass}"
+	                     maxlength="#{cc.attrs.maxlength}"
+	                     required="#{cc.attrs.required}"
+	                     requiredMessage="#{cc.attrs.requiredMessage}"
+	                     value="#{cc.attrs.value}"
+	                     validator="#{cc.attrs.validator}"/> 		
+	  </h:panelGroup>
+  	<h:message id="message" for="inputFieldId" errorClass="invalid message"  />
+ </div>
+    </cc:implementation>
+</ui:component>

@@ -1,0 +1,7 @@
+17:30:20,824 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-1) Pausing Coyote HTTP/1.1 on http-/10.251.30.5:8280
+17:30:20,824 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-1) Stopping Coyote HTTP/1.1 on http-/10.251.30.5:8280
+17:30:20,886 INFO  [org.apache.coyote.ajp.AjpProtocol] (MSC service thread 1-1) Pausing Coyote AJP/1.3 on ajp-/10.251.30.5:8209
+17:30:20,886 INFO  [org.apache.coyote.ajp.AjpProtocol] (MSC service thread 1-1) Stopping Coyote AJP/1.3 on ajp-/10.251.30.5:8209
+17:30:20,961 INFO  [org.apache.catalina.core.StandardContext] (MSC service thread 1-1) Container org.apache.catalina.core.ContainerBase.[jboss.web].[default-host].[/] has not been started
+17:30:20,965 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) JBAS010410: Unbound JCA ConnectionFactory [java:/JmsXA]
+17:30:21,008 INFO  [org.jboss.jaxr] (MSC service thread 1-2) JBAS014002: UnBinding JAXR ConnectionFactory: java:jboss/jaxr/ConnectionFactory

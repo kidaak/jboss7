@@ -1,0 +1,962 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="Attestations"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+            <s:link view="/licenseholder-options.xhtml" value="Home"/> &gt;
+. . . &gt;
+            <s:link view="/licenserenewal-citizen.xhtml" value=" Citizenship"/> &gt;
+            <s:link view="/licenserenewal-info.xhtml" value=" Applicant Information"/> &gt;
+            <s:link view="/licenserenewal-employment.xhtml" value=" Employment" /> &gt; 
+            <s:link view="/licenserenewal-education.xhtml" value=" Education" /> &gt; Attestations
+        </div>
+    </ui:define>
+
+    <ui:define name="body">
+
+        <div class="instructions"><h:outputText value="#{splashManager.newappAttestInstructions}" escape="false"></h:outputText></div>
+
+        <!-- top-of-section 'Previous' navigation button -->
+        <fieldset style="border:none; padding: 0px">
+            <div class="grid-6-12">
+                <s:button id="btnTopPrevious" view="/licenserenewal-education.xhtml" value="Previous" styleClass="submit_button"/>
+            </div>
+        </fieldset>
+
+        <div align="left"><label class="required">Indicates required fields</label></div> 
+
+        <div class="display_table">
+
+            <h:form class="form" id="formArrestsChargesConvictions">
+                <h2>Arrests, Charges, and Convictions</h2>
+                <p><strong><h:outputText value="#{licenseRenewalSplashManager.renewalsAttestArrestsChargesConvictions}" escape="false"></h:outputText></strong></p>
+
+                <fieldset>
+                    <div class="grid-12-12"> 
+                        <label class="required">Arrest(s), charge(s), and conviction(s):</label> 
+
+                        <h:selectOneRadio id="arrestsChargesConvictions" value="#{renewalApplication.arrestsChargesConvictionBooleanAttestationQuestion}" required="true" requiredMessage="Arrests, Charges, and Convictions is a required question.">  
+                            <f:selectItem itemValue="True" itemLabel="Yes" />  
+                            <f:selectItem itemValue="False" itemLabel="No"/>  
+                            <a4j:support ajaxSingle="true" actionListener="#{renewalApplication.changeOnArrestsChargesConvictions}" event="onclick" reRender="arrestsChargesConvictionsTable"/>
+                        </h:selectOneRadio> 
+
+                    </div>
+                </fieldset>
+            </h:form>  
+
+            <a4j:outputPanel id="arrestsChargesConvictionsTable">
+                <s:div rendered="#{renewalApplication.arrestsChargesConvictionBooleanAttestationQuestion}">
+                    <p>Please explain below pertinent information: dates and location of offenses, conviction, court of jurisdiction, dates of imprisonment, parole or probation server. Attach, mail in or bring by, copies of all pertinent documentation (court orders, plea agreements, etc.). </p>
+                    <a4j:outputPanel id="addAnotherArrestsChargesConvictionsTable">
+                        <s:div rendered="#{renewalApplication.displayAddAnotherHasArrestsChargesConvictionsSection}">
+
+                            <h:form class="form" id="formArrestsChargesConvictionsTable">
+                                <fieldset>
+                                    <div class="grid-3-12">
+                                        <label class="required">When</label>
+                                        <rich:calendar id="arrestsChargesConvictionsDate" 
+                                                       jointPoint="top-right"
+                                                       direction="top-right"
+                                                       value="#{renewalApplication.hasArrestsChargesConvictions.chargesDate}" 
+                                                       showWeeksBar="false"
+                                                       popup="true"
+                                                       showFooter="false"
+                                                       inputSize="15"
+                                                       enableManualInput="true"
+                                                       converterMessage="Please use a mm/dd/yyyy format for Date."
+                                                       datePattern="MM/dd/yyyy" 
+                                                       style="width: 150px;" 
+                                                       required="true"
+                                                       requiredMessage="Date is required."
+                                                       inputClass="input_mask mask_date_us">
+                                            <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                        </rich:calendar>
+                                    </div>
+
+                                    <div class="grid-6-12">
+                                        <label class="required">Explanation</label>
+                                        <h:inputTextarea rows="10" id="arrestsChargesConvictionsExplanation"
+                                                         cols="25" 
+                                                         value="#{renewalApplication.hasArrestsChargesConvictions.chargesExplanation}" 
+                                                         class="textfield"
+                                                         required="true"
+                                                         requiredMessage="Explanation is required."
+                                                         converter="#{stringTrimConverter}"/>
+                                    </div>
+                                </fieldset>
+
+                                <h:commandButton id="Save"
+                                                 styleClass="submit_button"
+                                                 value="Save"	
+                                                 action="#{renewalApplication.saveHasArrestsChargesConvictionsEntry}"
+                                                 accesskey="s">
+                                </h:commandButton>
+                                <h:outputText value="  "></h:outputText>
+                                <h:commandButton id="Discard"
+                                                 styleClass="submit_button"
+                                                 value="Discard and remove from list."
+                                                 immediate="true"
+                                                 action="#{renewalApplication.discardHasArrestsChargesConvictionsEntry}">
+
+                                </h:commandButton>
+
+                                <fieldset class="fieldsetSpacer"></fieldset>
+                            </h:form>
+                        </s:div> <!-- rendering of addAnotherArrestsChargesConvctionsTable -->
+                    </a4j:outputPanel> <!-- addAnotherArrestsChargesConvictionsTable -->
+
+
+                    <h:form class="form">
+                        <h:outputText rendered="#{renewalApplication.contact.chargeses.size==0}" value="Please input your arrests, charges, convictions."></h:outputText>
+                        <s:div rendered="#{renewalApplication.contact.chargeses.size>0}">
+
+                            <fieldset class="submitted"> 
+                                <div class="grid-2-12"> 
+                                    <h3>Date</h3>
+                                </div>
+                                <div class="grid-0-12"> 
+                                </div>
+                                <div class="grid-6-12"> 
+                                    <h3>Explanation</h3>
+                                </div>
+                                <div class="grid-1-12">
+                                </div>
+                                <div class="grid-0-12"> 
+                                </div>
+                                <div class="grid-1-12"> 
+                                </div>
+                            </fieldset>
+
+                            <ui:repeat value="#{renewalApplication.contact.chargeses}" var="charges">
+                                <!-- only display new charges not yet persisted -->
+                                <s:div rendered="#{charges.chargesIdnt lt 1}">
+                                    <fieldset class="submitted"> 
+                                        <div class="grid-2-12"> 
+                                            <h:outputText value="#{charges.chargesDate}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </h:outputText>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-6-12"> 
+                                            #{charges.chargesExplanation}
+                                        </div>
+                                        <div class="grid-1-12"><h:commandLink rendered="#{charges.chargesIdnt le 0 and charges.chargesExplanation != 'User uploaded file.'}" styleClass="submit_button" value="Delete" action="#{renewalApplication.deleteHasArrestsChargesConvictionsEntry(charges.chargesIdnt)}"/>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-1-12"><h:commandLink rendered="#{charges.chargesIdnt le 0 and charges.chargesExplanation != 'User uploaded file.'}" styleClass="submit_button" value="Edit" action="#{renewalApplication.editHasArrestsChargesConvictionsEntry(charges.chargesIdnt)}"/>
+
+                                        </div>
+                                    </fieldset>	
+                                </s:div>
+                            </ui:repeat>
+                        </s:div>
+
+                    </h:form>
+
+                    <fieldset class="fieldsetSpacer"></fieldset>
+                    <h:form class="form" id="formArrestsChargesConvictionsAddAnother">
+                        <div class="clear"></div>
+                        <a4j:commandButton styleClass="submit_button" oncomplete="jQuery('.mask_date_us').mask('99/99/9999')" value="Add an Arrest, Charge, Conviction" reRender="addAnotherArrestsChargesConvictionsTable" actionListener="#{renewalApplication.addAnotherArrestsChargesConvictions}" />
+                        <div class="clear"></div>
+                        <fieldset class="fieldsetSpacer"></fieldset>
+                        <p>Attach any of the file types: .doc, .jpg, .gif, .tif,. rtf, .pdf, .docx</p>
+                        <rich:fileUpload uploadData="#{renewalApplication.fileList}" fileUploadListener="#{renewalApplication.fileUploadListener('Arrests Charges Convictions Attachment')}"
+                                         addControlLabel="Upload attachment..."
+                                         id="uploadArrestsChargesConvictionsAttachment"
+                                         listHeight="50"
+                                         listWidth="350"
+                                         immediateUpload="true"
+                                         acceptedTypes="doc, jpg, gif, tif, rtf, pdf, docx">
+                            <a4j:support ajaxSingle="true" event="onuploadcomplete" reRender="arrestsChargesConvictionsTable"/>
+                            <a4j:support ajaxSingle="true" event="onclear" reRender="uploadArrestsChargesConvictionsAttachment"/>
+                        </rich:fileUpload>
+                    </h:form>
+
+                </s:div><!-- rendering of arrestsChargesConvictionsTable -->
+            </a4j:outputPanel><!-- arrestsChargesConvictionsTable -->
+        </div><!-- end of display_table for arrestsChargesConvictions -->
+
+        <a name="trafficViolations" id="trafficViolations"></a>
+
+        <div class="display_table">
+            <h:form class="form" id="formTrafficViolations">
+                <h2>Traffic Violations</h2>
+                <p><strong><h:outputText value="#{licenseRenewalSplashManager.renewalsAttestTraffic}" escape="false"></h:outputText></strong></p>
+                <fieldset>
+                    <div class="grid-12-12">
+                        <label class="required">Traffic Violations:</label>
+                        <h:selectOneRadio id="trafficViolationsAttestation" value="#{renewalApplication.trafficViolationBooleanAttestationQuestion}" required="true" requiredMessage="Traffic violations is a required question.">  
+                            <f:selectItem itemValue="True" itemLabel="Yes" />  
+                            <f:selectItem itemValue="False" itemLabel="No"/>  
+                            <a4j:support ajaxSingle="true" actionListener="#{renewalApplication.changeOnTrafficViolations}" event="onclick" reRender="trafficViolationsTable"/>
+                        </h:selectOneRadio> 
+                    </div>
+                </fieldset>
+            </h:form>
+
+            <a4j:outputPanel id="trafficViolationsTable">
+                <s:div rendered="#{renewalApplication.trafficViolationBooleanAttestationQuestion}">
+
+                    <a4j:outputPanel id="addAnotherTrafficViolation">
+                        <s:div rendered="#{renewalApplication.displayAddAnotherTrafficViolationSection}">
+                            <h:form class="form" id="displayAddAnotherTrafficeViolationTable">
+                                <fieldset>
+                                    <div class="grid-12-12">
+                                        <label class="required">Explanation</label>
+                                        <h:inputTextarea id="trafficViolationExplanation"
+                                                         rows="10"
+                                                         cols="70" 
+                                                         value="#{renewalApplication.hasTrafficViolations.trafficViolationExplanation}" 
+                                                         class="textfield"
+                                                         required="true"
+                                                         requiredMessage="Explanation is required."
+                                                         converter="#{stringTrimConverter}"/>
+                                    </div>
+                                </fieldset>
+
+                                <h:commandButton id="Save"
+                                                 styleClass="submit_button"
+                                                 value="Save"	
+                                                 action="#{renewalApplication.saveHasTrafficViolation}"
+                                                 accesskey="s">
+                                </h:commandButton>
+                                <h:outputText value="  "></h:outputText>
+                                <h:commandButton id="Discard"
+                                                 styleClass="submit_button"
+                                                 value="Discard and remove from list."
+                                                 immediate="true"
+                                                 action="#{renewalApplication.discardHasTrafficViolationsEntry}">
+
+                                </h:commandButton>
+                                <fieldset class="fieldsetSpacer"></fieldset>
+                            </h:form>
+                        </s:div>
+                    </a4j:outputPanel><!-- addAnotherTrafficViolation-->
+
+                    <h:form class="form" id="formTrafficViolationsList">
+                        <h:outputText rendered="#{renewalApplication.contact.trafficViolations.size==0}" value="No traffic violations."></h:outputText>
+                        <s:div rendered="#{renewalApplication.contact.trafficViolations.size>0}">
+                            <fieldset class="submitted">
+
+                                <div class="grid-8-12">
+                                    <h3>Explanation</h3>
+                                </div>
+                                <div class="grid-0-12"> 
+                                </div>
+                                <div class="grid-1-12"></div>
+                                <div class="grid-0-12"> 
+                                </div>
+                                <div class="grid-1-12"></div>
+                            </fieldset>
+
+                            <ui:repeat value="#{renewalApplication.contact.trafficViolations}" var="hasTrafficViolations">
+                                <s:div rendered="#{hasTrafficViolations.trafficeViolationsIdnt lt 1}">
+                                    <fieldset class="submitted">
+
+                                        <div class="grid-8-12">
+                                            #{hasTrafficViolations.trafficViolationExplanation}
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-1-12">
+                                            <h:commandLink styleClass="submit_button" rendered="#{hasTrafficViolations.trafficeViolationsIdnt le 0 and hasTrafficViolations.trafficViolationExplanation != 'User uploaded file.'}" value="Delete" action="#{renewalApplication.deleteHasTrafficViolationsEntry(hasTrafficViolations.trafficeViolationsIdnt)}"/>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-1-12">
+                                            <h:commandLink styleClass="submit_button" rendered="#{hasTrafficViolations.trafficeViolationsIdnt le 0 and hasTrafficViolations.trafficViolationExplanation != 'User uploaded file.'}" value="Edit" action="#{renewalApplication.editHasTrafficViolationsEntry(hasTrafficViolations.trafficeViolationsIdnt)}"/>
+                                        </div>
+                                    </fieldset>
+                                </s:div>
+                            </ui:repeat>
+                        </s:div>							
+                    </h:form>
+
+                    <fieldset class="fieldsetSpacer"></fieldset>
+                    <h:form class="form" id="formAddAnotherTrafficViolation">
+                        <a4j:commandButton styleClass="submit_button" oncomplete="jQuery('.mask_date_us').mask('99/99/9999')" value="Add a traffic violation" reRender="addAnotherTrafficViolation" actionListener="#{renewalApplication.addAnotherTrafficViolation}" />
+                        <fieldset class="fieldsetSpacer"></fieldset>
+                        <p>Attach any of the file types: .doc, .jpg, .gif, .tif,. rtf, .pdf, .docx</p>
+                        <rich:fileUpload uploadData="#{renewalApplication.fileList}" fileUploadListener="#{renewalApplication.fileUploadListener('Traffic Violations Attachment')}"
+                                         addControlLabel="Upload attachment..."
+                                         id="uploadTrafficViolationsAttachment"
+                                         listHeight="50"
+                                         listWidth="350"
+                                         immediateUpload="true"
+                                         acceptedTypes="doc, jpg, gif, tif, rtf, pdf, docx">
+                            <a4j:support ajaxSingle="true" event="onuploadcomplete" reRender="trafficViolationsTable"/>
+                            <a4j:support ajaxSingle="true" event="onclear" reRender="uploadTrafficViolationsAttachment"/>
+                        </rich:fileUpload>
+                    </h:form>
+
+                </s:div>
+            </a4j:outputPanel>			
+        </div><!-- trafficViolations display_table -->
+
+        <a name="civilMalpracticeCases" id="civilMalpracticeCases"></a>
+
+        <div class="display_table">
+            <h:form class="form" id="formCivilMalpracticeCases">
+                <h2>Civil/Malpractice Cases</h2>
+                <p><strong><h:outputText value="#{licenseRenewalSplashManager.renewalsAttestCivilMalpractice}" escape="false"></h:outputText></strong></p>
+                <fieldset>
+                    <div class="grid-12-12">
+                        <label class="required">Civil/Malpractice Cases:</label>
+                        <h:selectOneRadio id="civilMalpracticeCasesAttestation" value="#{renewalApplication.civilMalpracticeCasesBooleanAttestationQuestion}" required="true" requiredMessage="Civil/Malpractice Cases is a required question.">  
+                            <f:selectItem itemValue="True" itemLabel="Yes" />  
+                            <f:selectItem itemValue="False" itemLabel="No"/>  
+                            <a4j:support ajaxSingle="true" actionListener="#{renewalApplication.changeOnCivilMalpracticeCases}" event="onclick" reRender="civilMalpracticeCasesTable"/>
+                        </h:selectOneRadio> 
+                    </div>
+                </fieldset>
+            </h:form>
+
+            <a4j:outputPanel id="civilMalpracticeCasesTable">
+                <s:div rendered="#{renewalApplication.civilMalpracticeCasesBooleanAttestationQuestion}">
+
+                    <a4j:outputPanel id="addAnotherCivilMalpracticeCase">
+                        <s:div rendered="#{renewalApplication.displayAddAnotherCivilMalpracticeCaseSection}">
+                            <h:form class="form" id="displayAddAnotherCivilMalpracticeCaseTable">
+                                <fieldset>
+                                    <div class="grid-12-12">
+                                        <label class="required">Explanation</label>
+                                        <h:inputTextarea id="civilMalpracticeCaseExplanation"
+                                                         rows="10"
+                                                         cols="70" 
+                                                         value="#{renewalApplication.hasCivilMalpracticeCases.civilMalpracticeCasesExplanation}" 
+                                                         class="textfield"
+                                                         required="true"
+                                                         requiredMessage="Explanation is required."
+                                                         converter="#{stringTrimConverter}"/>
+                                    </div>
+                                </fieldset>
+
+                                <h:commandButton id="Save"
+                                                 styleClass="submit_button"
+                                                 value="Save"	
+                                                 action="#{renewalApplication.saveHasCivilMalpracticeCase}"
+                                                 accesskey="s">
+                                </h:commandButton>
+
+                                <h:commandButton id="Discard"
+                                                 styleClass="submit_button"
+                                                 value="Discard and remove from list."
+                                                 immediate="true"
+                                                 action="#{renewalApplication.discardHasCivilMalpracticeCaseEntry}">	
+                                </h:commandButton>
+                                <fieldset class="fieldsetSpacer"></fieldset>
+                            </h:form>
+                        </s:div>
+                    </a4j:outputPanel><!-- end addAnotherCivilMalpracticeCase -->
+
+                    <h:form class="form" id="formCivilMalpracticeCasesList">
+                        <h:outputText rendered="#{renewalApplication.contact.civilMalpracticeCases.size==0}" value="No civil/malpractice cases."></h:outputText>
+                        <s:div rendered="#{renewalApplication.contact.civilMalpracticeCases.size>0}">
+                            <fieldset class="submitted">
+                                <div class="grid-8-12">
+                                    <h3>Explanation</h3>
+                                </div>
+                                <div class="grid-0-12"></div>
+                                <div class="grid-1-12"></div>
+                                <div class="grid-0-12"></div>
+                                <div class="grid-1-12"></div>
+                            </fieldset>
+
+                            <ui:repeat value="#{renewalApplication.contact.civilMalpracticeCases}" var="hasCivilMalpracticeCases">
+                                <s:div rendered="#{hasCivilMalpracticeCases.civilMalpracticeCasesIdnt lt 1}">
+                                    <fieldset class="submitted">
+                                        <div class="grid-8-12">
+                                            #{hasCivilMalpracticeCases.civilMalpracticeCasesExplanation}
+                                        </div>
+                                        <div class="grid-0-12"></div>
+                                        <div class="grid-1-12">
+                                            <h:commandLink styleClass="submit_button" rendered="#{hasCivilMalpracticeCases.civilMalpracticeCasesIdnt le 0 and hasCivilMalpracticeCases.civilMalpracticeCasesExplanation != 'User uploaded file.'}" value="Delete" action="#{renewalApplication.deleteHasCivilMalpracticeCasesEntry(hasCivilMalpracticeCases.civilMalpracticeCasesIdnt)}"/>
+                                        </div>
+                                        <div class="grid-0-12"></div>
+                                        <div class="grid-1-12">
+                                            <h:commandLink styleClass="submit_button" rendered="#{hasCivilMalpracticeCases.civilMalpracticeCasesIdnt le 0 and hasCivilMalpracticeCases.civilMalpracticeCasesExplanation != 'User uploaded file.'}" value="Edit" action="#{renewalApplication.editHasCivilMalpracticeCasesEntry(hasCivilMalpracticeCases.civilMalpracticeCasesIdnt)}"/>
+                                        </div>
+                                    </fieldset>
+                                </s:div>
+                            </ui:repeat>
+                        </s:div>							
+                    </h:form>
+
+                    <fieldset class="fieldsetSpacer"></fieldset>
+                    <h:form class="form" id="formAddAnotherCivilMalpracticeCase">
+                        <a4j:commandButton styleClass="submit_button" oncomplete="jQuery('.mask_date_us').mask('99/99/9999')" value="Add a civil/malpractice case" reRender="civilMalpracticeCasesTable" actionListener="#{renewalApplication.addAnotherCivilMalpracticeCase}" />
+                        <fieldset class="fieldsetSpacer"></fieldset>
+                        <p>Attach any of the file types: .doc, .jpg, .gif, .tif,. rtf, .pdf, .docx</p>
+                        <rich:fileUpload uploadData="#{renewalApplication.fileList}" fileUploadListener="#{renewalApplication.fileUploadListener('Civil Malpractice Cases Attachment')}"
+                                         addControlLabel="Upload attachment..."
+                                         id="uploadCivilMalpracticeCasesAttachment"
+                                         listHeight="50"
+                                         listWidth="350"
+                                         immediateUpload="true"
+                                         acceptedTypes="doc, jpg, gif, tif, rtf, pdf, docx">
+                            <a4j:support ajaxSingle="true" event="onuploadcomplete" reRender="civilMalpracticeCasesTable"/>
+                            <a4j:support ajaxSingle="true" event="onclear" reRender="uploadCivilMalpracticeCasesAttachment"/>
+                        </rich:fileUpload>
+                    </h:form>
+                </s:div>
+            </a4j:outputPanel>
+        </div><!-- end of civilMalpracticeCases display_table -->
+
+        <a name="licenseActions" id="licenseActions"></a>
+
+        <div class="display_table">
+            <h:form class="form" id="formLicenseAction">
+                <h2>License Actions</h2>
+                <p><strong><h:outputText value="#{licenseRenewalSplashManager.renewalsAttestLicenseAction}" escape="false"></h:outputText></strong></p>
+
+                <fieldset>
+                    <div class="grid-12-12"> 
+                        <label class="required">License Actions:</label>
+                        <h:selectOneRadio id="licenseActions" value="#{renewalApplication.licenseActionsBooleanAttestationQuestion}" required="true" requiredMessage="License Actions is a required question.">  
+                            <f:selectItem itemValue="True" itemLabel="Yes" />  
+                            <f:selectItem itemValue="False" itemLabel="No"/>  
+                            <a4j:support ajaxSingle="true" actionListener="#{renewalApplication.changeOnLicenseActions}" event="onclick" reRender="licenseActionsTable"/>
+                        </h:selectOneRadio> 
+                    </div>
+                </fieldset>
+
+            </h:form>  
+
+            <a4j:outputPanel id="licenseActionsTable">
+                <s:div rendered="#{renewalApplication.licenseActionsBooleanAttestationQuestion}">
+                    <a4j:outputPanel id="addAnotherLicenseActionsTable">
+                        <s:div rendered="#{renewalApplication.displayAddAnotherLicenseActionsSection}">
+                            <h:form class="form" id="formLicenseActionsTable">
+                                <s:validateAll>
+                                    <fieldset>	
+                                        <div class="grid-3-12">
+                                            <label class="required">State</label>
+                                            <h:selectOneMenu id="licenseActionsState"
+                                                             value="#{renewalApplication.licenseRenewalLicenseActions.licenseRenewalLicenseActionsState}"
+                                                             class="dropmenu"
+                                                             title="Select a State"
+                                                             required="true"
+                                                             requiredMessage="State is required.">
+                                                <f:selectItems 	value="#{renewalApplication.stateList}"/>
+                                            </h:selectOneMenu>
+                                        </div>
+
+                                        <div class="grid-3-12">
+                                            <label class="required">Date</label>
+                                            <rich:calendar id="licenseActionsDate" 
+                                                           jointPoint="top-right"
+                                                           direction="top-right"
+                                                           value="#{renewalApplication.licenseRenewalLicenseActions.licenseRenewalLicenseActionsDate}" 
+                                                           showWeeksBar="false"
+                                                           popup="true"
+                                                           showFooter="false"
+                                                           inputSize="15"
+                                                           enableManualInput="true"
+                                                           converterMessage="Please use a mm/dd/yyyy format for Date."
+                                                           datePattern="MM/dd/yyyy" 
+                                                           style="width: 150px;" 
+                                                           required="true"
+                                                           requiredMessage="Date is required."
+                                                           inputClass="input_mask mask_date_us">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </rich:calendar>
+                                        </div>
+
+                                        <div class="grid-6-12">
+                                            <label class="required">Explanation (Limit 255 characters)</label>
+                                            <h:inputTextarea rows="10" id="licenseActionExplanation"
+                                                             cols="25" 
+                                                             value="#{renewalApplication.licenseRenewalLicenseActions.licenseRenewalLicenseActionsExplanation}" 
+                                                             class="textfield"
+                                                             required="true"
+                                                             requiredMessage="Explanation is required."
+                                                             converter="#{stringTrimConverter}"/>
+                                        </div>
+                                    </fieldset>
+
+                                    <h:commandButton id="Save"
+                                                     styleClass="submit_button"
+                                                     value="Save"	
+                                                     action="#{renewalApplication.saveLicenseActionEntry}">
+                                    </h:commandButton>			
+                                    <h:outputText value="  "></h:outputText>
+                                    <h:commandButton id="Discard"
+                                                     styleClass="submit_button"
+                                                     value="Discard and remove from list."
+                                                     immediate="true"
+                                                     action="#{renewalApplication.discardLicenseActionEntry}">
+                                    </h:commandButton>
+                                    <fieldset class="fieldsetSpacer"></fieldset>
+                                </s:validateAll>
+                            </h:form>
+                        </s:div> <!-- rendering of addAnotherLicenseActionsTable -->
+                    </a4j:outputPanel> <!-- addAnotherLicenseActionsTable -->
+
+                    <h:form class="form" id="licenseRenewalLicenseActionsList">
+                        <h:outputText rendered="#{renewalApplication.contact.licenseRenewalLicenseActions.size==0}" value="Please input your license actions."></h:outputText>
+                        <s:div rendered="#{renewalApplication.contact.licenseRenewalLicenseActions.size>0}">
+
+                            <fieldset class="submitted"> 
+                                <div class="grid-2-12"> 
+                                    <h3> State</h3>
+                                </div>
+
+                                <div class="grid-2-12"> 
+                                    <h3>Date</h3>
+                                </div>
+                                <div class="grid-0-12"> 
+                                </div>
+                                <div class="grid-4-12"> 
+                                    <h3>Explanation</h3>
+                                </div>
+                                <div class="grid-1-12">
+                                </div>
+                                <div class="grid-0-12"> 
+                                </div>
+                                <div class="grid-1-12"> 
+                                </div>
+                            </fieldset>
+
+                            <ui:repeat value="#{renewalApplication.contact.licenseRenewalLicenseActions}" var="licenseAction">
+                                <s:div rendered="#{licenseAction.licenseRenewalLicenseActionsIdnt lt 1}">
+                                    <fieldset class="submitted"> 
+                                        <div class="grid-2-12"> 
+                                            #{licenseAction.licenseRenewalLicenseActionsState}
+                                        </div>
+
+                                        <div class="grid-2-12"> 
+                                            <h:outputText value="#{licenseAction.licenseRenewalLicenseActionsDate}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </h:outputText>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-4-12"> 
+                                            #{licenseAction.licenseRenewalLicenseActionsExplanation}
+                                        </div>
+                                        <div class="grid-1-12"><h:commandLink rendered="#{licenseAction.licenseRenewalLicenseActionsIdnt le 0 and licenseAction.licenseRenewalLicenseActionsExplanation != 'User uploaded file.'}" styleClass="submit_button" value="Delete" action="#{renewalApplication.deleteLicenseActionEntry(licenseAction.licenseRenewalLicenseActionsIdnt)}"/>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-1-12"><h:commandLink rendered="#{licenseAction.licenseRenewalLicenseActionsIdnt le 0 and licenseAction.licenseRenewalLicenseActionsExplanation != 'User uploaded file.'}" styleClass="submit_button" value="Edit" action="#{renewalApplication.editLicenseActionEntry(licenseAction.licenseRenewalLicenseActionsIdnt)}"/>
+                                        </div>
+                                    </fieldset>
+                                </s:div>	
+                            </ui:repeat>
+
+                        </s:div>
+                    </h:form>
+
+                    <fieldset class="fieldsetSpacer"></fieldset>
+                    <h:form class="form" id="formAddAnotherLicenseActions">
+                        <a4j:commandButton styleClass="submit_button" oncomplete="jQuery('.mask_date_us').mask('99/99/9999')" value="Add a License Action" reRender="addAnotherLicenseActionsTable" actionListener="#{renewalApplication.addAnotherLicenseAction}" />
+                        <fieldset class="fieldsetSpacer"></fieldset>
+                        <p>Attach any of the file types: .doc, .jpg, .gif, .tif,. rtf, .pdf, .docx</p>
+                        <rich:fileUpload uploadData="#{renewalApplication.fileList}" fileUploadListener="#{renewalApplication.fileUploadListener('License Actions Attachment')}"
+                                         addControlLabel="Upload attachment..."
+                                         id="uploadLicenseActionsAttachment"
+                                         listHeight="50"
+                                         listWidth="350"
+                                         immediateUpload="true"
+                                         acceptedTypes="doc, jpg, gif, tif, rtf, pdf, docx">
+                            <a4j:support ajaxSingle="true" event="onuploadcomplete" reRender="licenseActionsTable"/>
+                            <a4j:support ajaxSingle="true" event="onclear" reRender="uploadLicenseActionsAttachment"/>
+                        </rich:fileUpload>
+                    </h:form>
+
+                </s:div> <!-- rendering of licenseActionsTable -->
+            </a4j:outputPanel>	<!--licenseActionsTable  -->  
+        </div><!-- end of licenseActions display_table -->
+
+        <a name="substanceAbuseProblems" id="substanceAbuseProblems"></a>
+        <!-- Note: this attestation is a match to new application substance abuse programs and alcohol and drug intemperance.
+         it has been condensed here to one attestation and uses the substanceAbusePrograms naming convention. thus, it
+         is called substanceAbuseProblems but matches to substanceAbusePrograms.-->
+        <div class="display_table">
+            <h:form class="form" id="formSubstanceAbusePrograms">
+                <h2>Substance Abuse Problems</h2>
+                <p><strong><h:outputText value="#{licenseRenewalSplashManager.renewalsAttestSubstanceAbuse}" escape="false"></h:outputText></strong></p>
+                <fieldset>
+                    <div class="grid-12-12"> 
+                        <label class="required">Substance Abuse Problems:</label> 
+                        <h:selectOneRadio id="substanceAbusePrograms" value="#{renewalApplication.substanceAbuseProblemsBooleanAttestationQuestion}" required="true" requiredMessage="Substance Abuse Programs is a required question.">  
+                            <f:selectItem itemValue="True" itemLabel="Yes" />  
+                            <f:selectItem itemValue="False" itemLabel="No"/>  
+                            <a4j:support ajaxSingle="true" actionListener="#{renewalApplication.changeOnSubstanceAbusePrograms}" event="onclick" reRender="substanceAbuseProgramsTable"/>
+                        </h:selectOneRadio> 
+                    </div>
+                </fieldset>
+
+            </h:form>  
+
+            <a4j:outputPanel id="substanceAbuseProgramsTable">
+                <s:div rendered="#{renewalApplication.substanceAbuseProblemsBooleanAttestationQuestion}">
+                    <a4j:outputPanel id="addAnotherSubstanceAbuseProgramsTable">
+                        <s:div rendered="#{renewalApplication.displayAddAnotherHasSubstanceAbuseProgramSection}">
+                            <h:form class="form" id="formSubstanceAbuseProgramTable">
+
+                                <fieldset>
+                                    <div class="grid-3-12">	
+                                        <label class="required">State</label>
+                                        <h:selectOneMenu id="substanceAbuseProgramsState"
+                                                         value="#{renewalApplication.hasSubstanceAbuseProgram.substanceAbuseProgramState}"
+                                                         class="dropmenu"
+                                                         title="Select a State"
+                                                         required="true"
+                                                         requiredMessage="State is required.">
+                                            <f:selectItems 	value="#{renewalApplication.stateList}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+
+                                    <div class="grid-3-12">
+                                        <label class="required">When</label>
+                                        <rich:calendar id="substanceAbuseProgramsDate" 
+                                                       jointPoint="top-right"
+                                                       direction="top-right"
+                                                       value="#{renewalApplication.hasSubstanceAbuseProgram.substanceAbuseProgramDate}" 
+                                                       showWeeksBar="false"
+                                                       popup="true"
+                                                       showFooter="false"
+                                                       inputSize="15"
+                                                       enableManualInput="true"
+                                                       converterMessage="Please use a mm/dd/yyyy format for Date."
+                                                       datePattern="MM/dd/yyyy" 
+                                                       style="width: 150px;" 
+                                                       required="true"
+                                                       requiredMessage="Date is required."
+                                                       inputClass="input_mask mask_date_us">
+                                            <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                        </rich:calendar>
+                                    </div>
+
+                                    <div class="grid-6-12">
+                                        <label class="required">Explanation</label>
+                                        <h:inputTextarea rows="10" id="substanceAbuseProgramsExplanation"
+                                                         cols="25" 
+                                                         value="#{renewalApplication.hasSubstanceAbuseProgram.substanceAbuseProgramExplanation}" 
+                                                         class="textfield"
+                                                         required="true"
+                                                         requiredMessage="Explanation is required."
+                                                         converter="#{stringTrimConverter}"/>
+                                    </div>
+                                </fieldset>
+
+
+                                <h:commandButton id="Save"
+                                                 styleClass="submit_button"
+                                                 value="Save"	
+                                                 action="#{renewalApplication.saveHasSubstanceAbuseProgramEntry}">
+                                </h:commandButton>	
+                                <h:outputText value="  "></h:outputText>								
+                                <h:commandButton id="Discard"
+                                                 styleClass="submit_button"
+                                                 value="Discard and remove from list."
+                                                 immediate="true"
+                                                 action="#{renewalApplication.discardHasSubstanceAbuseProgramEntry}">
+                                </h:commandButton>
+
+                                <fieldset class="fieldsetSpacer"></fieldset>
+                            </h:form>
+                        </s:div> <!-- rendering of substanceAbuseProgramsTable -->
+                    </a4j:outputPanel> <!-- addAnotherSubstanceAbuseProgramsTable -->
+
+                    <h:form class="form" id="formAbusesesList">
+
+                        <h:outputText rendered="#{renewalApplication.contact.abuses.size==0}" value="Please input your substance abuse programs."></h:outputText>
+                        <s:div rendered="#{renewalApplication.contact.abuses.size>0}">
+
+                            <fieldset class="submitted"> 
+                                <div class="grid-2-12"> 
+                                    <h3> State</h3>
+                                </div>
+
+                                <div class="grid-2-12"> 
+                                    <h3>Date</h3>
+                                </div>
+                                <div class="grid-0-12"> 
+                                </div>
+                                <div class="grid-4-12"> 
+                                    <h3>Explanation</h3>
+                                </div>
+                                <div class="grid-1-12">
+                                </div>
+                                <div class="grid-0-12"></div>
+                                <div class="grid-1-12"> 
+                                </div>
+                            </fieldset>
+
+                            <ui:repeat value="#{renewalApplication.contact.abuses}" var="abuse">
+                                <s:div rendered="#{abuse.abuseIdnt lt 1}">
+                                    <fieldset class="submitted"> 
+                                        <div class="grid-2-12"> 
+                                            #{abuse.substanceAbuseProgramState}
+                                        </div>
+
+                                        <div class="grid-2-12"> 
+                                            <h:outputText value="#{abuse.substanceAbuseProgramDate}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </h:outputText>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-4-12"> 
+                                            #{abuse.substanceAbuseProgramExplanation}
+                                        </div>
+                                        <div class="grid-1-12"><h:commandLink rendered="#{abuse.abuseIdnt le 0 and abuse.substanceAbuseProgramExplanation != 'User uploaded file.'}" styleClass="submit_button" value="Delete" action="#{renewalApplication.deleteHasSubstanceAbuseProgramEntry(abuse.abuseIdnt)}"/>
+                                        </div>
+                                        <div class="grid-0-12"></div>
+                                        <div class="grid-1-12"><h:commandLink rendered="#{abuse.abuseIdnt le 0 and abuse.substanceAbuseProgramExplanation != 'User uploaded file.'}" styleClass="submit_button" value="Edit" action="#{renewalApplication.editHasSubstanceAbuseProgramEntry(abuse.abuseIdnt)}"/>
+                                        </div>
+                                    </fieldset>
+                                </s:div>	
+                            </ui:repeat>
+                        </s:div>
+                    </h:form>
+
+                    <fieldset class="fieldsetSpacer"></fieldset>
+                    <h:form class="form" id="formAddAnotherSubstanceAbuseProgram">
+                        <a4j:commandButton styleClass="submit_button" oncomplete="jQuery('.mask_date_us').mask('99/99/9999')" value="Add a Substance Abuse Program" reRender="addAnotherSubstanceAbuseProgramsTable" actionListener="#{renewalApplication.addAnotherHasSubstanceAbuseProgram}" />
+                        <fieldset class="fieldsetSpacer"></fieldset>
+                        <p>Attach any of the file types: .doc, .jpg, .gif, .tif,. rtf, .pdf, .docx</p>
+                        <rich:fileUpload uploadData="#{renewalApplication.fileList}" fileUploadListener="#{renewalApplication.fileUploadListener('Substance Abuse Programs Attachment')}"
+                                         addControlLabel="Upload attachment..."
+                                         id="uploadSubstanceAbuseProgramsAttachment"
+                                         listHeight="50"
+                                         listWidth="350"
+                                         immediateUpload="true"
+                                         acceptedTypes="doc, jpg, gif, tif, rtf, pdf, docx">
+                            <a4j:support ajaxSingle="true" event="onuploadcomplete" reRender="substanceAbuseProgramsTable"/>
+                            <a4j:support ajaxSingle="true" event="onclear" reRender="uploadSubstanceAbuseProgramsAttachment"/>
+                        </rich:fileUpload>
+                    </h:form>
+
+                </s:div> <!-- rendering of hasOtherLicensesTable -->
+            </a4j:outputPanel>	<!--hasOtherLicensesTable  -->  
+        </div><!-- end of substanceAbusePrograms display_table -->
+
+        <a name="disciplinaryActions" id="disciplinaryActions"></a>
+        <!-- Note: pendingDisciplinaryAction is from the new application. the same attestation is used in license renewal.
+        thus, the name pendingDisciplinaryAction is a holdover from the new application and is used here throughout. -->
+        <div class="display_table">
+            <h:form class="form" id="formDisciplinaryActions">
+                <h2>Disciplinary Actions</h2>
+                <p><strong><h:outputText value="#{licenseRenewalSplashManager.renewalsAttestDisciplinaryAction}" escape="false"></h:outputText></strong></p>
+
+                <fieldset>
+                    <div class="grid-12-12"> 
+                        <label class="required">Disciplinary Actions:</label> 
+                        <h:selectOneRadio id="pendingDisciplinaryAction" value="#{renewalApplication.disciplinaryActionBooleanAttestationQuestion}" required="true" requiredMessage="Disciplinary Actions is a required question.">  
+                            <f:selectItem itemValue="True" itemLabel="Yes" />  
+                            <f:selectItem itemValue="False" itemLabel="No"/>  
+                            <a4j:support ajaxSingle="true" actionListener="#{renewalApplication.changeOnPendingDisciplinaryAction}" event="onclick" reRender="pendingDisciplinaryActionTable"/>
+                        </h:selectOneRadio> 
+                    </div>
+                </fieldset>
+            </h:form>  
+
+            <a4j:outputPanel id="pendingDisciplinaryActionTable">
+                <s:div rendered="#{renewalApplication.disciplinaryActionBooleanAttestationQuestion}">
+
+                    <a4j:outputPanel id="addAnotherPendingDisciplinaryActionTable">
+                        <s:div rendered="#{renewalApplication.displayAddAnotherDisciplineSection}">
+                            <h:form class="form" id="displayAnotherDisciplinaryActionTable">
+
+                                <fieldset>
+                                    <div class="grid-3-12">
+                                        <label class="required">Employer</label>
+                                        <h:inputText value="#{renewalApplication.hasBeenDisciplined.disciplinaryEmployer}"
+                                                     id="pendingDisciplinaryActionEmployer" 
+                                                     class="textfield"
+                                                     maxlength="50"
+                                                     required="true"
+                                                     requiredMessage="Employer is required."
+                                                     converter="#{stringTrimConverter}"/> 
+                                    </div>
+                                    <!--  	<div class="grid-3-12">
+                                                    <label class="required">State</label>
+                                            <h:selectOneMenu id="pendingDisciplinaryActionState"
+                                                            value="#{renewalApplication.hasBeenDisciplined.pendingDisciplinaryState}"
+                                                            class="dropmenu"
+                                                            title="Select a State"
+                                                            required="true"
+                                                    requiredMessage="State is required.">
+                                                            <f:selectItems 	value="#{renewalApplication.stateList}"/>
+                                                    </h:selectOneMenu>
+                                            </div> -->
+
+
+                                    <div class="grid-3-12">
+                                        <label class="required">When</label>
+                                        <rich:calendar id="pendingDisciplinaryActionDate" 
+                                                       jointPoint="top-right"
+                                                       direction="top-right"
+                                                       value="#{renewalApplication.hasBeenDisciplined.pendingDisciplinaryDate}" 
+                                                       showWeeksBar="false"
+                                                       popup="true"
+                                                       showFooter="false"
+                                                       inputSize="15"
+                                                       enableManualInput="true"
+                                                       converterMessage="Please use a mm/dd/yyyy format for Date."
+                                                       datePattern="MM/dd/yyyy" 
+                                                       style="width: 150px;" 
+                                                       required="true"
+                                                       requiredMessage="Disciplinary Action Date is required."
+                                                       inputClass="input_mask mask_date_us">
+                                            <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                        </rich:calendar>
+                                    </div>
+
+                                    <div class="grid-6-12">
+                                        <label class="required">Explanation</label>
+                                        <h:inputTextarea rows="10" id="pendingDisciplinaryActionExplanation"
+                                                         cols="25" 
+                                                         value="#{renewalApplication.hasBeenDisciplined.pendingDisciplinaryExplanation}" 
+                                                         class="textfield"
+                                                         required="true"
+                                                         requiredMessage="Disciplinary Action Explanation is required."
+                                                         converter="#{stringTrimConverter}"/>
+                                    </div>
+                                </fieldset>
+
+
+                                <h:commandButton id="Save"
+                                                 styleClass="submit_button"
+                                                 value="Save"	
+                                                 action="#{renewalApplication.saveHasBeenDisciplinedEntry}">
+                                </h:commandButton>
+                                <h:outputText value="  "></h:outputText>
+
+                                <h:commandButton id="Discard"
+                                                 styleClass="submit_button"
+                                                 value="Discard and remove from list."
+                                                 immediate="true"
+                                                 action="#{renewalApplication.discardHasBeenDisciplinedEntry}">
+                                </h:commandButton>
+
+                                <fieldset class="fieldsetSpacer"></fieldset>
+                            </h:form>
+                        </s:div> <!-- rendering of addAnotherDisciplinaryActionTable -->
+                    </a4j:outputPanel> <!-- addAnotherDisciplinaryActionTable -->
+
+                    <h:form class="form" id="formDisciplineList">
+                        <h:outputText rendered="#{renewalApplication.contact.disciplines.size==0}" value="Please input your disciplinary action"></h:outputText>
+                        <s:div rendered="#{renewalApplication.contact.disciplines.size>0}">
+
+                            <fieldset class="submitted"> 
+                                <div class="grid-2-12"> 
+                                    <h3> Employer</h3>
+                                </div>
+
+                                <div class="grid-2-12"> 
+                                    <h3>Date</h3>
+                                </div>
+                                <div class="grid-0-12"> 
+                                </div>
+                                <div class="grid-4-12"> 
+                                    <h3>Explanation</h3>
+                                </div>
+                                <div class="grid-1-12">
+                                </div>
+                                <div class="grid-0-12"></div>
+                                <div class="grid-1-12"> 
+                                </div>
+                            </fieldset>
+
+                            <ui:repeat value="#{renewalApplication.contact.disciplines}" var="discipline">
+                                <s:div rendered="#{discipline.disciplineIdnt lt 1}">
+                                    <fieldset class="submitted"> 
+                                        <div class="grid-2-12"> 
+                                            #{discipline.disciplinaryEmployer}
+                                        </div>
+
+                                        <div class="grid-2-12"> 
+                                            <h:outputText value="#{discipline.pendingDisciplinaryDate}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </h:outputText>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-4-12"> 
+                                            #{discipline.pendingDisciplinaryExplanation}
+                                        </div>
+                                        <div class="grid-1-12"><h:commandLink rendered="#{discipline.disciplineIdnt le 0 and discipline.pendingDisciplinaryExplanation != 'User uploaded file.'}" styleClass="submit_button" value="Delete" action="#{renewalApplication.deleteHasBeenDisciplinedEntry(discipline.disciplineIdnt)}"/>
+                                        </div>
+                                        <div class="grid-0-12"></div>
+                                        <div class="grid-1-12"><h:commandLink rendered="#{discipline.disciplineIdnt le 0 and discipline.pendingDisciplinaryExplanation != 'User uploaded file.'}" styleClass="submit_button" value="Edit" action="#{renewalApplication.editHasBeenDisciplinedEntry(discipline.disciplineIdnt)}"/>
+                                        </div>
+                                    </fieldset>
+                                </s:div>	
+                            </ui:repeat>
+
+                        </s:div>
+                    </h:form>
+
+                    <fieldset class="fieldsetSpacer"></fieldset>
+                    <h:form class="form" id="formDisciplineActionAddAnother">
+                        <a4j:commandButton styleClass="submit_button" oncomplete="jQuery('.mask_date_us').mask('99/99/9999')" value="Add a Disciplinary Action" reRender="addAnotherPendingDisciplinaryActionTable" actionListener="#{renewalApplication.addAnotherPendingDisciplinaryAction}" />
+                        <fieldset class="fieldsetSpacer"></fieldset>
+                        <p>Attach any of the file types: .doc, .jpg, .gif, .tif,. rtf, .pdf, .docx</p>
+                        <rich:fileUpload uploadData="#{renewalApplication.fileList}" fileUploadListener="#{renewalApplication.fileUploadListener('Disciplinary Action Attachment')}"
+                                         addControlLabel="Upload attachment..."
+                                         id="uploadPendingDisciplinaryLicenseAttachment"
+                                         listHeight="50"
+                                         listWidth="350"
+                                         immediateUpload="true"
+                                         acceptedTypes="doc, jpg, gif, tif, rtf, pdf, docx">
+                            <a4j:support ajaxSingle="true" event="onuploadcomplete" reRender="pendingDisciplinaryActionTable"/>
+                            <a4j:support ajaxSingle="true" event="onclear" reRender="uploadPendingDisciplinaryLicenseAttachment"/>
+                        </rich:fileUpload>
+                    </h:form>
+
+                </s:div> <!-- rendering of hasOtherLicensesTable -->
+            </a4j:outputPanel>	<!--hasOtherLicensesTable  -->  
+        </div><!-- end of disciplinaryActions display_table -->
+
+        <h:form class="form">
+            <!-- Nav buttons --> 
+            <fieldset>
+                <div class="grid-6-12">
+
+                    <s:button view="/licenserenewal-education.xhtml" value="Previous" styleClass="submit_button"/>
+                    <!--<input type="button" name="" id="" value="Previous" accesskey="p" class="submit_button" onclick="location.href='newapp-education.xhtml'" />-->
+                </div>
+                <div class="grid-6-12 form-right">
+                    <h:commandButton id="Continue"
+                                     styleClass="submit_button"
+                                     value="Continue"
+                                     action="#{renewalApplication.licenseRenewalAttestationsContinue}">
+                    </h:commandButton>
+                    <!--<input type="button" name="" id="" value="Continue" accesskey="c" class="submit_button" onclick="location.href='newapp-employment.html'" />-->
+                </div>
+
+            </fieldset>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

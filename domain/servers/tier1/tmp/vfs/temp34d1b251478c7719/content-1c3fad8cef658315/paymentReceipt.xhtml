@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:a4j="http://richfaces.org/a4j"
+   xmlns:rich="http://richfaces.org/rich"
+   xmlns:nic="http://java.sun.com/jsf/composite/components"
+   template="/WEB-INF/templates/destemplate.xhtml">
+   
+<ui:param name="pageTitle" value="Receipt"/>
+<ui:param name="title" value="Online Payment Processor"/>
+<ui:param name="agencyName" value="State of Arizona"/>
+<ui:param name="applicationName1" value="State of Arizona"/>
+<ui:param name="applicationName2" value="Checkout Utility"/>
+<ui:param name="appImage" value="azstate_logo.jpg"/>
+<ui:param name="projectLevel" value="../"/>
+<ui:param name="donotRenderLiveHelp" value="true"/>
+<ui:param name="renderLinkToAgency" value="false"/>
+
+<ui:define name="localMetadata">
+<f:metadata/>
+	<f:event listener="#{navigationValidator.verifyReceiptAccess}" type="preRenderView"/>  
+</ui:define>
+
+<ui:define name="localAltbreadcrumb">
+	<div id="breadcrumb2">
+		Payment Information  &#187; Order Review &#187; <strong>Receipt</strong>
+	</div>
+</ui:define>
+
+<ui:define name="localBody">
+<h:form>
+     <table width="80%" border="0" cellspacing="0" cellpadding="2" class="home_table">
+			
+			<tr>
+  			<td align="left">
+  			 <p align="left">Thank you for using  the Arizona Department of Economic Security (DES) Online Payment System.  Note that the payment will not be shown on  your online statement for several days.  If  the delay is longer than this, you should contact the DES switchboard at (602)  252-0024 or toll free in the state of Arizona at 1-800-236-1475 for more  information.</p>
+          	 <p align="left">If you would like to take our online survey,  please click the "Take Survey" button below, otherwise select the "Return Home" button, or select the "Log Out"  link above to log off the Online Payment System.</p>
+
+  			
+         <h2>Your Payment Is Complete </h2>
+         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="display_table">
+				<tr>
+             	<td colspan="2" align="left" valign="top">
+					Payment is complete. Print this receipt for your records.<br /><br />
+					Your authorization number is <strong>#{desUser.transaction.authCode}</strong>.
+					<br /><br />
+					Please reference this number in any	correspondence regarding your transaction.
+				</td>
+				</tr>
+				<tr>
+				<td align="left" valign="top"></td>
+                <td align="left" valign="top">
+                <span class="contact">
+                	<h:graphicImage library="images" name="download.gif"  alt="Download Receipt" width="9" height="11" border="0"  />                              
+    	            <h:commandLink action="#{pdfGeneratorController.createReceipt}" value="Click here to download receipt"/>
+                </span>
+                </td>
+				</tr>
+				<tr>
+				<td align="left" valign="top"></td>
+               	<td align="left" valign="top">
+               	<span class="contact">
+	               	<h:graphicImage library="images" name="print.gif"  alt="Printer friendly version" border="0"/>                              
+	               	<h:commandLink action="#{pdfGeneratorController.createReceipt}" value="Printer Friendly Version (PDF)"/>
+               	</span>
+               	</td>
+
+				</tr>
+				<tr>
+					<td align="left" valign="top"></td>
+               		<td align="left" valign="top">
+               		<div align="right">
+               		<h:graphicImage library="images" name="acrobat.gif"  alt="Get the Acrobat Reader" width="20" height="22" align="bottom"/>                      		
+               		<a href="http://www.adobe.com/products/acrobat/readstep2.html" target="_blank">Get the Adobe Acrobat Reader</a>
+               		</div>
+               		</td>
+				</tr>
+		</table>
+		
+	
+		<h2>Billing Information </h2>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+           <tr>
+            <td width="100%" align="left" valign="top">
+            <p class="fieldsettable">
+            <strong>Name: </strong>
+			 #{paymentInfo.firstName} #{paymentInfo.lastName}
+				<br />
+			<strong>Address: </strong> 
+				#{paymentInfo.homeAddress1}, #{paymentInfo.city}, #{paymentInfo.state.title} #{paymentInfo.zipCode}
+			
+			</p>
+			<p class="fieldsettable">
+			<strong>Phone: </strong>#{paymentInfo.phoneNumber}
+				<br />
+			<strong>Email:</strong> #{paymentInfo.email}
+			</p>
+		</td>
+		</tr>
+		</table>
+		<h2>Account Information </h2>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+         <tr>
+         <td width="50%" align="left" valign="top">
+         <span class="fieldsettable">
+				#{paymentInfo.creditCardType.title}
+				<br />
+				#{paymentInfo.displayNumber} EXP. #{paymentInfo.ccExpMonthEnum.value} / #{paymentInfo.ccExpYear}
+		</span>
+		</td>
+		</tr>
+		</table>
+		<h2>Payment Date</h2>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="display_table">
+                  <tr>
+                    <td width="50%" align="left" valign="top"><label><span class="fieldsettable"><strong>DATE: </strong><br />
+                      </span></label>
+                      <h:outputText value="#{desUser.transaction.authDate}">
+                      	<f:convertDateTime pattern="E, dd MMM yyyy HH:mm:ss z" timeZone="US/Arizona"/>
+                      </h:outputText><br />
+                    </td>
+                    <td width="50%" align="left" valign="top"><label></label></td>
+                  </tr>
+                </table>
+      			<h2>Order Info</h2>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"  class="display_table">
+              <tr>
+                <td height="484" align="left" valign="top">
+      			  <table width="100%" border="0" cellpadding="2" cellspacing="0" class="data_table1">
+
+                        <tr>
+                          <th width="9%" align="left" valign="top" scope="col"><b>Order&#160;No</b></th>
+                          <th width="10%" align="left" valign="top" scope="col"><b>Product&#160;ID</b></th>
+                          <th width="27%" align="left" valign="top" scope="col"><b>Item&#160;Description</b></th>
+                          <th width="13%" align="right" valign="top" scope="col"><b>Amount</b></th>
+                          <th width="13%" align="right" valign="top" scope="col"><b>Quantity</b></th>
+                          <th width="20%" align="right" valign="top" scope="col"><b>Total&#160;Amount</b></th>
+                        </tr>
+						<a4j:repeat value="#{paymentInfo.productList}" var="item">
+                        <tr>
+                        	<td class="zebratable" align="left">#{desUser.transaction.orderNumber}</td>
+                            <td class="zebratable" align="left">#{item.productId}</td>
+                       		<td class="zebratable" align="left">#{item.description}</td>
+							<td class="zebratable" style="text-align:right;">$
+								<h:outputText value="#{item.price}">
+									<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2" />
+								</h:outputText>
+							</td>
+							<td class="zebratable" style="text-align:right;">#{item.quantity}</td>
+							<td class="zebratable" style="text-align:right;">$
+								<h:outputText value="#{item.price*item.quantity}">
+									<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2" />
+								</h:outputText>
+							</td>	
+					
+                        </tr>
+                       </a4j:repeat>
+						<tr>
+                          <td align="left" valign="top" style="background-color:#999999"><span class="zebratable"><strong>#{paymentInfo.orderNumber}</strong></span></td>
+                          <td align="left" valign="top" style="background-color:#999999"></td>
+                          <td align="left" valign="top" style="background-color:#999999"><strong>TOTAL</strong></td>
+                          <td align="left" valign="top" style="background-color:#999999"></td>
+                          <td align="left" valign="top" style="background-color:#999999"></td>
+                          <td class="zebratable" style="background-color:#999999; text-align:center;"><div align="right"><strong>$<h:outputText value="#{paymentInfo.paymentAmount}">
+										<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2" />	
+									</h:outputText></strong></div>
+							</td>
+                        </tr>
+                	</table>
+                   <table width="100%" border="0" cellpadding="0" cellspacing="0"  class="dispaly_table">
+                      <tr>
+                        <td align="left" valign="top"><fieldset>
+                          <legend>Notes</legend>
+                          <h:outputText value="DES account Number:#{desUser.desNumber}" escape="false" />
+                          <div class="clearfieldset"></div>
+                        </fieldset></td>
+                      </tr>
+                    </table>
+                    <p>
+                    <span class="sentence">
+                    The following amount was billed to your credit card. Your credit card statement will show the following merchant name(s) and amount(s) for this transaction.
+                    </span>
+                    </p>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="5" class="data_table">
+			        <tr>
+								<th scope="col">
+									<div align="left">Merchant</div>
+								</th>
+								<th scope="col">
+									<div align="right">Amount</div>
+								</th>
+							</tr>
+							<tr>
+								<td class="contact">#{paymentInfo.merchantName}</td>
+								<td class="contact">
+									<div align="right">
+									<h:outputText value="#{paymentInfo.paymentAmount}">
+										<f:convertNumber type="currency" currencySymbol="$" minFractionDigits="2" maxFractionDigits="2" />
+									</h:outputText>
+									</div>
+								</td>
+							</tr>
+					</table>
+					
+                    <p>The total amount billed to your credit card is 
+                    			<strong>
+									$<h:outputText value="#{paymentInfo.paymentAmount}">
+										<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2" />	
+									</h:outputText>
+								</strong>
+					</p>
+                    </td>
+                   </tr>
+                  </table>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="button_table">
+        <tr>
+	        <td width="39%" align="left" valign="top" nowrap="nowrap">
+	        	<h:commandLink action="#{pdfGeneratorController.createReceipt}" value="Printer Friendly Version (PDF)"/>                
+	        </td>
+	        <td width="50%" style="text-align:right;" valign="top" nowrap="nowrap">
+	        	<h:commandButton action="take_survey?faces-redirect=true" styleClass="submit_button" value="Continue" immediate="true" />
+	        </td>
+        </tr>
+        </table>
+        </td>
+        </tr>
+       </table>
+</h:form>
+</ui:define></ui:composition>

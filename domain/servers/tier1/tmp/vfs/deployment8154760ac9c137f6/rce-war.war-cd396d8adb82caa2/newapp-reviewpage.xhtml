@@ -1,0 +1,747 @@
+<!--Force IE6 into standards mode with this comment tag-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="#{rceAppConfig.staticServerName}/static/portal/app/apptemplate_2014.xhtml">
+
+    <ui:param name="pageTitle" value="Review Page"/>
+    <ui:param name="title" value="Arizona Board of Respiratory Care Examiners - #{pageTitle}"/>
+    <ui:param name="applicationName1" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="applicationName2" value="Licensing Application"/>
+    <ui:param name="agencyName" value="Arizona Board of Respiratory Care Examiners"/>
+    <ui:param name="appImage" value="azstate_logo.jpg"/>
+    <ui:param name="donotRenderHelp" value="true"/>
+
+    <ui:define name="localCss">
+        <link href="stylesheet/azrce.css" rel="stylesheet" type="text/css" media="screen" />
+    </ui:define>
+
+    <ui:define name="altbreadcrumb">
+        <div id="breadcrumb2">
+<a href="index.xhtml" target="_self">Home</a> &gt;
+. . . &gt;
+            <s:link view="/newapp-info.xhtml" value=" Applicant Information"/> &gt;
+            <s:link view="/newapp-employment.xhtml" value=" Employment" /> &gt;
+            <s:link view="/newapp-education.xhtml" value=" Education" /> &gt;
+            <s:link view="/newapp-attestations.xhtml" value=" Attestations"/> &gt; Review Page
+        </div>
+    </ui:define>
+
+    <ui:define name="body">
+
+        <h2>Instructions</h2>
+        <div class="instructions"><h:outputText value="#{splashManager.newappReviewInstructions}" escape="false"></h:outputText></div>
+
+        <!-- top-of-section 'Previous' navigation button -->
+        <fieldset style="border:none; padding: 0px">
+            <div class="grid-6-12">
+                <s:button id="btnTopPrevious" view="/newapp-attestations.xhtml" value="Previous" styleClass="submit_button"/>
+            </div>
+        </fieldset>
+
+        <div class="home_table">   
+
+            <div class="display_table lgrey">
+                <h3>Citizenship or National Status Declaration</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12">
+                            <strong>Citizen or National: </strong>#{newApplication.contact.citizenorNational ? 'Yes' : 'No'}<br></br>
+                            <strong>City of birth: </strong>#{newApplication.contact.citizenPlaceofBirthCity}<br></br>
+                            <strong>State of birth: </strong>#{newApplication.contact.citizenStateofBirth}<br></br>
+
+                            <ui:fragment rendered="#{not empty newApplication.contact.citizenEquivStateofBirth}">
+                                <strong>Equivalent State of birth: </strong>#{newApplication.contact.citizenEquivStateofBirth}<br></br>
+                            </ui:fragment>
+
+                            <strong>Country of Birth: </strong>#{newApplication.contact.citizenPlaceofBirthCountry}<br></br>
+
+                            <ui:fragment rendered="#{!newApplication.contact.citizenorNational}">
+
+                                <strong>Qualified Alien Status: </strong>
+                                <h:outputText value="An alien lawfully admitted for permanent residence under the Immigration and Nationality Act (INA)."
+                                              rendered="#{newApplication.contact.asd1}"><br></br></h:outputText>
+                                <h:outputText value="An alien who is granted asylum under Section 208 of the INA."
+                                              rendered="#{newApplication.contact.asd2}"><br></br></h:outputText>
+                                <h:outputText value="A refuge admitted to the United States under Section 207 of the INA."
+                                              rendered="#{newApplication.contact.asd3}"><br></br></h:outputText>
+                                <h:outputText value="An alien paroled into the United States for at least one year under Section 212(d)(5) of the INA."
+                                              rendered="#{newApplication.contact.asd4}"><br></br></h:outputText>
+                                <h:outputText value="An alien whose deportation is being withheld under Section 243(h) of the INA."
+                                              rendered="#{newApplication.contact.asd5}"><br></br></h:outputText>
+                                <h:outputText value="An alien granted conditional entry under Section 203(a)(7) of the INA as in effect prior to April 1, 1980."
+                                              rendered="#{newApplication.contact.asd6}"><br></br></h:outputText>
+                                <h:outputText value="An alien who is a Cuban and Haitian entrant (as defined in Section 501(e) of the Refugee Education Assistance Act of 1980)."
+                                              rendered="#{newApplication.contact.asd7}"><br></br></h:outputText>
+                                <h:outputText value="An alien who has, or whose child or child's parent has, been declared a 'battered alien' or an alien subject to extreme cruelty in the United States." 
+                                              rendered="#{newApplication.contact.asd8}"><br></br></h:outputText>
+                                <h:outputText value="An alien not in categories 1 through 8 who has been admitted to the United States for a limited period of time (a nonimmigrant). Nonimmigrants are persons who have temporary status for a specific purpose."
+                                              rendered="#{newApplication.contact.asd9}"><br></br></h:outputText>
+
+                                <ui:fragment rendered="#{newApplication.contact.asd9}">
+                                    <br></br>
+                                    <strong>Nonimmigrant visa: </strong>
+                                    <h:outputText value="#{newApplication.contact.item9yesNo ? 'You do have' : 'You do not have'} a nonimmigrant visa for entry that is related to employment in the United States for which you are applying for a license."></h:outputText><br></br>   
+                                </ui:fragment>
+
+                                <ui:fragment rendered="#{newApplication.contact.asd10}">
+                                    <br></br>
+                                    <strong>Alien paroled into the United States for less than one year: </strong>
+                                    <h:outputText value="An alien paroled into the United States for less than one year under Section 212(d)(5) of the INA."></h:outputText><br></br>
+                                </ui:fragment>
+                            </ui:fragment>
+                        </div>
+
+                        <div class="grid-1-12">
+                            <s:link view="/newapp-citizen.xhtml" value="Edit" styleClass="submit_button"/>
+                        </div>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Applicant Contact Information</h3>
+                <blockquote>
+                    <fieldset  class="submitted"> 
+                        <div class="grid-11-12">
+                            #{newApplication.contact.nameFirst} #{newApplication.contact.nameMiddle} #{newApplication.contact.nameLast} #{newApplication.contact.nameSuffix}<br></br>
+                            #{newApplication.contact.homeStreet} <br></br>
+                            #{newApplication.contact.homeCity} <br></br>
+                            #{newApplication.contact.homeCounty} <br></br>
+                            #{newApplication.contact.homeState} <br></br>
+                            #{newApplication.contact.homeZip} <br></br>
+                            #{newApplication.contact.homePhone} <br></br>
+                            #{newApplication.contact.homeEmail} <br></br>
+
+                            <ui:fragment rendered="#{newApplication.contact.useMailAddressAndNotHomeAddress}">
+                                <br></br>
+                                <h3>Permanent Mailing Address</h3>
+                                #{newApplication.contact.mailStreet} <br></br>
+                                #{newApplication.contact.mailCity} <br></br>
+                                #{newApplication.contact.mailState} <br></br>
+                                #{newApplication.contact.mailZip} <br></br>
+
+                            </ui:fragment>
+                        </div>
+
+                        <div class="grid-1-12">
+                            <s:link view="/newapp-info.xhtml" value="Edit" styleClass="submit_button"/>
+                        </div>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Identification Information</h3>
+                <blockquote>
+                    <fieldset  class="submitted"> 
+                        <div class="grid-11-12">
+                            <strong>Date of Birth: </strong>
+                            <h:outputText value="#{newApplication.contact.dob}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                            </h:outputText> <br></br>
+                            <strong>Gender: </strong>#{newApplication.contact.gender} <br></br>
+                            <strong>Alias: </strong>#{newApplication.contact.otherName} <br></br>
+                            <strong>Height: feet: </strong>#{newApplication.contact.heightFt} <br></br>
+                            <strong>Height: inches: </strong>#{newApplication.contact.heightInches} <br></br>
+                            <strong>Weight in lbs: </strong>#{newApplication.contact.weightLbs} <br></br>
+                            <strong>Hair color: </strong>#{newApplication.contact.hairColor} <br></br>
+                            <strong>Eye color: </strong>#{newApplication.contact.eyeColor} <br></br>
+                        </div>
+
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/newapp-info.xhtml?cid=#{conversation.id}#identificationInformation" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Employment Information</h3>
+                <blockquote>
+                    <fieldset  class="submitted"> 
+                        <div class="grid-11-12">   
+                            <strong>Currently employed: </strong>#{newApplication.contact.employmentStatus ? 'Yes' : 'No'} <br></br>
+
+                            <ui:fragment rendered="#{newApplication.contact.employmentStatus}">
+
+                                <strong>Employed status: </strong>#{newApplication.contact.employedStatus} <br></br>
+                                <strong>Principle Field of Employment: </strong>#{newApplication.contact.principleFieldofEmployment} <br></br>
+
+
+                                <ui:fragment rendered="#{not empty newApplication.contact.principleFieldofEmploymentOther}">
+                                    <strong>Other or Non Respiratory Field Description: </strong>#{newApplication.contact.principleFieldofEmploymentOther} <br></br>
+                                </ui:fragment>
+
+                                <strong>Employer Name: </strong>#{newApplication.contact.bizName} <br></br>
+                                <strong>Street address: </strong>#{newApplication.contact.bizStreet} <br></br>
+                                <strong>City: </strong>#{newApplication.contact.bizCity} <br></br>
+                                <strong>County: </strong>#{newApplication.contact.bizCounty} <br></br>
+                                <strong>State: </strong>#{newApplication.contact.bizState} <br></br>
+                                <strong>Zip code: </strong>#{newApplication.contact.bizZip} <br></br>
+                                <strong>Phone: </strong>#{newApplication.contact.bizPhone} <br></br>
+                                <strong>Current position: </strong>#{newApplication.contact.bizCurrentPosition} <br></br>
+                                <strong>Employment Start Date: </strong>
+                                <h:outputText value="#{newApplication.contact.bizEmploymentStart}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                </h:outputText><br></br>
+                                <strong>Supervisor's name: </strong>#{newApplication.contact.managerName}<br></br>
+                                <strong>Area of Care or Specialty: </strong>#{newApplication.contact.bizAreaofCareSpecialty} <br></br>
+
+                            </ui:fragment>
+                        </div>
+
+                        <div class="grid-1-12">
+                            <s:link view="/newapp-employment.xhtml" value="Edit" styleClass="submit_button"/>
+                        </div>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Education</h3>
+                <blockquote>
+                    <fieldset  class="submitted"> 
+                        <div class="grid-11-12">
+                            <strong>NBRC CRT or RRT certified: </strong>#{newApplication.contact.nbrccrtrrtcertified ? 'Yes' : 'No'} <br></br>
+
+
+                            <ui:fragment rendered="#{newApplication.contact.nbrccrtrrtcertified}">
+                                <ui:fragment rendered="#{not empty newApplication.contact.nbrccrttexamDate}">
+                                    <strong>Date of CRT Test: </strong>
+                                    <h:outputText value="#{newApplication.contact.nbrccrttexamDate}">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                    </h:outputText>   <br></br>
+
+                                </ui:fragment>
+
+                                <ui:fragment rendered="#{not empty newApplication.contact.nbrcrrtexamDate}">
+                                    <strong>Date of RRT Test: </strong>
+                                    <h:outputText value="#{newApplication.contact.nbrcrrtexamDate}">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                    </h:outputText>   <br></br>
+
+                                </ui:fragment>
+                            </ui:fragment>
+
+                            <ui:fragment rendered="#{!newApplication.contact.nbrccrtrrtcertified}">
+                                <strong>Explanation: </strong><h:outputText value="#{newApplication.contact.nbrcexplanation}"></h:outputText> <br></br>
+                            </ui:fragment>
+
+                            <strong>Name of school: </strong>#{newApplication.contact.educationName}<br></br>
+                            <strong>Street address: </strong>#{newApplication.contact.educationStreet}<br></br>
+                            <strong>City: </strong>#{newApplication.contact.educationCity}<br></br>
+                            <strong>State: </strong>#{newApplication.contact.educationState} <br></br>
+                            <strong>Country: </strong>#{newApplication.contact.educationCountry} <br></br>
+                            <strong>Zip code: </strong>#{newApplication.contact.educationZip} <br></br>
+                            <strong>Training Completion Date: </strong>
+                            <h:outputText value="#{newApplication.contact.trainingCompDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                            </h:outputText>   <br></br>
+                            <strong>Highest level of education completed: </strong>#{newApplication.contact.educationCompleted} <br></br>
+
+
+                            <ui:fragment rendered="#{not empty newApplication.contact.educationCompletedOther}">
+                                <strong>Level Completed: </strong>#{newApplication.contact.educationCompletedOther} <br></br>
+
+                            </ui:fragment>
+
+                            <strong>Date of Completion/Graduation: </strong>
+                            <h:outputText value="#{newApplication.contact.educationHighestCompDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                            </h:outputText> <br></br>
+
+                        </div>
+
+                        <div class="grid-1-12">
+                            <s:link view="/newapp-education.xhtml" value="Edit" styleClass="submit_button"/>
+                        </div>
+                    </fieldset>
+                </blockquote>
+
+
+                <h3>Attestations</h3>
+                <blockquote>
+                    <fieldset  class="submitted"> 
+                        <div class="grid-11-12">
+                            <strong>Have other licenses: </strong>#{newApplication.contact.hasOtherLicense ? 'Yes' : 'No'} <br></br>
+                            <strong>Been denied a license: </strong>#{newApplication.contact.everDeniedLicense ? 'Yes' : 'No'} <br></br>
+                            <strong>Pending disciplinary actions: </strong>#{newApplication.contact.pendingDisciplinaryAction ? 'Yes' : 'No'} <br></br>
+                            <strong>Voluntarily surrendered a professional license: </strong>#{newApplication.contact.voluntarilySurrenderedLicense ? 'Yes' : 'No'} <br></br>
+                            <strong>Other license problems: </strong>#{newApplication.contact.hasOtherLicenseProblems ? 'Yes' : 'No'} <br></br>
+                            <strong>Previously filed with RCE in Arizona: </strong>#{newApplication.contact.previouslyFiledAz ? 'Yes' : 'No'} <br></br>
+
+                            <ui:fragment rendered="#{not empty newApplication.contact.previouslyFiledDate}">
+                                <strong>Previously filed on: </strong>
+                                <h:outputText value="#{newApplication.contact.previouslyFiledDate}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                </h:outputText><br></br>
+                            </ui:fragment>
+
+                            <strong>Substance abuse programs: </strong>#{newApplication.contact.enrolledInSubstanceAbuseProgram ? 'Yes' : 'No'} <br></br>
+                            <strong>Arrests, charges, convictions: </strong>#{newApplication.contact.arrestsChargesConvictions ? 'Yes' : 'No'} <br></br>
+                            <strong>Drugs or alcohol intemperance: </strong>#{newApplication.contact.drugsorAlcoholIntemperance ? 'Yes' : 'No'} <br></br>   
+                        </div>
+
+                        <div class="grid-1-12">
+                            <s:link view="/newapp-attestations.xhtml" value="Edit" styleClass="submit_button"/>
+                        </div>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Have Other Licenses</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12"> 
+                            <h:outputText rendered="#{otherTwosList.rowCount==0}" value="No other licenses."></h:outputText>
+                            <s:div rendered="#{otherTwosList.rowCount>0}">
+                                <fieldset class="submitted"> 
+                                    <div class="grid-2-12"> 
+                                        <h3> State</h3>
+                                    </div>
+
+                                    <div class="grid-2-12"> 
+                                        <h3> Expiration Date</h3>
+                                    </div>
+                                    <div class="grid-0-12"> 
+                                    </div>
+                                    <div class="grid-5-12"> 
+                                        <h3>License Number  </h3>
+                                    </div>
+
+                                </fieldset>
+
+                                <ui:repeat value="#{otherTwosList}" var="otherTwo">
+                                    <fieldset class="submitted"> 
+                                        <div class="grid-2-12"> 
+                                            #{otherTwo.otherLicenseState}
+                                        </div>
+
+                                        <div class="grid-2-12"> 
+                                            <h:outputText value="#{otherTwo.otherStateLicenseExpDate}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </h:outputText>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-5-12"> 
+                                            #{otherTwo.otherStateLicenseNumber}
+                                        </div>
+
+                                    </fieldset>   
+                                </ui:repeat>
+
+                            </s:div>
+                        </div>
+
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/newapp-attestations.xhtml?cid=#{conversation.id}#haveOtherLicenses" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Been Denied a License</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12"> 
+                            <h:outputText rendered="#{deniedsList.rowCount==0}" value="No denied licenses."></h:outputText>
+                            <s:div rendered="#{deniedsList.rowCount>0}">
+
+                                <fieldset class="submitted"> 
+                                    <div class="grid-2-12"> 
+                                        <h3> State</h3>
+                                    </div>
+
+                                    <div class="grid-2-12"> 
+                                        <h3>Date</h3>
+                                    </div>
+                                    <div class="grid-0-12"> 
+                                    </div>
+                                    <div class="grid-5-12"> 
+                                        <h3>Explanation</h3>
+                                    </div>
+
+                                </fieldset>
+
+                                <ui:repeat value="#{deniedsList}" var="denied">
+                                    <fieldset class="submitted"> 
+                                        <div class="grid-2-12"> 
+                                            #{denied.deniedState}
+                                        </div>
+
+                                        <div class="grid-2-12"> 
+                                            <h:outputText value="#{denied.deniedDate}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </h:outputText>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-5-12"> 
+                                            #{denied.deniedExplanation}
+                                        </div>
+
+                                    </fieldset>   
+                                </ui:repeat>
+
+                            </s:div>
+                        </div>
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/newapp-attestations.xhtml?cid=#{conversation.id}#beenDeniedALicense" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+
+                    </fieldset>
+                </blockquote>
+
+                <h3>Pending Disciplinary Actions</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12"> 
+
+                            <h:outputText rendered="#{disciplinesList.rowCount==0}" value="No pending disciplinary actions."></h:outputText>
+                            <s:div rendered="#{disciplinesList.rowCount>0}">
+
+                                <fieldset class="submitted"> 
+                                    <div class="grid-2-12"> 
+                                        <h3> State</h3>
+                                    </div>
+
+                                    <div class="grid-2-12"> 
+                                        <h3>Date</h3>
+                                    </div>
+                                    <div class="grid-0-12"> 
+                                    </div>
+                                    <div class="grid-5-12"> 
+                                        <h3>Explanation</h3>
+                                    </div>
+
+                                </fieldset>
+
+                                <ui:repeat value="#{disciplinesList}" var="discipline">
+                                    <fieldset class="submitted"> 
+                                        <div class="grid-2-12"> 
+                                            #{discipline.pendingDisciplinaryState}
+                                        </div>
+
+                                        <div class="grid-2-12"> 
+                                            <h:outputText value="#{discipline.pendingDisciplinaryDate}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </h:outputText>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-5-12"> 
+                                            #{discipline.pendingDisciplinaryExplanation}
+                                        </div>
+
+                                    </fieldset>   
+                                </ui:repeat>
+
+                            </s:div>
+                        </div>
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/newapp-attestations.xhtml?cid=#{conversation.id}#pendingDisciplinaryAction" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Voluntarily Surrendered a Professional License</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12"> 
+                            <h:outputText rendered="#{surrendersList.rowCount==0}" value="No voluntarily surrendered licenses."></h:outputText>
+                            <s:div rendered="#{surrendersList.rowCount>0}">
+                                <fieldset class="submitted"> 
+                                    <div class="grid-2-12"> 
+                                        <h3> State</h3>
+                                    </div>
+
+                                    <div class="grid-2-12"> 
+                                        <h3>Date</h3>
+                                    </div>
+                                    <div class="grid-0-12"> 
+                                    </div>
+                                    <div class="grid-5-12"> 
+                                        <h3>Explanation</h3>
+                                    </div>
+
+                                </fieldset>
+
+                                <ui:repeat value="#{surrendersList}" var="surrender">
+                                    <fieldset class="submitted"> 
+                                        <div class="grid-2-12"> 
+                                            #{surrender.voluntarilySurrenderedState}
+                                        </div>
+
+                                        <div class="grid-2-12"> 
+                                            <h:outputText value="#{surrender.voluntarilySurrenderedDate}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </h:outputText>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-5-12"> 
+                                            #{surrender.voluntarilySurrendedExplan}
+                                        </div>
+
+                                    </fieldset>   
+                                </ui:repeat>
+
+                            </s:div>
+                        </div>
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/newapp-attestations.xhtml?cid=#{conversation.id}#voluntarilySurrenderedAProfessionalLicense" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>
+                </blockquote>
+
+
+                <h3>Any Other License Problems</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12"> 
+                            <h:outputText rendered="#{problemsesList.rowCount==0}" value="No other license problems."></h:outputText>
+                            <s:div rendered="#{problemsesList.rowCount>0}">
+
+                                <fieldset class="submitted"> 
+                                    <div class="grid-2-12"> 
+                                        <h3> State</h3>
+                                    </div>
+
+                                    <div class="grid-2-12"> 
+                                        <h3>Date</h3>
+                                    </div>
+                                    <div class="grid-0-12"> 
+                                    </div>
+                                    <div class="grid-5-12"> 
+                                        <h3>Explanation</h3>
+                                    </div>
+
+                                </fieldset>
+
+                                <ui:repeat value="#{problemsesList}" var="problem">
+                                    <fieldset class="submitted"> 
+                                        <div class="grid-2-12"> 
+                                            #{problem.otherLicenseProblemsState}
+                                        </div>
+
+                                        <div class="grid-2-12"> 
+                                            <h:outputText value="#{problem.otherLicenseProblemsDate}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </h:outputText>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-5-12"> 
+                                            #{problem.otherLicenseProblemsExplanation}
+                                        </div>
+
+                                    </fieldset>   
+                                </ui:repeat>
+
+                            </s:div>
+                        </div>
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/newapp-attestations.xhtml?cid=#{conversation.id}#anyOtherLicenseProblems" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Previously filed with RCE in Arizona</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12">
+                            <h:outputText rendered="#{empty newApplication.contact.previouslyFiledDate}" value="No previously filed date."></h:outputText>
+                            <ui:fragment rendered="#{not empty newApplication.contact.previouslyFiledDate}">
+                                <strong>Previously filed on: </strong>
+                                <h:outputText value="#{newApplication.contact.previouslyFiledDate}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                </h:outputText><br></br>
+                            </ui:fragment>
+                        </div>
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/newapp-attestations.xhtml?cid=#{conversation.id}#previouslyFiledWithRCEInArizona" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Substance Abuse Programs</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12"> 
+                            <h:outputText rendered="#{abusesesList.rowCount==0}" value="No substance abuse programs."></h:outputText>
+                            <s:div rendered="#{abusesesList.rowCount>0}">
+
+                                <fieldset class="submitted"> 
+                                    <div class="grid-2-12"> 
+                                        <h3> State</h3>
+                                    </div>
+
+                                    <div class="grid-2-12"> 
+                                        <h3>Date</h3>
+                                    </div>
+                                    <div class="grid-0-12"> 
+                                    </div>
+                                    <div class="grid-5-12"> 
+                                        <h3>Explanation</h3>
+                                    </div>
+
+                                </fieldset>
+
+                                <ui:repeat value="#{abusesesList}" var="abuse">
+                                    <fieldset class="submitted"> 
+                                        <div class="grid-2-12"> 
+                                            #{abuse.substanceAbuseProgramState}
+                                        </div>
+
+                                        <div class="grid-2-12"> 
+                                            <h:outputText value="#{abuse.substanceAbuseProgramDate}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </h:outputText>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-5-12"> 
+                                            #{abuse.substanceAbuseProgramExplanation}
+                                        </div>
+
+                                    </fieldset>   
+                                </ui:repeat>
+
+                            </s:div>
+                        </div>
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/newapp-attestations.xhtml?cid=#{conversation.id}#substanceAbusePrograms" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Arrests, Charges, and Convictions</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12"> 
+                            <h:outputText rendered="#{chargesesesList.rowCount==0}" value="No arrests, charges, convictions."></h:outputText>
+                            <s:div rendered="#{chargesesesList.rowCount>0}">
+
+                                <fieldset class="submitted"> 
+
+                                    <div class="grid-2-12"> 
+                                        <h3>Date</h3>
+                                    </div>
+                                    <div class="grid-0-12"> 
+                                    </div>
+                                    <div class="grid-5-12"> 
+                                        <h3>Explanation</h3>
+                                    </div>
+
+                                </fieldset>
+
+                                <ui:repeat value="#{chargesesesList}" var="charges">
+                                    <fieldset class="submitted"> 
+
+
+                                        <div class="grid-2-12"> 
+                                            <h:outputText value="#{charges.chargesDate}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy" timeZone="PNT"/>
+                                            </h:outputText>
+                                        </div>
+                                        <div class="grid-0-12"> 
+                                        </div>
+                                        <div class="grid-5-12"> 
+                                            #{charges.chargesExplanation}
+                                        </div>
+
+                                    </fieldset>   
+                                </ui:repeat>
+
+
+                            </s:div>
+                        </div>
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/newapp-attestations.xhtml?cid=#{conversation.id}#arrestsChargesAndConvictions" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>         
+                </blockquote>
+
+                <h3>Drugs or alcohol intemperance</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-11-12">
+                            <h:outputText rendered="#{empty newApplication.contact.drugsorAlcoholIntemperanceExplan}" value="No drugs or alcohol intemperance."></h:outputText>
+                            <ui:fragment rendered="#{not empty newApplication.contact.drugsorAlcoholIntemperanceExplan}">
+                                <strong>Drugs or alcohol intemperance explanation: </strong>#{newApplication.contact.drugsorAlcoholIntemperanceExplan} <br></br>
+                            </ui:fragment>
+                        </div>
+                        <h:form class="form">
+                            <div class="grid-1-12">
+                                <h:outputLink value="/app/rce/newapp-attestations.xhtml?cid=#{conversation.id}#drugsOrAlcoholIntemperance" styleClass="submit_button">Edit</h:outputLink>
+                            </div>
+                        </h:form>
+                    </fieldset>
+                </blockquote>
+
+                <h3>Attachments</h3>
+                <blockquote>
+                    <fieldset class="submitted">
+                        <div class="grid-12-12"> 
+                            <h:outputText rendered="#{contactFiles.rowCount==0}" value="No files uploaded."></h:outputText>
+                            <s:div rendered="#{contactFiles.rowCount>0}">
+                                <fieldset class="submitted"> 
+                                    <div class="grid-11-12">
+                                        <h3>Type of file(s) uploaded</h3>
+                                    </div>
+                                </fieldset>
+
+                                <ui:repeat value="#{contactFiles}" var="contactFile">
+                                    <fieldset class="submitted">
+                                        <div class="grid-11-12">
+                                            #{contactFile.fileType}
+                                        </div>
+                                    </fieldset>
+                                </ui:repeat>
+                            </s:div>
+                        </div>
+                    </fieldset>
+                </blockquote>
+
+            </div><!-- end of display_table lgrey -->
+        </div> <!-- end of display_table for applicant information -->   
+
+
+        <h:form id="navigation" class="form">
+            <!-- Nav buttons --> 
+            <fieldset>
+                <div class="grid-6-12">
+
+                    <s:button view="/newapp-attestations.xhtml" value="Previous" styleClass="submit_button"/>
+                </div>
+                <div class="grid-6-12 form-right">
+                    <h:commandButton id="payFeesButton"
+                                     styleClass="submit_button"
+                                     value="Checkout"
+                                     action="#{newApplication.checkoutAction}">
+                    </h:commandButton>
+                </div>
+
+            </fieldset>
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>

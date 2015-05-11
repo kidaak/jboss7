@@ -1,0 +1,435 @@
+@import "reset.css";
+
+#main {
+	border: 0px solid #ccc;
+	padding: 5px;
+}
+
+#transInfo {
+	padding: 5px;
+	
+}
+
+#receipt #transInfo {
+	padding: 0;
+	position: relative;
+}
+
+table {
+	width: 100%;
+	border: 1px solid #3d3d3d;
+	margin-bottom: 1.5em;
+	background-color: #efefef;
+	border: 1px solid #ccc;
+	color: #444;
+	line-height: 1.4em;
+}
+
+
+thead {
+	background: #E1E1E1;
+}
+
+th {
+	font-weight: bold;
+	text-transform:uppercase;
+	padding: 0.5em;
+	background: #E1E1E1;
+}
+
+td {
+	
+	padding: 0.5em;
+	background: rgb(239,239,239);
+}
+
+td:nth-child(2) {
+	text-align: left;
+}
+
+
+caption {
+	display: none;
+}
+
+.requiredMsg {
+	font-size: .833em;
+	color: rgb(140,140,140);
+	border-top: 1px solid rgb(204,204,204);
+	border-left: 1px solid rgb(204,204,204);
+	border-right: 1px solid rgb(204,204,204);
+	
+	text-align: left;
+	padding: 10px;
+	height: 20px;
+	margin: 0 0 -1px 0;
+	z-index: 100;
+}
+
+ span.requiredFlag {
+	font-weight: bold;
+	color:  rgb(255,255,255);
+	background: url(icon-required.gif) no-repeat; 
+	marging: 0;
+	text-indent: -999px ; 
+	padding-left: 8px;
+}
+
+ul {
+	border: 1px solid rgb(204,204,204);
+	border-top: 1px solid rgb(255,255,255);
+	margin: 0 0 10px 0;
+}
+
+ul li {
+	clear: both;
+	padding: .5em 1em;
+	margin-bottom: .5em;
+	position: relative;
+}
+
+#billingEmails ul, #expireDate ul, ul#buttonContainer, #footer ul {
+	border: none;
+}
+
+label, form li legend, .label {
+	float: left;
+	white-space: normal;
+	width: 8em;
+	margin-right: 1em;
+	display: block;
+	padding: 0;
+	font-weight: normal;
+	clear: both;
+	color: rgb(0,0,0);
+}
+
+.label_hidden {
+	padding:0; 
+	margin:0; 
+	width:0;
+	display:block;
+	text-indent:-9999px;
+}
+
+form li legend {
+	float: none;
+}
+
+form li legend > span {
+	position: absolute;
+}
+
+form input { 
+	font-size: 1em;  
+	margin: 2px 5px 2px 0px; 
+}
+form input[type="text"]
+{
+	padding: 3px; 
+	border: 1px solid #d4d4d4; 
+	color: #626262;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	
+}
+
+form input:focus
+{
+	
+	border: 1px solid #091B45;
+	background: #FFFFCC;
+}
+
+form input,form textarea {
+	background: #FFFFFF url(input_back.jpg) repeat-x 0 -1px;
+	border: 1px solid #666666;
+	font-size: 1em;padding-top: 3px;
+}
+
+input {
+	background: rgb(255,255,212);
+	border: 0px solid rgb(140,140,140);
+	padding: 0em;
+}
+
+
+.affirm label {
+	float: none !important;
+	display: inline;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+li fieldset ul {
+	margin-left: 17em;
+	margin-top: -.5em;
+}
+
+li fieldset li {
+	display: inline-block;
+	padding-left: 0;
+	clear: none;
+}
+
+/*li fieldset label {
+	position: absolute;
+	left: -9999px;
+}*/
+
+.hint {
+	font-size: .833em;
+	color: rgb(180,180,180);
+	display: block;
+	width: 19.2em;
+}
+
+.error .errorTxt {
+	color: rgb(35,31,32);
+	font-size: 1em;
+	line-height: 1.5;
+	margin-left: 14em;
+}
+
+form li.billingEmails {
+	margin-bottom: 0.5em;
+}
+
+.billingEmails li {
+	margin: 0 1em 1em 0;
+	display: block;
+}
+
+.contVerification {
+	width: 100%;
+}
+
+li .hint a {
+	text-decoration: none;
+}
+
+li .hint a:hover {
+	text-decoration: underline;
+}
+
+#buttonContainer {
+	margin-top: 2em;
+	clear: both;
+	margin-left: 16em;
+}
+
+#receipt #buttonContainer {
+	text-align: right;
+}
+
+#buttonContainer li {
+	display: inline;
+	margin-left: 2em;
+}
+
+.button, a.button {
+	display: inline-block;
+	padding: .5em 1em .5em;
+	background-color: rgb(140,140,140);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(140,140,140)), to(rgb(89,89,89)));
+	color: #fff;
+	border: 1px solid #999;
+	background-image: none;
+	font-size: 1em;
+	text-transform:uppercase;
+	margin: 0px;
+	overflow: visible;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.25)
+}
+
+.button:hover {
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	
+	background-color: #333;
+	background-image: none;
+	color: #fff;
+}
+
+.button.primary {
+	background-color: rgb(5,62,84);
+	background-image: none;
+}
+
+.button.primary:hover {
+	background-color: #000;
+	background-image: none;	
+}
+
+.button.print {
+	position: absolute;
+	top: -40px;
+	right: 0;
+}
+
+.button.leave {
+	float: right;
+}
+
+#footer {
+	margin: 0 auto;
+	width: 46em;
+	font-size: .833em;
+	color: rgb(140,140,140);
+	margin-top: 10px;
+}
+
+#footer a {
+	text-decoration: none;
+	text-transform: lowercase;
+}
+
+#footer * {
+	float: left;
+	margin-right: .75em;
+}
+
+#footer ul {
+	margin-left: 0;
+}
+
+#footer li {
+	clear: none;
+	padding: 0;
+}
+
+#footer li:after {
+	content: "|";
+}
+
+#footer li.last:after {
+	content: "";
+}
+
+#tpeBranding {
+	clear: both;
+	text-align: right;
+	margin: 0 2em 0 0;
+	padding: 2em 0 .28em 0;
+	color: rgb(140,140,140);
+}
+
+#check #frmCheck {
+	float: left;
+}
+
+
+#review #main li {
+	font-weight: bold;
+}
+
+#review li:hover {
+	background-color: rgb(255,255,212);
+}
+
+#review #buttonContainer li:hover {
+	background: none;
+}
+
+.block {
+	display: block;
+	margin-left: 17em;
+	margin-bottom: 1.5em;
+}
+
+#receipt .block {
+	margin-bottom: 0;
+}
+
+#receipt .label {
+	font-weight: bold;
+	color: rgb(140,140,140);
+}
+
+#receipt #main li {
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+#receipt #main li .notice {
+	font-size: .833em;
+	font-weight: normal;
+	float: right;
+	width: 100%;
+	margin-top: 3em;
+}
+
+#receipt h3 {
+	font-weight: bold;
+	color: #333333;
+	background-color: #E1E1E1;
+	padding: 5px;
+	font size: 1.2em;
+	padding-left: .5em;
+
+}
+
+#receipt #custInfo, #receipt #payInfo, #receipt #receiptContactInfo ul {
+	float: left;
+	width: 28em;
+	padding: 0;
+	margin: 0 0 1em 0;
+	background-color: #efefef;
+	margin-top: 0;
+}
+
+#receipt #custInfo ul, #receipt #payInfo ul, #receipt #billingInfo ul {
+	border: none;
+	
+
+}
+
+#receipt #payInfo {
+	border-left: none;
+	float:right;
+
+}
+#receipt #billingInfo {
+	clear: both;
+	background-color: #efefef;
+}
+
+#receipt #billingInfo ul{
+	width: 31.5em;
+}
+
+#receipt #billingInfo ul {
+	/*width: 33.999em;*/
+}
+
+.billingSubHeading
+{
+	margin-bottom: 0;
+}
+
+.billingList
+{
+	list-style: none ; 
+	background-color: #EFEFEF;
+	 padding-bottom: 1em;
+}
+
+.csutomerLabel
+{
+	width: 8em;
+}
+
+.grey
+{
+	background-color: #EFEFEF;
+}

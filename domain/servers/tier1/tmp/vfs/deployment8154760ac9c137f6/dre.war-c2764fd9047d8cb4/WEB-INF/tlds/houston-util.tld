@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<!-- a tag library descriptor -->
+
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>houston</shortname>
+	<uri>houston-util</uri>
+	<info>A tag library for custom utility tags for Houston projects.</info>
+
+	<tag>
+		<name>propertyMgr</name>
+		<tagclass>com.ibm.gs.houston.jsp.taglib.util.PropertyManagerTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Retrieve property value using PropertyManager</info>
+		<attribute>
+		   <name>key</name>
+		   <required>true</required>
+		   <rtexprvalue>true</rtexprvalue>
+		</attribute>		
+		<attribute>
+		   <name>defaultValue</name>
+		   <required>false</required>
+		   <rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+    <tag>
+		<name>propertyMgrList</name>
+		<tagclass>com.ibm.gs.houston.jsp.taglib.util.PropertyManagerListTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Retrieve property value list using PropertyManager</info>
+		<attribute>
+		   <name>key</name>
+		   <required>true</required>
+		   <rtexprvalue>true</rtexprvalue>
+		</attribute>		
+		<attribute>
+		   <name>defaultValue</name>
+		   <required>false</required>
+		   <rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+
+</taglib>
+
+
